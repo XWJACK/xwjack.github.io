@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Music | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是一款音乐播放器，本地，网络音乐都可以播放，做这个主要原因：一个是为了毕业设计，一个是为了考验一下自己编码的能力。毕业设计题目是“基于iOS平台的网络音乐播放器的设计与实现”">
+<meta name="keywords" content="iOS,Swift 3.1.0,AVFoundation,AudioToolbox,Project">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Music">
+<meta property="og:url" content="http://xwjack.github.io/2017/03/20/Music/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="这是一款音乐播放器，本地，网络音乐都可以播放，做这个主要原因：一个是为了毕业设计，一个是为了考验一下自己编码的能力。毕业设计题目是“基于iOS平台的网络音乐播放器的设计与实现”">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-20-Music/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-20-Music/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-20-Music/3.gif">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-20-Music/4.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-20-Music/5.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-20-Music/6.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-20-Music/7.png">
+<meta property="og:updated_time" content="2018-01-25T14:06:39.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Music">
+<meta name="twitter:description" content="这是一款音乐播放器，本地，网络音乐都可以播放，做这个主要原因：一个是为了毕业设计，一个是为了考验一下自己编码的能力。毕业设计题目是“基于iOS平台的网络音乐播放器的设计与实现”">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2017-03-20-Music/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Music" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/20/Music/" class="article-date">
+      <time datetime="2017-03-19T16:00:00.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Music
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVFoundation/">AVFoundation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AudioToolbox/">AudioToolbox</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Project/">Project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-1-0/">Swift 3.1.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>这是一款音乐播放器，本地，网络音乐都可以播放，做这个主要原因：一个是为了毕业设计，一个是为了考验一下自己编码的能力。毕业设计题目是“基于iOS平台的网络音乐播放器的设计与实现”</p>
+<a id="more"></a>
+<h1 id="项目要求"><a href="#项目要求" class="headerlink" title="项目要求"></a>项目要求</h1><p>功能要求：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 基本的音乐播放功能（播放，暂停，继续等）。</li>
+<li style="list-style: none"><input type="checkbox" checked> 实现本地或者网络音乐的播放。</li>
+<li style="list-style: none"><input type="checkbox" checked> 实现基本的播放模式（顺序播放，随机播放等）。</li>
+<li style="list-style: none"><input type="checkbox" checked> 实现歌曲搜索（根据歌手进行搜索，根据歌名进行搜索）。</li>
+<li style="list-style: none"><input type="checkbox"> 收藏歌曲，将喜欢的歌曲进行收藏到指定的文件夹下。</li>
+<li style="list-style: none"><input type="checkbox" checked> 进行歌曲的下载和缓存，实现离线播放已经缓存好的或者已经下载好的音乐。</li>
+<li style="list-style: none"><input type="checkbox" checked> 实现歌词同步显示。</li>
+<li style="list-style: none"><input type="checkbox" checked> 清除缓存功能，删除已经下载的音乐。</li>
+</ul>
+<p>后台：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> <a href="https://binaryify.github.io/NeteaseCloudMusicApi" target="_blank" rel="noopener">网易云音乐NodeJS版API</a></li>
+</ul>
+<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><h1 id="播放器设计"><a href="#播放器设计" class="headerlink" title="播放器设计"></a>播放器设计</h1><ul>
+<li>❌ <code>AVAudioPlayer</code>只支持本地播放。</li>
+</ul>
+<blockquote>
+<p>Q:  Does the AVAudioPlayer provide support for streaming audio content?</p>
+<p>A: The AVAudioPlayer class does not provide support for streaming audio based on HTTP URL’s. The URL used with initWithContentsOfURL: must be a File URL (file://). That is, a local path.</p>
+<p>As mentioned in Core Audio Essentials, the AVAudioPlayer class is ideal for applications that require a simple Objective-C interface for audio playback, are not concerned about audio positioning or precise synchronization, and are not playing audio from a network stream.</p>
+</blockquote>
+<ul>
+<li>✅ 自己使用<code>Audio File Stream Services</code>和<code>Audio Queue Services</code>来解析音频流。</li>
+</ul>
+<blockquote>
+<p>To play streamed audio, connect to a network stream using the CFNetwork interfaces from Core Foundation, such as those in CFHTTPMessage. Parse the network packets into audio packets using Audio File Stream Services (AudioToolbox/AudioFileStream.h) and play the audio packets using Audio Queue Services (AudioToolbox/AudioQueue.h). You may also use Audio File Stream Services to parse audio packets from an on-disk file.</p>
+</blockquote>
+<ul>
+<li>✅ <code>AVPlayer</code>支持任何流媒体播放，包括视频，音频。</li>
+</ul>
+<blockquote>
+<p>AVPlayer (available in iOS 4.0 and later) may also be used to stream audio content.</p>
+</blockquote>
+<h2 id="播放器-实现方案"><a href="#播放器-实现方案" class="headerlink" title="播放器-实现方案"></a>播放器-实现方案</h2><ul>
+<li><p>采用<code>AVFoundation</code>库：<code>AVQueuePlayer</code>，<code>AVPlayerItem</code>，<code>AVURLAsset</code>，<code>AVPlayer</code>。</p>
+<blockquote>
+<p>Apple 提供的高级API接口，但是坑比较多，实现变播放边缓存比较麻烦。</p>
+</blockquote>
+</li>
+<li><p>采用第三方流媒体库：<code>StreamingKit</code>，<code>DOUAudioStreamer</code>，<code>FreeStreamer</code>。</p>
+<blockquote>
+<p>第三方流媒体框架。比较老旧，很多已经几年没有更新，稳定性高。</p>
+</blockquote>
+</li>
+<li><p>采用<code>AudioToolbox</code>库：<code>AudioQueue</code>, <code>AudioFileStream</code>。</p>
+<blockquote>
+<p>接近于底层的API接口，提供更多的控制，需要自己实现音频流的解析。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="播放器-实现方案测试"><a href="#播放器-实现方案测试" class="headerlink" title="播放器-实现方案测试"></a>播放器-实现方案测试</h2><h3 id="AudioToolbox-gt-Audio-Queue-Services-amp-Audio-File-Stream-Services"><a href="#AudioToolbox-gt-Audio-Queue-Services-amp-Audio-File-Stream-Services" class="headerlink" title="AudioToolbox &gt; Audio Queue Services &amp; Audio File Stream Services"></a>AudioToolbox &gt; Audio Queue Services &amp; Audio File Stream Services</h3><h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><h5 id="Using-Self-In-C-Block"><a href="#Using-Self-In-C-Block" class="headerlink" title="Using Self In C Block"></a>Using Self In C Block</h5><blockquote>
+<p> ⚠️： <code>Audio Queue Services</code>和<code>Audio File Stream Services</code>提供的回调都是C的回调，所以在Swift中使用这些回调有两个选择，一个是Block，一个是全局变量</p>
+<p>如果在Block中使用self会出现：<code>A C function pointer cannot be formed from a closure that captures context</code>。</p>
+<p>一般这样的函数都会有一个参数是传递当前的实例，比如下面函数中的<code>inClientData: UnsafeMutableRawPointer</code>。</p>
+<p>传递参数的时候将自身实例转换成指针传递<code>unsafeBitCast(self, to: UnsafeMutableRawPointer.self)</code></p>
+<p>在回调中<code>let mySelf = Unmanaged&lt;YourClass&gt;.fromOpaque(inClientData).takeUnretainedValue()</code>再将指针转换成YourClass类型的指针。</p>
+</blockquote>
+<p>下面给出这个播放器整体运行的流程图：</p>
+<p><img src="/images/2017-03-20-Music/1.png" alt=""></p>
+<h5 id="Thread-in-AudioQueue-and-AudioFileStream"><a href="#Thread-in-AudioQueue-and-AudioFileStream" class="headerlink" title="Thread in AudioQueue and AudioFileStream"></a>Thread in AudioQueue and AudioFileStream</h5><p>这里主要说的是AudioQueue和AudioFileStream中线程的问题</p>
+<p>在<code>AudioQueueNewOutput</code>创建的时候有一个参数<code>inCallbackRunLoop</code>，官方是这样讲解这个参数的：</p>
+<blockquote>
+<p>The event loop on which the callback function pointed to by the inCallbackProc parameter is to be called. If you specify NULL, the callback is invoked on one of the audio queue’s internal threads.</p>
+<p>总结来说就是播放音频的线程需要开启<code>Runloop</code>，如果给<code>nil</code>，那么就会使用自己内部的线程。</p>
+<p>由于主线程的<code>Runloop</code>是开启的，所以你的操作如果全部放在主线程，那么依旧可以播放，只不过性能不好。</p>
+<p>如果你的音频播放在没有开启<code>Runloop</code>的线程中，那么就会出现播放不出来，或者播放一小段时间就自动停止的情况，例如<code>DispatchQueue.global()</code>创建的线程</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>是否可以播放</th>
+<th>AudioQueueNewOutput</th>
+<th>AudioFileStreamParseBytes</th>
+<th>inCallbackRunLoop</th>
+<th>详解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>AnyThread</td>
+<td>AnyThread</td>
+<td>nil</td>
+<td>推荐，AnyThread可以是自己创建的线程，也可以是非主线程，例如<code>DispatchQueue.global()</code>创建的线程</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>AnyThread</td>
+<td>AnyThread</td>
+<td>CFRunLoopGetMain()</td>
+<td>不建议将解析数据和播放音频放在主队列中进行 ，虽然这是没有问题的</td>
+</tr>
+</tbody>
+</table>
+<p>✨✨✨✨✨最佳方案: 在<code>DispatchQueue</code><strong>串行队列</strong>（保证数据连续性）中调用<code>AudioFileStreamParseBytes</code>解析数据，<code>inCallbackRunLoop</code>传递nil。</p>
+<blockquote>
+<p>Thanks for: <a href="https://stackoverflow.com/questions/7575670/why-might-my-audioqueueoutputcallback-not-be-called?answertab=votes#tab-top" target="_blank" rel="noopener">Why might my AudioQueueOutputCallback not be called?</a></p>
+</blockquote>
+<h5 id="Memory-leak-in-AudioQueue"><a href="#Memory-leak-in-AudioQueue" class="headerlink" title="Memory leak in AudioQueue"></a>Memory leak in AudioQueue</h5><p>在播放完成之后要调用<code>AudioQueueDispose</code>，否则会出现之前播放的数据不被释放，内存不断的上涨。</p>
+<blockquote>
+<p>When you’re finished playing a file, dispose of the audio queue, close the audio file, and free any remaining resources.</p>
+<p>The AudioQueueDispose function disposes of the audio queue and all of its resources, including its buffers.</p>
+</blockquote>
+<h4 id="AudioFileStream音频文件流"><a href="#AudioFileStream音频文件流" class="headerlink" title="AudioFileStream音频文件流"></a>AudioFileStream音频文件流</h4><h5 id="AudioFileStreamOpen打开一个音频文件流"><a href="#AudioFileStreamOpen打开一个音频文件流" class="headerlink" title="AudioFileStreamOpen打开一个音频文件流"></a>AudioFileStreamOpen打开一个音频文件流</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioFileStreamOpen</span><span class="params">(<span class="number">_</span> inClientData: UnsafeMutableRawPointer?, <span class="number">_</span> inPropertyListenerProc: @escaping AudioFileStream_PropertyListenerProc, <span class="number">_</span> inPacketsProc: @escaping AudioFileStream_PacketsProc, <span class="number">_</span> inFileTypeHint: AudioFileTypeID, <span class="number">_</span> outAudioFileStream: UnsafeMutablePointer&lt;AudioFileStreamID?&gt;)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inPropertyListenerProc</td>
+<td>歌曲信息解析的回调（一首歌曲只会回调一次）</td>
+</tr>
+<tr>
+<td>inPacketsProc</td>
+<td>分离帧的回调（每解析一部分数据就会回调一次）</td>
+</tr>
+<tr>
+<td>inFileTypeHint</td>
+<td>MP3<a href="https://developer.apple.com/reference/audiotoolbox/audiofiletypeid" target="_blank" rel="noopener">音频文件类型</a>：<code>kAudioFileMP3Type</code> , 不知道文件类型就传0</td>
+</tr>
+<tr>
+<td>outAudioFileStream</td>
+<td>成功返回音频流解析器ID: <code>AudioFileStreamID</code></td>
+</tr>
+</tbody>
+</table>
+<h5 id="AudioFileStream-PropertyListenerProc音频属性解析回调"><a href="#AudioFileStream-PropertyListenerProc音频属性解析回调" class="headerlink" title="AudioFileStream_PropertyListenerProc音频属性解析回调"></a>AudioFileStream_PropertyListenerProc音频属性解析回调</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">AudioFileStream_PropertyListenerProc</span> = (<span class="type">UnsafeMutableRawPointer</span>, <span class="type">AudioFileStreamID</span>, <span class="type">AudioFileStreamPropertyID</span>, <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">AudioFileStreamPropertyFlags</span>&gt;) -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inAudioFileStream</td>
+<td>音频流解析器ID</td>
+</tr>
+<tr>
+<td>inPropertyID</td>
+<td><a href="https://developer.apple.com/reference/audiotoolbox/audio_file_stream_services/1391506-audio_file_stream_properties" target="_blank" rel="noopener">属性ID</a>，表示当前哪个属性被解析到。</td>
+</tr>
+<tr>
+<td>ioFlags</td>
+<td>表示这个property是否需要被缓存</td>
+</tr>
+</tbody>
+</table>
+<p>当我们在这里解析到<code>inPropertyID</code>为<code>kAudioFileStreamProperty_DataFormat</code>的时候表示解析到了音频格式的数据，这个时候就可以建立输出队列，并开始解析音频数据，控制播放了。</p>
+<table>
+<thead>
+<tr>
+<th>AudioFileStream全局变量名</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kAudioFileStreamProperty_ReadyToProducePackets</td>
+<td>1919247481</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_FileFormat</td>
+<td>1717988724</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_DataFormat</td>
+<td>1684434292</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_FormatList</td>
+<td>1718383476</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_MagicCookieData</td>
+<td>1835493731</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_AudioDataByteCount</td>
+<td>1650683508</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_AudioDataPacketCount</td>
+<td>1885564532</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_MaximumPacketSize</td>
+<td>1886616165</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_DataOffset</td>
+<td>1685022310</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_ChannelLayout</td>
+<td>1668112752</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_PacketToFrame</td>
+<td>1886086770</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_FrameToPacket</td>
+<td>1718775915</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_PacketToByte</td>
+<td>1886085753</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_ByteToPacket</td>
+<td>1652125803</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_PacketTableInfo</td>
+<td>1886283375</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_PacketSizeUpperBound</td>
+<td>1886090594</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_AverageBytesPerPacket</td>
+<td>1633841264</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_BitRate</td>
+<td>1651663220</td>
+</tr>
+<tr>
+<td>kAudioFileStreamProperty_InfoDictionary</td>
+<td>1768842863</td>
+</tr>
+</tbody>
+</table>
+<p>下面是我解析一个mp3文件得到的文件信息：</p>
+<table>
+<thead>
+<tr>
+<th>ID对应的实际值</th>
+<th>ID名称</th>
+<th>表示内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1651663220</td>
+<td>kAudioFileStreamProperty_BitRate</td>
+<td>码率</td>
+</tr>
+<tr>
+<td>1650683508</td>
+<td>kAudioFileStreamProperty_AudioDataByteCount</td>
+<td>音频数据总量</td>
+</tr>
+<tr>
+<td>1885564532</td>
+<td>kAudioFileStreamProperty_AudioDataPacketCount</td>
+<td>音频帧总量</td>
+</tr>
+<tr>
+<td>1717988724</td>
+<td>kAudioFileStreamProperty_FileFormat</td>
+<td>文件格式</td>
+</tr>
+<tr>
+<td>1684434292</td>
+<td>kAudioFileStreamProperty_DataFormat</td>
+<td>数据格式</td>
+</tr>
+<tr>
+<td>1685022310</td>
+<td>kAudioFileStreamProperty_DataOffset</td>
+<td>数据偏移量</td>
+</tr>
+<tr>
+<td>1919247481</td>
+<td>kAudioFileStreamProperty_ReadyToProducePackets</td>
+<td>标志着接下来就是分离帧的步骤</td>
+</tr>
+</tbody>
+</table>
+<h5 id="AudioFileStream-PacketsProc帧分离回调"><a href="#AudioFileStream-PacketsProc帧分离回调" class="headerlink" title="AudioFileStream_PacketsProc帧分离回调"></a>AudioFileStream_PacketsProc帧分离回调</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">AudioFileStream_PacketsProc</span> = (<span class="type">UnsafeMutableRawPointer</span>, <span class="type">UInt32</span>, <span class="type">UInt32</span>, <span class="type">UnsafeRawPointer</span>, <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">AudioStreamPacketDescription</span>&gt;) -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inNumberBytes</td>
+<td>音频的字节</td>
+</tr>
+<tr>
+<td>inNumberPackets</td>
+<td>音频中包含的帧数</td>
+</tr>
+<tr>
+<td>inInputData</td>
+<td>解析的音频数据</td>
+</tr>
+<tr>
+<td>inPacketDescriptions</td>
+<td>是一个<code>AudioStreamPacketDescription</code>类型的数组，通过<code>mStartOffset</code>和<code>mDataByteSize</code>，结合<code>inInputData</code>就可以将分离的帧保存起来</td>
+</tr>
+</tbody>
+</table>
+<h5 id="AudioFileStreamParseBytes音频解析"><a href="#AudioFileStreamParseBytes音频解析" class="headerlink" title="AudioFileStreamParseBytes音频解析"></a>AudioFileStreamParseBytes音频解析</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioFileStreamParseBytes</span><span class="params">(<span class="number">_</span> inAudioFileStream: AudioFileStreamID, <span class="number">_</span> inDataByteSize: UInt32, <span class="number">_</span> inData: UnsafeRawPointer, <span class="number">_</span> inFlags: AudioFileStreamParseFlags)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inAudioFileStream</td>
+<td>音频流解析器ID</td>
+</tr>
+<tr>
+<td>inDataByteSize</td>
+<td>解析的数据总量</td>
+</tr>
+<tr>
+<td>inData</td>
+<td>解析的数据</td>
+</tr>
+<tr>
+<td>inFlags</td>
+<td>解析的数据是否和上一个有关联</td>
+</tr>
+</tbody>
+</table>
+<p>在哪个线程中调用这个方法，就在哪个线程中解析数据，建议在非主线程中调用这个方法。</p>
+<h4 id="AudioQueue音频队列"><a href="#AudioQueue音频队列" class="headerlink" title="AudioQueue音频队列"></a>AudioQueue音频队列</h4><p>This table lists result codes defined for Audio Queue Services.</p>
+<table>
+<thead>
+<tr>
+<th>AudioQueue全局变量</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kAudioQueueErr_InvalidBuffer</td>
+<td>-66687</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_BufferEmpty</td>
+<td>-66686</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_DisposalPending</td>
+<td>-66685</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidProperty</td>
+<td>-66684</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidPropertySize</td>
+<td>-66683</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidParameter</td>
+<td>-66682</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_CannotStart</td>
+<td>-66681</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidDevice</td>
+<td>-66680</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_BufferInQueue</td>
+<td>-66679</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidRunState</td>
+<td>-66678</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidQueueType</td>
+<td>-66677</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_Permissions</td>
+<td>-66676</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidPropertyValue</td>
+<td>-66675</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_PrimeTimedOut</td>
+<td>-66674</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_CodecNotFound</td>
+<td>-66673</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidCodecAccess</td>
+<td>-66672</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_QueueInvalidated</td>
+<td>-66671</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_TooManyTaps</td>
+<td>-66670</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidTapContext</td>
+<td>-66669</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_RecordUnderrun</td>
+<td>-66668</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidTapType</td>
+<td>-66667</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_BufferEnqueuedTwice</td>
+<td>-66666</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_CannotStartYet</td>
+<td>-66665</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_EnqueueDuringReset</td>
+<td>-66632</td>
+</tr>
+<tr>
+<td>kAudioQueueErr_InvalidOfflineMode</td>
+<td>-66626</td>
+</tr>
+</tbody>
+</table>
+<h5 id="AudioQueueNewOutput创建音频输出队列"><a href="#AudioQueueNewOutput创建音频输出队列" class="headerlink" title="AudioQueueNewOutput创建音频输出队列"></a>AudioQueueNewOutput创建音频输出队列</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioQueueNewOutput</span><span class="params">(<span class="number">_</span> inFormat: UnsafePointer&lt;AudioStreamBasicDescription&gt;, <span class="number">_</span> inCallbackProc: @escaping AudioQueueOutputCallback, <span class="number">_</span> inUserData: UnsafeMutableRawPointer?, <span class="number">_</span> inCallbackRunLoop: CFRunLoop?, <span class="number">_</span> inCallbackRunLoopMode: CFString?, <span class="number">_</span> inFlags: UInt32, <span class="number">_</span> outAQ: UnsafeMutablePointer&lt;AudioQueueRef?&gt;)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inFormat</td>
+<td><code>AudioStreamBasicDescription</code>，要播放的音频格式</td>
+</tr>
+<tr>
+<td>inCallbackProc</td>
+<td>当音频队列中的的buffer已经播放完成并且能够重利用的时候</td>
+</tr>
+<tr>
+<td>inCallbackRunLoop</td>
+<td>回调的RunLoop，nil表示采用音频队列自己的RunLoop进行回调</td>
+</tr>
+<tr>
+<td>inCallbackRunLoopMode</td>
+<td>RunLoopMode，nil表示采用<code>kCFRunLoopCommonModes</code></td>
+</tr>
+<tr>
+<td>inFlags</td>
+<td>预留，必须传0</td>
+</tr>
+<tr>
+<td>outAQ</td>
+<td>成功返回音频队列实例: <code>AudioQueueRef</code></td>
+</tr>
+</tbody>
+</table>
+<h5 id="AudioQueueOutputCallback播放音频完成回调"><a href="#AudioQueueOutputCallback播放音频完成回调" class="headerlink" title="AudioQueueOutputCallback播放音频完成回调"></a>AudioQueueOutputCallback播放音频完成回调</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">AudioQueueOutputCallback</span> = (<span class="type">UnsafeMutableRawPointer</span>?, <span class="type">AudioQueueRef</span>, <span class="type">AudioQueueBufferRef</span>) -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inAQ</td>
+<td>音频回调队列</td>
+</tr>
+<tr>
+<td>inBuffer</td>
+<td>Buffer已经播放完成，可以重新利用</td>
+</tr>
+</tbody>
+</table>
+<p>下面是官方图解：（这个Buffer是可以重新利用的）</p>
+<blockquote>
+<p>但是在代码中是直接销毁重新创建，由于时间关系，留在以后再优化。</p>
+</blockquote>
+<p><img src="/images/2017-03-20-Music/2.png" alt=""></p>
+<p>下面来一个动图帮助理解（Thanks for: <a href="https://robots.thoughtbot.com/streaming-audio-to-multiple-listeners-via-ios-multipeer-connectivity" target="_blank" rel="noopener">Streaming Audio to Multiple Listeners via iOS’ Multipeer Connectivity</a>）</p>
+<p><img src="/images/2017-03-20-Music/3.gif" alt=""></p>
+<h5 id="AudioQueueAddPropertyListener添加音频队列属性监听"><a href="#AudioQueueAddPropertyListener添加音频队列属性监听" class="headerlink" title="AudioQueueAddPropertyListener添加音频队列属性监听"></a>AudioQueueAddPropertyListener添加音频队列属性监听</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioQueueAddPropertyListener</span><span class="params">(<span class="number">_</span> inAQ: AudioQueueRef, <span class="number">_</span> inID: AudioQueuePropertyID, <span class="number">_</span> inProc: @escaping AudioQueuePropertyListenerProc, <span class="number">_</span> inUserData: UnsafeMutableRawPointer?)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inAQ</td>
+<td>想要添加监听的音频队列</td>
+</tr>
+<tr>
+<td>inID</td>
+<td>想要监听的音频队列属性<a href="https://developer.apple.com/reference/audiotoolbox/audioqueuepropertyid" target="_blank" rel="noopener">AudioQueuePropertyID</a></td>
+</tr>
+<tr>
+<td>inProc</td>
+<td>当监听的属性改变的时候的回调</td>
+</tr>
+</tbody>
+</table>
+<p><code>kAudioQueueProperty_IsRunning</code> 可以监听当前队列是否正在运行。</p>
+<h5 id="AudioQueueAllocateBuffer为音频队列分配空间"><a href="#AudioQueueAllocateBuffer为音频队列分配空间" class="headerlink" title="AudioQueueAllocateBuffer为音频队列分配空间"></a>AudioQueueAllocateBuffer为音频队列分配空间</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioQueueAllocateBuffer</span><span class="params">(<span class="number">_</span> inAQ: AudioQueueRef, <span class="number">_</span> inBufferByteSize: UInt32, <span class="number">_</span> outBuffer: UnsafeMutablePointer&lt;AudioQueueBufferRef?&gt;)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inAQ</td>
+<td>想要为哪个音频队列分配空间</td>
+</tr>
+<tr>
+<td>inBufferByteSize</td>
+<td>分配空间大小</td>
+</tr>
+<tr>
+<td>outBuffer</td>
+<td>成功之后分配空间的地址 <code>AudioQueueBufferRef</code></td>
+</tr>
+</tbody>
+</table>
+<p>在这里我们向新的空间填充音频数据</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// New buffer</span></span><br><span class="line"><span class="keyword">var</span> newAudioQueueBuffer: <span class="type">AudioQueueBufferRef</span>? = <span class="literal">nil</span></span><br><span class="line"><span class="comment">/// How many data need to enter queue</span></span><br><span class="line"><span class="keyword">var</span> inQueueDatas: <span class="type">ArraySlice</span>&lt;<span class="type">Data</span>&gt; = packets[currentOffset..&lt;endOffset]</span><br><span class="line"><span class="keyword">var</span> inQueueDescriptions: [<span class="type">AudioStreamPacketDescription</span>] = []</span><br><span class="line"><span class="comment">/// Total data size</span></span><br><span class="line"><span class="keyword">let</span> totalSize = inQueueDatas.<span class="built_in">reduce</span>(<span class="number">0</span>, &#123; $<span class="number">0</span> + $<span class="number">1</span>.<span class="built_in">count</span> &#125;)</span><br><span class="line">        </span><br><span class="line"><span class="comment">/// Allocate buffer</span></span><br><span class="line">status = <span class="type">AudioQueueAllocateBuffer</span>(audioQueue!,</span><br><span class="line">                                  <span class="type">UInt32</span>(totalSize),</span><br><span class="line">                                  &amp;newAudioQueueBuffer)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> !status.isSuccess &#123; delegate?.streamAudioPlayer(<span class="keyword">self</span>, anErrorOccur: .streamAudioPlayer(.audioQueue(.allocateBuffer(status)))) &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">newAudioQueueBuffer?.pointee.mAudioDataByteSize = <span class="type">UInt32</span>(totalSize)</span><br><span class="line">newAudioQueueBuffer?.pointee.mUserData = selfInstance</span><br><span class="line">        </span><br><span class="line"><span class="keyword">var</span> copiedSize = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> currentOffset..&lt;endOffset &#123;</span><br><span class="line">        <span class="keyword">let</span> packetData = inQueueDatas[i]</span><br><span class="line">         <span class="comment">/// Copy data to buffer</span></span><br><span class="line">        memcpy(newAudioQueueBuffer?.pointee.mAudioData.advanced(by: copiedSize),</span><br><span class="line">                (packetData <span class="keyword">as</span> <span class="type">NSData</span>).bytes,</span><br><span class="line">                packetData.<span class="built_in">count</span>)</span><br><span class="line">        <span class="keyword">let</span> description = <span class="type">AudioStreamPacketDescription</span>(mStartOffset: <span class="type">Int64</span>(copiedSize),</span><br><span class="line">                                                        mVariableFramesInPacket: <span class="number">0</span>,</span><br><span class="line">                                                        mDataByteSize: <span class="type">UInt32</span>(packetData.<span class="built_in">count</span>))</span><br><span class="line">        inQueueDescriptions.append(description)</span><br><span class="line">        copiedSize += packetData.<span class="built_in">count</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="AudioQueueEnqueueBuffer将Buffer加入到音频队列中"><a href="#AudioQueueEnqueueBuffer将Buffer加入到音频队列中" class="headerlink" title="AudioQueueEnqueueBuffer将Buffer加入到音频队列中"></a>AudioQueueEnqueueBuffer将Buffer加入到音频队列中</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioQueueEnqueueBuffer</span><span class="params">(<span class="number">_</span> inAQ: AudioQueueRef, <span class="number">_</span> inBuffer: AudioQueueBufferRef, <span class="number">_</span> inNumPacketDescs: UInt32, <span class="number">_</span> inPacketDescs: UnsafePointer&lt;AudioStreamPacketDescription&gt;?)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inAQ</td>
+<td>音频队列</td>
+</tr>
+<tr>
+<td>inBuffer</td>
+<td>分配新Buffer空间</td>
+</tr>
+<tr>
+<td>inNumPacketDescs</td>
+<td>帧总信息数量</td>
+</tr>
+<tr>
+<td>inPacketDescs</td>
+<td>帧信息<code>AudioStreamPacketDescription</code>数组</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ 在短时间内多次调用<code>AudioQueueStop</code>会导致返回<code>kAudioQueueErr_EnqueueDuringReset</code>，但是依旧可以正常播放。常见于seek中，先<code>AudioQueueStop</code>再设置偏移量就会出现。暂时不知道如何更好的解决办法。</p>
+<h3 id="播放器测试结果："><a href="#播放器测试结果：" class="headerlink" title="播放器测试结果："></a>播放器测试结果：</h3><h4 id="✅-AudioToolbox"><a href="#✅-AudioToolbox" class="headerlink" title="✅  AudioToolbox"></a>✅  AudioToolbox</h4><table>
+<thead>
+<tr>
+<th>是否可以</th>
+<th>内容</th>
+<th>方法</th>
+<th>详解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>播放</td>
+<td>AudioQueueStart</td>
+<td>开始解析音频数据</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>暂停</td>
+<td>AudioQueuePause</td>
+<td>再次点击播放，继续从上次的地方进行解析。</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>停止</td>
+<td>AudioQueueStop</td>
+<td>再次点击播放，继续从上次的地方进行解析。</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>快进，快退</td>
+<td>AudioQueueEnqueueBuffer</td>
+<td>向队列中压入指定的数据来实现快进快退</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>当前时间</td>
+<td>AudioQueueGetCurrentTime</td>
+<td>获取播放时间后，通过时间偏移量来计算当前时间</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>总时间</td>
+<td>AudioFileStream_PropertyListenerProc</td>
+<td>回调中解析到<code>kAudioFileStreamProperty_BitRate</code>和<code>kAudioFileStreamProperty_AudioDataByteCount</code>之后通过计算得到</td>
+</tr>
+</tbody>
+</table>
+<h2 id="API选择"><a href="#API选择" class="headerlink" title="API选择"></a>API选择</h2><ul>
+<li><p>✅ 采用源网易云音乐API</p>
+<blockquote>
+<p>比较复杂，需要自己实现加密算法等，耗时比较长。</p>
+</blockquote>
+</li>
+<li><p>✅ 采用网易云音乐NodeJS版API</p>
+<blockquote>
+<p>简单，不需要考虑加密等算法。</p>
+</blockquote>
+</li>
+<li><p>❌ 自己实现音乐API</p>
+<blockquote>
+<p>没有音乐资源</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="实际项目开发"><a href="#实际项目开发" class="headerlink" title="实际项目开发"></a>实际项目开发</h1><h2 id="主要界面搭建"><a href="#主要界面搭建" class="headerlink" title="主要界面搭建"></a>主要界面搭建</h2><h3 id="播放器界面"><a href="#播放器界面" class="headerlink" title="播放器界面"></a>播放器界面</h3><p><img src="/images/2017-03-20-Music/4.png" alt=""></p>
+<h2 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h2><h3 id="后台音频播放及控制"><a href="#后台音频播放及控制" class="headerlink" title="后台音频播放及控制"></a>后台音频播放及控制</h3><h4 id="后台音频播放"><a href="#后台音频播放" class="headerlink" title="后台音频播放"></a>后台音频播放</h4><p><code>AppDelegate</code>中我们要添加下面这个来设置音频行为：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> <span class="type">AVAudioSession</span>.sharedInstance().setCategory(<span class="type">AVAudioSessionCategoryPlayback</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="comment">//ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Setting the audio session category ensures that the application has the audio behavior expected of a media playback app.（设置<code>Audio Session</code>目的就是为了配置音频的行为）</p>
+<p>An audio session acts as an intermediary between your app and the operating system.（<code>Audio Session</code>是作为<code>App</code>和<code>操作系统</code>的中间人）</p>
+</blockquote>
+<p>默认有下列行为配置：</p>
+<ul>
+<li>Audio playback is supported, but audio recording is disallowed (audio recording applies only to iOS).（录音只适用于iOS）</li>
+<li>In iOS, setting the Ring/Silent switch to silent mode silences any audio being played by the app.（静音按钮对所有App奏效）</li>
+<li>In iOS, when the device is locked, the app’s audio is silenced.（默认没有后台播放）</li>
+<li>When the app plays audio, any other background audio is silenced.（默认单个App播放）</li>
+</ul>
+<p>而我们之前设置的<code>AVAudioSessionCategoryPlayback</code>就是其中的一个行为:</p>
+<blockquote>
+<p>When using this category, your app audio continues with the Silent switch set to silent or when the screen locks.（按钮和锁屏都会使App不能后台播放）To continue playing audio when your app transitions to the background (for example, when the screen locks), add the audio value to the UIBackgroundModes key in your information property list file.（要在后台继续播放，需要配置<code>Info.plist</code>文件）</p>
+</blockquote>
+<p>配置方式：</p>
+<blockquote>
+<p>Select your app’s target in Xcode and select the Capabilities tab. Under the Capabilities tab, set the Background Modes switch to ON and select the “Audio, AirPlay, and Picture in Picture” option under the list of available modes.</p>
+</blockquote>
+<p><img src="/images/2017-03-20-Music/5.png" alt=""></p>
+<h4 id="后台音频播放控制"><a href="#后台音频播放控制" class="headerlink" title="后台音频播放控制"></a>后台音频播放控制</h4><p>这个时候我们需要用到<code>MediaPlayer</code>库中的<code>MPRemoteCommandCenter</code>和<code>MPNowPlayingInfoCenter</code>，两个类都是单例</p>
+<p>添加播放，暂停，下一首，上一首控制。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().playCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.playCommand))</span><br><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().pauseCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.pauseCommand))</span><br><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().nextTrackCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.nextTrack))</span><br><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().previousTrackCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.lastTrack))</span><br></pre></td></tr></table></figure>
+<p>设置音乐名称，封面图，当前时间，总共时间，需要自己设置Timer来刷新。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">updateRemoteControl</span><span class="params">(<span class="number">_</span> time: TimeInterval)</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> info: [<span class="type">String</span>: <span class="type">Any</span>] = [:]</span><br><span class="line">    info[<span class="type">MPMediaItemPropertyArtwork</span>] = <span class="type">MPMediaItemArtwork</span>(image: backgroundImageView.image ?? #imageLiteral(resourceName: <span class="string">"background_default_dark"</span>))</span><br><span class="line">    info[<span class="type">MPMediaItemPropertyTitle</span>] = resource?.name ?? <span class="string">""</span></span><br><span class="line">    info[<span class="type">MPNowPlayingInfoPropertyElapsedPlaybackTime</span>] = time</span><br><span class="line">    info[<span class="type">MPMediaItemPropertyPlaybackDuration</span>] = (resource?.duration ?? <span class="number">0</span>) / <span class="number">1000</span></span><br><span class="line">            </span><br><span class="line">    <span class="type">MPNowPlayingInfoCenter</span>.<span class="keyword">default</span>().nowPlayingInfo = info</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><h4 id="DispatchGroup"><a href="#DispatchGroup" class="headerlink" title="DispatchGroup"></a>DispatchGroup</h4><p>在缓存音乐的时候需要保证音乐数据已经全部请求完成，而且音乐信息已经全部请求完成，这就涉及到多个异步线程完成之后统一回调的问题，所以采用<code>DispatchGroup</code>的两个方法<code>enter()</code>, <code>leave()</code>来实现。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 请求前enter</span></span><br><span class="line">cacheGroup.enter()         </span><br><span class="line"><span class="keyword">self</span>.musicUrl(originResource.id, block: &#123; (model) <span class="keyword">in</span></span><br><span class="line">    originResource.info = model</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> url = model?.url <span class="keyword">else</span> &#123; failedBlock?(<span class="type">MusicError</span>.resourcesError(.invalidURL)); <span class="keyword">return</span> &#125;</span><br><span class="line">                </span><br><span class="line">    <span class="type">ConsoleLog</span>.verbose(<span class="string">"Request Music Data"</span>)</span><br><span class="line">    <span class="keyword">self</span>.playResources[originResource.id] =</span><br><span class="line">            <span class="type">MusicNetwork</span>.send(url)</span><br><span class="line">                .receive(queue: <span class="keyword">self</span>.threadManager.audioParseQueue, data: responseBlock)</span><br><span class="line">                .receive(queue: <span class="keyword">self</span>.threadManager.resourceQueue, response: &#123; cacheGroup.leave() &#125;)<span class="comment">/// 请求完成leave</span></span><br><span class="line">                .receive(queue: <span class="keyword">self</span>.threadManager.resourceQueue, success: &#123; data = $<span class="number">0</span> &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">            </span><br><span class="line"><span class="keyword">if</span> originResource.lyric?.lyric == <span class="literal">nil</span> &#123;</span><br><span class="line">    cacheGroup.enter()<span class="comment">/// 请求前enter</span></span><br><span class="line">    <span class="keyword">self</span>.lyric(originResource.id, block: &#123; (model) <span class="keyword">in</span></span><br><span class="line">        originResource.lyric = model</span><br><span class="line">        cacheGroup.leave()<span class="comment">/// 请求完成leave</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// Completed request data, and now it can be cache to file</span></span><br><span class="line">cacheGroup.notify(queue: <span class="keyword">self</span>.threadManager.resourceQueue, execute: &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> validData = data <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">    <span class="keyword">self</span>.cache(originResource, data: validData)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="DispatchQoS"><a href="#DispatchQoS" class="headerlink" title="DispatchQoS"></a>DispatchQoS</h4><p>A quality of service (QoS) class categorizes work to be performed on a DispatchQueue. By specifying a QoS to work, you indicate its importance, and the system prioritizes it and schedules it accordingly.</p>
+<p>Because higher priority work is performed more quickly and with more resources than lower priority work, it typically requires more energy than lower priority work. Accurately specifying appropriate QoS classes for the work your app performs ensures that your app is responsive and energy efficient.</p>
+<blockquote>
+<p>描述了服务质量，高优先级的执行越快。</p>
+</blockquote>
+<h3 id="Manager"><a href="#Manager" class="headerlink" title="Manager"></a>Manager</h3><h4 id="MusicResourceManager"><a href="#MusicResourceManager" class="headerlink" title="MusicResourceManager"></a>MusicResourceManager</h4><h4 id="MusicFileManager"><a href="#MusicFileManager" class="headerlink" title="MusicFileManager"></a>MusicFileManager</h4><h4 id="MusicDataBaseManager"><a href="#MusicDataBaseManager" class="headerlink" title="MusicDataBaseManager"></a>MusicDataBaseManager</h4><h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><p>数据库采用SQLite。</p>
+<table>
+<thead>
+<tr>
+<th>表</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache</td>
+<td>存储已经缓存的文件ID</td>
+</tr>
+<tr>
+<td>Download</td>
+<td>存储已经下载的文件ID</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>存储音乐信息</td>
+</tr>
+<tr>
+<td>CollectionList</td>
+<td>保存文件夹信息，主要用于离线使用</td>
+</tr>
+<tr>
+<td>ListDetail</td>
+<td>保存文件夹下具体信息，主要用于离线使用</td>
+</tr>
+<tr>
+<td>LeastResources</td>
+<td>程序退出前保存最后播放的信息（暂时未使用）</td>
+</tr>
+</tbody>
+</table>
+<p>Cache：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="keyword">Cache</span> (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">text</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>Download：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Download (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">text</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>Resources：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Resources (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">text</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">duration</span> <span class="built_in">real</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  lyric <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  artist <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  album <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  info <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">status</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>CollectionList：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> CollectionList (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">text</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  playList <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>ListDetail：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> ListDetail (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">text</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  playList <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>LeastResources：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> LeastResources (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">text</span> PRIMARY <span class="keyword">KEY</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">duration</span> <span class="built_in">real</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  lyric <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  artist <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  album <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  info <span class="built_in">blob</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">status</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>在这里并没有直接存储各个字段，而是存储成blob类型，实际就是获取的JSON，这样从网络获取的数据和从数据库获取的数据可以采用同一个解析方式。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>字节计算，用于缓存计算，缺点是只能是整数。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ByteCountFormatter</span>.string(fromByteCount: <span class="number">1024</span>, countStyle: .binary)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>图片旋转</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIImage</span>(cgImage: &lt;#<span class="type">T</span>##<span class="type">CGImage</span>#&gt;, scale: <span class="type">UIScreen</span>.main.scale, orientation: &lt;#<span class="type">T</span>##<span class="type">UIImageOrientation</span>#&gt;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>StatusBar</li>
+</ul>
+<p>在<code>UINavigationController</code>或者其子类中重写下面属性。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="keyword">var</span> preferredStatusBarStyle: <span class="type">UIStatusBarStyle</span> &#123; <span class="keyword">return</span> .lightContent &#125;</span><br></pre></td></tr></table></figure>
+<p>Thanks for: <a href="http://stackoverflow.com/questions/17678881/how-to-change-status-bar-text-color-in-ios-7" target="_blank" rel="noopener">How to change Status Bar text color in iOS 7</a></p>
+<ul>
+<li>第三方库的使用</li>
+</ul>
+<blockquote>
+<p>由于Swift是以文件为单位进行管理，所以每次使用第三方库的时候都需要<code>import</code>，非常的麻烦。</p>
+<p>所以如果这个库需要在很多文件中使用，那么使用下面的方式好很多。</p>
+<p>如果这个库需要再次进行封装，或者只是在一个文件中使用，那么在单个文件中<code>import</code>比较好。</p>
+</blockquote>
+<p>在这里只需要重命名类型（class, struct, tyealias, enum….）就可以。类似于<code>SnapKit</code>，由于是<code>extension</code>则不需要，只要在一个地方<code>import</code>过就可以在整个项目中使用。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK: - Alamofire</span></span><br><span class="line"><span class="keyword">import</span> Alamofire</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: - Kingfisher</span></span><br><span class="line"><span class="keyword">import</span> Kingfisher</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: - SwiftyJSON</span></span><br><span class="line"><span class="keyword">import</span> SwiftyJSON</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="type">JSON</span> = <span class="type">SwiftyJSON</span>.<span class="type">JSON</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: - Log</span></span><br><span class="line"><span class="keyword">import</span> Log</span><br><span class="line"><span class="keyword">typealias</span> <span class="type">ConsoleLog</span> = <span class="type">Log</span>.<span class="type">ConsoleLog</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: - Wave</span></span><br><span class="line"><span class="keyword">import</span> Wave</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: - PageKit</span></span><br><span class="line"><span class="keyword">import</span> PageKit</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: - Music API</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> MusicAPI</span><br><span class="line"><span class="keyword">let</span> <span class="type">API</span> = <span class="type">MusicAPI</span>.<span class="keyword">default</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: - Lotus</span></span><br><span class="line"><span class="keyword">import</span> Lotus</span><br><span class="line"><span class="keyword">let</span> <span class="type">MusicNetwork</span> = <span class="type">Lotus</span>.<span class="type">Session</span>.<span class="keyword">default</span></span><br><span class="line"><span class="keyword">typealias</span> <span class="type">Client</span> = <span class="type">Lotus</span>.<span class="type">Client</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关于UIApplicationDelegate</li>
+</ul>
+<p>基本的流程大概是这样的。</p>
+<p><img src="/images/2017-03-20-Music/6.png" alt=""></p>
+<h1 id="项目踩坑"><a href="#项目踩坑" class="headerlink" title="项目踩坑"></a>项目踩坑</h1><h2 id="StoryBoard"><a href="#StoryBoard" class="headerlink" title="StoryBoard"></a>StoryBoard</h2><ul>
+<li>约束相对于的对象写错</li>
+</ul>
+<blockquote>
+<p> push页面的时候因为TabBar被动态隐藏，所以页面会跳动一下。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top Layout Guide</td>
+<td>设置的约束相对于<code>StatusBar</code>和<code>NavigationBar</code>。</td>
+</tr>
+<tr>
+<td>Bottom Layout Guide</td>
+<td>设置的约束相对于<code>TabBar</code>。</td>
+</tr>
+<tr>
+<td>Super View</td>
+<td>设置的约束相对于父视图。</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/2017-03-20-Music/7.png" alt=""></p>
+<ul>
+<li>之前采用StoryBoard写播放器界面</li>
+</ul>
+<blockquote>
+<p>在下面代码中，第一次初始化播放器的时候，并且页面还没有push出来。这个如果使用里面的控件，都会是nil。所以只能放弃，使用代码进行布局。</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">instanseFromStoryboard</span>&lt;T: UIViewController&gt;<span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">UIStoryboard</span>(name: <span class="keyword">self</span>.reuseIdentifier, bundle: <span class="literal">nil</span>).instantiateViewController(withIdentifier: <span class="keyword">self</span>.reuseIdentifier) <span class="keyword">as</span>? <span class="type">T</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> musicPlayerViewController: <span class="type">MusicPlayerViewController</span> = <span class="type">MusicPlayerViewController</span>.instanseFromStoryboard()! <span class="keyword">as</span>! <span class="type">MusicPlayerViewController</span></span><br></pre></td></tr></table></figure>
+<h2 id="UITabBar"><a href="#UITabBar" class="headerlink" title="UITabBar"></a>UITabBar</h2><table>
+<thead>
+<tr>
+<th>是否解决成功</th>
+<th>问题描述</th>
+<th>如何解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>透明背景</td>
+<td>设置<code>tabBar.backgroundImage</code>为一张透明背景图。</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>文字颜色，图片颜色修改</td>
+</tr>
+</tbody>
+</table>
+<p>全局设定TabBar的字体大小<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> attributesTabBarNormal = [<span class="type">NSForegroundColorAttributeName</span>: <span class="type">UIColor</span>.white, <span class="type">NSFontAttributeName</span>: <span class="type">UIFont</span>.font10]</span><br><span class="line"><span class="keyword">let</span> attributesTabBarSelected = [<span class="type">NSForegroundColorAttributeName</span>: <span class="type">UIColor</span>.white, <span class="type">NSFontAttributeName</span>: <span class="type">UIFont</span>.font10]</span><br><span class="line"><span class="type">UITabBarItem</span>.appearance().setTitleTextAttributes(attributesTabBarNormal, <span class="keyword">for</span>: .normal)</span><br><span class="line"><span class="type">UITabBarItem</span>.appearance().setTitleTextAttributes(attributesTabBarSelected, <span class="keyword">for</span>: .selected)</span><br></pre></td></tr></table></figure></p>
+<p>修改选中图片颜色<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tabBar.tintColor = .white</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>是否解决成功</th>
+<th>问题描述</th>
+<th>如何解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>push的时候出现跳动问题</td>
+<td>约束应该依照当前的View进行设置。而不是Bottom Layout Guide设置，否则push时候隐藏TabBar会导致视图跳动。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>JSON序列化<br>⚠️ 序列化的条件是<code>JSONSerialization.isValidJSONObject(&lt;#T##obj: Any##Any#&gt;)</code>返回true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">Returns YES if the given object can be converted to JSON data, NO otherwise. The object must have the following properties:</span><br><span class="line">        - Top level object is an NSArray or NSDictionary</span><br><span class="line">        - All objects are NSString, NSNumber, NSArray, NSDictionary, or NSNull</span><br><span class="line">        - All dictionary keys are NSStrings</span><br><span class="line">        - NSNumbers are not NaN or infinity</span><br><span class="line">     Other rules may apply. Calling this method or attempting a conversion are the definitive ways to tell if a given object can be converted to JSON data.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<p>文档中这样描述这个方法的意义，明确指出了能够序列化的类型</p>
+<ol>
+<li>Key必须是<code>NSString</code>类型</li>
+<li>最高层必须是<code>NSArray</code>或者<code>NSDictionary</code>，意味着在Swift中元组，闭包等等都不可以。</li>
+<li>对象必须是<code>NSString</code>, <code>NSNumber</code>, <code>NSArray</code>, <code>NSDictionary</code>, 或者<code>NSNull</code></li>
+<li><code>NSNumber</code>必须有意义</li>
+</ol>
+<blockquote>
+<p>在Swift中<code>Bool</code>也是可以的，但是<code>URL</code>却不符合，只能使用<code>absoluteString</code>转换成<code>String</code>进行存储</p>
+<p>由于这种持久化方式过于麻烦，所以采用SQLite数据库。</p>
+</blockquote>
+<h2 id="播放器资源设计"><a href="#播放器资源设计" class="headerlink" title="播放器资源设计"></a>播放器资源设计</h2><p>在进行编码的时候一直都存在着一些难点</p>
+<ol>
+<li>播放器播放的时候需要哪些资源。</li>
+<li>其他模块如何给定这些资源。</li>
+<li>音乐请求之后需要缓存，如何实现。</li>
+<li>点击下载之后怎们办。</li>
+</ol>
+<h3 id="ResourceManager"><a href="#ResourceManager" class="headerlink" title="ResourceManager"></a>ResourceManager</h3><p>其他模块在传递的时候只告诉播放器音乐ID，播放去请求<code>ResourceManager</code>，<code>ResourceManager</code>决定资源从哪来。</p>
+<blockquote>
+<p>其他模块需要先reset资源，<code>ResourceManager</code>从资源中找到对应的ID并判断资源来源，有没有缓存或者下载，之后再请求网络，或者从本地读取数据给播放器。</p>
+</blockquote>
+<p>缺点很明显：需要兼顾网络和本地的管理，接口变得复杂，内部变的臃肿，资源包含的主体内容不明确。</p>
+<h1 id="暂时无法解决的Bug"><a href="#暂时无法解决的Bug" class="headerlink" title="暂时无法解决的Bug"></a>暂时无法解决的Bug</h1><h2 id="赞赏功能无法使用"><a href="#赞赏功能无法使用" class="headerlink" title="赞赏功能无法使用"></a>赞赏功能无法使用</h2><blockquote>
+<p>使用<code>URLSession</code>的<code>dataTask</code>，包括使用<code>Alamofire</code>返回的code都是301。</p>
+<p>但是使用<code>浏览器</code>或者<code>Postman</code>请求同一个URL没有任何问题。</p>
+<p>Swift好像暂时没有修复这个Bug。<a href="https://bugs.swift.org/browse/SR-3252" target="_blank" rel="noopener">URLSession dataTask doesn’t follow redirects</a></p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>⚠️  未明确说明，英文说明都来自于Apple官方文档</p>
+<h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><table>
+<thead>
+<tr>
+<th>参考博客地址</th>
+<th>参考内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://msching.github.io/" target="_blank" rel="noopener">码农人生</a></td>
+<td>音频流解析，播放</td>
+</tr>
+<tr>
+<td><a href="https://cz-it.gitbooks.io/play-and-record-with-coreaudio/content/" target="_blank" rel="noopener">Play And Record With CoreAudio on iOS</a></td>
+<td>音频流解析，播放</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><h2 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h2><table>
+<thead>
+<tr>
+<th>第三方库地址</th>
+<th>使用内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/SnapKit/SnapKit" target="_blank" rel="noopener">SnapKit</a></td>
+<td>约束布局</td>
+</tr>
+<tr>
+<td><a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener">Kingfisher</a></td>
+<td>图片缓存</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="noopener">Alamofire</a></td>
+<td>网络请求（使用了其中的编码功能）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="noopener">SwiftyJSON</a></td>
+<td>JSON解析</td>
+</tr>
+<tr>
+<td><a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="noopener">MJRefresh</a></td>
+<td>刷新组件（OC）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/stephencelis/SQLite.swift" target="_blank" rel="noopener">SQLite.swift</a></td>
+<td>SQLite数据库工具</td>
+</tr>
+<tr>
+<td><a href="https://github.com/scalessec/Toast-Swift" target="_blank" rel="noopener">Toast-Swift</a></td>
+<td>Toast提示组件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="自定义库"><a href="#自定义库" class="headerlink" title="自定义库"></a>自定义库</h2><table>
+<thead>
+<tr>
+<th>自定义库地址</th>
+<th>使用内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/XWJACK/PageKit" target="_blank" rel="noopener">PageKit</a></td>
+<td>简易的分页库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/XWJACK/Wave" target="_blank" rel="noopener">Wave</a></td>
+<td>基于AudioToolBox简易流媒体播放器</td>
+</tr>
+<tr>
+<td><a href="https://github.com/XWJACK/Log" target="_blank" rel="noopener">Log</a></td>
+<td>简易Log工具</td>
+</tr>
+<tr>
+<td><a href="https://github.com/XWJACK/MusicAPI" target="_blank" rel="noopener">MusicAPI</a></td>
+<td>封装<a href="https://github.com/Binaryify/NeteaseCloudMusicApi" target="_blank" rel="noopener">网易云音乐NodeJS版API</a> 提供的API</td>
+</tr>
+<tr>
+<td><a href="https://github.com/XWJACK/Lotus" target="_blank" rel="noopener">Lotus</a></td>
+<td>简易网络请求库</td>
+</tr>
+</tbody>
+</table>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2017/03/20/Music/">Music</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2017-03-20 00:00</p>
+        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2017/03/20/Music/" title="Music">http://xwjack.github.io/2017/03/20/Music/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/03/20/Music/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/03/24/Purchase/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iOS In-App Purchase
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/16/Regex/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Regex</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目要求"><span class="toc-number">1.</span> <span class="toc-text">项目要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总体设计"><span class="toc-number">2.</span> <span class="toc-text">总体设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#播放器设计"><span class="toc-number">3.</span> <span class="toc-text">播放器设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#播放器-实现方案"><span class="toc-number">3.1.</span> <span class="toc-text">播放器-实现方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放器-实现方案测试"><span class="toc-number">3.2.</span> <span class="toc-text">播放器-实现方案测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AudioToolbox-gt-Audio-Queue-Services-amp-Audio-File-Stream-Services"><span class="toc-number">3.2.1.</span> <span class="toc-text">AudioToolbox &gt; Audio Queue Services &amp; Audio File Stream Services</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Overview"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Using-Self-In-C-Block"><span class="toc-number">3.2.1.1.1.</span> <span class="toc-text">Using Self In C Block</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Thread-in-AudioQueue-and-AudioFileStream"><span class="toc-number">3.2.1.1.2.</span> <span class="toc-text">Thread in AudioQueue and AudioFileStream</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Memory-leak-in-AudioQueue"><span class="toc-number">3.2.1.1.3.</span> <span class="toc-text">Memory leak in AudioQueue</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AudioFileStream音频文件流"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">AudioFileStream音频文件流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioFileStreamOpen打开一个音频文件流"><span class="toc-number">3.2.1.2.1.</span> <span class="toc-text">AudioFileStreamOpen打开一个音频文件流</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioFileStream-PropertyListenerProc音频属性解析回调"><span class="toc-number">3.2.1.2.2.</span> <span class="toc-text">AudioFileStream_PropertyListenerProc音频属性解析回调</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioFileStream-PacketsProc帧分离回调"><span class="toc-number">3.2.1.2.3.</span> <span class="toc-text">AudioFileStream_PacketsProc帧分离回调</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioFileStreamParseBytes音频解析"><span class="toc-number">3.2.1.2.4.</span> <span class="toc-text">AudioFileStreamParseBytes音频解析</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AudioQueue音频队列"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">AudioQueue音频队列</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioQueueNewOutput创建音频输出队列"><span class="toc-number">3.2.1.3.1.</span> <span class="toc-text">AudioQueueNewOutput创建音频输出队列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioQueueOutputCallback播放音频完成回调"><span class="toc-number">3.2.1.3.2.</span> <span class="toc-text">AudioQueueOutputCallback播放音频完成回调</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioQueueAddPropertyListener添加音频队列属性监听"><span class="toc-number">3.2.1.3.3.</span> <span class="toc-text">AudioQueueAddPropertyListener添加音频队列属性监听</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioQueueAllocateBuffer为音频队列分配空间"><span class="toc-number">3.2.1.3.4.</span> <span class="toc-text">AudioQueueAllocateBuffer为音频队列分配空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AudioQueueEnqueueBuffer将Buffer加入到音频队列中"><span class="toc-number">3.2.1.3.5.</span> <span class="toc-text">AudioQueueEnqueueBuffer将Buffer加入到音频队列中</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#播放器测试结果："><span class="toc-number">3.2.2.</span> <span class="toc-text">播放器测试结果：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#✅-AudioToolbox"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">✅  AudioToolbox</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API选择"><span class="toc-number">3.3.</span> <span class="toc-text">API选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实际项目开发"><span class="toc-number">4.</span> <span class="toc-text">实际项目开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要界面搭建"><span class="toc-number">4.1.</span> <span class="toc-text">主要界面搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#播放器界面"><span class="toc-number">4.1.1.</span> <span class="toc-text">播放器界面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心代码"><span class="toc-number">4.2.</span> <span class="toc-text">核心代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#后台音频播放及控制"><span class="toc-number">4.2.1.</span> <span class="toc-text">后台音频播放及控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#后台音频播放"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">后台音频播放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后台音频播放控制"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">后台音频播放控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程"><span class="toc-number">4.2.2.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DispatchGroup"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">DispatchGroup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DispatchQoS"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">DispatchQoS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Manager"><span class="toc-number">4.2.3.</span> <span class="toc-text">Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MusicResourceManager"><span class="toc-number">4.2.3.1.</span> <span class="toc-text">MusicResourceManager</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MusicFileManager"><span class="toc-number">4.2.3.2.</span> <span class="toc-text">MusicFileManager</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MusicDataBaseManager"><span class="toc-number">4.2.3.3.</span> <span class="toc-text">MusicDataBaseManager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库设计"><span class="toc-number">4.3.</span> <span class="toc-text">数据库设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目踩坑"><span class="toc-number">5.</span> <span class="toc-text">项目踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#StoryBoard"><span class="toc-number">5.1.</span> <span class="toc-text">StoryBoard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITabBar"><span class="toc-number">5.2.</span> <span class="toc-text">UITabBar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-number">5.3.</span> <span class="toc-text">JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放器资源设计"><span class="toc-number">5.4.</span> <span class="toc-text">播放器资源设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ResourceManager"><span class="toc-number">5.4.1.</span> <span class="toc-text">ResourceManager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#暂时无法解决的Bug"><span class="toc-number">6.</span> <span class="toc-text">暂时无法解决的Bug</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#赞赏功能无法使用"><span class="toc-number">6.1.</span> <span class="toc-text">赞赏功能无法使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考博客"><span class="toc-number">7.1.</span> <span class="toc-text">参考博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考代码"><span class="toc-number">7.2.</span> <span class="toc-text">参考代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方库"><span class="toc-number">7.3.</span> <span class="toc-text">第三方库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义库"><span class="toc-number">7.4.</span> <span class="toc-text">自定义库</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/03/24/Purchase/" title="上一篇: iOS In-App Purchase">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/03/16/Regex/" title="下一篇: Regex">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

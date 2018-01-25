@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift Source Code Analysis - Array | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Swift源码分析-Array">
+<meta name="keywords" content="iOS,Swift 2.2.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift Source Code Analysis - Array">
+<meta property="og:url" content="http://xwjack.github.io/2016/07/19/Swift-Source-Code-Analysis-Array/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="Swift源码分析-Array">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-6.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-0.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-1.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-0.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-1.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-2.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-3.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-4.png">
+<meta property="og:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-5.png">
+<meta property="og:updated_time" content="2018-01-15T13:13:42.621Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift Source Code Analysis - Array">
+<meta name="twitter:description" content="Swift源码分析-Array">
+<meta name="twitter:image" content="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-6.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Swift-Source-Code-Analysis-Array" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/19/Swift-Source-Code-Analysis-Array/" class="article-date">
+      <time datetime="2016-07-18T16:00:00.000Z" itemprop="datePublished">2016-07-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift Source Code Analysis - Array
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-2-2-1/">Swift 2.2.1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Swift源码分析-Array</p>
+<a id="more"></a>
+<h1 id="Swift源码分析-Array"><a href="#Swift源码分析-Array" class="headerlink" title="Swift源码分析 - Array"></a>Swift源码分析 - Array</h1><p>ContiguousArray:A fast, contiguously-stored array of Element.(快速连续存储的数组)</p>
+<p>ArraySlice:The <code>Array</code>-like type that represents a sub-sequence of any <code>Array</code>, <code>ContiguousArray</code>, or other <code>ArraySlice</code>.(可以是ContiguousArray,Array,ArraySlice的子序列)</p>
+<p>Array:is an efficient, tail-growable random-access collection of arbitrary elements.(一个高效的,可增长的,可随机访问的集合)</p>
+<p>除了<code>Array</code>能和<code>Objective-c</code>桥接,其他都不行.</p>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Construct a Array of `count` elements, each initialized to</span></span><br><span class="line"><span class="comment">/// `repeatedValue`.</span></span><br><span class="line">@swift3_migration(renamed=<span class="string">"init(repeating:count:)"</span>)</span><br><span class="line">@_semantics(<span class="string">"array.init"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">init</span>(<span class="built_in">count</span>: <span class="type">Int</span>, repeatedValue: <span class="type">Element</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> p: <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">Element</span>&gt;</span><br><span class="line">  (<span class="keyword">self</span>, p) = <span class="type">Array</span>._allocateUninitialized(<span class="built_in">count</span>)</span><br><span class="line">  <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</span><br><span class="line">    p.initialize(repeatedValue)</span><br><span class="line">    p += <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数组初始化为同一个值:先分配一块没有初始化的区域,再逐个初始化.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// The number of elements the Array stores.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> _getCount()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// The number of elements the `Array` can store without reallocation.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">var</span> capacity: <span class="type">Int</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> _getCapacity()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一个是数组的个数,第二个至关重要!!因为这关系到数组的性能,在后面补充会详细说.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Extend `lhs` with the elements of `rhs`.</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> += &lt;</span></span><br><span class="line"><span class="function">  Element, S : SequenceType</span></span><br><span class="line"><span class="function">  where S.Generator.Element == Element</span></span><br><span class="line"><span class="function">&gt;<span class="params">(<span class="keyword">inout</span> lhs: Array&lt;Element&gt;, rhs: S)</span></span> &#123;</span><br><span class="line">  <span class="keyword">let</span> oldCount = lhs.<span class="built_in">count</span></span><br><span class="line">  <span class="keyword">let</span> capacity = lhs.capacity</span><br><span class="line">  <span class="keyword">let</span> newCount = oldCount + rhs.<span class="built_in">underestimateCount</span>()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> newCount &gt; capacity &#123;</span><br><span class="line">    lhs.reserveCapacity(</span><br><span class="line">      <span class="built_in">max</span>(newCount, _growArrayCapacity(capacity)))</span><br><span class="line">  &#125;</span><br><span class="line">  _arrayAppendSequence(&amp;lhs._buffer, rhs)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从这我们可以看出，数组也是可以用｀＋＝｀运算符的，前提数组中存储的元素是同一个类型。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@warn_unused_result</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> == &lt;Element : Equatable&gt;<span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  lhs: Array&lt;Element&gt;, rhs: Array&lt;Element&gt;</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> lhsCount = lhs.<span class="built_in">count</span></span><br><span class="line">  <span class="keyword">if</span> lhsCount != rhs.<span class="built_in">count</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Test referential equality.</span></span><br><span class="line">  <span class="keyword">if</span> lhsCount == <span class="number">0</span> || lhs._buffer.identity == rhs._buffer.identity &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> streamLHS = lhs.generate()</span><br><span class="line">  <span class="keyword">var</span> streamRHS = rhs.generate()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> nextLHS = streamLHS.next()</span><br><span class="line">  <span class="keyword">while</span> nextLHS != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> nextRHS = streamRHS.next()</span><br><span class="line">    <span class="keyword">if</span> nextLHS != nextRHS &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    nextLHS = streamLHS.next()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个是比较数组是否相同的代码，仔细看<code>lhs._buffer.identity == rhs._buffer.identity</code>可以猜出，每个数组都有一个唯一id，通过判断id来判断数组是否是同一个’引用’</p>
+<p>#补充:</p>
+<h2 id="数组中capacity和count的区别"><a href="#数组中capacity和count的区别" class="headerlink" title="数组中capacity和count的区别"></a>数组中capacity和count的区别</h2><p><code>capacity:容量</code>和<code>count:数量</code>,至于为什么要弄这两个参数,那就要提到数组实现原理了.</p>
+<p>在分析之前先看结果:</p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-6.png" alt=""></p>
+<h3 id="数组的实现原理"><a href="#数组的实现原理" class="headerlink" title="数组的实现原理"></a>数组的实现原理</h3><p>我们在使用数组的时候通常都是这样的:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array: [<span class="type">Int</span>] = []</span><br><span class="line">array.append(<span class="number">0</span>)</span><br><span class="line">array.append(<span class="number">1</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>我们从最底层的C语言开始比较:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C语言中我们这样写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="built_in">array</span>[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">array</span>[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">array</span>[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>当我们执行<code>int array[5]</code>的时候就已经分配好了内存空间,不管你数组中只有一个数,所占空间都是<code>5*sizeof(int)</code>.</p>
+<p>但是在swift中好像我们也没有分配具体大小的空间,感觉要多少有多少,从来没有关心容量不够的情况.</p>
+<p>那是因为Swift已经为我们弄好了,但是这也是一个坑!!!下面是<code>append</code>方法实现.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Append `newElement` to the Array.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Complexity: Amortized O(1) unless `self`'s storage is shared with another live array; O(`count`) if `self` does not wrap a bridged `NSArray`; otherwise the efficiency is unspecified..</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(newElement: Element)</span></span> &#123;</span><br><span class="line">  _makeUniqueAndReserveCapacityIfNotUnique()</span><br><span class="line">  <span class="keyword">let</span> oldCount = _getCount()</span><br><span class="line">  _reserveCapacityAssumingUniqueBuffer(oldCount)</span><br><span class="line">  _appendElementAssumeUniqueAndCapacity(oldCount, newElement: newElement)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们再调用append方法的时候实现了数组的扩容,这样保证不浪费内存空间,但是我们知道在C语言中我们<code>malloc</code>一块内存用来存放数据,当不够的时候我们会采用<code>realloc</code>.而<code>realloc</code>的原理大家都是知道了,就是重新找一块内存分配空间,然后将原来的数据复制过去.</p>
+<p>Swift的做法和这个差不多,我们来看看:</p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-0.png" alt=""></p>
+<p>仔细的看内存地址和之前的那张对比,是有规律的,2,4,8,16…每次分配的大小为2的N次方.这在数组很小的时候是有用的,但是如果我们存储33个数,其实Swift为我们分配了64的存储空间,这样就了白白浪费了很多的空间,而且随着数组数量的增大,越明显,但是Apple其实也知道,在平常的开发中很难遇到那么多的数.</p>
+<blockquote>
+<p>Note: 这样一来就应该明白count和capacity的区别了,count表示数组中实际存在的元素个数,而capacity表示数组的容量大小.剩下的就是空闲的,避免每次<strong><code>append</code></strong>都要重新拷贝数据.</p>
+</blockquote>
+<p>下面的这个函数我们不经常用到,但是如果你不想白白浪费空间,你可以使用.前提你要知道你的数组大概是多少个,下面这个方法就是设定一个最小分配容量.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Reserve enough space to store `minimumCapacity` elements.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Postcondition: `capacity &gt;= minimumCapacity` and the array has</span></span><br><span class="line"><span class="comment">///   mutable contiguous storage.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Complexity: O(`self.count`).</span></span><br><span class="line">@_semantics(<span class="string">"array.mutate_unknown"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">reserveCapacity</span><span class="params">(minimumCapacity: Int)</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> _buffer.requestUniqueMutableBackingBuffer(minimumCapacity) == <span class="literal">nil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> newBuffer = _ContiguousArrayBuffer&lt;<span class="type">Element</span>&gt;(</span><br><span class="line">      <span class="built_in">count</span>: <span class="built_in">count</span>, minimumCapacity: minimumCapacity)</span><br><span class="line"></span><br><span class="line">    _buffer._uninitializedCopy(</span><br><span class="line">      _buffer.<span class="built_in">indices</span>, target: newBuffer.firstElementAddress)</span><br><span class="line">    _buffer = _Buffer(newBuffer, shiftedToStartIndex: _buffer.startIndex)</span><br><span class="line">  &#125;</span><br><span class="line">  _sanityCheck(capacity &gt;= minimumCapacity)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-1.png" alt=""></p>
+<p>我们可以看到Swift为我们分配了10个空间,并且增长方式也变成了10*2的N次方.</p>
+<blockquote>
+<p>Note:由此我们其实可以得出一个重要的概念<strong><code>append方法不是线程安全的</code></strong>,因为每次使用append的时候内存地址都有可能在改变,当多个线程同时往数组中添加或者读取数据的时候,会存在一个线程已经改变数组的地址,但是另一个线程却还在原来的地址读写数据,导致发生错误.</p>
+</blockquote>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-0.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-1.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-2.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-3.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-4.png" alt=""></p>
+<p>反正就是各种错误,那么如何正确的在多线程的环境下使用数组呢?我们用<code>reserveCapacity</code>方法来最小分配一个空间,这样内存地址就不会随意的改变了.</p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-5.png" alt=""></p>
+<blockquote>
+<p>Note:这样只能保证在添加数据的时候不会出现访问野指针的情况.图示显示的<code>length</code>一个是1021,一个是1999,说明任务是并发执行的.</p>
+</blockquote>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2016-07-19 00:00</p>
+        <p><span>Update Time:</span>2018-01-15 21:13</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2016/07/19/Swift-Source-Code-Analysis-Array/" title="Swift Source Code Analysis - Array">http://xwjack.github.io/2016/07/19/Swift-Source-Code-Analysis-Array/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2016/07/19/Swift-Source-Code-Analysis-Array/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/08/06/Git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Git
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/05/Swift-Source-Code-Analysis-Sort/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift Source Code Analysis - Sort</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift源码分析-Array"><span class="toc-number">1.</span> <span class="toc-text">Swift源码分析 - Array</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array"><span class="toc-number">1.1.</span> <span class="toc-text">Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组中capacity和count的区别"><span class="toc-number">1.2.</span> <span class="toc-text">数组中capacity和count的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的实现原理"><span class="toc-number">1.2.1.</span> <span class="toc-text">数组的实现原理</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/08/06/Git/" title="上一篇: Git">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/06/05/Swift-Source-Code-Analysis-Sort/" title="下一篇: Swift Source Code Analysis - Sort">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

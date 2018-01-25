@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Camera | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用AVCaptureSession调用系统的摄像头、麦克风来捕获视频、音频，包括二维码解析。">
+<meta name="keywords" content="iOS,AVFoundation,Objective-C,Swift 3.2.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Camera">
+<meta property="og:url" content="http://xwjack.github.io/2018/01/10/Camera/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="使用AVCaptureSession调用系统的摄像头、麦克风来捕获视频、音频，包括二维码解析。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-10-Camera/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-10-Camera/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-10-Camera/3.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-10-Camera/4.png">
+<meta property="og:updated_time" content="2018-01-25T14:06:39.938Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Camera">
+<meta name="twitter:description" content="使用AVCaptureSession调用系统的摄像头、麦克风来捕获视频、音频，包括二维码解析。">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2018-01-10-Camera/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Camera" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/10/Camera/" class="article-date">
+      <time datetime="2018-01-10T09:50:48.000Z" itemprop="datePublished">2018-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Camera
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVFoundation/">AVFoundation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>使用<code>AVCaptureSession</code>调用系统的摄像头、麦克风来捕获视频、音频，包括二维码解析。</p>
+<a id="more"></a>
+<h1 id="AVCaptureSession"><a href="#AVCaptureSession" class="headerlink" title="AVCaptureSession"></a>AVCaptureSession</h1><p>An object that manages capture activity and coordinates the flow of data from input devices to capture outputs.</p>
+<p><img src="/images/2018-01-10-Camera/1.png" alt=""></p>
+<h2 id="sessionPreset"><a href="#sessionPreset" class="headerlink" title="sessionPreset"></a>sessionPreset</h2><p>A constant value indicating the quality level or bitrate of the output.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Resolution</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVCaptureSessionPresetHigh</td>
+<td>High</td>
+<td>Highest recording quality. <br> This varies per device.</td>
+</tr>
+<tr>
+<td>AVCaptureSessionPresetMedium</td>
+<td>Medium</td>
+<td>Suitable for Wi-Fi sharing. <br> The actual values may change.</td>
+</tr>
+<tr>
+<td>AVCaptureSessionPresetLow</td>
+<td>Low</td>
+<td>Suitable for 3G sharing. <br> The actual values may change.</td>
+</tr>
+<tr>
+<td>AVCaptureSessionPreset640x480</td>
+<td>640x480</td>
+<td>VGA.</td>
+</tr>
+<tr>
+<td>AVCaptureSessionPreset1280x720</td>
+<td>1280x720</td>
+<td>720p HD.</td>
+</tr>
+<tr>
+<td>AVCaptureSessionPresetPhoto</td>
+<td>Photo</td>
+<td>Full photo resolution. <br> This is not supported for video output.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="beginConfiguration-amp-amp-commitConfiguration"><a href="#beginConfiguration-amp-amp-commitConfiguration" class="headerlink" title="beginConfiguration &amp;&amp; commitConfiguration"></a>beginConfiguration &amp;&amp; commitConfiguration</h2><p>在对已经运行的session进行配置修改都需要放在中间，最后会调用<code>commitConfiguration</code>来使配置生效。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">session.beginConfiguration()</span><br><span class="line"><span class="comment">// Remove an existing capture device.</span></span><br><span class="line"><span class="comment">// Add a new capture device.</span></span><br><span class="line"><span class="comment">// Reset the preset.</span></span><br><span class="line">session.commitConfiguration()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果session还没有运行，可以直接配置。</p>
+</blockquote>
+<h2 id="startRunning-amp-amp-stopRunning"><a href="#startRunning-amp-amp-stopRunning" class="headerlink" title="startRunning &amp;&amp; stopRunning"></a>startRunning &amp;&amp; stopRunning</h2><p>在调用之前我们可以用<code>isRunning</code>来判断session有没有运行。</p>
+<blockquote>
+<p>调用会阻塞当前线程，需要异步到其他线程中执行。</p>
+</blockquote>
+<h1 id="AVCaptureDevice"><a href="#AVCaptureDevice" class="headerlink" title="AVCaptureDevice"></a>AVCaptureDevice</h1><p>A device that provides input (such as audio or video) for capture sessions and offers controls for hardware-specific capture features.</p>
+<p>这里我觉得写成下面获取视频的Device比较方便。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Camera position.</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">CameraPosition</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">case</span> back, front</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Is mirror</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> isMirror: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .front: <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        <span class="keyword">case</span> .back: <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Convert to system AVCaptureDevicePosition</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> position: <span class="type">AVCaptureDevicePosition</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .back: <span class="keyword">return</span> .back</span><br><span class="line">        <span class="keyword">case</span> .front: <span class="keyword">return</span> .front</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Device for current camera position, else return defaultDevice.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> device: <span class="type">AVCaptureDevice</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> devices = <span class="type">AVCaptureDevice</span>.devices(withMediaType: <span class="type">AVMediaTypeVideo</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> <span class="keyword">case</span> <span class="keyword">let</span> device <span class="keyword">as</span> <span class="type">AVCaptureDevice</span> <span class="keyword">in</span> devices! &#123;</span><br><span class="line">            <span class="keyword">if</span> (device.position == position) &#123;</span><br><span class="line">                <span class="keyword">return</span> device</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="type">AVCaptureDevice</span>.defaultDevice(withMediaType: <span class="type">AVMediaTypeVideo</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Convenience init by AVCaptureDevicePosition</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameter position: AVCaptureDevicePosition</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(position: <span class="type">AVCaptureDevicePosition</span>) &#123;</span><br><span class="line">        <span class="keyword">switch</span> position &#123;</span><br><span class="line">        <span class="keyword">case</span> .back: <span class="keyword">self</span> = .back</span><br><span class="line">        <span class="keyword">case</span> .front, .unspecified: <span class="keyword">self</span> = .front</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Convenience rotate camera position like this: `newCameraPosition = !oldCameraPosition`</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameter origin: Origin camera position.</span></span><br><span class="line">    <span class="comment">/// - Returns: Rotated camera position.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">prefix</span> <span class="function"><span class="keyword">func</span> !<span class="params">(<span class="number">_</span> origin: CameraPosition)</span></span> -&gt; <span class="type">CameraPosition</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> origin == .front ? .back : .front</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>iPhone 8 Plus输出以下结果。<br><img src="/images/2018-01-10-Camera/2.png" alt=""></p>
+</blockquote>
+<h2 id="lockForConfiguration-amp-amp-unlockForConfiguration"><a href="#lockForConfiguration-amp-amp-unlockForConfiguration" class="headerlink" title="lockForConfiguration &amp;&amp; unlockForConfiguration"></a>lockForConfiguration &amp;&amp; unlockForConfiguration</h2><p>Before you attempt to set properties of a capture device (its focus mode, exposure mode, and so on), you must first acquire a lock on the device using the lockForConfiguration() method. You should also query the device’s capabilities to ensure that the new modes you intend to set are valid for that device. You can then set the properties and release the lock using the unlockForConfiguration() method. You may hold the lock if you want all settable device properties to remain unchanged. However, holding the device lock unnecessarily may degrade capture quality in other applications sharing the device and is not recommended.</p>
+<h2 id="formats"><a href="#formats" class="headerlink" title="formats"></a>formats</h2><p>The capture formats supported by the device.</p>
+<p>An AVCaptureDevice.Format object describes in detail the video, image, or audio parameters of a specific mode of capture. If you need access to capture settings not covered by an AVCaptureSession preset, you can set the activeFormat property to any of the formats in this array.</p>
+<blockquote>
+<p>下面是iPhone 8 Plus后置摄像头输出结果。<br><img src="/images/2018-01-10-Camera/3.png" alt=""></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">(lldb) po device</span><br><span class="line">&lt;AVCaptureFigVideoDevice: 0x106c05d80 [Back Camera][com.apple.avfoundation.avcapturedevice.built-in_video:0]&gt;</span><br><span class="line"></span><br><span class="line">(lldb) po device.formats</span><br><span class="line">▿ 40 elements</span><br><span class="line">  - 0 : &lt;AVCaptureDeviceFormat: 0x1d000ea30 &apos;vide&apos;/&apos;420v&apos;  192x 144, &#123; 3- 60 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @21.00), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 1 : &lt;AVCaptureDeviceFormat: 0x1d000ea20 &apos;vide&apos;/&apos;420f&apos;  192x 144, &#123; 3- 60 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @21.00), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 2 : &lt;AVCaptureDeviceFormat: 0x1d000ea10 &apos;vide&apos;/&apos;420v&apos;  352x 288, &#123; 3- 60 fps&#125;, HRSI:3696x3024, fov:58.026, max zoom:189.00 (upscales @10.50), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 3 : &lt;AVCaptureDeviceFormat: 0x1d000ea00 &apos;vide&apos;/&apos;420f&apos;  352x 288, &#123; 3- 60 fps&#125;, HRSI:3696x3024, fov:58.026, max zoom:189.00 (upscales @10.50), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 4 : &lt;AVCaptureDeviceFormat: 0x1d000e9f0 &apos;vide&apos;/&apos;420v&apos;  480x 360, &#123; 3- 60 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @8.40), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 5 : &lt;AVCaptureDeviceFormat: 0x1d000e9e0 &apos;vide&apos;/&apos;420f&apos;  480x 360, &#123; 3- 60 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @8.40), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 6 : &lt;AVCaptureDeviceFormat: 0x1d000e9d0 &apos;vide&apos;/&apos;420v&apos;  640x 480, &#123; 3- 60 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @6.30), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 7 : &lt;AVCaptureDeviceFormat: 0x1d000e9c0 &apos;vide&apos;/&apos;420f&apos;  640x 480, &#123; 3- 60 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @6.30), AF System:2, ISO:22.0-1760.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 8 : &lt;AVCaptureDeviceFormat: 0x1d000e9b0 &apos;vide&apos;/&apos;420v&apos;  640x 480, &#123; 6- 60 fps&#125;, HRSI:2016x1512, fov:60.400, binned, max zoom:94.50 (upscales @3.15), AF System:1, ISO:22.0-1760.0, SS:0.000011-0.166666&gt;</span><br><span class="line">  - 9 : &lt;AVCaptureDeviceFormat: 0x1d000e9a0 &apos;vide&apos;/&apos;420f&apos;  640x 480, &#123; 6- 60 fps&#125;, HRSI:2016x1512, fov:60.400, binned, max zoom:94.50 (upscales @3.15), AF System:1, ISO:22.0-1760.0, SS:0.000011-0.166666, supports wide color&gt;</span><br><span class="line">  - 10 : &lt;AVCaptureDeviceFormat: 0x1d000e990 &apos;vide&apos;/&apos;420v&apos;  960x 540, &#123; 3- 60 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:135.00 (upscales @4.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 11 : &lt;AVCaptureDeviceFormat: 0x1d000e980 &apos;vide&apos;/&apos;420f&apos;  960x 540, &#123; 3- 60 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:135.00 (upscales @4.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 12 : &lt;AVCaptureDeviceFormat: 0x1d000e970 &apos;vide&apos;/&apos;420v&apos; 1280x 720, &#123; 3- 30 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:24.00 (upscales @3.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 13 : &lt;AVCaptureDeviceFormat: 0x1d000e960 &apos;vide&apos;/&apos;420f&apos; 1280x 720, &#123; 3- 30 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:24.00 (upscales @3.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 14 : &lt;AVCaptureDeviceFormat: 0x1d000e950 &apos;vide&apos;/&apos;420v&apos; 1280x 720, &#123; 3- 60 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:24.00 (upscales @3.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 15 : &lt;AVCaptureDeviceFormat: 0x1d000e940 &apos;vide&apos;/&apos;420f&apos; 1280x 720, &#123; 3- 60 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:24.00 (upscales @3.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 16 : &lt;AVCaptureDeviceFormat: 0x1d000e930 &apos;vide&apos;/&apos;420v&apos; 1280x 720, &#123; 6- 60 fps&#125;, fov:65.707, binned, supports vis, max zoom:61.88 (upscales @1.50), AF System:1, ISO:22.0-880.0, SS:0.000011-0.166666&gt;</span><br><span class="line">  - 17 : &lt;AVCaptureDeviceFormat: 0x1d000e920 &apos;vide&apos;/&apos;420f&apos; 1280x 720, &#123; 6- 60 fps&#125;, fov:65.707, binned, supports vis, max zoom:61.88 (upscales @1.50), AF System:1, ISO:22.0-880.0, SS:0.000011-0.166666, supports wide color&gt;</span><br><span class="line">  - 18 : &lt;AVCaptureDeviceFormat: 0x1d000e910 &apos;vide&apos;/&apos;420v&apos; 1280x 720, &#123; 6-240 fps&#125;, fov:65.707, binned, supports vis, max zoom:67.50 (upscales @1.50), AF System:1, ISO:22.0-880.0, SS:0.000011-0.166666&gt;</span><br><span class="line">  - 19 : &lt;AVCaptureDeviceFormat: 0x1d000e900 &apos;vide&apos;/&apos;420f&apos; 1280x 720, &#123; 6-240 fps&#125;, fov:65.707, binned, supports vis, max zoom:67.50 (upscales @1.50), AF System:1, ISO:22.0-880.0, SS:0.000011-0.166666, supports wide color&gt;</span><br><span class="line">  - 20 : &lt;AVCaptureDeviceFormat: 0x1d000e8f0 &apos;vide&apos;/&apos;420v&apos; 1440x1080, &#123; 6- 60 fps&#125;, HRSI:2016x1512, fov:60.400, binned, max zoom:94.50 (upscales @1.40), AF System:1, ISO:22.0-1760.0, SS:0.000011-0.166666&gt;</span><br><span class="line">  - 21 : &lt;AVCaptureDeviceFormat: 0x1d000e8e0 &apos;vide&apos;/&apos;420f&apos; 1440x1080, &#123; 6- 60 fps&#125;, HRSI:2016x1512, fov:60.400, binned, max zoom:94.50 (upscales @1.40), AF System:1, ISO:22.0-1760.0, SS:0.000011-0.166666, supports wide color&gt;</span><br><span class="line">  - 22 : &lt;AVCaptureDeviceFormat: 0x1d000e8d0 &apos;vide&apos;/&apos;420v&apos; 1920x1080, &#123; 3- 30 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:16.00 (upscales @2.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 23 : &lt;AVCaptureDeviceFormat: 0x1d000e8c0 &apos;vide&apos;/&apos;420f&apos; 1920x1080, &#123; 3- 30 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:16.00 (upscales @2.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 24 : &lt;AVCaptureDeviceFormat: 0x1d000e8b0 &apos;vide&apos;/&apos;420v&apos; 1920x1080, &#123; 3- 60 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:16.00 (upscales @2.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 25 : &lt;AVCaptureDeviceFormat: 0x1d000e8a0 &apos;vide&apos;/&apos;420f&apos; 1920x1080, &#123; 3- 60 fps&#125;, HRSI:4224x2376, fov:65.707, supports vis, max zoom:16.00 (upscales @2.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 26 : &lt;AVCaptureDeviceFormat: 0x1d000e890 &apos;vide&apos;/&apos;420v&apos; 1920x1080, &#123; 5-120 fps&#125;, fov:65.707, supports vis, max zoom:135.00 (upscales @2.00), AF System:2, ISO:22.0-880.0, SS:0.000012-0.200000&gt;</span><br><span class="line">  - 27 : &lt;AVCaptureDeviceFormat: 0x1d000e880 &apos;vide&apos;/&apos;420f&apos; 1920x1080, &#123; 5-120 fps&#125;, fov:65.707, supports vis, max zoom:135.00 (upscales @2.00), AF System:2, ISO:22.0-880.0, SS:0.000012-0.200000, supports wide color&gt;</span><br><span class="line">  - 28 : &lt;AVCaptureDeviceFormat: 0x1d000e870 &apos;vide&apos;/&apos;420v&apos; 1920x1080, &#123; 6-240 fps&#125;, fov:65.707, binned, supports vis, max zoom:67.50 (upscales @1.00), AF System:1, ISO:22.0-880.0, SS:0.000011-0.166666&gt;</span><br><span class="line">  - 29 : &lt;AVCaptureDeviceFormat: 0x1d000e860 &apos;vide&apos;/&apos;420f&apos; 1920x1080, &#123; 6-240 fps&#125;, fov:65.707, binned, supports vis, max zoom:67.50 (upscales @1.00), AF System:1, ISO:22.0-880.0, SS:0.000011-0.166666, supports wide color&gt;</span><br><span class="line">  - 30 : &lt;AVCaptureDeviceFormat: 0x1d000e850 &apos;vide&apos;/&apos;420v&apos; 2592x1936, &#123; 3- 30 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @1.56), AF System:2, ISO:22.0-2112.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 31 : &lt;AVCaptureDeviceFormat: 0x1d000e840 &apos;vide&apos;/&apos;420f&apos; 2592x1936, &#123; 3- 30 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @1.56), AF System:2, ISO:22.0-2112.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 32 : &lt;AVCaptureDeviceFormat: 0x1d000e830 &apos;vide&apos;/&apos;420v&apos; 3264x2448, &#123; 3- 30 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @1.24), AF System:2, ISO:22.0-2112.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 33 : &lt;AVCaptureDeviceFormat: 0x1d000ead0 &apos;vide&apos;/&apos;420f&apos; 3264x2448, &#123; 3- 30 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @1.24), AF System:2, ISO:22.0-2112.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 34 : &lt;AVCaptureDeviceFormat: 0x1d000eae0 &apos;vide&apos;/&apos;420v&apos; 3840x2160, &#123; 3- 30 fps&#125;, fov:65.707, supports vis, max zoom:9.00 (upscales @1.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 35 : &lt;AVCaptureDeviceFormat: 0x1d000eaf0 &apos;vide&apos;/&apos;420f&apos; 3840x2160, &#123; 3- 30 fps&#125;, fov:65.707, supports vis, max zoom:9.00 (upscales @1.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 36 : &lt;AVCaptureDeviceFormat: 0x1d000eb00 &apos;vide&apos;/&apos;420v&apos; 3840x2160, &#123; 3- 60 fps&#125;, fov:65.707, supports vis, max zoom:135.00 (upscales @1.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 37 : &lt;AVCaptureDeviceFormat: 0x1d000eb10 &apos;vide&apos;/&apos;420f&apos; 3840x2160, &#123; 3- 60 fps&#125;, fov:65.707, supports vis, max zoom:135.00 (upscales @1.00), AF System:2, ISO:22.0-880.0, SS:0.000020-0.333333, supports wide color&gt;</span><br><span class="line">  - 38 : &lt;AVCaptureDeviceFormat: 0x1d000eb20 &apos;vide&apos;/&apos;420v&apos; 4032x3024, &#123; 3- 30 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @1.00), AF System:2, ISO:22.0-2112.0, SS:0.000020-0.333333&gt;</span><br><span class="line">  - 39 : &lt;AVCaptureDeviceFormat: 0x1d000eb30 &apos;vide&apos;/&apos;420f&apos; 4032x3024, &#123; 3- 30 fps&#125;, HRSI:4032x3024, fov:63.301, max zoom:189.00 (upscales @1.00), AF System:2, ISO:22.0-2112.0, SS:0.000020-0.333333, supports wide color&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>下面是iPhone 8 Plus前置摄像头输出结果。<br><img src="/images/2018-01-10-Camera/4.png" alt=""></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(lldb) po device</span><br><span class="line">&lt;AVCaptureFigVideoDevice: 0x103e11f30 [Front Camera][com.apple.avfoundation.avcapturedevice.built-in_video:1]&gt;</span><br><span class="line"></span><br><span class="line">(lldb) po device.formats</span><br><span class="line">▿ 22 elements</span><br><span class="line">  - 0 : &lt;AVCaptureDeviceFormat: 0x1d000ec30 &apos;vide&apos;/&apos;420v&apos;  192x 144, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @16.08), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 1 : &lt;AVCaptureDeviceFormat: 0x1d000ec20 &apos;vide&apos;/&apos;420f&apos;  192x 144, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @16.08), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 2 : &lt;AVCaptureDeviceFormat: 0x1d000ec10 &apos;vide&apos;/&apos;420v&apos;  352x 288, &#123; 2- 30 fps&#125;, HRSI:2836x2320, fov:51.943, max zoom:145.00 (upscales @8.06), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 3 : &lt;AVCaptureDeviceFormat: 0x1d000ec00 &apos;vide&apos;/&apos;420f&apos;  352x 288, &#123; 2- 30 fps&#125;, HRSI:2836x2320, fov:51.943, max zoom:145.00 (upscales @8.06), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 4 : &lt;AVCaptureDeviceFormat: 0x1d000ebf0 &apos;vide&apos;/&apos;420v&apos;  480x 360, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @6.43), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 5 : &lt;AVCaptureDeviceFormat: 0x1d000ebe0 &apos;vide&apos;/&apos;420f&apos;  480x 360, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @6.43), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 6 : &lt;AVCaptureDeviceFormat: 0x1d000ebd0 &apos;vide&apos;/&apos;420v&apos;  640x 480, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @4.82), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 7 : &lt;AVCaptureDeviceFormat: 0x1d000ebc0 &apos;vide&apos;/&apos;420f&apos;  640x 480, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @4.82), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 8 : &lt;AVCaptureDeviceFormat: 0x1d000ebb0 &apos;vide&apos;/&apos;420v&apos;  640x 480, &#123; 2- 60 fps&#125;, HRSI:1440x1080, fov:42.612, binned, max zoom:67.50 (upscales @2.25), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 9 : &lt;AVCaptureDeviceFormat: 0x1d000eba0 &apos;vide&apos;/&apos;420f&apos;  640x 480, &#123; 2- 60 fps&#125;, HRSI:1440x1080, fov:42.612, binned, max zoom:67.50 (upscales @2.25), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 10 : &lt;AVCaptureDeviceFormat: 0x1d000eca0 &apos;vide&apos;/&apos;420v&apos;  960x 540, &#123; 2- 30 fps&#125;, HRSI:3840x2160, fov:67.564, max zoom:135.00 (upscales @4.00), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 11 : &lt;AVCaptureDeviceFormat: 0x1d000ecb0 &apos;vide&apos;/&apos;420f&apos;  960x 540, &#123; 2- 30 fps&#125;, HRSI:3840x2160, fov:67.564, max zoom:135.00 (upscales @4.00), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 12 : &lt;AVCaptureDeviceFormat: 0x1d000ecc0 &apos;vide&apos;/&apos;420v&apos; 1280x 720, &#123; 2- 30 fps&#125;, HRSI:3840x2160, fov:67.564, max zoom:135.00 (upscales @3.00), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 13 : &lt;AVCaptureDeviceFormat: 0x1d000ecd0 &apos;vide&apos;/&apos;420f&apos; 1280x 720, &#123; 2- 30 fps&#125;, HRSI:3840x2160, fov:67.564, max zoom:135.00 (upscales @3.00), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 14 : &lt;AVCaptureDeviceFormat: 0x1d000ece0 &apos;vide&apos;/&apos;420v&apos; 1280x 720, &#123; 2- 60 fps&#125;, HRSI:1920x1080, fov:67.284, binned, max zoom:67.50 (upscales @1.50), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 15 : &lt;AVCaptureDeviceFormat: 0x1d000ecf0 &apos;vide&apos;/&apos;420f&apos; 1280x 720, &#123; 2- 60 fps&#125;, HRSI:1920x1080, fov:67.284, binned, max zoom:67.50 (upscales @1.50), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 16 : &lt;AVCaptureDeviceFormat: 0x1d000ed00 &apos;vide&apos;/&apos;420v&apos; 1440x1080, &#123; 2- 60 fps&#125;, HRSI:1440x1080, fov:42.612, binned, max zoom:67.50 (upscales @1.00), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 17 : &lt;AVCaptureDeviceFormat: 0x1d000ed10 &apos;vide&apos;/&apos;420f&apos; 1440x1080, &#123; 2- 60 fps&#125;, HRSI:1440x1080, fov:42.612, binned, max zoom:67.50 (upscales @1.00), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 18 : &lt;AVCaptureDeviceFormat: 0x1d000ed20 &apos;vide&apos;/&apos;420v&apos; 1920x1080, &#123; 2- 30 fps&#125;, HRSI:3840x2160, fov:67.564, max zoom:135.00 (upscales @2.00), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 19 : &lt;AVCaptureDeviceFormat: 0x1d000ed30 &apos;vide&apos;/&apos;420f&apos; 1920x1080, &#123; 2- 30 fps&#125;, HRSI:3840x2160, fov:67.564, max zoom:135.00 (upscales @2.00), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br><span class="line">  - 20 : &lt;AVCaptureDeviceFormat: 0x1d000ed40 &apos;vide&apos;/&apos;420v&apos; 3088x2320, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @1.00), ISO:19.0-1824.0, SS:0.000013-0.500000&gt;</span><br><span class="line">  - 21 : &lt;AVCaptureDeviceFormat: 0x1d000ed50 &apos;vide&apos;/&apos;420f&apos; 3088x2320, &#123; 2- 30 fps&#125;, HRSI:3088x2320, fov:56.559, max zoom:145.00 (upscales @1.00), ISO:19.0-1824.0, SS:0.000013-0.500000, supports wide color&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="activeFormat"><a href="#activeFormat" class="headerlink" title="activeFormat"></a>activeFormat</h2><p>The currently active media data format of the capture device.</p>
+<p>一般我们使用<code>AVCaptureSession</code>的<code>sessionPreset</code>来配置捕获配置。使用<code>AVAudioSession</code>来配置音频。当我们设置之后会自动配置<code>activeFormat</code>这个参数。</p>
+<p>但是可能我们需要特殊需求，比如高帧率视频，不能从<code>sessionPreset</code>配置。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Apple 提供设置高帧率视频捕获例子。</span></span><br><span class="line">- (<span class="keyword">void</span>)configureCameraForHighestFrameRate:(<span class="built_in">AVCaptureDevice</span> *)device</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">AVCaptureDeviceFormat</span> *bestFormat = <span class="literal">nil</span>;</span><br><span class="line">    <span class="built_in">AVFrameRateRange</span> *bestFrameRateRange = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="built_in">AVCaptureDeviceFormat</span> *format <span class="keyword">in</span> [device formats] ) &#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="built_in">AVFrameRateRange</span> *range <span class="keyword">in</span> format.videoSupportedFrameRateRanges ) &#123;</span><br><span class="line">            <span class="keyword">if</span> ( range.maxFrameRate &gt; bestFrameRateRange.maxFrameRate ) &#123;</span><br><span class="line">                bestFormat = format;</span><br><span class="line">                bestFrameRateRange = range;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( bestFormat ) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( [device lockForConfiguration:<span class="literal">NULL</span>] == <span class="literal">YES</span> ) &#123;</span><br><span class="line">            device.activeFormat = bestFormat;</span><br><span class="line">            device.activeVideoMinFrameDuration = bestFrameRateRange.minFrameDuration;</span><br><span class="line">            device.activeVideoMaxFrameDuration = bestFrameRateRange.minFrameDuration;</span><br><span class="line">            [device unlockForConfiguration];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="activeDepthDataFormat"><a href="#activeDepthDataFormat" class="headerlink" title="activeDepthDataFormat"></a>activeDepthDataFormat</h2><p>The currently active depth data format of the capture device.</p>
+<h2 id="focusMode"><a href="#focusMode" class="headerlink" title="focusMode"></a>focusMode</h2><p>The device’s focus mode.</p>
+<h2 id="focusPointOfInterest"><a href="#focusPointOfInterest" class="headerlink" title="focusPointOfInterest"></a>focusPointOfInterest</h2><p>The point of interest for focusing.</p>
+<p>This property’s CGPoint value uses a coordinate system where {0,0} is the top left of the picture area and {1,1} is the bottom right. This coordinate system is always relative to a landscape device orientation with the home button on the right, regardless of the actual device orientation.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ([currentDevice isFocusModeSupported:<span class="built_in">AVCaptureFocusModeContinuousAutoFocus</span>]) &#123;</span><br><span class="line">    <span class="built_in">CGPoint</span> autofocusPoint = <span class="built_in">CGPointMake</span>(<span class="number">0.5</span>f, <span class="number">0.5</span>f);</span><br><span class="line">    [currentDevice setFocusPointOfInterest:autofocusPoint];</span><br><span class="line">    [currentDevice setFocusMode:<span class="built_in">AVCaptureFocusModeContinuousAutoFocus</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AVCaptureDevice-Format"><a href="#AVCaptureDevice-Format" class="headerlink" title="AVCaptureDevice.Format"></a>AVCaptureDevice.Format</h2><p>A set of media format and capture settings (such as video resolution and frame rate) that can be used to configure a capture device.</p>
+<h2 id="AVCaptureDevice-FocusMode"><a href="#AVCaptureDevice-FocusMode" class="headerlink" title="AVCaptureDevice.FocusMode"></a>AVCaptureDevice.FocusMode</h2><h1 id="AVCaptureInput"><a href="#AVCaptureInput" class="headerlink" title="AVCaptureInput"></a>AVCaptureInput</h1><p>The abstract superclass for objects that provide input data to a capture session.</p>
+<h2 id="AVCaptureDeviceInput"><a href="#AVCaptureDeviceInput" class="headerlink" title="AVCaptureDeviceInput"></a>AVCaptureDeviceInput</h2><p>A capture input that provides media from a capture device to a capture session.</p>
+<h1 id="AVCaptureOutput"><a href="#AVCaptureOutput" class="headerlink" title="AVCaptureOutput"></a>AVCaptureOutput</h1><p>The abstract superclass for objects that output the media recorded in a capture session.</p>
+<h2 id="AVCaptureVideoDataOutput"><a href="#AVCaptureVideoDataOutput" class="headerlink" title="AVCaptureVideoDataOutput"></a>AVCaptureVideoDataOutput</h2><p>A capture output that records video and provides access to video frames for processing.</p>
+<h3 id="videoSettings"><a href="#videoSettings" class="headerlink" title="videoSettings"></a>videoSettings</h3><table>
+<thead>
+<tr>
+<th>Format</th>
+<th>YUV</th>
+<th>Discussion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange</td>
+<td>✅</td>
+<td>Bi-Planar Component Y’CbCr 8-bit 4:2:0 <br> video-range (luma=[16,235] chroma=[16,240]). <br> baseAddr points to a big-endian CVPlanarPixelBufferInfo_YCbCrBiPlanar struct.</td>
+</tr>
+<tr>
+<td>kCVPixelFormatType_420YpCbCr8BiPlanarFullRange</td>
+<td>✅</td>
+<td>Bi-Planar Component Y’CbCr 8-bit 4:2:0 <br> full-range (luma=[0,255] chroma=[1,255]). <br> baseAddr points to a big-endian CVPlanarPixelBufferInfo_YCbCrBiPlanar struct.</td>
+</tr>
+<tr>
+<td>kCVPixelFormatType_32BGRA</td>
+<td>❌</td>
+<td>32 bit BGRA.</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey <span class="keyword">as</span> <span class="type">AnyHashable</span>: kCVPixelFormatType_32BGRA]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>摄像头输出的视频流原始格式是YUV的格式，如果手动配置为BGRA的格式，系统会在内部进行YUV转BGRA的格式，GPUImage采用的是输出YUV，然后用OpenGL来转换。具体的转换矩阵可以之前的文章：<a href="http://xwjack.github.io/2017/10/25/GPUImage/">GPUImage-Mini灬哆啦</a></p>
+</blockquote>
+<h3 id="alwaysDiscardsLateVideoFrames"><a href="#alwaysDiscardsLateVideoFrames" class="headerlink" title="alwaysDiscardsLateVideoFrames"></a>alwaysDiscardsLateVideoFrames</h3><p>Indicates whether video frames are dropped if they arrive late.</p>
+<blockquote>
+<p>参数默认是<code>true</code>，如果不想丢帧，设置为<code>false</code>。</p>
+</blockquote>
+<h3 id="AVCaptureVideoDataOutputSampleBufferDelegate"><a href="#AVCaptureVideoDataOutputSampleBufferDelegate" class="headerlink" title="AVCaptureVideoDataOutputSampleBufferDelegate"></a>AVCaptureVideoDataOutputSampleBufferDelegate</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">optional</span> <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">captureOutput</span><span class="params">(<span class="number">_</span> output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)</span></span></span><br><span class="line"><span class="meta">@available</span>(iOS <span class="number">6.0</span>, *)</span><br><span class="line"><span class="keyword">optional</span> <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">captureOutput</span><span class="params">(<span class="number">_</span> output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将回调帧放到指定的队列中执行，为了保证帧的顺序，队列一定要是串行队列。</p>
+</blockquote>
+<h2 id="AVCaptureMetadataOutput"><a href="#AVCaptureMetadataOutput" class="headerlink" title="AVCaptureMetadataOutput"></a>AVCaptureMetadataOutput</h2><p>A capture output for processing timed metadata produced by a capture session.</p>
+<h3 id="metadataObjectTypes"><a href="#metadataObjectTypes" class="headerlink" title="metadataObjectTypes"></a>metadataObjectTypes</h3><p>An array of strings identifying the types of metadata objects to process.</p>
+<p>最常用的元数据类型：二维码<code>AVMetadataObjectTypeQRCode</code>和脸部<code>AVMetadataObjectTypeFace</code>。</p>
+<h3 id="AVCaptureMetadataOutputObjectsDelegate"><a href="#AVCaptureMetadataOutputObjectsDelegate" class="headerlink" title="AVCaptureMetadataOutputObjectsDelegate"></a>AVCaptureMetadataOutputObjectsDelegate</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">optional</span> <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">metadataOutput</span><span class="params">(<span class="number">_</span> output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection)</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="Capture"><a href="#Capture" class="headerlink" title="Capture"></a>Capture</h1><p>使用<code>AVCaptureSession</code>捕获视频数据。</p>
+<p>首先我们先定义一个基类，主要负责启动和停止<code>AVCaptureSession</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Simple system camera to capture video.</span></span><br><span class="line"><span class="comment">/// Only one camera input.</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemCamera</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> currentCameraPosition: <span class="type">CoreCameraPosition</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">let</span> cameraQueue = <span class="type">DispatchQueue</span>(label: <span class="string">"com.xwjack.Camera.Serial"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">fileprivate</span> <span class="keyword">var</span> videoDeviceInput: <span class="type">AVCaptureDeviceInput</span>? = <span class="literal">nil</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Session for capture.</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">let</span> session = <span class="type">AVCaptureSession</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">required</span> <span class="keyword">init</span>(cameraPosition: <span class="type">CoreCameraPosition</span> = .front) &#123;</span><br><span class="line">        currentCameraPosition = cameraPosition</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line">        needToResetInput()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">deinit</span> &#123;</span><br><span class="line">        session.stopRunning()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Start Capture</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameter completion: Call back when it completed.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">startCapture</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="keyword">guard</span> !session.isRunning <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        cameraQueue.async &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>?.session.startRunning()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Stop Capture</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameter completion: Call back when it completed.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">stopCapture</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="keyword">guard</span> session.isRunning <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        cameraQueue.async &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>?.session.stopRunning()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Switch camera.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">switchCamera</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        cameraQueue.async &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">guard</span> <span class="keyword">let</span> `<span class="keyword">self</span>` = <span class="keyword">self</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">            <span class="keyword">self</span>.currentCameraPosition = !<span class="keyword">self</span>.currentCameraPosition</span><br><span class="line">            <span class="keyword">self</span>.needToResetInput()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">func</span> <span class="title">configuration</span><span class="params">(videoDeviceInput: AVCaptureDeviceInput)</span></span> &#123;</span><br><span class="line">        session.beginConfiguration()</span><br><span class="line">        <span class="keyword">defer</span> &#123;</span><br><span class="line">            session.commitConfiguration()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/// Config new preset.</span></span><br><span class="line">        session.sessionPreset = <span class="type">AVCaptureSessionPreset640x480</span></span><br><span class="line">        <span class="keyword">if</span> session.canAddInput(videoDeviceInput) &#123;</span><br><span class="line">            session.addInput(videoDeviceInput)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">needToResetInput</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            videoDeviceInput = <span class="keyword">try</span> <span class="type">AVCaptureDeviceInput</span>(device: currentCameraPosition.device)</span><br><span class="line">            configuration(videoDeviceInput: videoDeviceInput!)</span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="built_in">assertionFailure</span>(error.localizedDescription)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>仅捕获视频。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">VideoCamera</span>: <span class="title">SystemCamera</span>, <span class="title">AVCaptureVideoDataOutputSampleBufferDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Video data output.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> videoDataOutput = <span class="type">AVCaptureVideoDataOutput</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Video process queue.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> videoProcessQueue = <span class="type">DispatchQueue</span>(label: <span class="string">"com.xwjack.Camera.Video.Serial"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Cache for last frame.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">var</span> bufferCache: <span class="type">CoreVideoFrame</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Call back with video frame.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">var</span> videoCallback: ((<span class="type">CoreVideoFrame</span>) -&gt; ())?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">required</span> <span class="keyword">init</span>(cameraPosition: <span class="type">CoreCameraPosition</span> = .front) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(cameraPosition: cameraPosition)</span><br><span class="line">        configuration(videoDataOutput: videoDataOutput)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">deinit</span> &#123;</span><br><span class="line">        videoDataOutput.setSampleBufferDelegate(<span class="literal">nil</span>, queue: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">func</span> <span class="title">configuration</span><span class="params">(videoDataOutput: AVCaptureVideoDataOutput)</span></span> &#123;</span><br><span class="line">        session.beginConfiguration()</span><br><span class="line">        <span class="keyword">defer</span> &#123;</span><br><span class="line">            session.commitConfiguration()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//kCVPixelFormatType_420YpCbCr8BiPlanarFullRange</span></span><br><span class="line">        <span class="comment">//kCVPixelFormatType_32BGRA</span></span><br><span class="line">        videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey <span class="keyword">as</span> <span class="type">AnyHashable</span>: kCVPixelFormatType_32BGRA]</span><br><span class="line">        <span class="keyword">if</span> session.canAddOutput(videoDataOutput) &#123;</span><br><span class="line">            session.addOutput(videoDataOutput)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">startCapture</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        videoDataOutput.setSampleBufferDelegate(<span class="keyword">self</span>, queue: videoProcessQueue)</span><br><span class="line">        <span class="keyword">super</span>.startCapture(completion: completion)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">stopCapture</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        videoDataOutput.setSampleBufferDelegate(<span class="literal">nil</span>, queue: <span class="literal">nil</span>)</span><br><span class="line">        <span class="keyword">super</span>.stopCapture(completion: completion)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">captureOutput</span><span class="params">(<span class="number">_</span> output: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)</span></span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> imageBuffer = <span class="type">CMSampleBufferGetImageBuffer</span>(sampleBuffer) <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        <span class="keyword">let</span> time = <span class="type">CMSampleBufferGetPresentationTimeStamp</span>(sampleBuffer)</span><br><span class="line">        <span class="keyword">if</span> bufferCache == <span class="literal">nil</span> &#123;</span><br><span class="line">            bufferCache = <span class="type">CoreVideoFrame</span>(buffer: imageBuffer, time: time, isMirror: currentCameraPosition.isMirror)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            bufferCache?.buffer = imageBuffer</span><br><span class="line">            bufferCache?.time = time</span><br><span class="line">            bufferCache?.isMirror = currentCameraPosition.isMirror</span><br><span class="line">        &#125;</span><br><span class="line">        videoCallback?(bufferCache!)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在这里<code>videoSettings</code>设置为<code>kCVPixelFormatType_32BGRA</code>，这样就不用自己将YUV的数据转换成BGRA的格式了。</p>
+</blockquote>
+<h2 id="Media"><a href="#Media" class="headerlink" title="Media"></a>Media</h2><p>捕获音频和视频。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">MediaCamera</span>: <span class="title">VideoCamera</span>, <span class="title">AVCaptureAudioDataOutputSampleBufferDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Call back for audio frame.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> audioCallback: ((<span class="type">CMSampleBuffer</span>) -&gt; ())? = <span class="literal">nil</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Audio device input.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> audioDeviceInput: <span class="type">AVCaptureDeviceInput</span>? = <span class="literal">nil</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Audio data output.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> audioDataOutput = <span class="type">AVCaptureAudioDataOutput</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Serial queue for audio process.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> audioProcessQueue = <span class="type">DispatchQueue</span>(label: <span class="string">"com.xwjack.Camera.Audio.Serial"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">required</span> <span class="keyword">init</span>(cameraPosition: <span class="type">CoreCameraPosition</span> = .front) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(cameraPosition: cameraPosition)</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            audioDeviceInput = <span class="keyword">try</span> <span class="type">AVCaptureDeviceInput</span>(device: <span class="type">AVCaptureDevice</span>.defaultDevice(withMediaType: <span class="type">AVMediaTypeAudio</span>))</span><br><span class="line">            configuration(audioDeviceInput: audioDeviceInput!)</span><br><span class="line">        &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="built_in">assertionFailure</span>(error.localizedDescription)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">startCapture</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        audioDataOutput.setSampleBufferDelegate(<span class="keyword">self</span>, queue: audioProcessQueue)</span><br><span class="line">        <span class="keyword">super</span>.startCapture(completion: completion)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">stopCapture</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        audioDataOutput.setSampleBufferDelegate(<span class="literal">nil</span>, queue: <span class="literal">nil</span>)</span><br><span class="line">        <span class="keyword">super</span>.stopCapture(completion: completion)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">func</span> <span class="title">configuration</span><span class="params">(audioDeviceInput: AVCaptureDeviceInput)</span></span> &#123;</span><br><span class="line">        session.beginConfiguration()</span><br><span class="line">        <span class="keyword">defer</span> &#123;</span><br><span class="line">            session.commitConfiguration()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> session.canAddInput(audioDeviceInput) &#123;</span><br><span class="line">            session.addInput(audioDeviceInput)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">func</span> <span class="title">configuration</span><span class="params">(audioDataOutput: AVCaptureAudioDataOutput)</span></span> &#123;</span><br><span class="line">        session.beginConfiguration()</span><br><span class="line">        <span class="keyword">defer</span> &#123;</span><br><span class="line">            session.commitConfiguration()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> session.canAddOutput(audioDataOutput) &#123;</span><br><span class="line">            session.addOutput(audioDataOutput)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">captureOutput</span><span class="params">(<span class="number">_</span> output: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)</span></span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> output != audioDataOutput <span class="keyword">else</span> &#123;</span><br><span class="line">            audioCallback?(sampleBuffer)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">super</span>.captureOutput(output, didOutputSampleBuffer: sampleBuffer, from: connection)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="QR-Decode"><a href="#QR-Decode" class="headerlink" title="QR Decode"></a>QR Decode</h2><p>直接捕获元数据。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">QRCamera</span>: <span class="title">VideoCamera</span>, <span class="title">AVCaptureMetadataOutputObjectsDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Is scanning</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">var</span> isScanning: <span class="type">Bool</span> = <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Metdata output.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> metdataOutput = <span class="type">AVCaptureMetadataOutput</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Metadata callback.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">var</span> metadataCallback: ((<span class="type">String</span>) -&gt; ())?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> qrProcessQueue = <span class="type">DispatchQueue</span>(label: <span class="string">"com.xwjack.Camera.QR.Serial"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Start QR scan</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">startScanner</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        isScanning = <span class="literal">true</span></span><br><span class="line">        metdataOutput.setMetadataObjectsDelegate(<span class="keyword">self</span>, queue: qrProcessQueue)</span><br><span class="line">        cameraQueue.async &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">guard</span> <span class="keyword">let</span> `<span class="keyword">self</span>` = <span class="keyword">self</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">self</span>.session.canAddOutput(<span class="keyword">self</span>.metdataOutput) &#123;</span><br><span class="line">                <span class="keyword">self</span>.session.beginConfiguration()</span><br><span class="line">                <span class="keyword">self</span>.session.addOutput(<span class="keyword">self</span>.metdataOutput)</span><br><span class="line">                <span class="keyword">self</span>.session.commitConfiguration()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/// Need to set metadataObjectTypes after addOutput</span></span><br><span class="line">            <span class="keyword">self</span>.metdataOutput.metadataObjectTypes = [<span class="type">AVMetadataObjectTypeQRCode</span>]</span><br><span class="line">            completion?()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Stop QR scan.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">stopScanner</span><span class="params">(completion: <span class="params">(<span class="params">()</span></span></span></span> -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        isScanning = <span class="literal">false</span></span><br><span class="line">        metdataOutput.setMetadataObjectsDelegate(<span class="literal">nil</span>, queue: <span class="literal">nil</span>)</span><br><span class="line">        cameraQueue.async &#123;</span><br><span class="line">            <span class="keyword">self</span>.session.beginConfiguration()</span><br><span class="line">            <span class="keyword">self</span>.session.removeOutput(<span class="keyword">self</span>.metdataOutput)</span><br><span class="line">            <span class="keyword">self</span>.session.commitConfiguration()</span><br><span class="line">            <span class="keyword">self</span>.isScanning = <span class="literal">false</span></span><br><span class="line">            completion?()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">captureOutput</span><span class="params">(<span class="number">_</span> output: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> metadataObject = metadataObjects.first <span class="keyword">as</span>? <span class="type">AVMetadataMachineReadableCodeObject</span>,</span><br><span class="line">            metadataObject.type == <span class="type">AVMetadataObjectTypeQRCode</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        metadataCallback?(metadataObject.stringValue)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Display"><a href="#Display" class="headerlink" title="Display"></a>Display</h1><p>摄像头采集的视频并不是可以直接显示在视图中，而是由于摄像头设备的朝向，所以有如下的转换。</p>
+<table>
+<thead>
+<tr>
+<th>AVCaptureDevicePosition</th>
+<th>Mirror</th>
+<th>Rotation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>front</td>
+<td>✅</td>
+<td>90</td>
+</tr>
+<tr>
+<td>back</td>
+<td>❌</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+<p>首先我们先定义一个<code>VideoFrame</code>来承接即将到来的视频帧。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Core video frame.</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">CoreVideoFrame</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// CoreVideo frame Orientation</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Orientation</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> portrait</span><br><span class="line">        <span class="keyword">case</span> portraitUpsideDown</span><br><span class="line">        <span class="keyword">case</span> landscapeLeft</span><br><span class="line">        <span class="keyword">case</span> landscapeRight</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// Angle for orientation.</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">var</span> rotationAngle: <span class="type">Double</span> &#123;</span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .portrait: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">case</span> .portraitUpsideDown: <span class="keyword">return</span> <span class="type">Double</span>.pi</span><br><span class="line">            <span class="keyword">case</span> .landscapeLeft: <span class="keyword">return</span> <span class="type">Double</span>.pi / <span class="number">2</span></span><br><span class="line">            <span class="keyword">case</span> .landscapeRight: <span class="keyword">return</span> -<span class="type">Double</span>.pi / <span class="number">2</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Buffer base CPU.</span></span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">fileprivate</span>(<span class="keyword">set</span>) <span class="keyword">var</span> buffer: <span class="type">CVPixelBuffer</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Is mirror</span></span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">fileprivate</span>(<span class="keyword">set</span>) <span class="keyword">var</span> isMirror: <span class="type">Bool</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Time stemp for texture.</span></span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">fileprivate</span>(<span class="keyword">set</span>) <span class="keyword">var</span> time: <span class="type">CMTime</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Default all captured video frame orientation is `landscapeLeft`</span></span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">let</span> orientaion: <span class="type">Orientation</span> = .landscapeLeft</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(buffer: <span class="type">CVPixelBuffer</span>, time: <span class="type">CMTime</span>, isMirror: <span class="type">Bool</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.buffer = buffer</span><br><span class="line">        <span class="keyword">self</span>.time = time</span><br><span class="line">        <span class="keyword">self</span>.isMirror = isMirror</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Width for texture.</span></span><br><span class="line">    <span class="keyword">var</span> width: <span class="type">Int</span> &#123; <span class="keyword">return</span> <span class="type">CVPixelBufferGetWidth</span>(buffer) &#125;</span><br><span class="line">    <span class="comment">/// Height for texture.</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Int</span> &#123; <span class="keyword">return</span> <span class="type">CVPixelBufferGetHeight</span>(buffer) &#125;</span><br><span class="line">    <span class="comment">/// Type for texture, default is `kCVPixelFormatType_32BGRA`</span></span><br><span class="line">    <span class="keyword">var</span> bufferType: <span class="type">OSType</span> &#123; <span class="keyword">return</span> <span class="type">CVPixelBufferGetPixelFormatType</span>(buffer) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用<code>GLKView</code>来显示视频帧。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Renderer video frame by GLKView, default is AspectRatio.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">GLKPreviewView</span>: <span class="title">GLKView</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> isEnable: <span class="type">Bool</span> = <span class="literal">true</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> ciContext: <span class="type">CIContext</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">init</span>(frame: <span class="type">CGRect</span>, context: <span class="type">EAGLContext</span>) &#123;</span><br><span class="line">        ciContext = <span class="type">CIContext</span>(eaglContext: context)</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame, context: context)</span><br><span class="line">        enableSetNeedsDisplay = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Initlization by given default EAGLContext with OpenGL ES 2</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameter frame: CGRect</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">convenience</span> <span class="keyword">init</span>(frame: <span class="type">CGRect</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(frame: frame, context: <span class="type">EAGLContext</span>(api: .openGLES2))</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">process</span><span class="params">(<span class="number">_</span> value: VideoFrame)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> isEnable &#123;</span><br><span class="line">            <span class="comment">/// ⚠️ Sync run in main queue.</span></span><br><span class="line">            <span class="type">DispatchQueue</span>.main.sync &#123;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">let</span> image = <span class="type">CIImage</span>(cvPixelBuffer: value.texture)</span><br><span class="line">                <span class="keyword">let</span> drawableSize = <span class="type">CGSize</span>(width: drawableWidth, height: drawableHeight)</span><br><span class="line">                <span class="comment">/// Create affine transform by orientation.</span></span><br><span class="line">                <span class="keyword">let</span> transform = <span class="type">CGAffineTransform</span>(rotationAngle: -<span class="type">CGFloat</span>(value.orientaion.rotationAngle))</span><br><span class="line">                </span><br><span class="line">                <span class="comment">/// Set context.</span></span><br><span class="line">                <span class="keyword">if</span> context != <span class="type">EAGLContext</span>.current() &#123;</span><br><span class="line">                    <span class="type">EAGLContext</span>.setCurrent(context)</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">let</span> transformImage = image.applying(value.isMirror ? transform.scaledBy(x: <span class="number">1</span>, y: -<span class="number">1</span>) : transform)</span><br><span class="line">                <span class="comment">/// Dicide CGRect to render video frame.</span></span><br><span class="line">                <span class="keyword">let</span> drawRect = <span class="type">AVMakeRect</span>(aspectRatio: drawableSize, insideRect: transformImage.extent)</span><br><span class="line">                </span><br><span class="line">                <span class="comment">/// Begin draw.</span></span><br><span class="line">                bindDrawable()</span><br><span class="line">                ciContext.draw(transformImage, <span class="keyword">in</span>: <span class="type">CGRect</span>(origin: .zero, size: drawableSize), from: drawRect)</span><br><span class="line">                display()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">public</span> <span class="keyword">init</span>?(coder aDecoder: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">"init(coder:) has not been implemented"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>视频帧是采用推流的方式获取，所以在设置<code>GLKView</code>的时候，我们需要设置<code>enableSetNeedsDisplay = false</code>表示我们采用推流的方式绘制视频，在调用<code>display()</code>表示需要绘制视频帧。</p>
+<p>由于前置摄像头捕获的数据是一个镜像数据，所以需要进行一次transform，最后使用<code>CIContext</code>绘制到<code>GLKView</code>。</p>
+</blockquote>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/01/10/Camera/">Camera</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2018-01-10 17:50</p>
+        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2018/01/10/Camera/" title="Camera">http://xwjack.github.io/2018/01/10/Camera/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2018/01/10/Camera/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/18/Media/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Media
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/10/LivePhoto/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Live Photo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AVCaptureSession"><span class="toc-number">1.</span> <span class="toc-text">AVCaptureSession</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionPreset"><span class="toc-number">1.1.</span> <span class="toc-text">sessionPreset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#beginConfiguration-amp-amp-commitConfiguration"><span class="toc-number">1.2.</span> <span class="toc-text">beginConfiguration &amp;&amp; commitConfiguration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#startRunning-amp-amp-stopRunning"><span class="toc-number">1.3.</span> <span class="toc-text">startRunning &amp;&amp; stopRunning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AVCaptureDevice"><span class="toc-number">2.</span> <span class="toc-text">AVCaptureDevice</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lockForConfiguration-amp-amp-unlockForConfiguration"><span class="toc-number">2.1.</span> <span class="toc-text">lockForConfiguration &amp;&amp; unlockForConfiguration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#formats"><span class="toc-number">2.2.</span> <span class="toc-text">formats</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#activeFormat"><span class="toc-number">2.3.</span> <span class="toc-text">activeFormat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#activeDepthDataFormat"><span class="toc-number">2.4.</span> <span class="toc-text">activeDepthDataFormat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#focusMode"><span class="toc-number">2.5.</span> <span class="toc-text">focusMode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#focusPointOfInterest"><span class="toc-number">2.6.</span> <span class="toc-text">focusPointOfInterest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVCaptureDevice-Format"><span class="toc-number">2.7.</span> <span class="toc-text">AVCaptureDevice.Format</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVCaptureDevice-FocusMode"><span class="toc-number">2.8.</span> <span class="toc-text">AVCaptureDevice.FocusMode</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AVCaptureInput"><span class="toc-number">3.</span> <span class="toc-text">AVCaptureInput</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AVCaptureDeviceInput"><span class="toc-number">3.1.</span> <span class="toc-text">AVCaptureDeviceInput</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AVCaptureOutput"><span class="toc-number">4.</span> <span class="toc-text">AVCaptureOutput</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AVCaptureVideoDataOutput"><span class="toc-number">4.1.</span> <span class="toc-text">AVCaptureVideoDataOutput</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#videoSettings"><span class="toc-number">4.1.1.</span> <span class="toc-text">videoSettings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#alwaysDiscardsLateVideoFrames"><span class="toc-number">4.1.2.</span> <span class="toc-text">alwaysDiscardsLateVideoFrames</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AVCaptureVideoDataOutputSampleBufferDelegate"><span class="toc-number">4.1.3.</span> <span class="toc-text">AVCaptureVideoDataOutputSampleBufferDelegate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVCaptureMetadataOutput"><span class="toc-number">4.2.</span> <span class="toc-text">AVCaptureMetadataOutput</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#metadataObjectTypes"><span class="toc-number">4.2.1.</span> <span class="toc-text">metadataObjectTypes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AVCaptureMetadataOutputObjectsDelegate"><span class="toc-number">4.2.2.</span> <span class="toc-text">AVCaptureMetadataOutputObjectsDelegate</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Capture"><span class="toc-number">5.</span> <span class="toc-text">Capture</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Video"><span class="toc-number">5.1.</span> <span class="toc-text">Video</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Media"><span class="toc-number">5.2.</span> <span class="toc-text">Media</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QR-Decode"><span class="toc-number">5.3.</span> <span class="toc-text">QR Decode</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Display"><span class="toc-number">6.</span> <span class="toc-text">Display</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/01/18/Media/" title="上一篇: Media">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/01/10/LivePhoto/" title="下一篇: Live Photo">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

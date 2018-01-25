@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Framework | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近对于库的研究比较多，主要是想将其他的第三方核心库和项目进行分离，使得项目不过于依赖第三方库！主要包含了Swift Framework中使用各种库的踩坑记录。">
+<meta name="keywords" content="iOS,Swift 3.1.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Framework">
+<meta property="og:url" content="http://xwjack.github.io/2017/09/20/Framework/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="最近对于库的研究比较多，主要是想将其他的第三方核心库和项目进行分离，使得项目不过于依赖第三方库！主要包含了Swift Framework中使用各种库的踩坑记录。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/3.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/4.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/5.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/6.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/7.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/8.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-09-20-Framework/9.png">
+<meta property="og:updated_time" content="2018-01-25T14:06:39.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Framework">
+<meta name="twitter:description" content="最近对于库的研究比较多，主要是想将其他的第三方核心库和项目进行分离，使得项目不过于依赖第三方库！主要包含了Swift Framework中使用各种库的踩坑记录。">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2017-09-20-Framework/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Framework" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/20/Framework/" class="article-date">
+      <time datetime="2017-09-19T16:00:00.000Z" itemprop="datePublished">2017-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Framework
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-1-0/">Swift 3.1.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>最近对于库的研究比较多，主要是想将其他的第三方核心库和项目进行分离，使得项目不过于依赖第三方库！<br>主要包含了Swift Framework中使用各种库的踩坑记录。</p>
+<a id="more"></a>
+<h1 id="全局定义"><a href="#全局定义" class="headerlink" title="全局定义"></a>全局定义</h1><p>为了解释方便在这里做一个全局的定义：</p>
+<ul>
+<li>A.framework表示我们创建的Framework，标准的Framework。</li>
+<li>A.h表示A.framework中的头文件。</li>
+<li>B.framework表示非标准的Framework文件。</li>
+<li>C.a表示静态链接库。</li>
+<li>M.xcodeproject表示Swift项目</li>
+<li>N.workspace表示一个工作空间</li>
+</ul>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>项目结构如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|--N.xcworkspace</span><br><span class="line">|   |--A.xcodeproject</span><br><span class="line">|   |--M.xcodeproject</span><br></pre></td></tr></table></figure>
+<h2 id="Embedded-Binaries-和-Link-Frameworks-and-Libraries-区别"><a href="#Embedded-Binaries-和-Link-Frameworks-and-Libraries-区别" class="headerlink" title="Embedded Binaries 和 Link Frameworks and Libraries 区别"></a>Embedded Binaries 和 Link Frameworks and Libraries 区别</h2><p><a href="https://stackoverflow.com/questions/32675272/when-should-we-use-embedded-binaries-rather-than-linked-frameworks-in-xcode" target="_blank" rel="noopener">When should we use “embedded binaries” rather than “Linked Frameworks” in Xcode?</a>中说的很专业。</p>
+<p>在项目中有这两个链接库的方式，而在Framework中只有<code>Link Frameworks and Libraries</code>，表示我们如果我们创建的库需要链接其他库的时候，最后打包的库并不包含链接的其他库，而是创建一个引用！这个时候你在项目中使用该库的时候还是需要链接该库所引用的所有相关库！在这里cocoapod可以很好的解决这种相关库的依赖问题。</p>
+<p>举个🌰：我们创建<code>A.framework</code>，链接了一个第三方库<code>B.framework</code>和<code>C.a</code>库。我们需要在<code>M.xcodeproject</code>中使用<code>A.framework</code>。</p>
+<p>如果项目和A.framework同属于一个workspace，那么需要在<code>Embedded Binries</code>中添加<code>A.framework</code>，在<code>Build Settings</code> -&gt; <code>Framework Search Paths</code>和<code>Library Search Paths</code>中设置<code>B.framework</code>和<code>C.a</code>库的位置。</p>
+<h2 id="A-h文件解释"><a href="#A-h文件解释" class="headerlink" title="A.h文件解释"></a>A.h文件解释</h2><p>在创建Swift Framework的时候会自动创建一个A.h文件，这个文件其实就相当于静态库的头文件。</p>
+<p>我们可以在这里面用<code>@import UIKit;</code>或者<code>#import &lt;UIKit/UIKit.h&gt;</code>方式来实现导入UIKit框架，表示这个库引用了UIKit的框架。</p>
+<p>⚠️：这个头文件必须是public类型。</p>
+<h2 id="module-modulemap文件解释"><a href="#module-modulemap文件解释" class="headerlink" title="module.modulemap文件解释"></a>module.modulemap文件解释</h2><p>我们创建一个标准的<code>Swift Framework</code>的时候，Framework的结构大致应该是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|--A (二进制文件)</span><br><span class="line">|--Headers/</span><br><span class="line">|   |--*.h (头文件)</span><br><span class="line">|--Modules/</span><br><span class="line">|   |--module.modulemap (模块文件)</span><br><span class="line">|-- ...</span><br></pre></td></tr></table></figure>
+<p>下面我们讲解一下这个<code>module.modulemap</code>的用处。这个文件基本格式如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">framework module <span class="type">A</span> &#123;</span><br><span class="line">  umbrella header <span class="string">"A.h"</span></span><br><span class="line"></span><br><span class="line">  export *</span><br><span class="line">  module * &#123; export * &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//module A.Swift &#123;</span></span><br><span class="line"><span class="comment">//    header "A-Swift.h"</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+<p>我们知道在Swift项目中使用一个库，最简单的方式就是import这个库，例如<code>import Alamofire</code>！<code>framework module A</code>指明了这个库的名称是<code>A</code>，<code>umbrella header &quot;A.h&quot;</code>指明了这个库的头文件是哪个。</p>
+<h1 id="Swift-Framework-链接其他库"><a href="#Swift-Framework-链接其他库" class="headerlink" title="Swift Framework 链接其他库"></a>Swift Framework 链接其他库</h1><h2 id="链接非标准的B-Framework"><a href="#链接非标准的B-Framework" class="headerlink" title="链接非标准的B.Framework"></a>链接非标准的B.Framework</h2><p>如果你链接一个非标准的Framework，里面没有<code>module.modulemap</code>文件，你是无法通过<code>@import B;</code>的方式来链接这个库的。</p>
+<p>也就是说尝试在<code>A.h</code>文件中如下写法：</p>
+<ul>
+<li><p><code>@import B;</code>：编译器会提示错误：<code>Module &#39;B&#39; not found</code></p>
+</li>
+<li><p><code>#Import &lt;B/B.h&gt;</code>：编译器会提示错误：<code>Include of non-modular header inside framework module &#39;A&#39;: &#39;B.framework/Headers/B.h&#39;</code></p>
+</li>
+</ul>
+<p>⚠️但是第二个方式对于直接在项目中引用是没有问题的，在<code>X-Bridging-Header.h</code>中<code>#Import &lt;B/B.h&gt;</code>就可以。</p>
+<p>其实在这里我们只需要为该Framework创建一个<code>module.modulemap</code>文件即可，内容如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">framework module <span class="type">B</span> &#123;</span><br><span class="line">  umbrella header <span class="string">"B.h"</span></span><br><span class="line"></span><br><span class="line">  export *</span><br><span class="line">  module * &#123; export * &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="链接C-a静态库"><a href="#链接C-a静态库" class="headerlink" title="链接C.a静态库"></a>链接C.a静态库</h2><p>链接静态库比较简单，直接导入到项目中，并在<code>A.h</code>中<code>#import &quot;B.h&quot;</code>即可</p>
+<p>⚠️：在<code>A.h</code>import的头文件都必须是public类型，即需要暴露的头文件。</p>
+<p>举个🌰：我们想将<code>GPUImage</code>静态库引入，只需要在<code>A.h</code>中<code>#import &quot;GPUImage.h&quot;</code>即可（<code>GPUImage.h</code>及所有的相关头文件都设置成public）。</p>
+<h2 id="链接C-写的Framework"><a href="#链接C-写的Framework" class="headerlink" title="链接C++写的Framework"></a>链接C++写的Framework</h2><p>C++并不能直接被Swift和Objective-C使用，只能使用Objective-C++使用，这个时候我们需要创建一个<code>.mm</code>文件来使用这个库。</p>
+<p>举个🌰：我们导入<code>opencv.framework</code>，并在Swift Framework中使用。<br>首先创建一个<code>.mm</code>文件（其实就是创建一个<code>.m</code>文件更改一下后缀名）。引入<code>#import &lt;opencv2/opencv.hpp&gt;</code>就可以了。</p>
+<p><a href="https://medium.com/@borisohayon/ios-opencv-and-swift-1ee3e3a5735b" target="_blank" rel="noopener">iOS — OpenCV and Swift</a>这篇文章写的很好。</p>
+<h2 id="扫盲"><a href="#扫盲" class="headerlink" title="扫盲"></a>扫盲</h2><p>下面介绍一下自己认为的错误。</p>
+<h3 id="Framework一定是动态库么？"><a href="#Framework一定是动态库么？" class="headerlink" title="Framework一定是动态库么？"></a>Framework一定是动态库么？</h3><p>Framework可能是动态库，也可能是静态库，决定是掌握在Build Setting中的Mach-o Type选项。<br>例如<code>ijkplayer</code>虽然是以Framework结尾，但其却是静态库。</p>
+<p><img src="/images/2017-09-20-Framework/1.png" alt=""></p>
+<h4 id="那么在项目中如何引入这样以Framework结尾的静态库呢？"><a href="#那么在项目中如何引入这样以Framework结尾的静态库呢？" class="headerlink" title="那么在项目中如何引入这样以Framework结尾的静态库呢？"></a>那么在项目中如何引入这样以Framework结尾的静态库呢？</h4><p>由于是静态库，所以是直接链接到可执行文件中的，所以在解包ipa文件的Frameowks目录底下是看不到这个Framework的。</p>
+<ol>
+<li>Framework链接的静态库可以<strong>不用</strong>在项目中再次设置<code>Library Search Paths</code>。</li>
+<li>Framework链接的动态库<strong>需要</strong>在项目中设置<code>Framework Search Paths</code>。</li>
+<li>Framework中的Bundle需要单独拿出来，否则在运行的时候无法找到该Bundle。</li>
+</ol>
+<h3 id="以Framework结尾的静态库可以Embedded-Binaries到项目中么？"><a href="#以Framework结尾的静态库可以Embedded-Binaries到项目中么？" class="headerlink" title="以Framework结尾的静态库可以Embedded Binaries到项目中么？"></a>以Framework结尾的静态库可以Embedded Binaries到项目中么？</h3><p>不能！只能通过Link Frameworks and Libraries的方式进行链接。</p>
+<p>由于静态库是直接编译链接到可执行文件中的，然后将其他资源文件以Bundle的形式放在放到ipa包中，所以不能Embedded Binaries到项目中，否则会出现编译，运行等都没有问题，但是Archive的时候会出现<code>Found an unexpected Mach-O header code</code>，<code>did not contain a &quot;archived-expanded-entitlements.xcent&quot; resource</code>。</p>
+<h1 id="Swift导入C文件"><a href="#Swift导入C文件" class="headerlink" title="Swift导入C文件"></a>Swift导入C文件</h1><p>下面介绍如何在Swift库中引用C文件。其中最典型的就是<code>CommonCrypto</code>，Swift的Framework中不能添加桥接文件，添加之后会出现<code>Include of non-modular header inside framework module &#39;xxx&#39;</code>.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="创建module-modulemap文件"><a href="#创建module-modulemap文件" class="headerlink" title="创建module.modulemap文件"></a>创建<code>module.modulemap</code>文件</h3><p>这边我创建了两个，一个是模拟器下用的，一个是真机环境下的，分别放在同一个文件夹下<code>CommonCrypto</code>的两个目录中<code>iphoneos</code>和<code>iphonesimulator</code>。</p>
+<blockquote>
+<p>最终存放在这两个目录中 </p>
+<p>${SRCROOT}/Sources/modules/CommonCrypto/iphoneos/</p>
+<p>${SRCROOT}/Sources/modules/CommonCrypto/iphonesimulator/</p>
+</blockquote>
+<ul>
+<li>模拟器：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module <span class="type">CommonCrypto</span> [system] &#123;</span><br><span class="line">    header <span class="string">"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/CommonCrypto/CommonCrypto.h"</span></span><br><span class="line">    export *</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>真机：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module <span class="type">LPCommonCrypto</span> [system] &#123;</span><br><span class="line">    header <span class="string">"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/CommonCrypto/CommonCrypto.h"</span></span><br><span class="line">    export *</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有的人说可以用<code>${SDKROOT}</code>来代替<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk</code> </p>
+<p>有的直接写<code>/usr/include/CommonCrypto/CommonCrypto.h</code>就可以，但是我这边只能写完整路径，不然找不到。</p>
+</blockquote>
+<h3 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h3><p>在对应的<code>Target</code>的<code>Build Setting</code>中找到<code>import Paths</code>，修改键值为<code>${SRCROOT}/CommonCrypto</code></p>
+<h3 id="CocoaPods配置"><a href="#CocoaPods配置" class="headerlink" title="CocoaPods配置"></a>CocoaPods配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 路径选择</span><br><span class="line">s.preserve_paths = &apos;Sources/modules/CommonCrypto/**/*&apos;</span><br><span class="line"></span><br><span class="line">s.pod_target_xcconfig = &#123;</span><br><span class="line">    &apos;SWIFT_INCLUDE_PATHS[sdk=iphoneos*]&apos;         =&gt; &apos;$(PODS_ROOT)/YourFrameworkName/Sources/modules/CommonCrypto/iphoneos&apos;,</span><br><span class="line">    &apos;SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]&apos;  =&gt; &apos;$(PODS_ROOT)/YourFrameworkName/Sources/modules/CommonCrypto/iphonesimulator&apos;,</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><blockquote>
+<p><a href="http://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework/37125785#37125785" target="_blank" rel="noopener">Importing CommonCrypto in a Swift framework</a></p>
+<p><a href="https://github.com/onmyway133/Arcane" target="_blank" rel="noopener">Arcane</a></p>
+<p><a href="https://github.com/XWJACK/Lotus" target="_blank" rel="noopener">Lotus</a></p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>其实从<code>#import &lt;UIKit/UIKit.h&gt;</code>这个就可以知道如何在一个Swift Framework中引入其他的框架。</p>
+<h1 id="合并通用的-Framework-Static-Library"><a href="#合并通用的-Framework-Static-Library" class="headerlink" title="合并通用的 Framework || Static Library"></a>合并通用的 Framework || Static Library</h1><h2 id="命令详解"><a href="#命令详解" class="headerlink" title="命令详解"></a>命令详解</h2><p><code>lipo</code>: create or operate on universal files</p>
+<p><code>lipo -create [Framework1] [Framework2] -output [Universal.framework/Universal.a]</code></p>
+<h2 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h2><h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><ul>
+<li>1⃣️选择<code>Generic iOS Device</code>和任意一款模拟器分别编译一下。</li>
+</ul>
+<p>success之后，在<code>build/Debug-iphoneos/</code>和<code>build/Debug-iphonesimulator</code>目录下分别有一个文件夹：<code>GPUImage.framework</code>。</p>
+<ul>
+<li>2⃣️执行下面命令开始合并：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create .../Debug-iphoneos/GPUImage.framework .../Debug-iphonesimulator/GPUImage.framework/GPUImage -output .../GPUImage</span><br></pre></td></tr></table></figure>
+<h3 id="Static-Library"><a href="#Static-Library" class="headerlink" title="Static Library"></a>Static Library</h3><p>首先需要将头文件暴露出来，将<code>project</code>中的头文件拖拽到<code>public</code>中：</p>
+<p><img src="/images/2017-09-20-Framework/2.png" alt=""></p>
+<ul>
+<li>1⃣️ 然后选择<code>Generic iOS Device</code>和任意一款模拟器分别编译一下。</li>
+</ul>
+<p>success之后，在<code>build/Debug-iphoneos/</code>和<code>build/Debug-iphonesimulator</code>目录下分别有一个文件一个文件夹：<code>libGPUImage.a</code>和<code>usr</code>，<code>usr</code>中就是头文件。</p>
+<ul>
+<li>2⃣️ 执行下面命令开始合并：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create .../Debug-iphoneos/libGPUImage.a .../Debug-iphonesimulator/libGPUImage.a -output .../GPUImage.a</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3⃣️ 查看是否执行成功： <code>lipo -info GPUImage.a</code></li>
+</ul>
+<blockquote>
+<p>Architectures in the fat file: GPUImage.a are: armv7 x86_64 arm64</p>
+</blockquote>
+<ul>
+<li>4⃣️ 将<code>GPUImage.a</code>和<code>usr</code>拖入项目中，然后在<code>xxxx-Bridging-Header.h</code>中添加<code>#import &quot;GPUImage.h&quot;</code>就OK了。</li>
+</ul>
+<h1 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h1><h2 id="dyld-Library-not-loaded-rpath-xxx-framework-xxx"><a href="#dyld-Library-not-loaded-rpath-xxx-framework-xxx" class="headerlink" title="dyld: Library not loaded: @rpath/xxx.framework/xxx"></a>dyld: Library not loaded: @rpath/xxx.framework/xxx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath/xxx.framework/xxx</span><br><span class="line">Referenced from: /xxx.framework/xxx</span><br><span class="line">Reason: image not found</span><br></pre></td></tr></table></figure>
+<p>我们用<code>Alamofire</code>（Swift）和<code>GPUImage</code>（Objective-C）为例导入到一个Swift项目中。</p>
+<h3 id="❌错误演示1"><a href="#❌错误演示1" class="headerlink" title="❌错误演示1"></a>❌错误演示1</h3><p>在一个<code>workspace</code>中添加<code>Alamofire</code>和<code>GPUImage</code>，然后链接这两个库。</p>
+<p><img src="/images/2017-09-20-Framework/3.png" alt=""></p>
+<p>编译是没有问题的，但是一运行就出现了上述的问题：</p>
+<p><img src="/images/2017-09-20-Framework/4.png" alt=""></p>
+<h3 id="❌错误演示2"><a href="#❌错误演示2" class="headerlink" title="❌错误演示2"></a>❌错误演示2</h3><p>在一个<code>workspace</code>中添加<code>Alamofire</code>和<code>GPUImage</code>，然后<code>Embedded Binaries</code>这两个库。⚠️查看这拖拽库的位置和添加方式。</p>
+<p><img src="/images/2017-09-20-Framework/5.png" alt=""></p>
+<p>编译运行都是没有问题的，但是在<code>Embedded Binaries</code>中显示的路径是一条带有随机字符串的库，一旦用<code>Git</code>提交代码，别人就用不了，因为路径不同，所以找不到库。</p>
+<p><img src="/images/2017-09-20-Framework/6.png" alt=""></p>
+<h3 id="✅正确演示"><a href="#✅正确演示" class="headerlink" title="✅正确演示"></a>✅正确演示</h3><p>在一个<code>project</code>中添加<code>Alamfrie</code>和<code>GPUImage</code>（⚠️<strong>添加的位置是在这个项目里面</strong>），然后<code>Embedded Binaries</code>添加这两个库</p>
+<p><img src="/images/2017-09-20-Framework/7.png" alt=""></p>
+<p>编译运行，完全没有问题：</p>
+<p><img src="/images/2017-09-20-Framework/8.png" alt=""></p>
+<h3 id="✅GPUImage官方讲解导入库"><a href="#✅GPUImage官方讲解导入库" class="headerlink" title="✅GPUImage官方讲解导入库"></a>✅<code>GPUImage</code>官方讲解导入库</h3><p>Adding this as a framework (module) to your Mac or iOS project</p>
+<p>Xcode 6 and iOS 8 support the use of full frameworks, as does the Mac, which simplifies the process of adding this to your application. To add this to your application, I recommend dragging the <code>.xcodeproj</code> project file into your application’s project (as you would in the static library target).</p>
+<blockquote>
+<p>直接拖入到<code>.xcodeproj</code>，而不是<code>.xcworkspace</code>中。</p>
+</blockquote>
+<p>For your application, go to its target build settings and choose the Build Phases tab. Under the Target Dependencies grouping, add GPUImageFramework on iOS (not GPUImage, which builds the static library) or GPUImage on the Mac. Under the Link Binary With Libraries section, add GPUImage.framework.</p>
+<p>This should cause GPUImage to build as a framework. Under Xcode 6, this will also build as a module, which will allow you to use this in Swift projects. When set up as above, you should just need to use <code>import GPUImage</code> to pull it in.</p>
+<blockquote>
+<p>You then need to add a new Copy Files build phase, set the Destination to Frameworks, and add the GPUImage.framework build product to that. This will allow the framework to be bundled with your application (otherwise, you’ll see cryptic “dyld: Library not loaded: @rpath/GPUImage.framework/GPUImage” errors on execution).</p>
+</blockquote>
+<h3 id="✅正确在-xcworkspace中添加库-常见于cocoaPods"><a href="#✅正确在-xcworkspace中添加库-常见于cocoaPods" class="headerlink" title="✅正确在.xcworkspace中添加库(常见于cocoaPods)"></a>✅正确在<code>.xcworkspace</code>中添加库(常见于cocoaPods)</h3><p>和上面一样，直接拖到对应的<code>project</code>中。</p>
+<p><img src="/images/2017-09-20-Framework/9.png" alt=""></p>
+<blockquote>
+<p>⚠️<code>Test</code>项目是后来更新的图。</p>
+</blockquote>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2017/09/20/Framework/">Framework</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2017-09-20 00:00</p>
+        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2017/09/20/Framework/" title="Framework">http://xwjack.github.io/2017/09/20/Framework/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/09/20/Framework/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/10/25/GPUImage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          GPUImage
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/31/Playback/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Playback</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#全局定义"><span class="toc-number">1.</span> <span class="toc-text">全局定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础知识"><span class="toc-number">2.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedded-Binaries-和-Link-Frameworks-and-Libraries-区别"><span class="toc-number">2.1.</span> <span class="toc-text">Embedded Binaries 和 Link Frameworks and Libraries 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-h文件解释"><span class="toc-number">2.2.</span> <span class="toc-text">A.h文件解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#module-modulemap文件解释"><span class="toc-number">2.3.</span> <span class="toc-text">module.modulemap文件解释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift-Framework-链接其他库"><span class="toc-number">3.</span> <span class="toc-text">Swift Framework 链接其他库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#链接非标准的B-Framework"><span class="toc-number">3.1.</span> <span class="toc-text">链接非标准的B.Framework</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接C-a静态库"><span class="toc-number">3.2.</span> <span class="toc-text">链接C.a静态库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接C-写的Framework"><span class="toc-number">3.3.</span> <span class="toc-text">链接C++写的Framework</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫盲"><span class="toc-number">3.4.</span> <span class="toc-text">扫盲</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Framework一定是动态库么？"><span class="toc-number">3.4.1.</span> <span class="toc-text">Framework一定是动态库么？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#那么在项目中如何引入这样以Framework结尾的静态库呢？"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">那么在项目中如何引入这样以Framework结尾的静态库呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以Framework结尾的静态库可以Embedded-Binaries到项目中么？"><span class="toc-number">3.4.2.</span> <span class="toc-text">以Framework结尾的静态库可以Embedded Binaries到项目中么？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift导入C文件"><span class="toc-number">4.</span> <span class="toc-text">Swift导入C文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">4.1.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建module-modulemap文件"><span class="toc-number">4.1.1.</span> <span class="toc-text">创建module.modulemap文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目设置"><span class="toc-number">4.1.2.</span> <span class="toc-text">项目设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CocoaPods配置"><span class="toc-number">4.1.3.</span> <span class="toc-text">CocoaPods配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-number">4.2.</span> <span class="toc-text">参考文章</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#合并通用的-Framework-Static-Library"><span class="toc-number">6.</span> <span class="toc-text">合并通用的 Framework || Static Library</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令详解"><span class="toc-number">6.1.</span> <span class="toc-text">命令详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举个🌰"><span class="toc-number">6.2.</span> <span class="toc-text">举个🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Framework"><span class="toc-number">6.2.1.</span> <span class="toc-text">Framework</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Static-Library"><span class="toc-number">6.2.2.</span> <span class="toc-text">Static Library</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Errors"><span class="toc-number">7.</span> <span class="toc-text">Errors</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dyld-Library-not-loaded-rpath-xxx-framework-xxx"><span class="toc-number">7.1.</span> <span class="toc-text">dyld: Library not loaded: @rpath/xxx.framework/xxx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#❌错误演示1"><span class="toc-number">7.1.1.</span> <span class="toc-text">❌错误演示1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#❌错误演示2"><span class="toc-number">7.1.2.</span> <span class="toc-text">❌错误演示2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#✅正确演示"><span class="toc-number">7.1.3.</span> <span class="toc-text">✅正确演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#✅GPUImage官方讲解导入库"><span class="toc-number">7.1.4.</span> <span class="toc-text">✅GPUImage官方讲解导入库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#✅正确在-xcworkspace中添加库-常见于cocoaPods"><span class="toc-number">7.1.5.</span> <span class="toc-text">✅正确在.xcworkspace中添加库(常见于cocoaPods)</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/10/25/GPUImage/" title="上一篇: GPUImage">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/08/31/Playback/" title="下一篇: Playback">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

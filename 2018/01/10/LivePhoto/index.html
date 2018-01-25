@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Live Photo | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="如何用AVFoundation将视频生成Live Photo。 Live Photo其实就是一个mov文件和一张jpg文件，在下面保存Live Photo代码中就可以看出。 12345678[[PHPhotoLibrary sharedPhotoLibrary] performChanges:^&amp;#123;    PHAssetCreationRequest *request = [PHAsset">
+<meta name="keywords" content="iOS,AVFoundation,Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live Photo">
+<meta property="og:url" content="http://xwjack.github.io/2018/01/10/LivePhoto/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="如何用AVFoundation将视频生成Live Photo。 Live Photo其实就是一个mov文件和一张jpg文件，在下面保存Live Photo代码中就可以看出。 12345678[[PHPhotoLibrary sharedPhotoLibrary] performChanges:^&amp;#123;    PHAssetCreationRequest *request = [PHAsset">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-20T06:18:06.556Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Live Photo">
+<meta name="twitter:description" content="如何用AVFoundation将视频生成Live Photo。 Live Photo其实就是一个mov文件和一张jpg文件，在下面保存Live Photo代码中就可以看出。 12345678[[PHPhotoLibrary sharedPhotoLibrary] performChanges:^&amp;#123;    PHAssetCreationRequest *request = [PHAsset">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-LivePhoto" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/10/LivePhoto/" class="article-date">
+      <time datetime="2018-01-10T06:55:55.000Z" itemprop="datePublished">2018-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Live Photo
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVFoundation/">AVFoundation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>如何用AVFoundation将视频生成Live Photo。</p>
+<p>Live Photo其实就是一个mov文件和一张jpg文件，在下面保存Live Photo代码中就可以看出。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[PHPhotoLibrary sharedPhotoLibrary] performChanges:^&#123;</span><br><span class="line">    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];</span><br><span class="line">    PHAssetResourceCreationOptions *options = [[PHAssetResourceCreationOptions alloc] init];</span><br><span class="line">    options.shouldMoveFile = <span class="literal">YES</span>;</span><br><span class="line">    [request addResourceWithType:PHAssetResourceTypePhoto fileURL:_imageOutputURL options:options];</span><br><span class="line">    [request addResourceWithType:PHAssetResourceTypePairedVideo fileURL:_videoOutputURL options:options];</span><br><span class="line">&#125; completionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p>是不是任意的mov文件和jpg就可以生成Live Photo呢？当然是不行的，因为系统在元数据上进行了标记。</p>
+<a id="more"></a>
+<h1 id="Begin"><a href="#Begin" class="headerlink" title="Begin"></a>Begin</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *_assetIdentifier;</span><br><span class="line"><span class="built_in">NSURL</span> *_imageOutputURL;</span><br><span class="line"><span class="built_in">NSURL</span> *_videoOutputURL;</span><br><span class="line"><span class="built_in">AVURLAsset</span> *_asset;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span>* <span class="keyword">const</span> kKeyAppleMakerNoteAssetIdentifier = <span class="string">@"17"</span>;</span><br><span class="line"><span class="built_in">NSString</span>* <span class="keyword">const</span> kKeyStillImageTime = <span class="string">@"com.apple.quicktime.still-image-time"</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>_assetIdentifier</code>是用<code>[[NSUUID UUID] UUIDString]</code>生成的唯一标识符。</p>
+</blockquote>
+<h1 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h1><p>首先我们取视频中某一时间点来生成一个jpg。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVAssetImageGenerator</span>* generator = [<span class="built_in">AVAssetImageGenerator</span> assetImageGeneratorWithAsset:_asset];</span><br><span class="line">generator.appliesPreferredTrackTransform = <span class="literal">YES</span>;</span><br><span class="line"><span class="built_in">CGImageRef</span> cgImage = [generator copyCGImageAtTime:kCMTimeZero actualTime:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">/// Setting metadata.</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *metadata = @&#123;(<span class="built_in">NSString</span>*)kCGImagePropertyMakerAppleDictionary: @&#123;kKeyAppleMakerNoteAssetIdentifier: _assetIdentifier&#125;&#125;;</span><br><span class="line"><span class="built_in">NSMutableData</span> *imageData = [<span class="built_in">NSMutableData</span> new];</span><br><span class="line"><span class="built_in">CGImageDestinationRef</span> dest = <span class="built_in">CGImageDestinationCreateWithData</span>((<span class="built_in">CFMutableDataRef</span>)imageData, kUTTypeJPEG, <span class="number">1</span>, <span class="literal">nil</span>);</span><br><span class="line"><span class="built_in">CGImageDestinationAddImage</span>(dest, cgImage, (<span class="built_in">CFDictionaryRef</span>)metadata);</span><br><span class="line"><span class="built_in">CGImageDestinationFinalize</span>(dest);</span><br><span class="line"><span class="built_in">CGImageRelease</span>(cgImage);</span><br><span class="line"><span class="built_in">CFRelease</span>(dest);</span><br><span class="line"><span class="comment">/// Write to file.</span></span><br><span class="line">[imageData writeToURL:_imageOutputURL atomically:<span class="literal">YES</span>]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以用其他图片，但是需要设置jpg的元数据，给这个jpg一个标记。</p>
+</blockquote>
+<h1 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h1><p>视频上有两个点要设置，一个唯一标识符<code>_assetIdentifier</code>，一个是关键帧</p>
+<h2 id="Transcoding"><a href="#Transcoding" class="headerlink" title="Transcoding"></a>Transcoding</h2><p>如果视频不是mov文件而是mp4的，就需要转码了，转码有两个方式，一个是用<code>AVAssetReaderTrackOutput</code>和<code>AVAssetWriterInput</code>，一个是用<code>AVAssetExportSession</code></p>
+<h3 id="AVAssetReader-amp-amp-AVAssetWriter"><a href="#AVAssetReader-amp-amp-AVAssetWriter" class="headerlink" title="AVAssetReader &amp;&amp; AVAssetWriter"></a>AVAssetReader &amp;&amp; AVAssetWriter</h3><p>首先我们先得到视频的videoTrack和audioTrack（可能没有）</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVAssetTrack</span> *videoTrack = [[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeVideo</span>] firstObject];</span><br><span class="line"><span class="keyword">if</span> (videoTrack == <span class="literal">nil</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            completionHandler(<span class="literal">NO</span>, [<span class="built_in">NSError</span> errorWithDomain:<span class="string">@"LivePhoto Can't get video track."</span> code:<span class="number">-1</span> userInfo:<span class="literal">nil</span>]);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">AVAssetTrack</span> *audioTrack = [[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] firstObject];</span><br><span class="line"><span class="built_in">BOOL</span> hasAudio = audioTrack != <span class="literal">nil</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="Progress"><a href="#Progress" class="headerlink" title="Progress"></a>Progress</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Accurate to microsecond.</span></span><br><span class="line"><span class="keyword">const</span> int64_t videoTotalUnitCount = (int64_t)(<span class="built_in">CMTimeGetSeconds</span>(videoTrack.timeRange.duration) * <span class="number">10</span>);</span><br><span class="line"><span class="keyword">const</span> int64_t audioTotalUnitCount = hasAudio ? (int64_t)(<span class="built_in">CMTimeGetSeconds</span>(audioTrack.timeRange.duration) * <span class="number">10</span>) : <span class="number">0</span>;</span><br><span class="line"><span class="built_in">NSProgress</span> *progress = [<span class="built_in">NSProgress</span> progressWithTotalUnitCount:hasAudio ? videoTotalUnitCount + audioTotalUnitCount : videoTotalUnitCount];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>得到videoTrack和audioTrack的持续时间，精确到毫秒。</p>
+</blockquote>
+<h4 id="AVAssetReader"><a href="#AVAssetReader" class="headerlink" title="AVAssetReader"></a>AVAssetReader</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVAssetReaderTrackOutput</span> *videoReaderTrackOutput = [[<span class="built_in">AVAssetReaderTrackOutput</span> alloc] initWithTrack:videoTrack</span><br><span class="line">                                                                                    outputSettings:@&#123;(<span class="built_in">NSString</span> *)kCVPixelBufferPixelFormatTypeKey: [<span class="built_in">NSNumber</span> numberWithUnsignedInt:kCVPixelFormatType_32BGRA]&#125;];</span><br><span class="line"><span class="built_in">AVAssetReader</span> *videoReader = [[<span class="built_in">AVAssetReader</span> alloc] initWithAsset:_asset error:<span class="literal">nil</span>];</span><br><span class="line">[videoReader addOutput:videoReaderTrackOutput];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在这里我们读取的格式为<code>kCVPixelFormatType_32BGRA</code></p>
+</blockquote>
+<h4 id="AVAssetWriter"><a href="#AVAssetWriter" class="headerlink" title="AVAssetWriter"></a>AVAssetWriter</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVAssetWriterInput</span> *videoWriteInput = [[<span class="built_in">AVAssetWriterInput</span> alloc] initWithMediaType:<span class="built_in">AVMediaTypeVideo</span></span><br><span class="line">                                                                     outputSettings:@&#123;<span class="built_in">AVVideoCodecKey</span>: <span class="built_in">AVVideoCodecH264</span>,</span><br><span class="line">                                                                                      <span class="built_in">AVVideoWidthKey</span>: [<span class="built_in">NSNumber</span> numberWithDouble:videoTrack.naturalSize.width],</span><br><span class="line">                                                                                      <span class="built_in">AVVideoHeightKey</span>: [<span class="built_in">NSNumber</span> numberWithDouble:videoTrack.naturalSize.height]&#125;];</span><br><span class="line">videoWriteInput.expectsMediaDataInRealTime = <span class="literal">YES</span>;</span><br><span class="line">videoWriteInput.transform = videoTrack.preferredTransform;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>设置输出的编码格式为<code>AVVideoCodecH264</code>并设置视频的宽高。</p>
+</blockquote>
+<h4 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVAssetWriterInput</span> *audioWriteInput = <span class="literal">nil</span>;</span><br><span class="line"><span class="built_in">AVAssetReaderTrackOutput</span> *audioReaderTrackOutput = <span class="literal">nil</span>;</span><br><span class="line"><span class="built_in">AVAssetReader</span> *audioReader = <span class="literal">nil</span>;</span><br><span class="line"><span class="keyword">if</span> (hasAudio) &#123;</span><br><span class="line">    audioReaderTrackOutput = [[<span class="built_in">AVAssetReaderTrackOutput</span> alloc] initWithTrack:audioTrack outputSettings:<span class="literal">nil</span>];</span><br><span class="line">    audioReader = [[<span class="built_in">AVAssetReader</span> alloc] initWithAsset:_asset error:<span class="literal">nil</span>];</span><br><span class="line">    [audioReader addOutput:audioReaderTrackOutput];</span><br><span class="line">    audioWriteInput = [[<span class="built_in">AVAssetWriterInput</span> alloc] initWithMediaType:<span class="built_in">AVMediaTypeAudio</span> outputSettings:<span class="literal">nil</span>];</span><br><span class="line">    audioWriteInput.expectsMediaDataInRealTime = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在这里对音频做特殊的处理。</p>
+</blockquote>
+<h4 id="Metadata"><a href="#Metadata" class="headerlink" title="Metadata"></a>Metadata</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDictionary</span> *spec = @&#123;(<span class="built_in">NSString</span> *)kCMMetadataFormatDescriptionMetadataSpecificationKey_Identifier: [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@/%@"</span>, <span class="built_in">AVMetadataKeySpaceQuickTimeMetadata</span>, kKeyStillImageTime],</span><br><span class="line">                       (<span class="built_in">NSString</span> *)kCMMetadataFormatDescriptionMetadataSpecificationKey_DataType: (<span class="built_in">NSString</span> *)kCMMetadataBaseDataType_UInt8&#125;;</span><br><span class="line"><span class="built_in">CMFormatDescriptionRef</span> description;</span><br><span class="line"><span class="built_in">CMMetadataFormatDescriptionCreateWithMetadataSpecifications</span>(kCFAllocatorDefault, kCMMetadataFormatType_Boxed, (__bridge <span class="built_in">CFArrayRef</span>)(@[spec]), &amp;description);</span><br><span class="line"><span class="built_in">AVAssetWriterInput</span> *metadataInput = [[<span class="built_in">AVAssetWriterInput</span> alloc] initWithMediaType:<span class="built_in">AVMediaTypeMetadata</span> outputSettings:<span class="literal">nil</span> sourceFormatHint:description];</span><br><span class="line"><span class="built_in">AVAssetWriterInputMetadataAdaptor</span> *adaptor = [[<span class="built_in">AVAssetWriterInputMetadataAdaptor</span> alloc] initWithAssetWriterInput:metadataInput];</span><br><span class="line"><span class="built_in">CFRelease</span>(description);</span><br></pre></td></tr></table></figure>
+<h5 id="Writer-Metadata"><a href="#Writer-Metadata" class="headerlink" title="Writer Metadata"></a>Writer Metadata</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVMutableMetadataItem</span> *assetIdentifierMetadataItem = [[<span class="built_in">AVMutableMetadataItem</span> alloc] init];</span><br><span class="line">assetIdentifierMetadataItem.key = <span class="built_in">AVMetadataQuickTimeMetadataKeyContentIdentifier</span>;</span><br><span class="line">assetIdentifierMetadataItem.keySpace = <span class="built_in">AVMetadataKeySpaceQuickTimeMetadata</span>;</span><br><span class="line">assetIdentifierMetadataItem.value = _assetIdentifier;</span><br><span class="line">assetIdentifierMetadataItem.dataType = (<span class="built_in">NSString</span> *)kCMMetadataBaseDataType_UTF8;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加唯一标识符。</p>
+</blockquote>
+<h5 id="Time-Metadata"><a href="#Time-Metadata" class="headerlink" title="Time Metadata"></a>Time Metadata</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVMutableMetadataItem</span> *stillImageTimeMetadataItem = [[<span class="built_in">AVMutableMetadataItem</span> alloc] init];</span><br><span class="line">stillImageTimeMetadataItem.key = kKeyStillImageTime;</span><br><span class="line">stillImageTimeMetadataItem.keySpace = <span class="built_in">AVMetadataKeySpaceQuickTimeMetadata</span>;</span><br><span class="line">stillImageTimeMetadataItem.value = [<span class="built_in">NSNumber</span> numberWithUnsignedShort:<span class="number">0</span>];</span><br><span class="line">stillImageTimeMetadataItem.dataType = (<span class="built_in">NSString</span> *)kCMMetadataBaseDataType_UInt8;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加关键帧。</p>
+</blockquote>
+<h3 id="AVAssetExportSession"><a href="#AVAssetExportSession" class="headerlink" title="AVAssetExportSession"></a>AVAssetExportSession</h3><p>好像无法直接使用AVAssetExportSession来生成相应的mov文件，主要是由于无法在时间线上添加元数据，导致系统无法识别哪个是关键帧。</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Photos/Photos.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// Detail for Apple Live Photo file formatter: https://stackoverflow.com/questions/32508375/apple-live-photo-file-format</span></span><br><span class="line"><span class="built_in">NSString</span>* <span class="keyword">const</span> kKeyAppleMakerNoteAssetIdentifier = <span class="string">@"17"</span>;</span><br><span class="line"><span class="built_in">NSString</span>* <span class="keyword">const</span> kKeyStillImageTime = <span class="string">@"com.apple.quicktime.still-image-time"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">LivePhotoConverter</span> () </span>&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *_assetIdentifier;</span><br><span class="line">    <span class="built_in">NSURL</span> *_imageOutputURL;</span><br><span class="line">    <span class="built_in">NSURL</span> *_videoOutputURL;</span><br><span class="line">    <span class="built_in">AVURLAsset</span> *_asset;</span><br><span class="line">    <span class="built_in">NSURL</span> *_livePhotoCacheURL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LivePhotoConverter</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithMediaURL:(<span class="built_in">NSURL</span> *)mediaURL &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="comment">/// Raw Asset</span></span><br><span class="line">        _asset = [<span class="built_in">AVURLAsset</span> URLAssetWithURL:mediaURL options:@&#123;<span class="built_in">AVURLAssetPreferPreciseDurationAndTimingKey</span>: @YES&#125;];</span><br><span class="line">        _livePhotoCacheURL = [LivePhotoConverter livePhotoCacheURL];</span><br><span class="line">        <span class="keyword">if</span> (![[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:_livePhotoCacheURL.path]) &#123;</span><br><span class="line">            [[<span class="built_in">NSFileManager</span> defaultManager] createDirectoryAtURL:_livePhotoCacheURL withIntermediateDirectories:<span class="literal">YES</span> attributes:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        _assetIdentifier = [[<span class="built_in">NSUUID</span> UUID] UUIDString];</span><br><span class="line">        _imageOutputURL = [_livePhotoCacheURL URLByAppendingPathComponent:[_assetIdentifier stringByAppendingString:<span class="string">@".jpg"</span>]];</span><br><span class="line">        _videoOutputURL = [_livePhotoCacheURL URLByAppendingPathComponent:[_assetIdentifier stringByAppendingString:<span class="string">@".mov"</span>]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)saveLivePhotoToAlbumWithProgressHandler:(<span class="keyword">void</span>(^)(<span class="built_in">NSProgress</span>* progress)) progressHandler</span><br><span class="line">                              CompletionHandler:(<span class="keyword">void</span>(^)(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span>* _Nullable error)) completionHandler &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!_asset.URL.isFileURL || ![[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:_asset.URL.path]) &#123;</span><br><span class="line">        <span class="built_in">NSAssert</span>(<span class="literal">false</span>, <span class="string">@"Only file url supported and file must exist."</span>);</span><br><span class="line">        <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                completionHandler(<span class="literal">NO</span>, [<span class="built_in">NSError</span> errorWithDomain:<span class="string">@"LivePhoto Only file url supported and file must exist."</span> code:<span class="number">-1</span> userInfo:<span class="literal">nil</span>]);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Generat first frame.</span></span><br><span class="line">    <span class="built_in">AVAssetImageGenerator</span>* generator = [<span class="built_in">AVAssetImageGenerator</span> assetImageGeneratorWithAsset:_asset];</span><br><span class="line">    generator.appliesPreferredTrackTransform = <span class="literal">YES</span>;</span><br><span class="line">    <span class="built_in">CGImageRef</span> cgImage = [generator copyCGImageAtTime:kCMTimeZero actualTime:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="comment">/// Setting metadata.</span></span><br><span class="line">    <span class="built_in">NSDictionary</span> *metadata = @&#123;(<span class="built_in">NSString</span>*)kCGImagePropertyMakerAppleDictionary: @&#123;kKeyAppleMakerNoteAssetIdentifier: _assetIdentifier&#125;&#125;;</span><br><span class="line">    <span class="built_in">NSMutableData</span> *imageData = [<span class="built_in">NSMutableData</span> new];</span><br><span class="line">    <span class="built_in">CGImageDestinationRef</span> dest = <span class="built_in">CGImageDestinationCreateWithData</span>((<span class="built_in">CFMutableDataRef</span>)imageData, kUTTypeJPEG, <span class="number">1</span>, <span class="literal">nil</span>);</span><br><span class="line">    <span class="built_in">CGImageDestinationAddImage</span>(dest, cgImage, (<span class="built_in">CFDictionaryRef</span>)metadata);</span><br><span class="line">    <span class="built_in">CGImageDestinationFinalize</span>(dest);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(cgImage);</span><br><span class="line">    <span class="built_in">CFRelease</span>(dest);</span><br><span class="line">    <span class="comment">/// To file.</span></span><br><span class="line">    <span class="keyword">if</span> (![imageData writeToURL:_imageOutputURL atomically:<span class="literal">YES</span>]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                completionHandler(<span class="literal">NO</span>, [<span class="built_in">NSError</span> errorWithDomain:<span class="string">@"LivePhoto Failed to write image to file."</span> code:<span class="number">-1</span> userInfo:<span class="literal">nil</span>]);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">AVAssetTrack</span> *videoTrack = [[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeVideo</span>] firstObject];</span><br><span class="line">    <span class="keyword">if</span> (videoTrack == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                completionHandler(<span class="literal">NO</span>, [<span class="built_in">NSError</span> errorWithDomain:<span class="string">@"LivePhoto Can't get video track."</span> code:<span class="number">-1</span> userInfo:<span class="literal">nil</span>]);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">AVAssetTrack</span> *audioTrack = [[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] firstObject];</span><br><span class="line">    <span class="built_in">BOOL</span> hasAudio = audioTrack != <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Accurate to microsecond.</span></span><br><span class="line">    <span class="keyword">const</span> int64_t videoTotalUnitCount = (int64_t)(<span class="built_in">CMTimeGetSeconds</span>(videoTrack.timeRange.duration) * <span class="number">10</span>);</span><br><span class="line">    <span class="keyword">const</span> int64_t audioTotalUnitCount = hasAudio ? (int64_t)(<span class="built_in">CMTimeGetSeconds</span>(audioTrack.timeRange.duration) * <span class="number">10</span>) : <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">NSProgress</span> *progress = [<span class="built_in">NSProgress</span> progressWithTotalUnitCount:hasAudio ? videoTotalUnitCount + audioTotalUnitCount : videoTotalUnitCount];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">AVAssetReaderTrackOutput</span> *videoReaderTrackOutput = [[<span class="built_in">AVAssetReaderTrackOutput</span> alloc] initWithTrack:videoTrack</span><br><span class="line">                                                                                        outputSettings:@&#123;(<span class="built_in">NSString</span> *)kCVPixelBufferPixelFormatTypeKey: [<span class="built_in">NSNumber</span> numberWithUnsignedInt:kCVPixelFormatType_32BGRA]&#125;];</span><br><span class="line">    <span class="built_in">AVAssetReader</span> *videoReader = [[<span class="built_in">AVAssetReader</span> alloc] initWithAsset:_asset error:<span class="literal">nil</span>];</span><br><span class="line">    [videoReader addOutput:videoReaderTrackOutput];</span><br><span class="line">    <span class="built_in">AVAssetWriterInput</span> *videoWriteInput = [[<span class="built_in">AVAssetWriterInput</span> alloc] initWithMediaType:<span class="built_in">AVMediaTypeVideo</span></span><br><span class="line">                                                                         outputSettings:@&#123;<span class="built_in">AVVideoCodecKey</span>: <span class="built_in">AVVideoCodecH264</span>,</span><br><span class="line">                                                                                          <span class="built_in">AVVideoWidthKey</span>: [<span class="built_in">NSNumber</span> numberWithDouble:videoTrack.naturalSize.width],</span><br><span class="line">                                                                                          <span class="built_in">AVVideoHeightKey</span>: [<span class="built_in">NSNumber</span> numberWithDouble:videoTrack.naturalSize.height]&#125;];</span><br><span class="line">    videoWriteInput.expectsMediaDataInRealTime = <span class="literal">YES</span>;</span><br><span class="line">    videoWriteInput.transform = videoTrack.preferredTransform;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">AVAssetWriterInput</span> *audioWriteInput = <span class="literal">nil</span>;</span><br><span class="line">    <span class="built_in">AVAssetReaderTrackOutput</span> *audioReaderTrackOutput = <span class="literal">nil</span>;</span><br><span class="line">    <span class="built_in">AVAssetReader</span> *audioReader = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (hasAudio) &#123;</span><br><span class="line">        audioReaderTrackOutput = [[<span class="built_in">AVAssetReaderTrackOutput</span> alloc] initWithTrack:audioTrack outputSettings:<span class="literal">nil</span>];</span><br><span class="line">        audioReader = [[<span class="built_in">AVAssetReader</span> alloc] initWithAsset:_asset error:<span class="literal">nil</span>];</span><br><span class="line">        [audioReader addOutput:audioReaderTrackOutput];</span><br><span class="line">        audioWriteInput = [[<span class="built_in">AVAssetWriterInput</span> alloc] initWithMediaType:<span class="built_in">AVMediaTypeAudio</span> outputSettings:<span class="literal">nil</span>];</span><br><span class="line">        audioWriteInput.expectsMediaDataInRealTime = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// --------------------------------------------------</span></span><br><span class="line">    <span class="comment">// Metadata input track.</span></span><br><span class="line">    <span class="comment">// --------------------------------------------------</span></span><br><span class="line">    <span class="built_in">NSDictionary</span> *spec = @&#123;(<span class="built_in">NSString</span> *)kCMMetadataFormatDescriptionMetadataSpecificationKey_Identifier: [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@/%@"</span>, <span class="built_in">AVMetadataKeySpaceQuickTimeMetadata</span>, kKeyStillImageTime],</span><br><span class="line">                           (<span class="built_in">NSString</span> *)kCMMetadataFormatDescriptionMetadataSpecificationKey_DataType: (<span class="built_in">NSString</span> *)kCMMetadataBaseDataType_UInt8&#125;;</span><br><span class="line">    <span class="built_in">CMFormatDescriptionRef</span> description;</span><br><span class="line">    <span class="built_in">CMMetadataFormatDescriptionCreateWithMetadataSpecifications</span>(kCFAllocatorDefault, kCMMetadataFormatType_Boxed, (__bridge <span class="built_in">CFArrayRef</span>)(@[spec]), &amp;description);</span><br><span class="line">    <span class="built_in">AVAssetWriterInput</span> *metadataInput = [[<span class="built_in">AVAssetWriterInput</span> alloc] initWithMediaType:<span class="built_in">AVMediaTypeMetadata</span> outputSettings:<span class="literal">nil</span> sourceFormatHint:description];</span><br><span class="line">    <span class="built_in">AVAssetWriterInputMetadataAdaptor</span> *adaptor = [[<span class="built_in">AVAssetWriterInputMetadataAdaptor</span> alloc] initWithAssetWriterInput:metadataInput];</span><br><span class="line">    <span class="built_in">CFRelease</span>(description);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// --------------------------------------------------</span></span><br><span class="line">    <span class="comment">// Setting Metadata for asset identifier.</span></span><br><span class="line">    <span class="comment">// --------------------------------------------------</span></span><br><span class="line">    <span class="built_in">AVMutableMetadataItem</span> *assetIdentifierMetadataItem = [[<span class="built_in">AVMutableMetadataItem</span> alloc] init];</span><br><span class="line">    assetIdentifierMetadataItem.key = <span class="built_in">AVMetadataQuickTimeMetadataKeyContentIdentifier</span>;</span><br><span class="line">    assetIdentifierMetadataItem.keySpace = <span class="built_in">AVMetadataKeySpaceQuickTimeMetadata</span>;</span><br><span class="line">    assetIdentifierMetadataItem.value = _assetIdentifier;</span><br><span class="line">    assetIdentifierMetadataItem.dataType = (<span class="built_in">NSString</span> *)kCMMetadataBaseDataType_UTF8;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// --------------------------------------------------</span></span><br><span class="line">    <span class="comment">// Setting Metadata for stillImage time.</span></span><br><span class="line">    <span class="comment">// --------------------------------------------------</span></span><br><span class="line">    <span class="built_in">AVMutableMetadataItem</span> *stillImageTimeMetadataItem = [[<span class="built_in">AVMutableMetadataItem</span> alloc] init];</span><br><span class="line">    stillImageTimeMetadataItem.key = kKeyStillImageTime;</span><br><span class="line">    stillImageTimeMetadataItem.keySpace = <span class="built_in">AVMetadataKeySpaceQuickTimeMetadata</span>;</span><br><span class="line">    stillImageTimeMetadataItem.value = [<span class="built_in">NSNumber</span> numberWithUnsignedShort:<span class="number">0</span>];</span><br><span class="line">    stillImageTimeMetadataItem.dataType = (<span class="built_in">NSString</span> *)kCMMetadataBaseDataType_UInt8;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">AVAssetWriter</span> *writer = [[<span class="built_in">AVAssetWriter</span> alloc] initWithURL:_videoOutputURL</span><br><span class="line">                                                      fileType:<span class="built_in">AVFileTypeQuickTimeMovie</span> error:<span class="literal">nil</span>];</span><br><span class="line">    writer.metadata = @[assetIdentifierMetadataItem];</span><br><span class="line">    [writer addInput:videoWriteInput];</span><br><span class="line">    <span class="keyword">if</span> (audioWriteInput) &#123; [writer addInput:audioWriteInput]; &#125;</span><br><span class="line">    [writer addInput:adaptor.assetWriterInput];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    [videoReader startReading];</span><br><span class="line">    [audioReader startReading];</span><br><span class="line">    [writer startWriting];</span><br><span class="line">    [writer startSessionAtSourceTime:kCMTimeZero];</span><br><span class="line">    <span class="comment">/// Need to add after writer startWriting.</span></span><br><span class="line">    [adaptor appendTimedMetadataGroup:[[<span class="built_in">AVTimedMetadataGroup</span> alloc] initWithItems:@[stillImageTimeMetadataItem]</span><br><span class="line">                                                                        timeRange:<span class="built_in">CMTimeRangeMake</span>(kCMTimeZero, <span class="built_in">CMTimeMake</span>(<span class="number">200</span>, <span class="number">3000</span>))]];</span><br><span class="line">                                                                        <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"com.livephoto.video.serial"</span>, <span class="literal">nil</span>);</span><br><span class="line">    [videoWriteInput requestMediaDataWhenReadyOnQueue:queue usingBlock:^&#123;</span><br><span class="line">        <span class="keyword">while</span> (videoWriteInput.isReadyForMoreMediaData) &#123;</span><br><span class="line">            <span class="built_in">CMSampleBufferRef</span> videoBuffer = [videoReaderTrackOutput copyNextSampleBuffer];</span><br><span class="line">            <span class="keyword">if</span> (videoReader.status == <span class="built_in">AVAssetReaderStatusReading</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (videoBuffer) &#123;</span><br><span class="line">                    <span class="built_in">CMTime</span> presTime = <span class="built_in">CMSampleBufferGetPresentationTimeStamp</span>(videoBuffer);</span><br><span class="line">                    </span><br><span class="line">                    progress.completedUnitCount = (int64_t)(<span class="built_in">CMTimeGetSeconds</span>(presTime) * <span class="number">10</span>);</span><br><span class="line">                    <span class="keyword">if</span> (progressHandler) &#123;</span><br><span class="line">                        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                            progressHandler(progress);</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    [videoWriteInput appendSampleBuffer:videoBuffer];</span><br><span class="line">                    <span class="built_in">CFRelease</span>(videoBuffer);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (videoReader.status == <span class="built_in">AVAssetReaderStatusCompleted</span>) &#123;</span><br><span class="line">                </span><br><span class="line">                [videoWriteInput markAsFinished];</span><br><span class="line">                <span class="comment">/// Write audio if exist.</span></span><br><span class="line">                <span class="keyword">if</span> (hasAudio) &#123;</span><br><span class="line">                    [writer startSessionAtSourceTime:kCMTimeZero];</span><br><span class="line">                    [audioWriteInput requestMediaDataWhenReadyOnQueue:queue usingBlock:^&#123;</span><br><span class="line">                        <span class="keyword">while</span> (audioWriteInput.isReadyForMoreMediaData) &#123;</span><br><span class="line">                            <span class="built_in">CMSampleBufferRef</span> audioBuffer = [audioReaderTrackOutput copyNextSampleBuffer];</span><br><span class="line">                            <span class="keyword">if</span> (audioReader.status == <span class="built_in">AVAssetReaderStatusReading</span>) &#123;</span><br><span class="line">                                <span class="keyword">if</span> (audioBuffer) &#123;</span><br><span class="line">                                    <span class="built_in">CMTime</span> presTime = <span class="built_in">CMSampleBufferGetPresentationTimeStamp</span>(audioBuffer);</span><br><span class="line">                                    progress.completedUnitCount = videoTotalUnitCount + (int64_t)(<span class="built_in">CMTimeGetSeconds</span>(presTime) * <span class="number">10</span>);</span><br><span class="line">                                    <span class="keyword">if</span> (progressHandler) &#123;</span><br><span class="line">                                        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                                            progressHandler(progress);</span><br><span class="line">                                        &#125;);</span><br><span class="line">                                    &#125;</span><br><span class="line">                                    </span><br><span class="line">                                    [audioWriteInput appendSampleBuffer:audioBuffer];</span><br><span class="line">                                    <span class="built_in">CFRelease</span>(audioBuffer);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (videoReader.status == <span class="built_in">AVAssetReaderStatusCompleted</span>) &#123;</span><br><span class="line">                                [audioWriteInput markAsFinished];</span><br><span class="line">                                [writer finishWritingWithCompletionHandler:^&#123;</span><br><span class="line">                                    [<span class="keyword">self</span> saveToAlbumWithCompletionHandler:completionHandler];</span><br><span class="line">                                &#125;];</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">                                    <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                                        completionHandler(<span class="literal">NO</span>, audioReader.error);</span><br><span class="line">                                    &#125;);</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="comment">///Failed audio.</span></span><br><span class="line">                                <span class="built_in">NSLog</span>(<span class="string">@"Failed to encoding audio with error:%@"</span>, audioReader.error);</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">/// No audio.</span></span><br><span class="line">                    [writer finishWritingWithCompletionHandler:^&#123;</span><br><span class="line">                        [<span class="keyword">self</span> saveToAlbumWithCompletionHandler:completionHandler];</span><br><span class="line">                    &#125;];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">///Failed video.</span></span><br><span class="line">                <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">                    <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                        completionHandler(<span class="literal">NO</span>, videoReader.error);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"Failed to encoding video with error:%@"</span>, videoReader.error);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)saveToAlbumWithCompletionHandler:(<span class="keyword">void</span>(^)(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> *error)) completionHandler &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (![[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:_imageOutputURL.path]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                completionHandler(<span class="literal">NO</span>, [<span class="built_in">NSError</span> errorWithDomain:<span class="string">@"LivePhoto image file not exist."</span> code:<span class="number">-1</span> userInfo:<span class="literal">nil</span>]);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (![[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:_videoOutputURL.path]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                completionHandler(<span class="literal">NO</span>, [<span class="built_in">NSError</span> errorWithDomain:<span class="string">@"LivePhoto video file not exist."</span> code:<span class="number">-1</span> userInfo:<span class="literal">nil</span>]);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Save to album</span></span><br><span class="line">    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^&#123;</span><br><span class="line">        PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];</span><br><span class="line">        PHAssetResourceCreationOptions *options = [[PHAssetResourceCreationOptions alloc] init];</span><br><span class="line">        <span class="comment">/// 移动文件。</span></span><br><span class="line">        options.shouldMoveFile = <span class="literal">YES</span>;</span><br><span class="line">        [request addResourceWithType:PHAssetResourceTypePhoto fileURL:_imageOutputURL options:options];</span><br><span class="line">        [request addResourceWithType:PHAssetResourceTypePairedVideo fileURL:_videoOutputURL options:options];</span><br><span class="line">    &#125; completionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">        <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                completionHandler(success, error);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSURL</span> *)livePhotoCacheURL &#123;</span><br><span class="line">    <span class="keyword">return</span> [[[<span class="built_in">NSFileManager</span>.defaultManager URLsForDirectory:<span class="built_in">NSCachesDirectory</span> inDomains:<span class="built_in">NSUserDomainMask</span>] firstObject] URLByAppendingPathComponent:<span class="string">@"LivePhoto"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ 提供的🌰是默认将第一帧作为关键帧。</p>
+<p>写入的方法是先写入Video，再写入Audio。在<a href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/05_Export.html#//apple_ref/doc/uid/TP40010188-CH9-SW16" target="_blank" rel="noopener">Apple提供的例子</a>中使用的是dispatch_group来同时写入Video和Audio，但是个人理解却没有这样的方式好用。</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://blog.imerc.xyz/2017/03/20/photokit-live-photo/" target="_blank" rel="noopener">Photos框架之Live Photo相关</a></p>
+<p><a href="https://github.com/genadyo/LivePhotoDemo" target="_blank" rel="noopener">LivePhotoDemo</a></p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/01/10/LivePhoto/">Live Photo</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2018-01-10 14:55</p>
+        <p><span>Update Time:</span>2018-01-20 14:18</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2018/01/10/LivePhoto/" title="Live Photo">http://xwjack.github.io/2018/01/10/LivePhoto/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2018/01/10/LivePhoto/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/10/Camera/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Camera
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/08/Marco/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Marco</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Begin"><span class="toc-number">1.</span> <span class="toc-text">Begin</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Image"><span class="toc-number">2.</span> <span class="toc-text">Image</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Video"><span class="toc-number">3.</span> <span class="toc-text">Video</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Transcoding"><span class="toc-number">3.1.</span> <span class="toc-text">Transcoding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AVAssetReader-amp-amp-AVAssetWriter"><span class="toc-number">3.1.1.</span> <span class="toc-text">AVAssetReader &amp;&amp; AVAssetWriter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Progress"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">Progress</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AVAssetReader"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">AVAssetReader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AVAssetWriter"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">AVAssetWriter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Audio"><span class="toc-number">3.1.1.4.</span> <span class="toc-text">Audio</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Metadata"><span class="toc-number">3.1.1.5.</span> <span class="toc-text">Metadata</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Writer-Metadata"><span class="toc-number">3.1.1.5.1.</span> <span class="toc-text">Writer Metadata</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Time-Metadata"><span class="toc-number">3.1.1.5.2.</span> <span class="toc-text">Time Metadata</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AVAssetExportSession"><span class="toc-number">3.1.2.</span> <span class="toc-text">AVAssetExportSession</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code"><span class="toc-number">4.</span> <span class="toc-text">Code</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/01/10/Camera/" title="上一篇: Camera">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/01/08/Marco/" title="下一篇: Marco">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

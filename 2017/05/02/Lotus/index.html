@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Lotus | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。   自定义缓存  自定义Log  自定义Debug  MD5加密  自定义返回错误，自定义数据解析  直接返回想要的Model   ⚠️ 该项目虽然使用了Alamofire，但并非封装Alamofire，而是使用该库的编码，核心还是使用Apple提供的URLSession进行编写。">
+<meta name="keywords" content="iOS,macOS,Swift 3.2,Framework">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lotus">
+<meta property="og:url" content="http://xwjack.github.io/2017/05/02/Lotus/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。   自定义缓存  自定义Log  自定义Debug  MD5加密  自定义返回错误，自定义数据解析  直接返回想要的Model   ⚠️ 该项目虽然使用了Alamofire，但并非封装Alamofire，而是使用该库的编码，核心还是使用Apple提供的URLSession进行编写。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/3.png">
+<meta property="og:updated_time" content="2018-01-25T14:06:39.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lotus">
+<meta name="twitter:description" content="一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。   自定义缓存  自定义Log  自定义Debug  MD5加密  自定义返回错误，自定义数据解析  直接返回想要的Model   ⚠️ 该项目虽然使用了Alamofire，但并非封装Alamofire，而是使用该库的编码，核心还是使用Apple提供的URLSession进行编写。">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Lotus" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/02/Lotus/" class="article-date">
+      <time datetime="2017-05-02T08:40:15.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Lotus
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Framework/">Framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2/">Swift 3.2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 自定义缓存</li>
+<li style="list-style: none"><input type="checkbox" checked> 自定义Log</li>
+<li style="list-style: none"><input type="checkbox" checked> 自定义Debug</li>
+<li style="list-style: none"><input type="checkbox" checked> MD5加密</li>
+<li style="list-style: none"><input type="checkbox" checked> 自定义返回错误，自定义数据解析</li>
+<li style="list-style: none"><input type="checkbox" checked> 直接返回想要的Model</li>
+</ul>
+<blockquote>
+<p>⚠️ 该项目虽然使用了<code>Alamofire</code>，但并非封装<code>Alamofire</code>，而是使用该库的编码，核心还是使用Apple提供的<code>URLSession</code>进行编写。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Dependence"><a href="#Dependence" class="headerlink" title="Dependence"></a>Dependence</h2><table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="noopener">Alamofire</a></td>
+<td>编码参数</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="noopener">SwiftyJSON</a></td>
+<td>解析成<code>SwiftJSON</code>对象</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Flow"><a href="#Flow" class="headerlink" title="Flow"></a>Flow</h2><h3 id="Refrences"><a href="#Refrences" class="headerlink" title="Refrences"></a>Refrences</h3><p><img src="/images/2017-05-02-Lotus/1.png" alt=""></p>
+<h3 id="Send-Flow"><a href="#Send-Flow" class="headerlink" title="Send Flow"></a>Send Flow</h3><p><img src="/images/2017-05-02-Lotus/2.png" alt=""></p>
+<h3 id="Receive-Flow"><a href="#Receive-Flow" class="headerlink" title="Receive Flow"></a>Receive Flow</h3><p><img src="/images/2017-05-02-Lotus/3.png" alt=""></p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Simple-Usage"><a href="#Simple-Usage" class="headerlink" title="Simple Usage"></a>Simple Usage</h3><h4 id="Make-a-request-with-URL"><a href="#Make-a-request-with-URL" class="headerlink" title="Make a request with URL"></a>Make a request with URL</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Lotus</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="string">"https://httpbin.org/get"</span>)</span><br><span class="line"><span class="type">Lotus</span>.send(url)</span><br></pre></td></tr></table></figure>
+<h4 id="Make-a-request-with-URLRequest"><a href="#Make-a-request-with-URLRequest" class="headerlink" title="Make a request with URLRequest"></a>Make a request with URLRequest</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Lotus</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="string">"https://httpbin.org/get"</span>)</span><br><span class="line"><span class="keyword">let</span> request = <span class="type">URLRequest</span>(url: url)</span><br><span class="line"><span class="type">Lotus</span>.send(request)</span><br></pre></td></tr></table></figure>
+<h4 id="Receive-Response"><a href="#Receive-Response" class="headerlink" title="Receive Response"></a>Receive Response</h4><p><code>ResultConversion</code> define data to model.</p>
+<blockquote>
+<p>⚠️ Only auto convert while using <code>generic</code> and <code>genericArray</code> call back.</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">UserModel</span>: <span class="title">ResultConversion</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> id: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> age: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> cover: <span class="type">URL</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(json: <span class="type">JSON</span>) &#123;</span><br><span class="line">        id = json[<span class="string">"id"</span>].stringValue</span><br><span class="line">        name = json[<span class="string">"name"</span>].stringValue</span><br><span class="line">        age = json[<span class="string">"age"</span>].intValue</span><br><span class="line">        cover = json[<span class="string">"cover"</span>].url</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/// Default is parse data from "data"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Receive-Success-Data"><a href="#Receive-Success-Data" class="headerlink" title="Receive Success Data"></a>Receive Success Data</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(success: &#123; data <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// Receive response data with no error.</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="Receive-Failed"><a href="#Receive-Failed" class="headerlink" title="Receive Failed"></a>Receive Failed</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(failed: &#123; error <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// Receive response with error.</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="Receive-progress"><a href="#Receive-progress" class="headerlink" title="Receive progress"></a>Receive progress</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(progress: &#123; progress <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// Receive response with progress.</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="Receive-response"><a href="#Receive-response" class="headerlink" title="Receive response"></a>Receive response</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(response: &#123;</span><br><span class="line"><span class="comment">/// Receive response</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="Receive-raw-data"><a href="#Receive-raw-data" class="headerlink" title="Receive raw data"></a>Receive raw data</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(rawData: &#123; data <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// Receive response with raw data.</span></span><br><span class="line"><span class="comment">/// ⚠️ It may be called more than once</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="Receive-Raw-JSON"><a href="#Receive-Raw-JSON" class="headerlink" title="Receive Raw JSON"></a>Receive Raw JSON</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(rawJSON: &#123; json <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// Receive response with json.</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ Conflict with success call back.</p>
+</blockquote>
+<h5 id="Receive-Generic"><a href="#Receive-Generic" class="headerlink" title="Receive Generic"></a>Receive Generic</h5><p>Model need to confirm <code>ResultConversion</code></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(generic: &#123; (model: <span class="type">UserModel</span>) <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// Receive response with custom generic.</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ Conflict with success call back.</p>
+</blockquote>
+<h5 id="Receive-Generic-Array"><a href="#Receive-Generic-Array" class="headerlink" title="Receive Generic Array"></a>Receive Generic Array</h5><p>Model need to confirm <code>ResultConversion</code></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Lotus</span>.send(router).receive(generic: &#123; (models: [<span class="type">UserModel</span>]) <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// Receive response with custom generic array.</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ Conflict with success call back.</p>
+</blockquote>
+<h3 id="Suggesting-Usage"><a href="#Suggesting-Usage" class="headerlink" title="Suggesting Usage"></a>Suggesting Usage</h3><h4 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h4><h5 id="RequestConversion"><a href="#RequestConversion" class="headerlink" title="RequestConversion"></a>RequestConversion</h5><p><code>RequestConversion</code> define request conversion.<br><code>Request</code> define request content.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Struct for request.</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Request</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Path for request.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> path: <span class="type">String</span></span><br><span class="line">    <span class="comment">/// Parameters for request.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> parameters: <span class="type">Parameters</span>?</span><br><span class="line">    <span class="comment">/// Method for request.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> method: <span class="type">Method</span></span><br><span class="line">    <span class="comment">/// Encoding for request.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> encoding: <span class="type">URLEncoding</span></span><br><span class="line">    <span class="comment">/// HTTP Headers</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> headers: <span class="type">Headers</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Request struct</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - path: Path for request</span></span><br><span class="line">    <span class="comment">///   - parameters: Parameters for request, default is `nil`.</span></span><br><span class="line">    <span class="comment">///   - method: Method for request, default is `get`.</span></span><br><span class="line">    <span class="comment">///   - encoding: Encoding for request, default is `default`</span></span><br><span class="line">    <span class="comment">///   - headers: HTTP Header for request, default is nil.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(path: <span class="type">String</span>,</span><br><span class="line">                parameters: <span class="type">Parameters</span>? = <span class="literal">nil</span>,</span><br><span class="line">                method: <span class="type">Method</span> = .<span class="keyword">get</span>,</span><br><span class="line">                encoding: <span class="type">URLEncoding</span> = .<span class="keyword">default</span>,</span><br><span class="line">                headers: <span class="type">Headers</span>? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.path = path</span><br><span class="line">        <span class="keyword">self</span>.method = method</span><br><span class="line">        <span class="keyword">self</span>.parameters = parameters</span><br><span class="line">        <span class="keyword">self</span>.encoding = encoding</span><br><span class="line">        <span class="keyword">self</span>.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="ResultConversion"><a href="#ResultConversion" class="headerlink" title="ResultConversion"></a>ResultConversion</h5><p><code>ResultConversion</code> define result convert.<br><code>Result</code> define result parse way.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Struct for result</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Result</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Custom parse data, default is in "data"</span></span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">var</span> data: (<span class="type">JSON</span>) -&gt; <span class="type">JSON</span></span><br><span class="line">    <span class="comment">/// Custom error for failed call back, default is always no error.</span></span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">var</span> error: (<span class="type">JSON</span>) -&gt; <span class="type">Error</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// Struct for result</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(data: @escaping (<span class="type">JSON</span>) -&gt; <span class="type">JSON</span> = &#123; $<span class="number">0</span>[<span class="string">"data"</span>] &#125;,</span><br><span class="line">                error: @escaping (<span class="type">JSON</span>) -&gt; <span class="type">Error</span>? = &#123; <span class="number">_</span> <span class="keyword">in</span> <span class="literal">nil</span> &#125;) &#123;</span><br><span class="line">        <span class="keyword">self</span>.data = data</span><br><span class="line">        <span class="keyword">self</span>.error = error</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>default parse data from <code>&quot;data&quot;</code>.</p>
+<p>default with no custom service error.</p>
+</blockquote>
+<h4 id="Initlization-Lotus-with-host"><a href="#Initlization-Lotus-with-host" class="headerlink" title="Initlization Lotus with host."></a>Initlization Lotus with host.</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Center</span>.<span class="keyword">default</span>.configuration.host = &#123; <span class="keyword">return</span> <span class="string">"https://httpbin.org"</span> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Make-a-APIRouter"><a href="#Make-a-APIRouter" class="headerlink" title="Make a APIRouter"></a>Make a APIRouter</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">APIRouter</span>: <span class="title">RequestConversion</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> search(query: <span class="type">String</span>, page: <span class="type">Int</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> request: <span class="type">Request</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">let</span> .search(query, page):</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Request</span>(path: <span class="string">"/search"</span>, parameters: [<span class="string">"q"</span>: query, <span class="string">"offset"</span>: <span class="number">10</span> * page])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @discardableResult</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">send</span><span class="params">(<span class="number">_</span> router: APIRouter)</span></span> -&gt; <span class="type">DataClient</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Lotus</span>.send(router)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Send-request"><a href="#Send-request" class="headerlink" title="Send request"></a>Send request</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">APIRouter</span>.send(.search(query: <span class="string">"Lotus"</span>, page: <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="Advance-Usage"><a href="#Advance-Usage" class="headerlink" title="Advance Usage"></a>Advance Usage</h3><h4 id="Custom-Parse-Way"><a href="#Custom-Parse-Way" class="headerlink" title="Custom Parse Way"></a>Custom Parse Way</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">UserModel</span>: <span class="title">ResultConversion</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">var</span> result: <span class="type">Result</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Result</span>(data: &#123; $<span class="number">0</span>[<span class="string">"newData"</span>] &#125;, error: &#123; <span class="number">_</span> <span class="keyword">in</span> <span class="literal">nil</span> &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ Only useful for <code>generic</code> and <code>genericArray</code> call back.</p>
+</blockquote>
+<h4 id="Custom-Service-Error"><a href="#Custom-Service-Error" class="headerlink" title="Custom Service Error"></a>Custom Service Error</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">UserModel</span>: <span class="title">ResultConversion</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">var</span> result: <span class="type">Result</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Result</span>(data: &#123; $<span class="number">0</span>[<span class="string">"data"</span>] &#125;, error: &#123; $<span class="number">0</span>[<span class="string">"code"</span>] == <span class="number">401</span> ? <span class="literal">nil</span> : <span class="type">LotusError</span>.customError(...) &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ If result error is not nil, it will call back with failed</p>
+<p>⚠️ Only useful for <code>generic</code> and <code>genericArray</code> call back.</p>
+</blockquote>
+<h4 id="Custom-Debug-Center"><a href="#Custom-Debug-Center" class="headerlink" title="Custom Debug Center"></a>Custom Debug Center</h4><p>All connection will through this DebugCenter. You can sub <code>DebugCenter</code> to custom   netowork connection.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomDebugCenter</span>: <span class="title">DebugCenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">send</span><span class="params">(<span class="number">_</span> client: DataClient, error: Error?)</span></span> -&gt; <span class="type">DataClient</span> &#123;</span><br><span class="line">    		<span class="comment">/// Custom send network.</span></span><br><span class="line">        <span class="keyword">return</span> client</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">receive</span><span class="params">(<span class="number">_</span> task: URLSessionTask?, data: Data, error: Error?)</span></span> -&gt; (<span class="type">Data</span>, <span class="type">Error</span>?) &#123;</span><br><span class="line">    		<span class="comment">/// Custom receive network.</span></span><br><span class="line">        <span class="keyword">return</span> (data, error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Set Debug center when initlization Lotus.</span></span><br><span class="line"><span class="type">Center</span>.<span class="keyword">default</span>.configuration.debugCenter = <span class="type">CustomDebugCenter</span>()</span><br></pre></td></tr></table></figure>
+<h4 id="Custom-Cache-Center"><a href="#Custom-Cache-Center" class="headerlink" title="Custom Cache Center"></a>Custom Cache Center</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomCacheCenter</span>: <span class="title">CacheCenter</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">save</span><span class="params">(rawData data: Data?, withRawKey key: String)</span></span> -&gt; <span class="type">Data</span>? &#123;</span><br><span class="line">        <span class="comment">/// Custom data when cache will been saved into file, nil if no data to cache.</span></span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">read</span><span class="params">(rawData data: Data?, withRawKey key: String)</span></span> -&gt; <span class="type">Data</span>? &#123;</span><br><span class="line">        <span class="comment">/// Custom data when cache will been readed from file, nil if no cache.</span></span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">cache</span><span class="params">(byRawKey key: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> key.md5() ?? <span class="string">"Error MD5 with <span class="subst">\(key)</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Set Cache center when initlization Lotus.</span></span><br><span class="line"><span class="type">Center</span>.<span class="keyword">default</span>.configuration.cacheCenter = <span class="type">CustomCacheCenter</span>()</span><br></pre></td></tr></table></figure>
+<h4 id="Custom-Log-Center"><a href="#Custom-Log-Center" class="headerlink" title="Custom Log Center"></a>Custom Log Center</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomLogCenter</span>: <span class="title">LogCenter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">save</span><span class="params">(<span class="number">_</span> log: Log, witTime logTime: TimeInterval)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    		<span class="comment">/// Custom log formatter to file.</span></span><br><span class="line">        <span class="keyword">return</span> logTime.description + <span class="string">","</span> + log.raw.joined(separator: <span class="string">","</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">terminal</span><span class="params">(<span class="number">_</span> log: Log, witTime logTime: TimeInterval)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    		<span class="comment">/// Custom log fromatter to terminal.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"☁️"</span> + <span class="type">Date</span>(timeIntervalSince1970: logTime).description + log.raw.joined(separator: <span class="string">","</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Set Log center when initlization Lotus.</span></span><br><span class="line"><span class="type">Center</span>.<span class="keyword">default</span>.configuration.<span class="type">LogCenter</span> = <span class="type">CustomLogCenter</span>()</span><br></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2017/05/02/Lotus/">Lotus</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2017-05-02 16:40</p>
+        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2017/05/02/Lotus/" title="Lotus">http://xwjack.github.io/2017/05/02/Lotus/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/05/02/Lotus/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/08/31/Playback/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Playback
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/24/Purchase/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS In-App Purchase</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependence"><span class="toc-number">1.</span> <span class="toc-text">Dependence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flow"><span class="toc-number">2.</span> <span class="toc-text">Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refrences"><span class="toc-number">2.1.</span> <span class="toc-text">Refrences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Send-Flow"><span class="toc-number">2.2.</span> <span class="toc-text">Send Flow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Receive-Flow"><span class="toc-number">2.3.</span> <span class="toc-text">Receive Flow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage"><span class="toc-number">3.</span> <span class="toc-text">Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Usage"><span class="toc-number">3.1.</span> <span class="toc-text">Simple Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-a-request-with-URL"><span class="toc-number">3.1.1.</span> <span class="toc-text">Make a request with URL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-a-request-with-URLRequest"><span class="toc-number">3.1.2.</span> <span class="toc-text">Make a request with URLRequest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Receive-Response"><span class="toc-number">3.1.3.</span> <span class="toc-text">Receive Response</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Success-Data"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">Receive Success Data</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Failed"><span class="toc-number">3.1.3.2.</span> <span class="toc-text">Receive Failed</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-progress"><span class="toc-number">3.1.3.3.</span> <span class="toc-text">Receive progress</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-response"><span class="toc-number">3.1.3.4.</span> <span class="toc-text">Receive response</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-raw-data"><span class="toc-number">3.1.3.5.</span> <span class="toc-text">Receive raw data</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Raw-JSON"><span class="toc-number">3.1.3.6.</span> <span class="toc-text">Receive Raw JSON</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Generic"><span class="toc-number">3.1.3.7.</span> <span class="toc-text">Receive Generic</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Generic-Array"><span class="toc-number">3.1.3.8.</span> <span class="toc-text">Receive Generic Array</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Suggesting-Usage"><span class="toc-number">3.2.</span> <span class="toc-text">Suggesting Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Discussion"><span class="toc-number">3.2.1.</span> <span class="toc-text">Discussion</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#RequestConversion"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">RequestConversion</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ResultConversion"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">ResultConversion</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Initlization-Lotus-with-host"><span class="toc-number">3.2.2.</span> <span class="toc-text">Initlization Lotus with host.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-a-APIRouter"><span class="toc-number">3.2.3.</span> <span class="toc-text">Make a APIRouter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Send-request"><span class="toc-number">3.2.4.</span> <span class="toc-text">Send request</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Advance-Usage"><span class="toc-number">3.3.</span> <span class="toc-text">Advance Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Parse-Way"><span class="toc-number">3.3.1.</span> <span class="toc-text">Custom Parse Way</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Service-Error"><span class="toc-number">3.3.2.</span> <span class="toc-text">Custom Service Error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Debug-Center"><span class="toc-number">3.3.3.</span> <span class="toc-text">Custom Debug Center</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Cache-Center"><span class="toc-number">3.3.4.</span> <span class="toc-text">Custom Cache Center</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Log-Center"><span class="toc-number">3.3.5.</span> <span class="toc-text">Custom Log Center</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/08/31/Playback/" title="上一篇: Playback">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/03/24/Purchase/" title="下一篇: iOS In-App Purchase">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

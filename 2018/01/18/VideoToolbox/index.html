@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>VideoToolbox | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用VideoToolbox编码和解码H.264。这篇文章就是在学习WWDC 2014 513 Direct Access to Video Encoding and Decoding的过程中写下。">
+<meta name="keywords" content="iOS,Swift 3.2.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VideoToolbox">
+<meta property="og:url" content="http://xwjack.github.io/2018/01/18/VideoToolbox/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="使用VideoToolbox编码和解码H.264。这篇文章就是在学习WWDC 2014 513 Direct Access to Video Encoding and Decoding的过程中写下。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/12.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/13.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/6.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/7.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/16.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/17.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/18.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/19.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/14.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/15.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/3.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/4.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/5.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/8.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/9.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/10.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/11.png">
+<meta property="og:updated_time" content="2018-01-25T14:06:39.939Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VideoToolbox">
+<meta name="twitter:description" content="使用VideoToolbox编码和解码H.264。这篇文章就是在学习WWDC 2014 513 Direct Access to Video Encoding and Decoding的过程中写下。">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2018-01-18-VideoToolbox/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-VideoToolbox" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/18/VideoToolbox/" class="article-date">
+      <time datetime="2018-01-18T06:33:54.000Z" itemprop="datePublished">2018-01-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VideoToolbox
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>使用VideoToolbox编码和解码H.264。这篇文章就是在学习<a href="https://developer.apple.com/videos/play/wwdc2014/513/" target="_blank" rel="noopener">WWDC 2014 513 Direct Access to Video Encoding and Decoding</a>的过程中写下。</p>
+<a id="more"></a>
+<h1 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h1><p>下面介绍一下在学习的过程中遇到的专有名词等。</p>
+<h2 id="Swift中指针转换"><a href="#Swift中指针转换" class="headerlink" title="Swift中指针转换"></a>Swift中指针转换</h2><p>由于VideoToolbox是用C进行编写的，所以在很多调用的时候需要传入自身的指针，并在Callback中拿到自身示例，在OC中比较好解决，但是在Swift中比较繁琐。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 将self转换成指针</span></span><br><span class="line">(__bridge <span class="keyword">void</span> *)(<span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 将指针转换成self</span></span><br><span class="line">(__bridge Class*)outputCallbackRefCon</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 将self转换成UnsafeMutableRawPointer</span></span><br><span class="line"><span class="built_in">unsafeBitCast</span>(<span class="keyword">self</span>, to: <span class="type">UnsafeMutableRawPointer</span>.<span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 将指针转换成self</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">converInstance</span>&lt;T: AnyObject&gt;<span class="params">(by pointee: UnsafeMutableRawPointer)</span></span> -&gt; <span class="type">T</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Unmanaged</span>&lt;<span class="type">T</span>&gt;.fromOpaque(pointee).takeUnretainedValue()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>个人建议这个部分用OC写还是比较好的。</p>
+</blockquote>
+<h2 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h2><p>专有名词解释</p>
+<h3 id="H-264-amp-amp-H-265"><a href="#H-264-amp-amp-H-265" class="headerlink" title="H.264 &amp;&amp; H.265"></a>H.264 &amp;&amp; H.265</h3><p>两种编码标准，可以理解为编码协议。</p>
+<h4 id="H-264"><a href="#H-264" class="headerlink" title="H.264"></a>H.264</h4><p>H.264/AVC 项目意图创建一种视频标准。与旧标准相比，它能够在更低带宽下提供优质视频（换言之，只有 MPEG-2，H.263 或 MPEG-4 第 2 部分的一半带宽或更少），也不增加太多设计复杂度使得无法实现或实现成本过高。另一目的是提供足够的灵活性以在各种应用、网络及系统中使用，包括高、低带宽，高、低视频分辨率，广播，DVD 存储，RTP/IP 网络，以及 ITU-T 多媒体电话系统。<br>H.264/AVC 包含了一系列新的特征，使得它比起以前的编解码器不但能够更有效的进行编码，还能在各种网络环境下的应用中使用。这样的技术基础让 H.264 成为包括 YouTube 在内的在线视频公司采用它作为主要的编解码器，但是使用它并不是一件很轻松的事情，理论上讲使用 H.264 需要交纳不菲的专利费用。</p>
+<h4 id="H-265"><a href="#H-265" class="headerlink" title="H.265"></a>H.265</h4><p>高效率视频编码（High Efficiency Video Coding，简称 HEVC）是一种视频压缩标准，被视为是 ITU-T H.264/MPEG-4 AVC 标准的继任者。2004 年开始由 ISO/IEC Moving Picture Experts Group（MPEG）和 ITU-T Video Coding Experts Group（VCEG）作为 ISO/IEC 23008-2 MPEG-H Part 2 或称作 ITU-T H.265 开始制定。第一版的 HEVC/H.265 视频压缩标准在 2013 年 4 月 13 日被接受为国际电信联盟（ITU-T）的正式标准。HEVC 被认为不仅提升视频质量，同时也能达到 H.264/MPEG-4 AVC 两倍之压缩率（等同于同样画面质量下比特率减少了 50%），可支持 4K 分辨率甚至到超高清电视（UHDTV），最高分辨率可达到 8192×4320（8K 分辨率）。</p>
+<h3 id="Video-Formatter"><a href="#Video-Formatter" class="headerlink" title="Video Formatter"></a>Video Formatter</h3><p>视频格式，相当于容器，将编码后的数据按照一定格式进行存储。</p>
+<table>
+<thead>
+<tr>
+<th>Formatter</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVI</td>
+<td>格式（后缀为 .avi）: 它的英文全称为 Audio Video Interleaved ，即音频视频交错格式。它于 1992 年被 Microsoft 公司推出。这种视频格式的优点是图像质量好。由于无损 AVI 可以保存 alpha 通道，经常被我们使用。缺点太多，体积过于庞大，而且更加糟糕的是压缩标准不统一，最普遍的现象就是高版本 Windows 媒体播放器播放不了采用早期编码编辑的 AVI 格式视频，而低版本 Windows 媒体播放器又播放不了采用最新编码编辑的 AVI 格式视频，所以我们在进行一些 AVI 格式的视频播放时常会出现由于视频编码问题而造成的视频不能播放或即使能够播放，但存在不能调节播放进度和播放时只有声音没有图像等一些莫名其妙的问题。</td>
+</tr>
+<tr>
+<td>QuickTime</td>
+<td>格式（后缀为 .mov）: 美国 Apple 公司开发的一种视频格式，默认的播放器是苹果的 QuickTime。具有较高的压缩比率和较完美的视频清晰度等特点，并可以保存 alpha 通道。</td>
+</tr>
+<tr>
+<td>MPEG</td>
+<td>格式（文件后缀可以是 .mpg .mpeg .mpe .dat .vob .asf .3gp .mp4等) : 它的英文全称为 Moving Picture Experts Group，即运动图像专家组格式，该专家组建于 1988 年，专门负责为 CD 建立视频和音频标准，而成员都是为视频、音频及系统领域的技术专家。MPEG 文件格式是运动图像压缩算法的国际标准。MPEG 格式目前有三个压缩标准，分别是 MPEG－1、MPEG－2、和 MPEG－4 。MPEG－1、MPEG－2 目前已经使用较少，着重介绍 MPEG－4，其制定于 1998 年，MPEG－4 是为了播放流式媒体的高质量视频而专门设计的，以求使用最少的数据获得最佳的图像质量。目前 MPEG-4 最有吸引力的地方在于它能够保存接近于 DVD 画质的小体积视频文件。</td>
+</tr>
+<tr>
+<td>WMV</td>
+<td>格式（后缀为.wmv .asf）: 它的英文全称为 Windows Media Video，也是微软推出的一种采用独立编码方式并且可以直接在网上实时观看视频节目的文件压缩格式。WMV 格式的主要优点包括：本地或网络回放,丰富的流间关系以及扩展性等。WMV 格式需要在网站上播放，需要安装 Windows Media Player（ 简称 WMP），很不方便，现在已经几乎没有网站采用了。</td>
+</tr>
+<tr>
+<td>Real Video</td>
+<td>格式（后缀为 .rm .rmvb）: Real Networks 公司所制定的音频视频压缩规范称为Real Media。用户可以使用 RealPlayer 根据不同的网络传输速率制定出不同的压缩比率，从而实现在低速率的网络上进行影像数据实时传送和播放。RMVB 格式：这是一种由 RM 视频格式升级延伸出的新视频格式，当然性能上有很大的提升。RMVB 视频也是有着较明显的优势，一部大小为 700 MB 左右的 DVD 影片，如果将其转录成同样品质的 RMVB 格式，其个头最多也就 400 MB 左右。大家可能注意到了，以前在网络上下载电影和视频的时候，经常接触到 RMVB 格式，但是随着时代的发展这种格式被越来越多的更优秀的格式替代，著名的人人影视字幕组在 2013 年已经宣布不再压制 RMVB 格式视频。</td>
+</tr>
+<tr>
+<td>Flash Video</td>
+<td>格式（后缀为 .flv）:由 Adobe Flash 延伸出来的的一种流行网络视频封装格式。随着视频网站的丰富，这个格式已经非常普及。</td>
+</tr>
+<tr>
+<td>Matroska</td>
+<td>格式（后缀为 .mkv）:是一种新的多媒体封装格式，这个封装格式可把多种不同编码的视频及 16 条或以上不同格式的音频和语言不同的字幕封装到一个 Matroska Media 档内。它也是其中一种开放源代码的多媒体封装格式。Matroska 同时还可以提供非常好的交互功能，而且比 MPEG 的方便、强大。</td>
+</tr>
+<tr>
+<td>MPEG2-TS</td>
+<td>格式 (后缀为 .ts)（Transport Stream「传输流」；又称 MTS、TS）是一种传输和存储包含音效、视频与通信协议各种数据的标准格式，用于数字电视广播系统，如 DVB、ATSC、IPTV 等等。MPEG2-TS 定义于 MPEG-2 第一部分，系统（即原来之 ISO/IEC 标准 13818-1 或 ITU-T Rec. H.222.0）。Media Player Classic、VLC 多媒体播放器等软件可以直接播放 MPEG-TS 文件。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="FPS-Frames-PerSecond"><a href="#FPS-Frames-PerSecond" class="headerlink" title="FPS(Frames PerSecond)"></a>FPS(Frames PerSecond)</h3><p>每秒刷新的帧数。帧数越高，流畅度就越高。</p>
+<h3 id="分辨率-Resolution"><a href="#分辨率-Resolution" class="headerlink" title="分辨率(Resolution)"></a>分辨率(Resolution)</h3><p><a href="http://xwjack.github.io/2018/01/10/Camera/#sessionPreset">Camera</a>中的<code>AVCaptureSessionPreset640x480</code></p>
+<h3 id="比特率-Bit-Rate-码流-Data-Rate-码率"><a href="#比特率-Bit-Rate-码流-Data-Rate-码率" class="headerlink" title="比特率(Bit Rate)/码流(Data Rate)/码率"></a>比特率(Bit Rate)/码流(Data Rate)/码率</h3><p>比特率这个词有多种翻译，比如码率等，表示经过编码（压缩）后的音频数据每秒钟需要用多少个比特来表示，而比特就是二进制里面最少的单位，要么是0，要么是1。比特率与音视频压缩的关系简单的说就是比特率越高音视频的质量就越好，但编码后的文件就越大；如果比特率越少则情况刚好相反。</p>
+<p>下面是不同类型的比特率编码</p>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Raw Title</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CBR</td>
+<td>Constant Bit Rate</td>
+<td>恒定比特率</td>
+</tr>
+<tr>
+<td>VBR</td>
+<td>Variable Bit Rate</td>
+<td>动态比特率</td>
+</tr>
+<tr>
+<td>MBR</td>
+<td>Mutable Bit Rate</td>
+<td>多比特率编码</td>
+</tr>
+</tbody>
+</table>
+<h3 id="NALU"><a href="#NALU" class="headerlink" title="NALU"></a>NALU</h3><p>H.264 stream consists of a sequence of NAL Units (NALUs)</p>
+<p><img src="/images/2018-01-18-VideoToolbox/1.png" alt=""></p>
+<blockquote>
+<p>H.264码流由一系列NALU单元组成。个人理解就是压缩，传输中最小的数据单元。</p>
+</blockquote>
+<h3 id="I、B、P-Frames"><a href="#I、B、P-Frames" class="headerlink" title="I、B、P Frames"></a>I、B、P Frames</h3><table>
+<thead>
+<tr>
+<th>Frame</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I Frame</td>
+<td>I 帧是内部编码帧（也称为关键帧IDR）</td>
+</tr>
+<tr>
+<td>B Frame</td>
+<td>B 帧是双向内插帧（双向参考帧）</td>
+</tr>
+<tr>
+<td>P Frame</td>
+<td>P 帧是前向预测帧（前向参考帧）</td>
+</tr>
+</tbody>
+</table>
+<p>I 帧是一个完整的画面，而 P 帧和 B 帧记录的是相对于 I 帧的变化。如果没有 I 帧，P 帧和 B 帧就无法解码。</p>
+<p><img src="/images/2018-01-18-VideoToolbox/12.png" alt="移动直播技术秒开优化经验（含PPT）"></p>
+<h3 id="GOP-Group-Of-Picture"><a href="#GOP-Group-Of-Picture" class="headerlink" title="GOP(Group Of Picture)"></a>GOP(Group Of Picture)</h3><p>GOP ( Group of Pictures ) 是一组连续的画面，由一张 I 帧和数张 B / P 帧组成，是视频图像编码器和解码器存取的基本单位，它的排列顺序将会一直重复到影像结束。GOP 体现了关键帧的周期，也就是两个关键帧之间的距离，即一个帧组的最大帧数。假设一个视频的恒定帧率是 24fps（即1秒24帧图像），关键帧周期为 2s，那么一个 GOP 就是 48 张图像。一般而言，每一秒视频至少需要使用一个关键帧。增加关键帧个数可改善画质（GOP 通常为 FPS 的倍数），但是同时增加了带宽和网络负载。</p>
+<p><img src="/images/2018-01-18-VideoToolbox/13.png" alt="移动直播技术秒开优化经验（含PPT）"></p>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/1e14ee263f1a" target="_blank" rel="noopener">移动直播技术秒开优化经验（含PPT）</a></p>
+</blockquote>
+<h3 id="SPS-amp-amp-PPS"><a href="#SPS-amp-amp-PPS" class="headerlink" title="SPS &amp;&amp; PPS"></a>SPS &amp;&amp; PPS</h3><p>SPS(Sequence Parameter Set)、PPS(Picture Parameter Set). Both entities contain information that an h.264 decoder needs to decode the video data, for example the resolution and frame rate of the video.</p>
+<blockquote>
+<p>包含视频的信息，例如分辨率、码率等。</p>
+<p><a href="https://cardinalpeak.com/blog/the-h-264-sequence-parameter-set/" target="_blank" rel="noopener">The h.264 Sequence Parameter Set</a> <a href="https://www.jianshu.com/p/431819e0b6f1" target="_blank" rel="noopener">SPS &amp; PPS in H.264 详解</a> <a href="https://zhuanlan.zhihu.com/p/27896239" target="_blank" rel="noopener">H264码流中SPS PPS详解</a></p>
+</blockquote>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>下面一张图解释了NALU和SPS、PPS、I Frame、B Frame、P Frame之间的关系</p>
+<p><img src="/images/2018-01-18-VideoToolbox/6.png" alt=""></p>
+<blockquote>
+<p>NALU中可以包含视频图像数据(I Frame、P Frame、B Frame或视频帧片段)、SPS、PPS。可能很多个NALU才能组成一帧。</p>
+</blockquote>
+<p>下面一张图解释了NALU的两种不同的格式Elementary Stream 和 MPEG-4 格式，一个是为了方便传输，一个是为了方便存储。</p>
+<p><img src="/images/2018-01-18-VideoToolbox/7.png" alt=""></p>
+<blockquote>
+<p>顺序播放和随机读取。</p>
+</blockquote>
+<h1 id="Decompress-amp-amp-Compress"><a href="#Decompress-amp-amp-Compress" class="headerlink" title="Decompress &amp;&amp; Compress"></a>Decompress &amp;&amp; Compress</h1><p>下面介绍的是如何用VideoToolbox将未编码的CMSampleBuffer(CVPixelBuffer)与已编码的CMSampleBuffer(CMBlockBuffer)的相互转换。</p>
+<h2 id="Decompress"><a href="#Decompress" class="headerlink" title="Decompress"></a>Decompress</h2><p>解码流程：</p>
+<p>1.使用<code>VTDecompressionSessionCreate(_:_:_:_:_:_:_:_:_:_:)</code>创建编码会话<br>2.使用<code>VTSessionSetProperty(_:_:_:)</code>或者<code>VTSessionSetProperties(_:_:)</code>设置会话参数<br>3.使用<code>VTDecompressionSessionDecodeFrame(_:_:_:_:_:_:_:)</code>编码视频帧，在<code>VTDecompressionOutputCallbackRecord</code>得到编码后的结果。<br>4.使用<code>VTCompressionSessionCompleteFrames(_:_:)</code>来强制结束并完成编码。<br>5.编码完成之后使用<code>VTCompressionSessionInvalidate(_:)</code>结束编码，并释放内存。</p>
+<blockquote>
+<p>这里的<code>VTDecompressionOutputCallbackRecord</code>是一个struct</p>
+</blockquote>
+<p><img src="/images/2018-01-18-VideoToolbox/16.png" alt=""></p>
+<h3 id="VTDecompressionSession"><a href="#VTDecompressionSession" class="headerlink" title="VTDecompressionSession"></a>VTDecompressionSession</h3><h4 id="videoFormatDescription"><a href="#videoFormatDescription" class="headerlink" title="videoFormatDescription"></a>videoFormatDescription</h4><h4 id="destinationImageBufferAttributes"><a href="#destinationImageBufferAttributes" class="headerlink" title="destinationImageBufferAttributes"></a>destinationImageBufferAttributes</h4><p><img src="/images/2018-01-18-VideoToolbox/17.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/18.png" alt=""></p>
+<blockquote>
+<p>在输出的过程中，不要将YUV转换成BGRA的格式，即在设置的时候只设置<code>kCVPixelBufferOpenGLESCompatibilityKey</code>就可以了，而<code>kCVPixelBufferPixelFormatTypeKey</code>就不要设置了。</p>
+</blockquote>
+<h4 id="outputCallback"><a href="#outputCallback" class="headerlink" title="outputCallback"></a>outputCallback</h4><h5 id="VTDecompressionOutputCallback"><a href="#VTDecompressionOutputCallback" class="headerlink" title="VTDecompressionOutputCallback"></a>VTDecompressionOutputCallback</h5><p>解码回调回返回<code>CVPixelBuffer</code>，时间戳，解码错误码，丢弃帧。</p>
+<p><img src="/images/2018-01-18-VideoToolbox/19.png" alt=""></p>
+<h3 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h3><h2 id="Compress"><a href="#Compress" class="headerlink" title="Compress"></a>Compress</h2><p>编码流程：</p>
+<p>1.使用<code>VTCompressionSessionCreate(_:_:_:_:_:_:_:_:_:_:)</code>创建编码会话<br>2.使用<code>VTSessionSetProperty(_:_:_:)</code>或者<code>VTSessionSetProperties(_:_:)</code>设置会话参数<br>3.使用<code>VTCompressionSessionEncodeFrame(_:_:_:_:_:_:_:)</code>编码视频帧，在<code>VTCompressionOutputCallback</code>得到编码后的结果。<br>4.使用<code>VTCompressionSessionCompleteFrames(_:_:)</code>来强制结束并完成编码。<br>5.编码完成之后使用<code>VTCompressionSessionInvalidate(_:)</code>结束编码，并释放内存。</p>
+<blockquote>
+<p>编码通俗的来说就是将多个无相关的帧编码成有相关性帧的一个过程。从摄像头输出的每个<code>CMSampleBuffer</code>之间都没有关联，都是原始图像数据。而编码就是将连续帧相似的地方提取出来，然后压缩，去掉无用像素等，使得这些连续的帧关联在一起的过程。</p>
+</blockquote>
+<h3 id="VTCompressionSession"><a href="#VTCompressionSession" class="headerlink" title="VTCompressionSession"></a>VTCompressionSession</h3><p>创建编码会话，指定编码器的类型为H.264(<code>kCMVideoCodecType_H264</code>)。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">status = <span class="type">VTCompressionSessionCreate</span>(<span class="literal">nil</span>, width, height, kCMVideoCodecType_H264, <span class="literal">nil</span>, <span class="literal">nil</span>, <span class="literal">nil</span>, &#123; (o, sourceFrameRefCon, status, infoFlags, sampleBuffer) <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// sampleBuffer has been compressed.      </span></span><br><span class="line">&#125;, selfInstance, &amp;compressionSession)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第一种方式得到编码之后的结果，如果需要self，需要进行指针转换。</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">status = <span class="type">VTCompressionSessionCreate</span>(<span class="literal">nil</span>, width, height, kCMVideoCodecType_H264, <span class="literal">nil</span>, <span class="literal">nil</span>, <span class="literal">nil</span>, <span class="literal">nil</span>, selfInstance, &amp;compressionSession)</span><br><span class="line"></span><br><span class="line"><span class="comment">/// iOS9+</span></span><br><span class="line"><span class="type">VTCompressionSessionEncodeFrameWithOutputHandler</span>(compressionSession!, frame.pixelBuffer!, frame.time, kCMTimeInvalid, <span class="literal">nil</span>, <span class="literal">nil</span>) &#123; (status, infoFlags, sampleBuffer) <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// sampleBuffer has been compressed.         </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第二种方式得到编码之后的结果，直接使用self，但是需要iOS9以上支持。</p>
+</blockquote>
+<h3 id="VTSessionSetProperty"><a href="#VTSessionSetProperty" class="headerlink" title="VTSessionSetProperty"></a>VTSessionSetProperty</h3><p>Sets a property on a VideoToolbox session.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@constant	kVTCompressionPropertyKey_RealTime</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		Hints the video encoder that compression is, or is not, being performed in real time.</span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		For offline compression, clients may set this property to kCFBooleanFalse, which indicates that </span></span><br><span class="line"><span class="comment">		it is OK for the video encoder to work slower than real time in order to produce a better result.</span></span><br><span class="line"><span class="comment">		For real-time compression, clients may set this property to kCFBooleanTrue to recommend that encoding stay timely.</span></span><br><span class="line"><span class="comment">		By default, this property is NULL, indicating unknown.  </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 是否实时编码，默认是未知。在直播过程中肯定需要实时编码。</span></span><br><span class="line"><span class="type">VTSessionSetProperty</span>(compressionSession!, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@constant	kVTCompressionPropertyKey_ProfileLevel</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		Specifies the profile and level for the encoded bitstream.</span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		Available profiles and levels vary across formats and between video encoders.</span></span><br><span class="line"><span class="comment">		Video encoders should use standard keys where available, and follow standard patterns where not.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 对于编码流指定配置和标准，Baseline、Main、Extended、High，级别越高，压缩的效果越好，但算法复杂度更高，导致功耗也更高。</span></span><br><span class="line"><span class="type">VTSessionSetProperty</span>(compressionSession!, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Baseline_AutoLevel)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@constant	kVTCompressionPropertyKey_MaxKeyFrameInterval</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		The maximum interval between key frames, also known as the key frame rate. </span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		Key frames, also known as sync frames, reset inter-frame</span></span><br><span class="line"><span class="comment">		dependencies; decoding a key frame is sufficient to prepare a</span></span><br><span class="line"><span class="comment">		decoder for correctly decoding the difference frames that</span></span><br><span class="line"><span class="comment">		follow. </span></span><br><span class="line"><span class="comment">		Video encoders are allowed to generate key frames more frequently if</span></span><br><span class="line"><span class="comment">		this would result in more efficient compression. </span></span><br><span class="line"><span class="comment">		The default key frame interval is 0, which indicates that the</span></span><br><span class="line"><span class="comment">		video encoder should choose where to place all key frames. A key</span></span><br><span class="line"><span class="comment">		frame interval of 1 indicates that every frame must be a key</span></span><br><span class="line"><span class="comment">		frame, 2 indicates that at least every other frame must be a key</span></span><br><span class="line"><span class="comment">		frame, etc.</span></span><br><span class="line"><span class="comment">		See also kVTCompressionPropertyKey_AllowTemporalCompression.</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">		This key can be set in conjunction with </span></span><br><span class="line"><span class="comment">		kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration,</span></span><br><span class="line"><span class="comment">		and both limits will be enforced - requiring a keyframe every X</span></span><br><span class="line"><span class="comment">		frames or every Y seconds, whichever comes first.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 最大帧间隔，也就是两个I帧之间的距离，参考WebRTC。</span></span><br><span class="line"><span class="keyword">var</span> maxKeyFrameInterval = <span class="number">7200</span></span><br><span class="line"><span class="type">VTSessionSetProperty</span>(compressionSession!, kVTCompressionPropertyKey_MaxKeyFrameInterval, <span class="type">CFNumberCreate</span>(kCFAllocatorDefault, .intType, &amp;maxKeyFrameInterval))</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@constant	kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		The maximum duration from one key frame to the next in seconds. </span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		Zero by default, which means no limit.  </span></span><br><span class="line"><span class="comment">		This property is particularly useful when the frame rate is variable.</span></span><br><span class="line"><span class="comment">		See kVTCompressionPropertyKey_MaxKeyFrameInterval for more discussion</span></span><br><span class="line"><span class="comment">		of key frames.</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">		This key can be set in conjunction with </span></span><br><span class="line"><span class="comment">		kVTCompressionPropertyKey_MaxKeyFrameInterval,</span></span><br><span class="line"><span class="comment">		and both limits will be enforced - requiring a keyframe every X</span></span><br><span class="line"><span class="comment">		frames or every Y seconds, whichever comes first.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 最大帧间隔持续时间，参考WebRTC。</span></span><br><span class="line"><span class="keyword">var</span> maxKeyFrameIntervalDuration = <span class="number">240</span></span><br><span class="line"><span class="type">VTSessionSetProperty</span>(compressionSession!, kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration, <span class="type">CFNumberCreate</span>(kCFAllocatorDefault, .doubleType, &amp;maxKeyFrameIntervalDuration))</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@constant	kVTCompressionPropertyKey_AllowFrameReordering</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		Enables frame reordering. </span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		In order to encode B frames, a video encoder must reorder frames,</span></span><br><span class="line"><span class="comment">		which means that the order in which they will be emitted and</span></span><br><span class="line"><span class="comment">		stored (the decode order) is different from the order in which</span></span><br><span class="line"><span class="comment">		they were presented to the video encoder (the display order). </span></span><br><span class="line"><span class="comment">		True by default.  Set this to false to prevent frame reordering.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 是否启用帧记录，默认开启，参考WebRTC。</span></span><br><span class="line"><span class="type">VTSessionSetProperty</span>(compressionSession!, kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanFalse)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@constant	kVTCompressionPropertyKey_AverageBitRate</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		The long-term desired average bit rate in bits per second. </span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		This is not a hard limit; the bit rate may peak above this. </span></span><br><span class="line"><span class="comment">		The default bit rate is zero, which indicates that the video encoder </span></span><br><span class="line"><span class="comment">		should determine the size of compressed data. </span></span><br><span class="line"><span class="comment">		Note that bit rate settings only have an effect when timing</span></span><br><span class="line"><span class="comment">		information is provided for source frames, and that some codecs do</span></span><br><span class="line"><span class="comment">		not support limiting to specified bit rates.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 平均码率，可选设置，单位是bps，参考最佳设置</span></span><br><span class="line"><span class="comment">/// ⚠️ 该参数仅在CBR编码下有效，有些编码器不支持设置这个参数。</span></span><br><span class="line"><span class="keyword">var</span> averageBitRate: <span class="type">Int32</span> = <span class="number">1216</span> * <span class="number">1024</span> * <span class="number">8</span></span><br><span class="line"><span class="type">VTSessionSetProperty</span>(compressionSession!, kVTCompressionPropertyKey_AverageBitRate, <span class="type">CFNumberCreate</span>(kCFAllocatorDefault, .sInt32Type, &amp;averageBitRate))</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@constant	kVTCompressionPropertyKey_ExpectedFrameRate</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		Indicates the expected frame rate, if known.</span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		The frame rate is measured in frames per second. </span></span><br><span class="line"><span class="comment">		This is not used to control the frame rate; it is provided as a hint to the </span></span><br><span class="line"><span class="comment">		video encoder so that it can set up internal configuration before compression begins. </span></span><br><span class="line"><span class="comment">		The actual frame rate will depend on frame durations and may vary. </span></span><br><span class="line"><span class="comment">		By default, this is zero, indicating "unknown".</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// 设置期望帧率，默认是0。</span></span><br><span class="line"><span class="comment">// ⚠️ 这个不是用来控制帧率的，它仅仅是让编码器在编码之前设置内部配置的，帧速率依赖于帧持续时间的平均值。 </span></span><br><span class="line"><span class="keyword">var</span> fps = <span class="number">24</span></span><br><span class="line"><span class="type">VTSessionSetProperty</span>(compressionSession!, kVTCompressionPropertyKey_ExpectedFrameRate, <span class="type">CFNumberCreate</span>(kCFAllocatorDefault, .intType, &amp;fps))</span><br></pre></td></tr></table></figure>
+<h4 id="WebRTC"><a href="#WebRTC" class="headerlink" title="WebRTC"></a>WebRTC</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)configureCompressionSession &#123;</span><br><span class="line">  RTC_DCHECK(_compressionSession);</span><br><span class="line">  SetVTSessionProperty(_compressionSession, kVTCompressionPropertyKey_RealTime, <span class="literal">true</span>);</span><br><span class="line">  SetVTSessionProperty(_compressionSession, kVTCompressionPropertyKey_ProfileLevel, _profile);</span><br><span class="line">  SetVTSessionProperty(_compressionSession, kVTCompressionPropertyKey_AllowFrameReordering, <span class="literal">false</span>);</span><br><span class="line">  [<span class="keyword">self</span> setEncoderBitrateBps:_targetBitrateBps];</span><br><span class="line">  <span class="comment">// TODO(tkchin): Look at entropy mode and colorspace matrices.</span></span><br><span class="line">  <span class="comment">// TODO(tkchin): Investigate to see if there's any way to make this work.</span></span><br><span class="line">  <span class="comment">// May need it to interop with Android. Currently this call just fails.</span></span><br><span class="line">  <span class="comment">// On inspecting encoder output on iOS8, this value is set to 6.</span></span><br><span class="line">  <span class="comment">// internal::SetVTSessionProperty(compression_session_,</span></span><br><span class="line">  <span class="comment">//     kVTCompressionPropertyKey_MaxFrameDelayCount,</span></span><br><span class="line">  <span class="comment">//     1);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Set a relatively large value for keyframe emission (7200 frames or 4 minutes).</span></span><br><span class="line">  SetVTSessionProperty(_compressionSession, kVTCompressionPropertyKey_MaxKeyFrameInterval, <span class="number">7200</span>);</span><br><span class="line">  SetVTSessionProperty(</span><br><span class="line">      _compressionSession, kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration, <span class="number">240</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setEncoderBitrateBps:(uint32_t)bitrateBps &#123;</span><br><span class="line">  <span class="keyword">if</span> (_compressionSession) &#123;</span><br><span class="line">    SetVTSessionProperty(_compressionSession, kVTCompressionPropertyKey_AverageBitRate, bitrateBps);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// TODO(tkchin): Add a helper method to set array value.</span></span><br><span class="line">    int64_t dataLimitBytesPerSecondValue =</span><br><span class="line">        static_cast&lt;int64_t&gt;(bitrateBps * kLimitToAverageBitRateFactor / <span class="number">8</span>);</span><br><span class="line">    <span class="built_in">CFNumberRef</span> bytesPerSecond =</span><br><span class="line">        <span class="built_in">CFNumberCreate</span>(kCFAllocatorDefault, kCFNumberSInt64Type, &amp;dataLimitBytesPerSecondValue);</span><br><span class="line">    int64_t oneSecondValue = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">CFNumberRef</span> oneSecond =</span><br><span class="line">        <span class="built_in">CFNumberCreate</span>(kCFAllocatorDefault, kCFNumberSInt64Type, &amp;oneSecondValue);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">void</span> *nums[<span class="number">2</span>] = &#123;bytesPerSecond, oneSecond&#125;;</span><br><span class="line">    <span class="built_in">CFArrayRef</span> dataRateLimits = <span class="built_in">CFArrayCreate</span>(nullptr, nums, <span class="number">2</span>, &amp;kCFTypeArrayCallBacks);</span><br><span class="line">    OSStatus status = VTSessionSetProperty(</span><br><span class="line">        _compressionSession, kVTCompressionPropertyKey_DataRateLimits, dataRateLimits);</span><br><span class="line">    <span class="keyword">if</span> (bytesPerSecond) &#123;</span><br><span class="line">      <span class="built_in">CFRelease</span>(bytesPerSecond);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (oneSecond) &#123;</span><br><span class="line">      <span class="built_in">CFRelease</span>(oneSecond);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dataRateLimits) &#123;</span><br><span class="line">      <span class="built_in">CFRelease</span>(dataRateLimits);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (status != noErr) &#123;</span><br><span class="line">      LOG(LS_ERROR) &lt;&lt; <span class="string">"Failed to set data rate limit"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _encoderBitrateBps = bitrateBps;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://chromium.googlesource.com/external/webrtc/+/master/sdk/objc/Framework/Classes/VideoToolbox/RTCVideoEncoderH264.mm" target="_blank" rel="noopener">WebRTC-RTCVideoEncoderH264</a></p>
+</blockquote>
+<h3 id="VTCompressionSessionPrepareToEncodeFrames"><a href="#VTCompressionSessionPrepareToEncodeFrames" class="headerlink" title="VTCompressionSessionPrepareToEncodeFrames"></a>VTCompressionSessionPrepareToEncodeFrames</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">VTCompressionSessionPrepareToEncodeFrames</span>(compressionSession!)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>调用的目的就是告诉编码器分配相应的内存空间。可以不用调用，编码器会在第一次调用<code>VTCompressionSessionEncodeFrame</code>的时候再分配。</p>
+</blockquote>
+<h3 id="Summary-2"><a href="#Summary-2" class="headerlink" title="Summary"></a>Summary</h3><p>很多人不知道如何设置的码率，最大帧间隔等这个参数，参照下面的设置就可以。</p>
+<p><img src="/images/2018-01-18-VideoToolbox/14.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/15.png" alt=""></p>
+<blockquote>
+<p><a href="http://www.lighterra.com/papers/videoencodingh264/" target="_blank" rel="noopener">Video Encoding Settings for H.264 Excellence</a></p>
+</blockquote>
+<h1 id="Advances"><a href="#Advances" class="headerlink" title="Advances"></a>Advances</h1><p>使用VideoToolbox编码和解码都是很简单的，难的如何处理编解码后的数据，显示？写文件？传输？如果我们仅仅是将捕获的数据进行显示或者写文件，直接使用AVFoundation框架就可以做到，而且很简单。如果是传输，那么我们就要用到VideoToolbox了。而<a href="https://developer.apple.com/videos/play/wwdc2014/513/" target="_blank" rel="noopener">WWDC 2014 513 Direct Access to Video Encoding and Decoding</a>中介绍的就是如何将传输过来的数据流进行手动解码显示，或者将数据编码传输。</p>
+<p>下面是处理视频的框架</p>
+<p><img src="/images/2018-01-18-VideoToolbox/3.png" alt=""></p>
+<h2 id="Core-Video"><a href="#Core-Video" class="headerlink" title="Core Video"></a>Core Video</h2><h3 id="CVPixelBuffer"><a href="#CVPixelBuffer" class="headerlink" title="CVPixelBuffer"></a>CVPixelBuffer</h3><p>A reference to a Core Video pixel buffer object. The pixel buffer stores an image in main memory. </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">CVPixelBuffer</span> = <span class="type">CVImageBuffer</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>CVPixelBuffer</code>是存储在内存中的一个未压缩的光栅图像Buffer。</p>
+</blockquote>
+<p><img src="/images/2018-01-18-VideoToolbox/2.png" alt=""></p>
+<h2 id="Core-Media"><a href="#Core-Media" class="headerlink" title="Core Media"></a>Core Media</h2><h3 id="CMBlockBuffer"><a href="#CMBlockBuffer" class="headerlink" title="CMBlockBuffer"></a>CMBlockBuffer</h3><p>CMBlockBuffer is the basic way that we wrap arbitrary blocks of data in core media.</p>
+<blockquote>
+<p><code>CMBlockBuffer</code>是一个任意的Buffer，相当于Buffer中的Any。在管道中压缩视频的时候，就会把它包装成<code>CMBlockBuffer</code>。相当于<code>CMBlockBuffer</code>代表着一个压缩的数据。</p>
+</blockquote>
+<p><img src="/images/2018-01-18-VideoToolbox/4.png" alt=""></p>
+<h3 id="CMSampleBuffer"><a href="#CMSampleBuffer" class="headerlink" title="CMSampleBuffer"></a>CMSampleBuffer</h3><p>A CMSampleBuffer is a Core Foundation object containing zero or more compressed (or uncompressed) samples of a particular media type (audio, video, muxed, and so on).</p>
+<blockquote>
+<p>表示<code>CMSampleBuffer</code>可能是一个压缩的数据，也可能是一个未压缩的数据。</p>
+</blockquote>
+<p><img src="/images/2018-01-18-VideoToolbox/5.png" alt=""></p>
+<h2 id="Decompress-amp-amp-Compress-1"><a href="#Decompress-amp-amp-Compress-1" class="headerlink" title="Decompress &amp;&amp; Compress"></a>Decompress &amp;&amp; Compress</h2><h2 id="Decompress-H-264-Elementary-Stream-Flow"><a href="#Decompress-H-264-Elementary-Stream-Flow" class="headerlink" title="Decompress H.264 Elementary Stream Flow"></a>Decompress H.264 Elementary Stream Flow</h2><p>在这里将介绍如何将H.264码流解码。</p>
+<h3 id="Stream-Datas-gt-CMSampleBuffer"><a href="#Stream-Datas-gt-CMSampleBuffer" class="headerlink" title="Stream Datas =&gt; CMSampleBuffer"></a>Stream Datas =&gt; CMSampleBuffer</h3><p>如何将数据流封装成CMSampleBuffer(CMBlockBuffer)</p>
+<h4 id="Elementary-Stream-gt-MPEG-4"><a href="#Elementary-Stream-gt-MPEG-4" class="headerlink" title="Elementary Stream =&gt; MPEG-4"></a>Elementary Stream =&gt; MPEG-4</h4><p>1.使用<code>CMVideoFormatDescriptionCreateFromH264ParameterSets</code>来将SPS和PPS封装成<code>CMVideoFormatDescription</code></p>
+<p><img src="/images/2018-01-18-VideoToolbox/8.png" alt=""></p>
+<blockquote>
+<p><code>CMVideoFormatDescription</code><br>A synonym type used for manipulating video CMFormatDescriptions.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">CMVideoFormatDescription</span> = <span class="type">CMFormatDescription</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2.修改NALU的Header</p>
+<p><img src="/images/2018-01-18-VideoToolbox/9.png" alt=""></p>
+<blockquote>
+<p>NALU它主要有两种格式：Annex B 和 AVCC。也被称为 Elementary Stream 和 MPEG-4 格式，Annex B格式以 0x000001 或 0x00000001 开头，AVCC 格式以所在的 NALU 的长度开头。</p>
+</blockquote>
+<p><img src="/images/2018-01-18-VideoToolbox/10.png" alt=""></p>
+<blockquote>
+<p>首先我们需要将Header的Start Code替换，然后将NAL Unit封装成<code>CMBlockBuffer</code>，在这里可能Frame包含很多个NAL Unit，都需要包含进去。创建的方式我们使用<code>CMBlockBufferCreateWithMemoryBlock</code>。</p>
+</blockquote>
+<p><img src="/images/2018-01-18-VideoToolbox/11.png" alt=""></p>
+<blockquote>
+<p>最后<code>CMBlockBuffer</code>+<code>CMVideoFormatDesc</code>+<code>CMTime</code>通过<code>CMSampleBufferCreate</code>生成<code>CMSampleBuffer</code>。</p>
+<p>也可以用<code>CMSampleBufferCreateReady</code>生成已经Ready<code>CMSampleBuffer</code>。</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><video width="100%" controls="controls" autoplay="autoplay"><br>  <source src="http://devstreaming.apple.com/videos/wwdc/2014/513xxhfudagscto/513/ref.mov"><br>  <source src="https://developer.apple.com/videos/images/ogg_bumper_no_tv.ogv" type="video/ogg"><br></video>
+
+<p><a href="https://blog.qiniu.com/archives/6816" target="_blank" rel="noopener">《视频直播技术详解》之（四）：编码和封装</a></p>
+<p><a href="https://tomisacat.xyz/tech/2017/08/21/iOS-hardware-accelerate-codec-with-videotoolbox.html" target="_blank" rel="noopener">初探 iOS 视频硬编解码</a></p>
+<p><a href="http://img421.com/2016/08/05/san-shi-pin-bian-jie-ma-jie-ma-pian/" target="_blank" rel="noopener">三、视频编解码-解码篇</a></p>
+<p><a href="http://img421.com/2016/08/05/si-shi-pin-de-bian-jie-ma-bian-ma-pian/" target="_blank" rel="noopener">四、视频的编解码-编码篇</a></p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/01/18/VideoToolbox/">VideoToolbox</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2018-01-18 14:33</p>
+        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2018/01/18/VideoToolbox/" title="VideoToolbox">http://xwjack.github.io/2018/01/18/VideoToolbox/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2018/01/18/VideoToolbox/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/22/Terminal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Terminal
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/18/Media/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Media</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Common"><span class="toc-number">1.</span> <span class="toc-text">Common</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Swift中指针转换"><span class="toc-number">1.1.</span> <span class="toc-text">Swift中指针转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Technology"><span class="toc-number">1.2.</span> <span class="toc-text">Technology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#H-264-amp-amp-H-265"><span class="toc-number">1.2.1.</span> <span class="toc-text">H.264 &amp;&amp; H.265</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#H-264"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">H.264</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#H-265"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">H.265</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Formatter"><span class="toc-number">1.2.2.</span> <span class="toc-text">Video Formatter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPS-Frames-PerSecond"><span class="toc-number">1.2.3.</span> <span class="toc-text">FPS(Frames PerSecond)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分辨率-Resolution"><span class="toc-number">1.2.4.</span> <span class="toc-text">分辨率(Resolution)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比特率-Bit-Rate-码流-Data-Rate-码率"><span class="toc-number">1.2.5.</span> <span class="toc-text">比特率(Bit Rate)/码流(Data Rate)/码率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NALU"><span class="toc-number">1.2.6.</span> <span class="toc-text">NALU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I、B、P-Frames"><span class="toc-number">1.2.7.</span> <span class="toc-text">I、B、P Frames</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GOP-Group-Of-Picture"><span class="toc-number">1.2.8.</span> <span class="toc-text">GOP(Group Of Picture)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPS-amp-amp-PPS"><span class="toc-number">1.2.9.</span> <span class="toc-text">SPS &amp;&amp; PPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.10.</span> <span class="toc-text">Summary</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Decompress-amp-amp-Compress"><span class="toc-number">2.</span> <span class="toc-text">Decompress &amp;&amp; Compress</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Decompress"><span class="toc-number">2.1.</span> <span class="toc-text">Decompress</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VTDecompressionSession"><span class="toc-number">2.1.1.</span> <span class="toc-text">VTDecompressionSession</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#videoFormatDescription"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">videoFormatDescription</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#destinationImageBufferAttributes"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">destinationImageBufferAttributes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#outputCallback"><span class="toc-number">2.1.1.3.</span> <span class="toc-text">outputCallback</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#VTDecompressionOutputCallback"><span class="toc-number">2.1.1.3.1.</span> <span class="toc-text">VTDecompressionOutputCallback</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary-1"><span class="toc-number">2.1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Compress"><span class="toc-number">2.2.</span> <span class="toc-text">Compress</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VTCompressionSession"><span class="toc-number">2.2.1.</span> <span class="toc-text">VTCompressionSession</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VTSessionSetProperty"><span class="toc-number">2.2.2.</span> <span class="toc-text">VTSessionSetProperty</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WebRTC"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">WebRTC</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VTCompressionSessionPrepareToEncodeFrames"><span class="toc-number">2.2.3.</span> <span class="toc-text">VTCompressionSessionPrepareToEncodeFrames</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary-2"><span class="toc-number">2.2.4.</span> <span class="toc-text">Summary</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Advances"><span class="toc-number">3.</span> <span class="toc-text">Advances</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-Video"><span class="toc-number">3.1.</span> <span class="toc-text">Core Video</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CVPixelBuffer"><span class="toc-number">3.1.1.</span> <span class="toc-text">CVPixelBuffer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-Media"><span class="toc-number">3.2.</span> <span class="toc-text">Core Media</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CMBlockBuffer"><span class="toc-number">3.2.1.</span> <span class="toc-text">CMBlockBuffer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMSampleBuffer"><span class="toc-number">3.2.2.</span> <span class="toc-text">CMSampleBuffer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decompress-amp-amp-Compress-1"><span class="toc-number">3.3.</span> <span class="toc-text">Decompress &amp;&amp; Compress</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decompress-H-264-Elementary-Stream-Flow"><span class="toc-number">3.4.</span> <span class="toc-text">Decompress H.264 Elementary Stream Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream-Datas-gt-CMSampleBuffer"><span class="toc-number">3.4.1.</span> <span class="toc-text">Stream Datas =&gt; CMSampleBuffer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Elementary-Stream-gt-MPEG-4"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">Elementary Stream =&gt; MPEG-4</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/01/22/Terminal/" title="上一篇: Terminal">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/01/18/Media/" title="下一篇: Media">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

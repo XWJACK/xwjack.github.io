@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS In-App Purchase | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOS 内购买流程。">
+<meta name="keywords" content="iOS,Swift 3.0.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS In-App Purchase">
+<meta property="og:url" content="http://xwjack.github.io/2017/03/24/Purchase/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="iOS 内购买流程。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/3.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/4.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/5.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/6.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/7.png">
+<meta property="og:updated_time" content="2018-01-25T14:06:39.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS In-App Purchase">
+<meta name="twitter:description" content="iOS 内购买流程。">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2017-03-24-Purchase/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Purchase" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/24/Purchase/" class="article-date">
+      <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">2017-03-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS In-App Purchase
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-0-1/">Swift 3.0.1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>iOS 内购买流程。</p>
+<a id="more"></a>
+<h1 id="iOS-内购买流程"><a href="#iOS-内购买流程" class="headerlink" title="iOS 内购买流程"></a>iOS 内购买流程</h1><h2 id="iTunes-Connect-配置："><a href="#iTunes-Connect-配置：" class="headerlink" title="iTunes Connect 配置："></a>iTunes Connect 配置：</h2><ul>
+<li>添加好了之后是这样的：</li>
+</ul>
+<p><img src="/images/2017-03-24-Purchase/1.png" alt=""></p>
+<ul>
+<li>新添加一个：</li>
+</ul>
+<p><img src="/images/2017-03-24-Purchase/2.png" alt=""></p>
+<p>官方选择介绍，根据自己需要来选：</p>
+<table>
+<thead>
+<tr>
+<th>Product type</th>
+<th>Description</th>
+<th>讲解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consumable</td>
+<td>A product that is used once, after which it becomes depleted and must be purchased again. Example: fish food in a fishing app.</td>
+<td>只能被使用一次的消耗品 ，购买之后下次也许还要购买</td>
+</tr>
+<tr>
+<td>Non-Consumable</td>
+<td>A product that is purchased once and does not expire or decrease with use. Example: Race track for a game app. Apple can host your non-consumable products for you. See Hosting Non-Consumable Products with Apple.</td>
+<td>非一次性消耗品，一般用于去除广告，或者购买之后就可以永久使用的功能</td>
+</tr>
+<tr>
+<td>Auto-Renewable Subscription</td>
+<td>A product that allows users to purchase dynamic content for a set period. This type of Subscription renews automatically unless cancelled by the user. Example: Monthly subscriptions for an app offering streaming services.</td>
+</tr>
+<tr>
+<td>Non-Renewing Subscription</td>
+<td>A product that allows users to purchase a service with a limited duration. The content of this in-app purchase can be static. This type of Subscription does not renew automatically. Example: Annual subscription to a catalog of archived articles.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>设置：</li>
+</ul>
+<p>ProductID需要唯一，他标识着每一个产品。</p>
+<p><img src="/images/2017-03-24-Purchase/3.png" alt=""></p>
+<p><a href="https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/1218144239/pricingMatrix/consumable" target="_blank" rel="noopener">价格详情：</a>价格不能随意设置，需要选择，其中说明了，定价和可实际得到的钱，差价嘛。。。</p>
+<p>Display Name是要在Apple Store上显示的，下面是描述。</p>
+<p>Review Information是用于App审核的时候用的，提供内购买的截图和说明。</p>
+<p><img src="/images/2017-03-24-Purchase/4.png" alt=""></p>
+<h2 id="添加测试账户信息："><a href="#添加测试账户信息：" class="headerlink" title="添加测试账户信息："></a>添加测试账户信息：</h2><p><img src="/images/2017-03-24-Purchase/5.png" alt=""></p>
+<h2 id="内购买代码："><a href="#内购买代码：" class="headerlink" title="内购买代码："></a>内购买代码：</h2><p>一个简单的内购买代码（App审核的时候用的，审核通过走第三方支付流程）：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  InPurchase.swift</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Jack on 3/22/17.</span></span><br><span class="line"><span class="comment">//  Copyright © 2017 Jack. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"><span class="keyword">import</span> StoreKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">InpurchaseError</span>: <span class="title">Error</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> noPermission</span><br><span class="line">    <span class="keyword">case</span> noIdentifier</span><br><span class="line">    <span class="keyword">case</span> failTransactions</span><br><span class="line">    <span class="keyword">case</span> receiptURLError</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Inpurchase</span>: <span class="title">NSObject</span>, <span class="title">SKProductsRequestDelegate</span>, <span class="title">SKPaymentTransactionObserver</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> `<span class="keyword">default</span>` = <span class="type">Inpurchase</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> products: [<span class="type">SKProduct</span>] = []</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> failBlock: ((<span class="type">InpurchaseError</span>) -&gt; ())?</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> receiptBlock: ((<span class="type">String</span>, <span class="type">String</span>) -&gt; ())?</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> successBlock: (() -&gt; <span class="type">Set</span>&lt;<span class="type">String</span>&gt;)?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 沙盒请求URL</span></span><br><span class="line">    <span class="keyword">var</span> sandBoxURLString = <span class="string">"https://sandbox.itunes.apple.com/verifyReceipt"</span></span><br><span class="line">    <span class="comment">/// 正式版请求URL</span></span><br><span class="line">    <span class="keyword">var</span> buyURLString = <span class="string">"https://buy.itunes.apple.com/verifyReceipt"</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 开始向Apple Store请求产品列表数据，并购买指定的产品，得到Apple Store的Receipt，失败回调</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - productIdentifiers: 请求指定产品</span></span><br><span class="line">    <span class="comment">///   - successBlock: 请求产品成功回调，这个时候可以返回需要购买的产品ID，默认为空不购买</span></span><br><span class="line">    <span class="comment">///   - receiptBlock: 得到Apple Store的Receipt和transactionIdentifier，这个时候可以将数据传回后台或者自己去post到Apple Store</span></span><br><span class="line">    <span class="comment">///   - failBlock: 失败回调</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">start</span><span class="params">(productIdentifiers: Set&lt;String&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">               successBlock: <span class="params">(<span class="params">()</span></span></span></span> -&gt; <span class="type">Set</span>&lt;<span class="type">String</span>&gt;)? = <span class="literal">nil</span>,</span><br><span class="line">               receiptBlock: ((<span class="type">String</span>, <span class="type">String</span>) -&gt; ())? = <span class="literal">nil</span>,</span><br><span class="line">               failBlock: ((<span class="type">InpurchaseError</span>) -&gt; ())? = <span class="literal">nil</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// 向AppStore发送请求，请求产品列表</span></span><br><span class="line">        <span class="keyword">let</span> request = <span class="type">SKProductsRequest</span>(productIdentifiers: productIdentifiers)</span><br><span class="line">        request.delegate = <span class="keyword">self</span></span><br><span class="line">        request.start()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.successBlock = successBlock</span><br><span class="line">        <span class="keyword">self</span>.receiptBlock = receiptBlock</span><br><span class="line">        <span class="keyword">self</span>.failBlock = failBlock</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 购买所有给定的identifier的产品</span></span><br><span class="line">    <span class="comment">///</span></span><br><span class="line">    <span class="comment">/// - Parameter id: 唯一标识一个产品</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">buy</span><span class="params">(productIdentifiers: Set&lt;String&gt;)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> products = <span class="keyword">self</span>.products.<span class="built_in">filter</span>&#123; productIdentifiers.<span class="built_in">contains</span>($<span class="number">0</span>.productIdentifier) &#125;</span><br><span class="line">        <span class="keyword">guard</span> !products.isEmpty <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// 判断能够进行内购买</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="type">SKPaymentQueue</span>.canMakePayments() <span class="keyword">else</span> &#123; failBlock?(.noPermission); <span class="keyword">return</span> &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// 将需要购买的产品加入到购买队列中。</span></span><br><span class="line">        products.forEach &#123;</span><br><span class="line">            <span class="keyword">let</span> payment = <span class="type">SKPayment</span>(product: $<span class="number">0</span>)</span><br><span class="line">            <span class="type">SKPaymentQueue</span>.<span class="keyword">default</span>().add(<span class="keyword">self</span>)</span><br><span class="line">            <span class="type">SKPaymentQueue</span>.<span class="keyword">default</span>().add(payment)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK: - SKProductsRequestDelegate</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">productsRequest</span><span class="params">(<span class="number">_</span> request: SKProductsRequest, didReceive response: SKProductsResponse)</span></span> &#123;</span><br><span class="line">        <span class="comment">/// 得到所有的产品</span></span><br><span class="line">        products = response.products</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> data = successBlock?() <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        buy(productIdentifiers: data)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//MARK: - SKPaymentTransactionObserver</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">paymentQueue</span><span class="params">(<span class="number">_</span> queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> transaction <span class="keyword">in</span> transactions &#123;</span><br><span class="line">            <span class="keyword">switch</span> transaction.transactionState &#123;</span><br><span class="line">            <span class="keyword">case</span> .purchased: <span class="comment">// Transaction is in queue, user has been charged.  Client should complete the transaction.</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">guard</span> <span class="keyword">let</span> receiptUrl = <span class="type">Bundle</span>.main.appStoreReceiptURL, <span class="keyword">let</span> receiptData = <span class="type">NSData</span>(contentsOf: receiptUrl) <span class="keyword">else</span> &#123; failBlock?(.receiptURLError);<span class="keyword">return</span> &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">let</span> receiptString = receiptData.base64EncodedString(options: <span class="type">NSData</span>.<span class="type">Base64EncodingOptions</span>(rawValue: <span class="number">0</span>))</span><br><span class="line">                receiptBlock?(receiptString, transaction.transactionIdentifier!)</span><br><span class="line">                <span class="type">SKPaymentQueue</span>.<span class="keyword">default</span>().finishTransaction(transaction)</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> .failed: <span class="comment">// Transaction was cancelled or failed before being added to the server queue.</span></span><br><span class="line">                failBlock?(.failTransactions)</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试运行结果："><a href="#测试运行结果：" class="headerlink" title="测试运行结果："></a>测试运行结果：</h2><p>⚠️：测试之前需要退出Apple Store的登录，在内购买的时候会弹出登录的框，来输入测试帐号。</p>
+<p><img src="/images/2017-03-24-Purchase/6.png" alt=""></p>
+<p><img src="/images/2017-03-24-Purchase/7.png" alt=""></p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2017/03/24/Purchase/">iOS In-App Purchase</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2017-03-24 00:00</p>
+        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2017/03/24/Purchase/" title="iOS In-App Purchase">http://xwjack.github.io/2017/03/24/Purchase/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/03/24/Purchase/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/05/02/Lotus/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Lotus
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/20/Music/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Music</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS-内购买流程"><span class="toc-number">1.</span> <span class="toc-text">iOS 内购买流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iTunes-Connect-配置："><span class="toc-number">1.1.</span> <span class="toc-text">iTunes Connect 配置：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加测试账户信息："><span class="toc-number">1.2.</span> <span class="toc-text">添加测试账户信息：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内购买代码："><span class="toc-number">1.3.</span> <span class="toc-text">内购买代码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试运行结果："><span class="toc-number">1.4.</span> <span class="toc-text">测试运行结果：</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/05/02/Lotus/" title="上一篇: Lotus">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/03/20/Music/" title="下一篇: Music">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

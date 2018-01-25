@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Terminal | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。 最近也在玩Centos，所以也记录在Centos上遇到的问题。">
+<meta name="keywords" content="macOS,CentOS7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Terminal">
+<meta property="og:url" content="http://xwjack.github.io/2018/01/22/Terminal/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。 最近也在玩Centos，所以也记录在Centos上遇到的问题。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-25T14:06:40.175Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terminal">
+<meta name="twitter:description" content="用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。 最近也在玩Centos，所以也记录在Centos上遇到的问题。">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Terminal" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/22/Terminal/" class="article-date">
+      <time datetime="2018-01-22T03:42:37.000Z" itemprop="datePublished">2018-01-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Terminal
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS7/">CentOS7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。</p>
+<p>最近也在玩Centos，所以也记录在Centos上遇到的问题。</p>
+<a id="more"></a>
+<h1 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h1><h2 id="etc"><a href="#etc" class="headerlink" title="/etc"></a><code>/etc</code></h2><h2 id="bin"><a href="#bin" class="headerlink" title="/bin"></a><code>/bin</code></h2><h2 id="sbin"><a href="#sbin" class="headerlink" title="/sbin"></a><code>/sbin</code></h2><h2 id="usr"><a href="#usr" class="headerlink" title="/usr"></a><code>/usr</code></h2><h2 id="var"><a href="#var" class="headerlink" title="/var"></a><code>/var</code></h2><h2 id=""><a href="#" class="headerlink" title="/"></a><code>/</code></h2><h1 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h1><h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><h3 id="CentOS7-Install-dev-root-does-not-exist"><a href="#CentOS7-Install-dev-root-does-not-exist" class="headerlink" title="CentOS7 Install /dev/root does not exist"></a>CentOS7 Install /dev/root does not exist</h3><p>在安装CentOS7的时候出现<code>/dev/root does not exist</code>，原因是没有找到安装系统所在的位置。</p>
+<p>在用UltraISO将CentOS写入U盘的时候会自动改名，在重启安装的时候，选择Install CentOS 7的时候我们按e进入编辑状态，会看到这样的字符串<code>hd:LABEL=CentOS\x207\x20x86_64</code>，这个是CentOS查找安装系统的位置，用LABEL表示，即硬盘名称。我们需要修改成自己的U盘，我的是<code>/dev/sdc4</code>。</p>
+<blockquote>
+<p>可以先用<code>linux dd</code>来替换<code>LABEL=CentOS\x207\x20x86_64</code>并执行，在显示的文本中得到相应的信息，再回来修改。</p>
+</blockquote>
+<h3 id="ssh自动断开连接"><a href="#ssh自动断开连接" class="headerlink" title="ssh自动断开连接"></a>ssh自动断开连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加</span></span><br><span class="line">ClientAliveInterval 30</span><br><span class="line">ClientAliveCountMax 6</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启sshd服务</span></span><br><span class="line">service sshd reload</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ClientAliveInterval每个多少秒发送心跳包，ClientAliveCountMax最多无响应次数。</p>
+</blockquote>
+<h3 id="CentOS-Install-VPN"><a href="#CentOS-Install-VPN" class="headerlink" title="CentOS Install VPN"></a>CentOS Install VPN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ipsec start   <span class="comment">#启动服务</span></span><br><span class="line">ipsec stop    <span class="comment">#关闭服务</span></span><br><span class="line">ipsec restart <span class="comment">#重启服务</span></span><br><span class="line">ipsec reload  <span class="comment">#重新读取</span></span><br><span class="line">ipsec status  <span class="comment">#查看状态</span></span><br><span class="line">ipsec --<span class="built_in">help</span>  <span class="comment">#查看帮助</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/quericy/one-key-ikev2-vpn" target="_blank" rel="noopener">one-key-ikev2-vpn</a></p>
+<blockquote>
+<p>ipsec服务不会在重启生效，可以将<code>ipsec start</code>加入<code>/etc/rc.local</code>中。</p>
+</blockquote>
+<h4 id="修改默认的用户名和密码"><a href="#修改默认的用户名和密码" class="headerlink" title="修改默认的用户名和密码"></a>修改默认的用户名和密码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/etc/ipsec.secrets</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改之后需要重启服务</p>
+</blockquote>
+<h3 id="CentOS-Install-Shadowsocks"><a href="#CentOS-Install-Shadowsocks" class="headerlink" title="CentOS Install Shadowsocks"></a>CentOS Install Shadowsocks</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">"https://bootstrap.pypa.io/get-pip.py"</span> -o <span class="string">"get-pip.py"</span></span><br><span class="line">python get-pip.py</span><br><span class="line"></span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+<p>在<code>/etc/shadowsocks.json</code>创建配置文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line"><span class="attr">"server_port"</span>:<span class="number">8388</span>,</span><br><span class="line"><span class="attr">"password"</span>:<span class="string">"xwjack"</span>,</span><br><span class="line"><span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line"><span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line"><span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line"><span class="attr">"workers"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>: <span class="string">"0.0.0.0"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>: <span class="number">8388</span>,</span><br><span class="line">  <span class="attr">"password"</span>: <span class="string">"xwjack"</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最少配置</p>
+</blockquote>
+<h4 id="配置开机启动"><a href="#配置开机启动" class="headerlink" title="配置开机启动"></a>配置开机启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加<code>ssserver -c /etc/shadowsocks.json -d start</code></p>
+</blockquote>
+<p>启动shadowsocks服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure>
+<p>关闭shadowsocks服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure>
+<p>重启shadowsocks服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d restart</span><br></pre></td></tr></table></figure>
+<p><a href="https://segmentfault.com/a/1190000010528542#articleHeader9" target="_blank" rel="noopener">使用搬瓦工bandwagonhost VPS安装Shadowsocks Server 完全指南</a></p>
+<p><a href="http://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html" target="_blank" rel="noopener">在 CentOS 7 下安装配置 shadowsocks</a></p>
+<h3 id="Centos-Install-ifconfig-netstat"><a href="#Centos-Install-ifconfig-netstat" class="headerlink" title="Centos Install ifconfig netstat"></a>Centos Install ifconfig netstat</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-tools</span><br></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/01/22/Terminal/">Terminal</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2018-01-22 11:42</p>
+        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2018/01/22/Terminal/" title="Terminal">http://xwjack.github.io/2018/01/22/Terminal/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2018/01/22/Terminal/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/18/VideoToolbox/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VideoToolbox</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#macOS"><span class="toc-number">1.</span> <span class="toc-text">macOS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#etc"><span class="toc-number">1.1.</span> <span class="toc-text">/etc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bin"><span class="toc-number">1.2.</span> <span class="toc-text">/bin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sbin"><span class="toc-number">1.3.</span> <span class="toc-text">/sbin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usr"><span class="toc-number">1.4.</span> <span class="toc-text">/usr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#var"><span class="toc-number">1.5.</span> <span class="toc-text">/var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.6.</span> <span class="toc-text">/</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CentOS"><span class="toc-number">2.</span> <span class="toc-text">CentOS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Question"><span class="toc-number">2.1.</span> <span class="toc-text">Question</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS7-Install-dev-root-does-not-exist"><span class="toc-number">2.1.1.</span> <span class="toc-text">CentOS7 Install /dev/root does not exist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh自动断开连接"><span class="toc-number">2.1.2.</span> <span class="toc-text">ssh自动断开连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-Install-VPN"><span class="toc-number">2.1.3.</span> <span class="toc-text">CentOS Install VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改默认的用户名和密码"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">修改默认的用户名和密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-Install-Shadowsocks"><span class="toc-number">2.1.4.</span> <span class="toc-text">CentOS Install Shadowsocks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置开机启动"><span class="toc-number">2.1.4.1.</span> <span class="toc-text">配置开机启动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos-Install-ifconfig-netstat"><span class="toc-number">2.1.5.</span> <span class="toc-text">Centos Install ifconfig netstat</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/01/18/VideoToolbox/" title="下一篇: VideoToolbox">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
