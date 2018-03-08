@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Mini灬哆啦">
 <meta property="og:description" content="用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。 最近也在玩Centos，所以也记录在Centos上遇到的问题。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-25T14:06:40.175Z">
+<meta property="og:updated_time" content="2018-02-27T06:20:56.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Terminal">
 <meta name="twitter:description" content="用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。 最近也在玩Centos，所以也记录在Centos上遇到的问题。">
@@ -172,7 +172,10 @@
         <p>用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。</p>
 <p>最近也在玩Centos，所以也记录在Centos上遇到的问题。</p>
 <a id="more"></a>
-<h1 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h1><h2 id="etc"><a href="#etc" class="headerlink" title="/etc"></a><code>/etc</code></h2><h2 id="bin"><a href="#bin" class="headerlink" title="/bin"></a><code>/bin</code></h2><h2 id="sbin"><a href="#sbin" class="headerlink" title="/sbin"></a><code>/sbin</code></h2><h2 id="usr"><a href="#usr" class="headerlink" title="/usr"></a><code>/usr</code></h2><h2 id="var"><a href="#var" class="headerlink" title="/var"></a><code>/var</code></h2><h2 id=""><a href="#" class="headerlink" title="/"></a><code>/</code></h2><h1 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h1><h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><h3 id="CentOS7-Install-dev-root-does-not-exist"><a href="#CentOS7-Install-dev-root-does-not-exist" class="headerlink" title="CentOS7 Install /dev/root does not exist"></a>CentOS7 Install /dev/root does not exist</h3><p>在安装CentOS7的时候出现<code>/dev/root does not exist</code>，原因是没有找到安装系统所在的位置。</p>
+<h1 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h1><h1 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 环境变量加载顺序</span></span><br><span class="line">/etc/profile </span><br><span class="line">/etc/paths </span><br><span class="line">~/.bash_profile </span><br><span class="line">~/.bash_login </span><br><span class="line">~/.profile </span><br><span class="line">~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># PATH语法：中间用冒号隔开</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Environmnet</span></span><br><span class="line">&gt; <span class="built_in">echo</span> <span class="variable">$PTAH</span></span><br><span class="line">/usr/<span class="built_in">local</span>/bin:/usr/bin:/bin:/usr/sbin:/sbin</span><br></pre></td></tr></table></figure>
+<h2 id="Python-Environment"><a href="#Python-Environment" class="headerlink" title="Python Environment"></a>Python Environment</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#System Python Environment</span></span><br><span class="line">&gt; <span class="built_in">which</span> python</span><br><span class="line">/usr/bin/python </span><br><span class="line"></span><br><span class="line"><span class="comment"># brew install python2, python3</span></span><br><span class="line">&gt; <span class="built_in">which</span> python2</span><br><span class="line">/usr/<span class="built_in">local</span>/bin/python2</span><br><span class="line"><span class="comment"># Using pip2, pip3 instead of pip</span></span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><h3 id="iBooks-file-position"><a href="#iBooks-file-position" class="headerlink" title="iBooks file position"></a>iBooks file position</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iBooks位置</span></span><br><span class="line">/Users/UserName/Library/Mobile Documents/iCloud~com~apple~iBooks/Documents</span><br></pre></td></tr></table></figure>
+<h1 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h1><h2 id="Question-1"><a href="#Question-1" class="headerlink" title="Question"></a>Question</h2><h3 id="CentOS7-Install-dev-root-does-not-exist"><a href="#CentOS7-Install-dev-root-does-not-exist" class="headerlink" title="CentOS7 Install /dev/root does not exist"></a>CentOS7 Install /dev/root does not exist</h3><p>在安装CentOS7的时候出现<code>/dev/root does not exist</code>，原因是没有找到安装系统所在的位置。</p>
 <p>在用UltraISO将CentOS写入U盘的时候会自动改名，在重启安装的时候，选择Install CentOS 7的时候我们按e进入编辑状态，会看到这样的字符串<code>hd:LABEL=CentOS\x207\x20x86_64</code>，这个是CentOS查找安装系统的位置，用LABEL表示，即硬盘名称。我们需要修改成自己的U盘，我的是<code>/dev/sdc4</code>。</p>
 <blockquote>
 <p>可以先用<code>linux dd</code>来替换<code>LABEL=CentOS\x207\x20x86_64</code>并执行，在显示的文本中得到相应的信息，再回来修改。</p>
@@ -270,7 +273,7 @@
         <p><span>Title:</span><a href="/2018/01/22/Terminal/">Terminal</a></p>
         <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
         <p><span>Publish Time:</span>2018-01-22 11:42</p>
-        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p><span>Update Time:</span>2018-02-27 14:20</p>
         <p>
             <span>Original Link:</span><a class="post-url" href="/2018/01/22/Terminal/" title="Terminal">http://xwjack.github.io/2018/01/22/Terminal/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2018/01/22/Terminal/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -286,6 +289,15 @@
 
 <nav id="article-nav">
   
+    <a href="/2018/02/02/LLDB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          LLDB
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/01/18/VideoToolbox/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">VideoToolbox</div>
@@ -300,7 +312,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#macOS"><span class="toc-number">1.</span> <span class="toc-text">macOS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#etc"><span class="toc-number">1.1.</span> <span class="toc-text">/etc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bin"><span class="toc-number">1.2.</span> <span class="toc-text">/bin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sbin"><span class="toc-number">1.3.</span> <span class="toc-text">/sbin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usr"><span class="toc-number">1.4.</span> <span class="toc-text">/usr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#var"><span class="toc-number">1.5.</span> <span class="toc-text">/var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.6.</span> <span class="toc-text">/</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CentOS"><span class="toc-number">2.</span> <span class="toc-text">CentOS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Question"><span class="toc-number">2.1.</span> <span class="toc-text">Question</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS7-Install-dev-root-does-not-exist"><span class="toc-number">2.1.1.</span> <span class="toc-text">CentOS7 Install /dev/root does not exist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh自动断开连接"><span class="toc-number">2.1.2.</span> <span class="toc-text">ssh自动断开连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-Install-VPN"><span class="toc-number">2.1.3.</span> <span class="toc-text">CentOS Install VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改默认的用户名和密码"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">修改默认的用户名和密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-Install-Shadowsocks"><span class="toc-number">2.1.4.</span> <span class="toc-text">CentOS Install Shadowsocks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置开机启动"><span class="toc-number">2.1.4.1.</span> <span class="toc-text">配置开机启动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos-Install-ifconfig-netstat"><span class="toc-number">2.1.5.</span> <span class="toc-text">Centos Install ifconfig netstat</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#macOS"><span class="toc-number">1.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Environment"><span class="toc-number">2.</span> <span class="toc-text">Environment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Environment"><span class="toc-number">2.1.</span> <span class="toc-text">Python Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Question"><span class="toc-number">2.2.</span> <span class="toc-text">Question</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iBooks-file-position"><span class="toc-number">2.2.1.</span> <span class="toc-text">iBooks file position</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CentOS"><span class="toc-number">3.</span> <span class="toc-text">CentOS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Question-1"><span class="toc-number">3.1.</span> <span class="toc-text">Question</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS7-Install-dev-root-does-not-exist"><span class="toc-number">3.1.1.</span> <span class="toc-text">CentOS7 Install /dev/root does not exist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh自动断开连接"><span class="toc-number">3.1.2.</span> <span class="toc-text">ssh自动断开连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-Install-VPN"><span class="toc-number">3.1.3.</span> <span class="toc-text">CentOS Install VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改默认的用户名和密码"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">修改默认的用户名和密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-Install-Shadowsocks"><span class="toc-number">3.1.4.</span> <span class="toc-text">CentOS Install Shadowsocks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置开机启动"><span class="toc-number">3.1.4.1.</span> <span class="toc-text">配置开机启动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos-Install-ifconfig-netstat"><span class="toc-number">3.1.5.</span> <span class="toc-text">Centos Install ifconfig netstat</span></a></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
 
@@ -367,7 +379,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/02/02/LLDB/" title="上一篇: LLDB">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -376,7 +390,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/new-year-goal/">2018年目标</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/LLDB/">LLDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/iOS/">iOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -445,6 +459,19 @@ ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
 
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<!-- End Baidu Analytics -->
 
 
 

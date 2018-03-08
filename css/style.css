@@ -2978,6 +2978,10 @@ a.gitment-editor-footer-tip:hover {
 .article img {
   max-width: 100%;
   vertical-align: -webkit-baseline-middle;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 5px;
 }
 @-webkit-keyframes cd-bounce-1 {
   0% {
@@ -3088,7 +3092,7 @@ a.gitment-editor-footer-tip:hover {
   padding: 1px 3px;
   margin: 0 3px;
   color: #dedede;
-  background: #000;
+  background: #3f3f3f;
 /* color-inline-background; */
 /* border: 1px dashed color-inline-border-color; */
   border-radius: 3px;
@@ -3101,6 +3105,9 @@ a.gitment-editor-footer-tip:hover {
 }
 .article-entry em {
   font-style: italic;
+}
+.article-entry ul li:before {
+  content: "❤︎";
 }
 .article-entry ul,
 .article-entry ol {
@@ -3377,7 +3384,7 @@ a.gitment-editor-footer-tip:hover {
   color: #fff;
 }
 .copyright:hover p .copy-path::after {
-  content: "复制";
+  content: "Copy";
 }
 .copyright .post-url:hover {
   font-weight: normal;
@@ -3720,12 +3727,12 @@ a.gitment-editor-footer-tip:hover {
 .article-entry p a {
 /*border: dashed 1px #000*/
   padding: 8px 8px;
-  border-radius: 5px;
-  background-color: #2f2e2e;
+/* border-radius: 5px */
+/* background-color: #2F2E2E */
   word-wrap: break-word;
   white-space: pre;
   margin: 2px;
-  display: inline-block;
+/* display: inline-block */
 }
 .article-entry p a.fancy-ctn.fancybox::before {
   display: none;
@@ -3757,24 +3764,31 @@ a.gitment-editor-footer-tip:hover {
 /*margin-top: 30px
     margin-bottom: 30px*/
 }
+.article-entry h1:before {
+  content: "❤︎ ";
+}
+.article-entry h1:after {
+  content: " ❤︎";
+}
 .article-entry h2 {
   font-size: 2.2em;
 /*margin-top: 30px
     margin-bottom: 30px*/
 }
+.article-entry h2:before {
+  content: "❤︎❤︎ ";
+}
+.article-entry h2:after {
+  content: " ❤︎❤︎";
+}
 .article-entry h3 {
   font-size: 1.9em;
-/*margin-top: 30px
-    margin-bottom: 30px*/
-/*margin: 0.5em auto
-    color: #fff
-    background: rgba(0, 0, 0, 0.27)
-    border: 1px #020202
-    padding: 0.2em 0.6em
-    font-weight: normal
-    border-radius: 6px
-  h3:hover
-    content: " > "*/
+}
+.article-entry h3:before {
+  content: "❤︎❤︎❤︎ ";
+}
+.article-entry h3:after {
+  content: " ❤︎❤︎❤︎";
 }
 .article-entry h4 {
   font-size: 1.6em;
@@ -3789,6 +3803,12 @@ a.gitment-editor-footer-tip:hover {
     -webkit-border-radius: 6px
     border-radius: 6px*/
 }
+.article-entry h4:before {
+  content: "❤︎❤︎❤︎❤︎ ";
+}
+.article-entry h4:after {
+  content: " ❤︎❤︎❤︎❤︎";
+}
 .article-entry h5 {
   font-size: 1.3em;
 /*margin-top: 30px
@@ -3802,6 +3822,12 @@ a.gitment-editor-footer-tip:hover {
     -webkit-border-radius: 6px
     border-radius: 6px*/
 }
+.article-entry h5:before {
+  content: "❤︎❤︎❤︎❤︎❤︎ ";
+}
+.article-entry h5:after {
+  content: " ❤︎❤︎❤︎❤︎❤︎";
+}
 .article-entry h6 {
   font-size: 1.1em;
 /*margin-top: 30px
@@ -3813,6 +3839,12 @@ a.gitment-editor-footer-tip:hover {
     font-weight: normal
     -webkit-border-radius: 6px
     border-radius: 6px*/
+}
+.article-entry h6:before {
+  content: "❤︎❤︎❤︎❤︎❤︎❤︎ ";
+}
+.article-entry h6:after {
+  content: " ❤︎❤︎❤︎❤︎❤︎❤︎";
 }
 .article-entry hr {
   background-color: #2f2f2f;

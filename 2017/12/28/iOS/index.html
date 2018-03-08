@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOS 开发学习，各种记录。">
+<meta name="keywords" content="iOS,Objective-C,Swift 3.2.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS">
+<meta property="og:url" content="http://xwjack.github.io/2017/12/28/iOS/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="iOS 开发学习，各种记录。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/3.jpg">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/4.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/5.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/7.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/9.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/8.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/10.jpg">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/11.jpg">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/12.jpg">
+<meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/6.png">
+<meta property="og:updated_time" content="2018-03-03T01:23:12.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS">
+<meta name="twitter:description" content="iOS 开发学习，各种记录。">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2017-12-28-iOS/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-iOS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/28/iOS/" class="article-date">
+      <time datetime="2017-12-27T16:00:00.000Z" itemprop="datePublished">2017-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>iOS 开发学习，各种记录。</p>
+<a id="more"></a>
+<h1 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h1><p><img src="/images/2017-12-28-iOS/1.png" alt=""></p>
+<p>整个流程：</p>
+<ol>
+<li>在你的 Mac 开发机器生成一对公私钥，这里称为公钥L，私钥L。L:Local</li>
+<li>苹果自己有固定的一对公私钥，跟上面 AppStore 例子一样，私钥在苹果后台，公钥在每个 iOS 设备上。这里称为公钥A，私钥A。A:Apple</li>
+<li>把公钥 L 传到苹果后台，用苹果后台里的私钥 A 去签名公钥 L。得到一份数据包含了公钥 L 以及其签名，把这份数据称为证书。</li>
+<li>在苹果后台申请 AppID，配置好设备 ID 列表和 APP 可使用的权限，再加上第③步的证书，组成的数据用私钥 A 签名，把数据和签名一起组成一个 Provisioning Profile 文件，下载到本地 Mac 开发机。</li>
+<li>在开发时，编译完一个 APP 后，用本地的私钥 L 对这个 APP 进行签名，同时把第④步得到的 Provisioning Profile 文件打包进 APP 里，文件名为 embedded.mobileprovision，把 APP 安装到手机上。</li>
+<li>在安装时，iOS 系统取得证书，通过系统内置的公钥 A，去验证 embedded.mobileprovision 的数字签名是否正确，里面的证书签名也会再验一遍。</li>
+<li>确保了 embedded.mobileprovision 里的数据都是苹果授权以后，就可以取出里面的数据，做各种验证，包括用公钥 L 验证APP签名，验证设备 ID 是否在 ID 列表上，AppID 是否对应得上，权限开关是否跟 APP 里的 Entitlements 对应等。</li>
+</ol>
+<p>上面的步骤对应到我们平常具体的操作和概念是这样的：</p>
+<ol>
+<li>第 1 步对应的是 keychain 里的 “从证书颁发机构请求证书”，这里就本地生成了一对公私钥，保存的 CertificateSigningRequest 就是公钥，私钥保存在本地电脑里。</li>
+<li>第 2 步苹果处理，不用管。</li>
+<li>第 3 步对应把 CertificateSigningRequest 传到苹果后台生成证书，并下载到本地。这时本地有两个证书，一个是第 1 步生成的，一个是这里下载回来的，keychain 会把这两个证书关联起来，因为他们公私钥是对应的，在XCode选择下载回来的证书时，实际上会找到 keychain 里对应的私钥去签名。这里私钥只有生成它的这台 Mac 有，如果别的 Mac 也要编译签名这个 App 怎么办？答案是把私钥导出给其他 Mac 用，在 keychain 里导出私钥，就会存成 .p12 文件，其他 Mac 打开后就导入了这个私钥。</li>
+<li>第 4 步都是在苹果网站上操作，配置 AppID / 权限 / 设备等，最后下载 Provisioning Profile 文件。</li>
+<li>第 5 步 XCode 会通过第 3 步下载回来的证书（存着公钥），在本地找到对应的私钥（第一步生成的），用本地私钥去签名 App，并把 Provisioning Profile 文件命名为 embedded.mobileprovision 一起打包进去。这里对 App 的签名数据保存分两部分，Mach-O 可执行文件会把签名直接写入这个文件里，其他资源文件则会保存在_CodeSignature目录下。</li>
+</ol>
+<p>概念：</p>
+<ol>
+<li>证书：内容是公钥或私钥，由其他机构对其签名组成的数据包。</li>
+<li>Entitlements：包含了 App 权限开关列表。</li>
+<li>CertificateSigningRequest：本地公钥。</li>
+<li>p12：本地私钥，可以导入到其他电脑。</li>
+<li>Provisioning Profile：包含了 证书 / Entitlements 等数据，并由苹果后台私钥签名的数据包。</li>
+</ol>
+<blockquote>
+<p>引用 <a href="http://blog.cnbang.net/tech/3386/" target="_blank" rel="noopener">iOS App 签名的原理</a></p>
+</blockquote>
+<h1 id="Class-Cluster"><a href="#Class-Cluster" class="headerlink" title="Class Cluster"></a>Class Cluster</h1><p>在看<a href="/resources/2017-12-28-iOS/Effective-Objective-C.epub.zip">Effective Objective-C</a>的时候看到类簇这部分，让我对Objective-C中的工厂模式有了一定的认识，也解开了以前的疑惑（比如UIButton、NSArray等）。</p>
+<p>比如在lldb调试的过程中看到的NSArray类型并不是NSArray，可能是一个<code>__NSSingleObjectArrayI</code>也可能是<code>__NSArrayI</code>，都是Apple封装在内部的私有类，他们都是NSArray子类，意味着NSArray仅仅是一个壳而已。</p>
+<p><img src="/images/2017-12-28-iOS/2.png" alt=""></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> idArray = @[@<span class="number">1</span>];</span><br><span class="line"><span class="keyword">if</span> ([idArray <span class="keyword">class</span>] == [<span class="built_in">NSArray</span> <span class="keyword">class</span>]) &#123;</span><br><span class="line">    <span class="comment">/// 不会执行。因为[idArray class]返回不会是NSArray类本身。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>推荐<a href="http://blog.sunnyxx.com/2014/12/18/class-cluster/" target="_blank" rel="noopener">从NSArray看类簇</a>这篇文章。</p>
+<h1 id="Message-Forwarding"><a href="#Message-Forwarding" class="headerlink" title="Message Forwarding"></a>Message Forwarding</h1><p><img src="/images/2017-12-28-iOS/3.jpg" alt=""></p>
+<ol>
+<li>首先调用<code>resolveInstanceMethod</code>或者<code>resolveClassMethod</code>，表明是否能够新增一个方法来处理。<blockquote>
+<p>Dynamically provides an implementation for a given selector for an instance method.<br>Dynamically provides an implementation for a given selector for a class method.</p>
+</blockquote>
+</li>
+<li>当上一步遍历到NSObject的时候还是返回NO，就会调用<code>forwardingTargetForSelector</code>，在这里可以将消息转发给另一个对象。<blockquote>
+<p>Returns the object to which unrecognized messages should first be directed.<br>⚠️ 这里不要返回self，否则会陷入死循环。常用的操作是将消息转发给内部的隐藏的对象。</p>
+</blockquote>
+</li>
+<li>当上一步继续返回nil的时候，会调用<code>forwardInvocation</code>进行完整的消息转发。<blockquote>
+<p>Overridden by subclasses to forward messages to other objects.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="resolveInstanceMethod-resolveClassMethod"><a href="#resolveInstanceMethod-resolveClassMethod" class="headerlink" title="resolveInstanceMethod || resolveClassMethod"></a>resolveInstanceMethod || resolveClassMethod</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/message.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line">- (<span class="keyword">void</span>)failedDymamic;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel &#123;</span><br><span class="line">    <span class="keyword">if</span> (sel == <span class="keyword">@selector</span>(failedDymamic)) &#123;</span><br><span class="line">        class_addMethod(<span class="keyword">self</span>, sel, (IMP) dynamicMethod, <span class="string">"v@:"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> resolveInstanceMethod:sel];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> dynamicMethod(<span class="keyword">id</span> <span class="keyword">self</span>, SEL sel) &#123;</span><br><span class="line">    printf(<span class="string">"Dynamic Method\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">    [<span class="keyword">self</span> failedDymamic];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一次点击：</li>
+</ul>
+<p><img src="/images/2017-12-28-iOS/4.png" alt=""></p>
+<blockquote>
+<p>由于没有<code>failedDymamic</code>的实现，导致无法在method list中找到对应实现，所以调用<code>resolveInstanceMethod</code>向method list中加入新的<code>dynamicMethod</code>。</p>
+</blockquote>
+<ul>
+<li>第二次点击：</li>
+</ul>
+<p><img src="/images/2017-12-28-iOS/5.png" alt=""></p>
+<blockquote>
+<p>不经过<code>resolveInstanceMethod</code>，因为method list中已经有对应的方法，所以直接调用。</p>
+<p>⚠️ 但是method list中对应的sel依旧是<code>failedDymamic</code>，但是实际调用的是<code>dynamicMethod</code>，相当于相应的方法被替换。</p>
+</blockquote>
+<h2 id="forwardingTargetForSelector"><a href="#forwardingTargetForSelector" class="headerlink" title="forwardingTargetForSelector"></a>forwardingTargetForSelector</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 假设我们有一个隐藏的属性不想让外部看到，但是外部需要接口访问，其中装逼的方法可以进行消息转发。</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">PrivateView</span>: <span class="title">UIView</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">PrivateView</span></span></span><br><span class="line">- (<span class="keyword">void</span>)changeColor: (<span class="built_in">UIColor</span> *)color &#123;</span><br><span class="line">    <span class="keyword">self</span>.backgroundColor = color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) PrivateView *privateView;</span><br><span class="line">- (<span class="keyword">void</span>)changeColor: (<span class="built_in">UIColor</span> *)color;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="keyword">self</span>.privateView = [[PrivateView alloc] initWithFrame:<span class="keyword">self</span>.view.frame];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.privateView];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)forwardingTargetForSelector:(SEL)aSelector &#123;</span><br><span class="line">    <span class="keyword">if</span> (aSelector == <span class="keyword">@selector</span>(changeColor:)) &#123;</span><br><span class="line">        <span class="comment">/// 消息转发，将消息转发到内部变量，自己并不处理该事件。</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.privateView;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> forwardingTargetForSelector:aSelector];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">    [<span class="keyword">self</span> changeColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/2017-12-28-iOS/7.png" alt=""></p>
+<blockquote>
+<p>⚠️ 当一次<code>forwardingTargetForSelector</code>成功之后，再次发送该消息的时候并不会重新从<code>resolveInstanceMethod</code>开始，而是直接<code>forwardingTargetForSelector</code>。猜测应该是做了缓存。</p>
+</blockquote>
+<h2 id="forwardInvocation"><a href="#forwardInvocation" class="headerlink" title="forwardInvocation"></a>forwardInvocation</h2><p>以上都没有结果，就会调用<code>forwardInvocation</code>进行完整的消息转发过程。</p>
+<blockquote>
+<p>⚠️ 此时必须要重写<code>methodSignatureForSelector</code>返回对应方法签名，如果方法签名返回为nil，则不会调用<code>forwardInvocation</code>。</p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)anInvocation &#123;</span><br><span class="line">    <span class="keyword">if</span> ([anInvocation selector] == <span class="keyword">@selector</span>(changeColor:)) &#123;</span><br><span class="line">        [anInvocation invokeWithTarget:<span class="keyword">self</span>.privateView];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">super</span> forwardInvocation:anInvocation];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span>.privateView methodSignatureForSelector:aSelector];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面仅仅是消息的简单转发，在这里其实我们可以做更多，比如修改参数、修改返回值等。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)anInvocation &#123;</span><br><span class="line">    <span class="keyword">if</span> ([anInvocation selector] == <span class="keyword">@selector</span>(changeColor:)) &#123;</span><br><span class="line">        <span class="built_in">UIColor</span> *color = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">        <span class="comment">/// 修改参数，将背景色从red修改成green 0:self 1:_cmd</span></span><br><span class="line">        [anInvocation setArgument:&amp;color atIndex:<span class="number">2</span>];</span><br><span class="line">        [anInvocation invokeWithTarget:<span class="keyword">self</span>.privateView];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">super</span> forwardInvocation:anInvocation];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span>.privateView methodSignatureForSelector:aSelector];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">    [<span class="keyword">self</span> changeColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/2017-12-28-iOS/9.png" alt=""></p>
+<blockquote>
+<p>由于执行到该消息转发的时候并没有缓存，所以每次都会执行。</p>
+</blockquote>
+<h3 id="methodSignatureForSelector"><a href="#methodSignatureForSelector" class="headerlink" title="methodSignatureForSelector"></a>methodSignatureForSelector</h3><p>To respond to methods that your object does not itself recognize, you must override methodSignatureForSelector: in addition to forwardInvocation:. The mechanism for forwarding messages uses information obtained from methodSignatureForSelector: to create the NSInvocation object to be forwarded. Your overriding method must provide an appropriate method signature for the given selector, either by pre formulating one or by asking another object for one.</p>
+<p>在上面class_addMethod的时候出现了<code>&quot;v@:&quot;</code>东西。</p>
+<ol>
+<li>@encode(BOOL) (c) for the return type</li>
+<li>@encode(id) (@) for the receiver (self)</li>
+<li>@encode(SEL) (:) for the selector (_cmd)</li>
+<li>@encode(NSString *) (@) for the first explicit argument</li>
+</ol>
+<p>每个方法都有两个默认的参数，一个是self，一个是_cmd。而那个字符串表示的就是类型编码（Type Encodings）。</p>
+<p><code>&quot;v@:&quot;</code>表示的就是返回值为void，第一个参数是self，第二个参数为_cmd。</p>
+<h2 id="doesNotRecognizeSelector"><a href="#doesNotRecognizeSelector" class="headerlink" title="doesNotRecognizeSelector"></a>doesNotRecognizeSelector</h2><p>当上面步骤都走完了，还是没有找到相关的消息接受者，就会调用NSObject的<code>doesNotRecognizeSelector</code>来抛出异常。既”Terminating app due to uncaught exception ‘NSInvalidArgumentException’, reason:”</p>
+<p><img src="/images/2017-12-28-iOS/8.png" alt=""></p>
+<h1 id="Method-Swizzling"><a href="#Method-Swizzling" class="headerlink" title="Method Swizzling"></a>Method Swizzling</h1><p>在了解了消息转发之后，就很容易理解方法交换。就是修改Methos Lists。</p>
+<p><img src="/images/2017-12-28-iOS/10.jpg" alt=""></p>
+<p><img src="/images/2017-12-28-iOS/11.jpg" alt=""></p>
+<h1 id="Objective-C-Object"><a href="#Objective-C-Object" class="headerlink" title="Objective-C Object"></a>Objective-C Object</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *string = <span class="string">@"This is NSString"</span>;</span><br></pre></td></tr></table></figure>
+<p>这个是一个很简单的字符串</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>string</th>
+<th>@”This is NSString”</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内存分配</td>
+<td>栈</td>
+<td>堆</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>objc_object</td>
+<td>objc_class</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// An opaque type that represents an Objective-C class.</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// Represents an instance of a class.</span></span><br><span class="line"><span class="keyword">struct</span> objc_object &#123;</span><br><span class="line">    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// A pointer to an instance of a class.</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_object *<span class="keyword">id</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> objc_class &#123;</span><br><span class="line">    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line"><span class="meta">#if !__OBJC2__</span></span><br><span class="line">    Class _Nullable super_class                              OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> * _Nonnull name                               OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_ivar_list * _Nullable ivars                  OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_method_list * _Nullable * _Nullable methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_cache * _Nonnull cache                       OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_protocol_list * _Nullable protocols          OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Class中的isa指向其元类，也是类方法定义的地方，只有一个实例关联元类（可以认为类方法的调用类似于单例调用实例方法）。所以下面的判断方法是正确的。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> object = <span class="comment">/*...*/</span>;</span><br><span class="line"><span class="keyword">if</span> ([object <span class="keyword">class</span>] == [AClass <span class="keyword">class</span>]) &#123;</span><br><span class="line">    <span class="comment">// 'object' is an instance of AClass</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>⚠️ 这种方式仅对NSObject子类有效，如果类是继承于NSProxy，则不适用。</p>
+</blockquote>
+<p><img src="/images/2017-12-28-iOS/12.jpg" alt=""></p>
+<h1 id="UIKit"><a href="#UIKit" class="headerlink" title="UIKit"></a>UIKit</h1><h2 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h2><h3 id="Touch-Events"><a href="#Touch-Events" class="headerlink" title="Touch Events"></a>Touch Events</h3><p><img src="/images/2017-12-28-iOS/6.png" alt=""></p>
+<p>1.系统将触摸事件打包成<code>UIEvent</code>对象<br>2.<code>UIApplication</code>将事件传递给<code>UIWindow</code><br>3.<code>UIWindow</code>调用<code>hitTest</code>方法。</p>
+<h4 id="point-inside-with"><a href="#point-inside-with" class="headerlink" title="point(inside:with:)"></a>point(inside:with:)</h4><p>Returns a Boolean value indicating whether the receiver contains the specified point.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">point</span><span class="params">(inside point: CGPoint, with event: UIEvent?)</span></span> -&gt; <span class="type">Bool</span></span><br></pre></td></tr></table></figure>
+<p>判断触摸的点在不在该试图范围内。</p>
+<h4 id="hitTest-with"><a href="#hitTest-with" class="headerlink" title="hitTest(_:with:)"></a>hitTest(_:with:)</h4><p>Returns the farthest descendant of the receiver in the view hierarchy (including itself) that contains a specified point.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hitTest</span><span class="params">(<span class="number">_</span> point: CGPoint, with event: UIEvent?)</span></span> -&gt; <span class="type">UIView</span>?</span><br></pre></td></tr></table></figure>
+<p>判断哪个视图响应事件</p>
+<p>调用当前视图的<code>func point(inside point: CGPoint, with event: UIEvent?) -&gt; Bool</code>判断触摸点是否在当前视图内。</p>
+<p><code>false</code>：直接返回<code>nil</code>，表示触摸点不在当前视图；</p>
+<p><code>true</code>：遍历并调用当前视图的子视图<code>hitTest</code>方法。如果所有的子视图<code>hitTest</code>都返回<code>nil</code>，则返回自身；如果有子视图返回不为空，则返回该子视图。</p>
+<blockquote>
+<p>遍历是从当前视图的最顶层视图遍历到最底层视图，即从<code>subviews</code>最后一个开始向前遍历。</p>
+<p>如果<code>isHidden</code>为<code>true</code>，<code>alpha</code>为<code>0</code>，子视图超过父视图范围，则该视图的<code>hitTest</code>返回<code>nil</code>。</p>
+<p>当设置视图的<code>backgroundColor</code>为<code>clearColor</code>的时候，虽然当前视图也是透明的，但是依旧将事件向子视图传递。</p>
+</blockquote>
+<h2 id="UIScrollView"><a href="#UIScrollView" class="headerlink" title="UIScrollView"></a>UIScrollView</h2><h3 id="UITextView-with-auto-size"><a href="#UITextView-with-auto-size" class="headerlink" title="UITextView with auto size."></a>UITextView with auto size.</h3><p>如何在UIScrollView或者其子类中使用UITextView并自动计算高度。诸如此类的文章很多，在此总结自己的想法。</p>
+<ol>
+<li>键盘谈起的时候判断是否遮挡UIScrollView中的UITextView。</li>
+<li>当UITextView换行的时候需要判断是否键盘是否再次挡住UITextView。</li>
+</ol>
+<ul>
+<li>Setting</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 设置约束，从上到下约束都需要是满的。</span></span><br><span class="line">[<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.textView];</span><br><span class="line">[<span class="keyword">self</span>.textView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.top.right.bottom.left.equalTo(<span class="keyword">self</span>);</span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">/// 关闭滚动。</span></span><br><span class="line">textView.scrollEnabled = <span class="literal">NO</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Listening</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 监听键盘frame改变。</span></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyBoardChangeFrame:) name:<span class="built_in">UIKeyboardWillChangeFrameNotification</span> object:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)keyBoardChangeFrame:(<span class="built_in">NSNotification</span> *)notification &#123;</span><br><span class="line">    <span class="comment">//获取键盘弹出或收回时frame</span></span><br><span class="line">    <span class="built_in">CGRect</span> keyBoardFrame = [notification.userInfo[<span class="built_in">UIKeyboardFrameEndUserInfoKey</span>] <span class="built_in">CGRectValue</span>];</span><br><span class="line">    <span class="built_in">BOOL</span> isKeyboardHidden = keyBoardFrame.origin.y == <span class="keyword">self</span>.view.frame.size.height;</span><br><span class="line">    <span class="comment">/// 防止在输入的时候滑动</span></span><br><span class="line">    <span class="keyword">self</span>.scrollView.scrollEnabled = isKeyboardHidden;</span><br><span class="line">    <span class="comment">/// 计算键盘顶部到scrollView顶部的距离。</span></span><br><span class="line">    <span class="built_in">CGFloat</span> keyboardTopOffset = <span class="keyword">self</span>.scrollView.bounds.size.height - keyBoardFrame.size.height;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGPoint</span> newPoint = <span class="built_in">CGPointZero</span>;</span><br><span class="line">    <span class="keyword">if</span> (!isKeyboardHidden) &#123;</span><br><span class="line">        <span class="comment">/// 计算scrollView应该移动的距离。</span></span><br><span class="line">        <span class="built_in">CGFloat</span> moveOffset = &lt;<span class="meta">#scrollView中参考点的frame.y#&gt; - keyboardTopOffset;</span></span><br><span class="line">        <span class="keyword">if</span> (moveOffset &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            newPoint = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, moveOffset);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="keyword">self</span>.scrollView setContentOffset:newPoint animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的参考点可以是这个textView，在<code>- (void)textViewDidChange:(UITextView *)textView</code>中计算是否需要重新设置scrollView的contentOffset。</p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGFloat</span> keyboardTopOffset = <span class="keyword">self</span>.scrollView.bounds.size.height - keyBoardFrame.size.height;</span><br><span class="line"><span class="comment">/// 判断是否需要移动</span></span><br><span class="line"><span class="built_in">CGFloat</span> isNeedAdjustOffset = &lt;<span class="meta">#scrollView中参考点的frame.y#&gt; - keyboardTopOffset;</span></span><br><span class="line"><span class="keyword">if</span> (isNeedAdjustOffset &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> moveOffset = isNeedAdjustOffset - <span class="keyword">self</span>.scrollView.contentOffset.y;</span><br><span class="line">    <span class="keyword">if</span> (moveOffset != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">CGPoint</span> newPoint = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, moveOffset + <span class="keyword">self</span>.scrollView.contentOffset.y);</span><br><span class="line">        [<span class="keyword">self</span>.scrollView setContentOffset:newPoint animated:<span class="literal">NO</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样就会让指定的点关键点始终在键盘的上面。</p>
+</blockquote>
+<h2 id="UITableView"><a href="#UITableView" class="headerlink" title="UITableView"></a>UITableView</h2><h3 id="reloadData"><a href="#reloadData" class="headerlink" title="reloadData"></a>reloadData</h3><h4 id="How-to-keep-UITableView-contentOffset-after-calling-reloadData"><a href="#How-to-keep-UITableView-contentOffset-after-calling-reloadData" class="headerlink" title="How to keep UITableView contentOffset after calling reloadData"></a>How to keep UITableView <code>contentOffset</code> after calling <code>reloadData</code></h4><p><a href="https://stackoverflow.com/questions/8640409/how-to-keep-uitableview-contentoffset-after-calling-reloaddata" target="_blank" rel="noopener">How to keep UITableView contentoffset after calling -reloadData</a></p>
+<p><code>reloadData</code>并不会调整<code>offset</code></p>
+<blockquote>
+<p>仅仅在Cell的高度为固定的状态，如果Cell是动态计算出来的就不一定了。如果Cell的高度是不固定的，那么他的<code>contentOffset</code>也是不固定的，而是在滑动的过程中不断的计算出来。</p>
+</blockquote>
+<p>具体的解决方式没有尝试过，别人提出的方式是用字典来缓存高度。</p>
+<h3 id="MJRefresh"><a href="#MJRefresh" class="headerlink" title="MJRefresh"></a>MJRefresh</h3><h4 id="解决下拉刷新无法回弹的问题"><a href="#解决下拉刷新无法回弹的问题" class="headerlink" title="解决下拉刷新无法回弹的问题"></a>解决下拉刷新无法回弹的问题</h4><p><a href="https://github.com/CoderMJLee/MJRefresh/issues/956" target="_blank" rel="noopener">关于iOS11 上下拉刷新无法返回的问题，不关MJRefresh的事，解答</a></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Detail</th>
+<th>Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>automaticallyAdjustsScrollViewInsets</code></td>
+<td>自动调节<code>UIScrollView</code>的<code>contentInset</code></td>
+<td>iOS 7.0 ~ 11.0</td>
+</tr>
+<tr>
+<td><code>contentInsetAdjustmentBehavior</code></td>
+<td>自动调节<code>UIScrollView</code>的<code>contentInset</code></td>
+<td>iOS 11.0+</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭自动调节</span></span><br><span class="line"><span class="keyword">if</span> (@available(iOS <span class="number">11.0</span>, *)) &#123;</span><br><span class="line">    <span class="keyword">self</span>.tableView.contentInsetAdjustmentBehavior = <span class="built_in">UIScrollViewContentInsetAdjustmentNever</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 如果有导航栏设置偏移量。</span></span><br><span class="line"><span class="keyword">self</span>.tableView.contentInset = <span class="built_in">UIEdgeInsetsMake</span>(&lt;<span class="meta">#CGFloat TopBarHeight#&gt;, 0, 0, 0);</span></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">[<span class="keyword">self</span>.tableView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.top.equalTo(<span class="keyword">self</span>.view).offset(&lt;<span class="meta">#CGFloat TopBarHeight#&gt;);</span></span><br><span class="line">    make.left.bottom.right.equalTo(<span class="keyword">self</span>.view);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 设置Cell的高度。</span></span><br><span class="line"><span class="keyword">self</span>.tableView.estimatedRowHeight = &lt;<span class="meta">#CGFloat CellHeight#&gt;;</span></span><br><span class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="built_in">UITableViewAutomaticDimension</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><h4 id="一个TableView中多种样式相似的Cell"><a href="#一个TableView中多种样式相似的Cell" class="headerlink" title="一个TableView中多种样式相似的Cell"></a>一个TableView中多种样式相似的Cell</h4><p>当一个UITableView中有多种Cell，但是又差不多样式，最优雅的方式是使用继承方式来实现，不要用if、else来判断哪个Cell显示哪些内容。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 通用样式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BaseSampleTableViewCell</span> : <span class="title">UITableViewCell</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIImageView</span> *avatarImageView;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UILabel</span> *titleLabel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 一个按钮的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">OneButtonSampleTableViewCell</span>: <span class="title">BaseSampleTableViewCell</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIButton</span> *buttonOne;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 两个按钮的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TwoButtonSampleTableViewCell</span>: <span class="title">OneButtonSampleTableViewCell</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIButton</span> *buttonTwo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 两个按钮带输入框的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TextViewSampleTableViewCell</span>: <span class="title">TwoButtonSampleTableViewCell</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITextView</span> *textView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果点击按钮Cell的样式改变直接<code>[tableView dequeueReusableCellWithIdentifier:[TwoButtonSampleTableViewCell reuseIdentifier] forIndexPath:indexPath];</code>对应样式的Cell就OK了，避免过多的if、else。</p>
+</blockquote>
+<h5 id="动态显示"><a href="#动态显示" class="headerlink" title="动态显示"></a>动态显示</h5><p>很多时候我们需要根据服务器返回的是否为空来动态显示内容，这个时候依旧用继承重写进行实现，在动态将相应的视图添加到父视图上，并修改约束。</p>
+<h4 id="优雅的唯一表示一个Cell"><a href="#优雅的唯一表示一个Cell" class="headerlink" title="优雅的唯一表示一个Cell"></a>优雅的唯一表示一个Cell</h4><p>很多人在注册Cell的时候会写很多的字符串来注册，建议采用下面方式来进行。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 使用类名来唯一表示一个Cell</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BaseTableViewCell</span> : <span class="title">UITableViewCell</span></span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)reuseIdentifier;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BaseTableViewCell</span></span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)reuseIdentifier &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> description];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="comment">/// 使用</span></span><br><span class="line">[<span class="keyword">self</span>.tableView registerClass:[BaseTableViewCell <span class="keyword">class</span>] forCellReuseIdentifier:[BaseTableViewCell reuseIdentifier]];</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK: - Identifier</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">ReuseIdentifier</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ReuseIdentifier</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reuseIdentifier: <span class="type">String</span> &#123; <span class="keyword">return</span> <span class="type">String</span>(describing: type(of: <span class="keyword">self</span>)) &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> reuseIdentifier: <span class="type">String</span> &#123; <span class="keyword">return</span> <span class="type">String</span>(describing: <span class="keyword">self</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/// Add reuseIdentifier into UITableViewCell, it also can been using any object to get class name.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// Uniquely an UITableViewCell by class name.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// ABCUITableViewCell.reuseIdentifier // "ABCUITableViewCell"</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UITableViewCell</span>: <span class="title">ReuseIdentifier</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UICollectionViewCell</span>: <span class="title">ReuseIdentifier</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>是不是优雅了很多呢？</p>
+</blockquote>
+<h2 id="UITextView"><a href="#UITextView" class="headerlink" title="UITextView"></a>UITextView</h2><h3 id="Limit-number-of-character"><a href="#Limit-number-of-character" class="headerlink" title="Limit number of character"></a>Limit number of character</h3><p>字符限制在很多场景都会用到，但是除了普通的汉字和ABC之外还有表情其他字符，这个时候单判断字符是会出现以下问题的。</p>
+<blockquote>
+<p>表情这里比较坑，不同的表情占用的字符数量并不一定。有的占两个字符，有的占四个字符，有的占11个字符，所以单从字符数量来限制，就会导致最少只能显示几个表情的问题。</p>
+<p>如果检测是在输入的过程中，则会出现最后几个字还没有打出来，就直接截断，导致显示的是拼音。</p>
+</blockquote>
+<p>我个人的解决办法是将ASCII作为一个字符，非ASCII作为两个字符，这样就不会出现汉字可以很多，表情只能输入几个的问题了。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">extension</span> <span class="title">UITextInput</span> </span>&#123;</span><br><span class="line">  <span class="comment">///</span></span><br><span class="line">  <span class="comment">///</span></span><br><span class="line">  <span class="comment">/// - Parameters:</span></span><br><span class="line">  <span class="comment">///   - limit: 限制字符数量</span></span><br><span class="line">  <span class="comment">///   - cut: 超出部分是否截断</span></span><br><span class="line">  <span class="comment">/// - Returns: 是否超出限制</span></span><br><span class="line">  @discardableResult</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">isOutnumber</span><span class="params">(limit: Int, cut: Bool = <span class="literal">true</span>)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isOutNumber = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> noneSelect = markedTextRange?.isEmpty ?? <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">guard</span> limit != <span class="number">0</span> &amp;&amp; noneSelect,</span><br><span class="line">      <span class="keyword">let</span> textRange = textRange(from: beginningOfDocument, to: endOfDocument),</span><br><span class="line">      <span class="keyword">var</span> unicodes = text(<span class="keyword">in</span>: textRange)?.unicodeScalars <span class="keyword">else</span> &#123; <span class="keyword">return</span> isOutNumber &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ascii: <span class="type">Int</span> = <span class="number">0</span><span class="comment">//ASCII</span></span><br><span class="line">    <span class="keyword">var</span> noAscii: <span class="type">Int</span> = <span class="number">0</span><span class="comment">//汉字，表情</span></span><br><span class="line"></span><br><span class="line">    unicodes.forEach &#123;</span><br><span class="line">      <span class="keyword">if</span> $<span class="number">0</span>.isASCII &#123; ascii += <span class="number">1</span> &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123; noAscii += <span class="number">1</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ascii + noAscii * <span class="number">2</span> &gt; limit &#123;</span><br><span class="line">      isOutNumber = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">let</span> scalar = unicodes.removeLast()</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> scalar.isASCII &#123; ascii -= <span class="number">1</span> &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123; noAscii -= <span class="number">1</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> isOutNumber &amp;&amp; cut &#123;</span><br><span class="line">      <span class="keyword">self</span>.replace(textRange, withText: <span class="type">String</span>(unicodes))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> isOutNumber</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>UITextField</li>
+</ul>
+<blockquote>
+<p><code>textField.addTarget(self, action: #selector(&lt;#T##@objc method#&gt;), for: .editingChanged)</code>中调用。</p>
+</blockquote>
+<ul>
+<li>UITextView</li>
+</ul>
+<blockquote>
+<p><code>UITextViewDelegate</code>的<code>func textViewDidChange(_ textView: UITextView)</code>中调用。</p>
+</blockquote>
+<h2 id="UIAlertController"><a href="#UIAlertController" class="headerlink" title="UIAlertController"></a>UIAlertController</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 简单弹出一个提示框</span></span><br><span class="line"><span class="built_in">UIAlertController</span> *alert = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:&lt;<span class="meta">#(nullable NSString *)#&gt; message:<span class="meta-string">&lt;#(nullable NSString *)#&gt;</span> preferredStyle:UIAlertControllerStyleAlert];</span></span><br><span class="line"><span class="built_in">UIAlertAction</span> *leftAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:&lt;<span class="meta">#(nullable NSString *)#&gt; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) &#123;</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="built_in">UIAlertAction</span> *rightAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:&lt;<span class="meta">#(nullable NSString *)#&gt; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) &#123;</span></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">[leftAction setValue:[<span class="built_in">UIColor</span> blackColor] forKey:<span class="string">@"titleTextColor"</span>];</span><br><span class="line">[rightAction setValue:[<span class="built_in">UIColor</span> redColor] forKey:<span class="string">@"titleTextColor"</span>];</span><br><span class="line"></span><br><span class="line">[alert addAction:leftAction];</span><br><span class="line">[alert addAction:rightAction];</span><br><span class="line"></span><br><span class="line">[controller presentViewController:alert animated:<span class="literal">YES</span> completion:^&#123;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h1 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h1><h2 id="if、else-Vs-Inherit"><a href="#if、else-Vs-Inherit" class="headerlink" title="if、else Vs Inherit"></a>if、else Vs Inherit</h2><p>开发中遇到的很多相似的界面，很多开发者都会用复用，并用if、else来区分当前界面处理的是那种情况，在开发前期基本没有问题。但是一旦别人接收你的代码，再改需求的时候就会出现非常混乱的代码。所以这种情况建议分开，相同的逻辑可以放在基类中实现（业务代码除外，这里的通用处理指的是下拉刷新逻辑、谈提示的样式、Loading的弹出等和业务无关的代码）。</p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2017/12/28/iOS/">iOS</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2017-12-28 00:00</p>
+        <p><span>Update Time:</span>2018-03-03 09:23</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2017/12/28/iOS/" title="iOS">http://xwjack.github.io/2017/12/28/iOS/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/12/28/iOS/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/08/Marco/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Marco
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/21/XCTest/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XCTest</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Signature"><span class="toc-number">1.</span> <span class="toc-text">Signature</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Class-Cluster"><span class="toc-number">2.</span> <span class="toc-text">Class Cluster</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Message-Forwarding"><span class="toc-number">3.</span> <span class="toc-text">Message Forwarding</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#resolveInstanceMethod-resolveClassMethod"><span class="toc-number">3.1.</span> <span class="toc-text">resolveInstanceMethod || resolveClassMethod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forwardingTargetForSelector"><span class="toc-number">3.2.</span> <span class="toc-text">forwardingTargetForSelector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forwardInvocation"><span class="toc-number">3.3.</span> <span class="toc-text">forwardInvocation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#methodSignatureForSelector"><span class="toc-number">3.3.1.</span> <span class="toc-text">methodSignatureForSelector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#doesNotRecognizeSelector"><span class="toc-number">3.4.</span> <span class="toc-text">doesNotRecognizeSelector</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Method-Swizzling"><span class="toc-number">4.</span> <span class="toc-text">Method Swizzling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objective-C-Object"><span class="toc-number">5.</span> <span class="toc-text">Objective-C Object</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UIKit"><span class="toc-number">6.</span> <span class="toc-text">UIKit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UIView"><span class="toc-number">6.1.</span> <span class="toc-text">UIView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Touch-Events"><span class="toc-number">6.1.1.</span> <span class="toc-text">Touch Events</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#point-inside-with"><span class="toc-number">6.1.1.1.</span> <span class="toc-text">point(inside:with:)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hitTest-with"><span class="toc-number">6.1.1.2.</span> <span class="toc-text">hitTest(_:with:)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIScrollView"><span class="toc-number">6.2.</span> <span class="toc-text">UIScrollView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UITextView-with-auto-size"><span class="toc-number">6.2.1.</span> <span class="toc-text">UITextView with auto size.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITableView"><span class="toc-number">6.3.</span> <span class="toc-text">UITableView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reloadData"><span class="toc-number">6.3.1.</span> <span class="toc-text">reloadData</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-keep-UITableView-contentOffset-after-calling-reloadData"><span class="toc-number">6.3.1.1.</span> <span class="toc-text">How to keep UITableView contentOffset after calling reloadData</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MJRefresh"><span class="toc-number">6.3.2.</span> <span class="toc-text">MJRefresh</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解决下拉刷新无法回弹的问题"><span class="toc-number">6.3.2.1.</span> <span class="toc-text">解决下拉刷新无法回弹的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">6.3.3.</span> <span class="toc-text">Summary</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一个TableView中多种样式相似的Cell"><span class="toc-number">6.3.3.1.</span> <span class="toc-text">一个TableView中多种样式相似的Cell</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#动态显示"><span class="toc-number">6.3.3.1.1.</span> <span class="toc-text">动态显示</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优雅的唯一表示一个Cell"><span class="toc-number">6.3.3.2.</span> <span class="toc-text">优雅的唯一表示一个Cell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITextView"><span class="toc-number">6.4.</span> <span class="toc-text">UITextView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Limit-number-of-character"><span class="toc-number">6.4.1.</span> <span class="toc-text">Limit number of character</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIAlertController"><span class="toc-number">6.5.</span> <span class="toc-text">UIAlertController</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary-1"><span class="toc-number">7.</span> <span class="toc-text">Summary</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if、else-Vs-Inherit"><span class="toc-number">7.1.</span> <span class="toc-text">if、else Vs Inherit</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/01/08/Marco/" title="上一篇: Marco">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/12/21/XCTest/" title="下一篇: XCTest">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/new-year-goal/">2018年目标</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/LLDB/">LLDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/iOS/">iOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<!-- End Baidu Analytics -->
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

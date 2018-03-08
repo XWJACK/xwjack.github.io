@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LLDB | Mini灬哆啦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOS开发过程中Bug不可能少，最重要的如何快速的定位Bug的原因，不能每更改一行代码，运行整个App来查看效果，那样效率太过于低下。 Dancing in the Debugger — A Waltz with LLDB这篇文章很不错，也学到了很多。 chiselfacebook出品必属精品，更加方便的使用lldb。 建议有时间可以看chisel的源码，Objective-C、LLDB、Pyth">
+<meta name="keywords" content="macOS,lldb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLDB">
+<meta property="og:url" content="http://xwjack.github.io/2018/02/02/LLDB/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="iOS开发过程中Bug不可能少，最重要的如何快速的定位Bug的原因，不能每更改一行代码，运行整个App来查看效果，那样效率太过于低下。 Dancing in the Debugger — A Waltz with LLDB这篇文章很不错，也学到了很多。 chiselfacebook出品必属精品，更加方便的使用lldb。 建议有时间可以看chisel的源码，Objective-C、LLDB、Pyth">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-02-02-LLDB/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-02-02-LLDB/2.png">
+<meta property="og:updated_time" content="2018-02-07T17:01:31.003Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LLDB">
+<meta name="twitter:description" content="iOS开发过程中Bug不可能少，最重要的如何快速的定位Bug的原因，不能每更改一行代码，运行整个App来查看效果，那样效率太过于低下。 Dancing in the Debugger — A Waltz with LLDB这篇文章很不错，也学到了很多。 chiselfacebook出品必属精品，更加方便的使用lldb。 建议有时间可以看chisel的源码，Objective-C、LLDB、Pyth">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2018-02-02-LLDB/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-LLDB" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/02/LLDB/" class="article-date">
+      <time datetime="2018-02-02T03:35:18.000Z" itemprop="datePublished">2018-02-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LLDB
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lldb/">lldb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li></ul>
+    </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>iOS开发过程中Bug不可能少，最重要的如何快速的定位Bug的原因，不能每更改一行代码，运行整个App来查看效果，那样效率太过于低下。</p>
+<p><a href="https://www.objc.io/issues/19-debugging/lldb-debugging/" target="_blank" rel="noopener">Dancing in the Debugger — A Waltz with LLDB</a>这篇文章很不错，也学到了很多。</p>
+<p><a href="https://github.com/facebook/chisel" target="_blank" rel="noopener">chisel</a>facebook出品必属精品，更加方便的使用lldb。</p>
+<p>建议有时间可以看chisel的源码，Objective-C、LLDB、Python一起学。</p>
+<a id="more"></a>
+<h1 id="Xcode"><a href="#Xcode" class="headerlink" title="Xcode"></a>Xcode</h1><p><img src="/images/2018-02-02-LLDB/1.png" alt=""></p>
+<h2 id="Continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h2><p>程序继续执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb) process continue</span><br><span class="line">(lldb) c</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘c’ is an abbreviation for ‘process continue’</p>
+</blockquote>
+<h2 id="step-over"><a href="#step-over" class="headerlink" title="step over"></a>step over</h2><p>以黑盒的形式执行一行代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread step-over</span><br><span class="line">(lldb) next</span><br><span class="line">(lldb) n</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘next’ is an abbreviation for ‘thread step-over’</p>
+<p>‘n’ is an abbreviation for ‘thread step-over’</p>
+</blockquote>
+<h2 id="step-into"><a href="#step-into" class="headerlink" title="step into"></a>step into</h2><p>进入具体的函数实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread step-in</span><br><span class="line">(lldb) step</span><br><span class="line">(lldb) s</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘step’ is an abbreviation for ‘thread step-in’</p>
+<p>‘s’ is an abbreviation for ‘thread step-in’</p>
+</blockquote>
+<h2 id="step-out"><a href="#step-out" class="headerlink" title="step out"></a>step out</h2><p>跳出具体的函数实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread step-out</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘step’ is an abbreviation for ‘thread step-in’</p>
+<p>‘s’ is an abbreviation for ‘thread step-in’</p>
+</blockquote>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><h2 id="breakpoint"><a href="#breakpoint" class="headerlink" title="breakpoint"></a>breakpoint</h2><p>断点管理。</p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>Sets a breakpoint or set of breakpoints in the executable.</p>
+<h4 id="f"><a href="#f" class="headerlink" title="f"></a>f</h4><p>-f 指定文件</p>
+<h4 id="l"><a href="#l" class="headerlink" title="l"></a>l</h4><p>-l 指定行数</p>
+<h4 id="F"><a href="#F" class="headerlink" title="F"></a>F</h4><p>Set the breakpoint by fully qualified function names. For C++ this means namespaces and all arguments, and for Objective C this means a full function prototype with class and selector.  Can be repeated multiple times to make one breakpoint for multiple names.</p>
+<p>-F 指定全名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) breakpoint set -F &quot;-[NSException raise]&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也称之为符号断点。</p>
+</blockquote>
+<h4 id="c"><a href="#c" class="headerlink" title="c"></a>c</h4><p>The breakpoint stops only if this condition expression evaluates to true.</p>
+<p>-c 指定条件</p>
+<h3 id="command"><a href="#command" class="headerlink" title="command"></a>command</h3><p>Commands for adding, removing and listing LLDB commands executed when a breakpoint is hit.</p>
+<h4 id="add"><a href="#add" class="headerlink" title="add"></a>add</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(lldb) breakpoint command add 1</span><br><span class="line">Enter your debugger command(s).  Type &apos;DONE&apos; to end.</span><br><span class="line">&gt; process continue</span><br></pre></td></tr></table></figure>
+<h2 id="expression"><a href="#expression" class="headerlink" title="expression"></a>expression</h2><h3 id="O"><a href="#O" class="headerlink" title="-O"></a>-O</h3><p>-O ( –object-description )</p>
+<p>Display using a language-specific description API, if possible.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb) expression -O -- &lt;expr&gt;</span><br><span class="line">(lldb) po &lt;expr&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘po’ is an abbreviation for ‘expression -O  –’</p>
+</blockquote>
+<h3 id="print"><a href="#print" class="headerlink" title="print"></a>print</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb) expression -- &lt;expr&gt;</span><br><span class="line">(lldb) print &lt;expr&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘print’ is an abbreviation for ‘expression –’</p>
+<p>二进制、十六进制。。。等<a href="https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html" target="_blank" rel="noopener">完整打印格式</a></p>
+</blockquote>
+<h2 id="frame"><a href="#frame" class="headerlink" title="frame"></a>frame</h2><p>Commands for selecting and examing the current thread’s stack frames.</p>
+<h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><p>List information about the current stack frame in the current thread.</p>
+<h2 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h2><h3 id="return"><a href="#return" class="headerlink" title="return"></a>return</h3><p>Prematurely return from a stack frame, short-circuiting execution of newer frames and optionally yielding a specified value.  Defaults to the exiting the current stack frame.  Expects ‘raw’ input (see ‘help raw-input’.)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread return [&lt;expr&gt;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>直接返回指定的值。</p>
+</blockquote>
+<h2 id="process"><a href="#process" class="headerlink" title="process"></a>process</h2><h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>Continue execution of all threads in the current process.</p>
+<h3 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt"></a>interrupt</h3><p>Interrupt the current target process.</p>
+<h2 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h2><p>Commands for operating on memory in the current target process.</p>
+<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><p>Read from the memory of the current target process.</p>
+<h1 id="Convenience"><a href="#Convenience" class="headerlink" title="Convenience"></a>Convenience</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 打印视图层级</span><br><span class="line">(lldb) [[[UIApplication sharedApplication] keyWindow] recursiveDescription]</span><br><span class="line">(lldb) pviews</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 强制刷新</span><br><span class="line">(lldb) e (void)[CATransaction flush]</span><br><span class="line">(lldb) caflush</span><br><span class="line"></span><br><span class="line"># 实例变量添加断点（涉及地址被修改）</span><br><span class="line">(lldb) p (ptrdiff_t)ivar_getOffset((void*)object_getInstanceVariable([UIView class], &quot;_layer&quot;, 0))</span><br><span class="line">(lldb) watchpoint set expression -- (int *)$view + 8</span><br><span class="line">(lldb) wivar $view &quot;_layer&quot;</span><br><span class="line"></span><br><span class="line"># 非重写方法的符号断点（用于子类未重写父类方法）</span><br><span class="line">(lldb) bmessage &quot;-[UIViewController viewDidAppear:]&quot;</span><br><span class="line"></span><br><span class="line"># 打印引用计数</span><br><span class="line">language swift refcount &lt;expr&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Refrence"><a href="#Refrence" class="headerlink" title="Refrence"></a>Refrence</h1><p><img src="/images/2018-02-02-LLDB/2.png" alt="Debugging Swift code with LLDB"></p>
+<blockquote>
+<p>引用于 <a href="https://medium.com/flawless-app-stories/debugging-swift-code-with-lldb-b30c5cf2fd49" target="_blank" rel="noopener">Debugging Swift code with LLDB</a></p>
+</blockquote>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/02/02/LLDB/">LLDB</a></p>
+        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
+        <p><span>Publish Time:</span>2018-02-02 11:35</p>
+        <p><span>Update Time:</span>2018-02-08 01:01</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2018/02/02/LLDB/" title="LLDB">http://xwjack.github.io/2018/02/02/LLDB/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2018/02/02/LLDB/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/02/27/new-year-goal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          2018年目标
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/22/Terminal/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Terminal</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Xcode"><span class="toc-number">1.</span> <span class="toc-text">Xcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Continue"><span class="toc-number">1.1.</span> <span class="toc-text">Continue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#step-over"><span class="toc-number">1.2.</span> <span class="toc-text">step over</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#step-into"><span class="toc-number">1.3.</span> <span class="toc-text">step into</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#step-out"><span class="toc-number">1.4.</span> <span class="toc-text">step out</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Commands"><span class="toc-number">2.</span> <span class="toc-text">Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#breakpoint"><span class="toc-number">2.1.</span> <span class="toc-text">breakpoint</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">2.1.1.</span> <span class="toc-text">set</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#f"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">f</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#l"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">l</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#F"><span class="toc-number">2.1.1.3.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c"><span class="toc-number">2.1.1.4.</span> <span class="toc-text">c</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#command"><span class="toc-number">2.1.2.</span> <span class="toc-text">command</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#add"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">add</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#expression"><span class="toc-number">2.2.</span> <span class="toc-text">expression</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O"><span class="toc-number">2.2.1.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#print"><span class="toc-number">2.2.2.</span> <span class="toc-text">print</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#frame"><span class="toc-number">2.3.</span> <span class="toc-text">frame</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#info"><span class="toc-number">2.3.1.</span> <span class="toc-text">info</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thread"><span class="toc-number">2.4.</span> <span class="toc-text">thread</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#return"><span class="toc-number">2.4.1.</span> <span class="toc-text">return</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#process"><span class="toc-number">2.5.</span> <span class="toc-text">process</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">2.5.1.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interrupt"><span class="toc-number">2.5.2.</span> <span class="toc-text">interrupt</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#memory"><span class="toc-number">2.6.</span> <span class="toc-text">memory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#read"><span class="toc-number">2.6.1.</span> <span class="toc-text">read</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Convenience"><span class="toc-number">3.</span> <span class="toc-text">Convenience</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Refrence"><span class="toc-number">4.</span> <span class="toc-text">Refrence</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'XWJACK',
+      repo: 'xwjack.github.io',
+      oauth: {
+        client_id: '63a97a6fabe1ee5265d1',
+        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/02/27/new-year-goal/" title="上一篇: 2018年目标">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/01/22/Terminal/" title="下一篇: Terminal">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/new-year-goal/">2018年目标</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/LLDB/">LLDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/iOS/">iOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mini灬哆啦
+            </div>
+            <div class="footer-right">
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-80240532-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<!-- End Baidu Analytics -->
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

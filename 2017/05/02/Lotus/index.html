@@ -6,7 +6,7 @@
   <title>Lotus | Mini灬哆啦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。   自定义缓存  自定义Log  自定义Debug  MD5加密  自定义返回错误，自定义数据解析  直接返回想要的Model   ⚠️ 该项目虽然使用了Alamofire，但并非封装Alamofire，而是使用该库的编码，核心还是使用Apple提供的URLSession进行编写。">
-<meta name="keywords" content="iOS,macOS,Swift 3.2,Framework">
+<meta name="keywords" content="macOS,iOS,Swift 3.2,Framework">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lotus">
 <meta property="og:url" content="http://xwjack.github.io/2017/05/02/Lotus/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/1.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/2.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/3.png">
-<meta property="og:updated_time" content="2018-01-25T14:06:39.937Z">
+<meta property="og:updated_time" content="2018-02-01T01:59:31.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lotus">
 <meta name="twitter:description" content="一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。   自定义缓存  自定义Log  自定义Debug  MD5加密  自定义返回错误，自定义数据解析  直接返回想要的Model   ⚠️ 该项目虽然使用了Alamofire，但并非封装Alamofire，而是使用该库的编码，核心还是使用Apple提供的URLSession进行编写。">
@@ -175,12 +175,12 @@
           
         <p>一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。</p>
 <ul>
-<li style="list-style: none"><input type="checkbox" checked> 自定义缓存</li>
-<li style="list-style: none"><input type="checkbox" checked> 自定义Log</li>
-<li style="list-style: none"><input type="checkbox" checked> 自定义Debug</li>
-<li style="list-style: none"><input type="checkbox" checked> MD5加密</li>
-<li style="list-style: none"><input type="checkbox" checked> 自定义返回错误，自定义数据解析</li>
-<li style="list-style: none"><input type="checkbox" checked> 直接返回想要的Model</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义缓存</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义Log</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义Debug</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> MD5加密</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义返回错误，自定义数据解析</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 直接返回想要的Model</li>
 </ul>
 <blockquote>
 <p>⚠️ 该项目虽然使用了<code>Alamofire</code>，但并非封装<code>Alamofire</code>，而是使用该库的编码，核心还是使用Apple提供的<code>URLSession</code>进行编写。</p>
@@ -260,6 +260,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Set Cache center when initlization Lotus.</span></span><br><span class="line"><span class="type">Center</span>.<span class="keyword">default</span>.configuration.cacheCenter = <span class="type">CustomCacheCenter</span>()</span><br></pre></td></tr></table></figure>
 <h4 id="Custom-Log-Center"><a href="#Custom-Log-Center" class="headerlink" title="Custom Log Center"></a>Custom Log Center</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomLogCenter</span>: <span class="title">LogCenter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">save</span><span class="params">(<span class="number">_</span> log: Log, witTime logTime: TimeInterval)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    		<span class="comment">/// Custom log formatter to file.</span></span><br><span class="line">        <span class="keyword">return</span> logTime.description + <span class="string">","</span> + log.raw.joined(separator: <span class="string">","</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">terminal</span><span class="params">(<span class="number">_</span> log: Log, witTime logTime: TimeInterval)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    		<span class="comment">/// Custom log fromatter to terminal.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"☁️"</span> + <span class="type">Date</span>(timeIntervalSince1970: logTime).description + log.raw.joined(separator: <span class="string">","</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Set Log center when initlization Lotus.</span></span><br><span class="line"><span class="type">Center</span>.<span class="keyword">default</span>.configuration.<span class="type">LogCenter</span> = <span class="type">CustomLogCenter</span>()</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Default log for Client.</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Client</span>: <span class="title">CustomLogConvertible</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">var</span> log: <span class="type">Log</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> log = <span class="type">Log</span>()</span><br><span class="line">        log.raw[<span class="string">"Task Identifier"</span>] = delegate.task?.taskIdentifier.description ?? <span class="string">"Unknow Task Identifier"</span></span><br><span class="line">        log.raw[<span class="string">"Begin Time"</span>] = beginTime.description</span><br><span class="line">        log.raw[<span class="string">"Method"</span>] = request?.httpMethod ?? <span class="string">"Unknow Method"</span></span><br><span class="line">        log.raw[<span class="string">"URL"</span>] = request?.url?.absoluteString ?? <span class="string">"Unknow URL"</span></span><br><span class="line">        log.raw[<span class="string">"HTTP Header"</span>] = request?.allHTTPHeaderFields?.description ?? <span class="string">"Unknow HTTP Header"</span></span><br><span class="line">        log.raw[<span class="string">"HTTP Body"</span>] = request?.httpBody == <span class="literal">nil</span> ? <span class="string">"No HTTP Body"</span> : <span class="type">String</span>(data: request!.httpBody!, encoding: .utf8)</span><br><span class="line">        log.raw[<span class="string">"Error"</span>] = error?.localizedDescription ?? <span class="string">"No Error"</span></span><br><span class="line">        <span class="keyword">return</span> log</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
       
@@ -320,7 +321,7 @@
         <p><span>Title:</span><a href="/2017/05/02/Lotus/">Lotus</a></p>
         <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
         <p><span>Publish Time:</span>2017-05-02 16:40</p>
-        <p><span>Update Time:</span>2018-01-25 22:06</p>
+        <p><span>Update Time:</span>2018-02-01 09:59</p>
         <p>
             <span>Original Link:</span><a class="post-url" href="/2017/05/02/Lotus/" title="Lotus">http://xwjack.github.io/2017/05/02/Lotus/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/05/02/Lotus/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -437,7 +438,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Media/">Media</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/UIKit/">UIKit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/22/Fake-API/">Fake API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/new-year-goal/">2018年目标</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/LLDB/">LLDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/iOS/">iOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -506,6 +507,19 @@ ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
 
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<!-- End Baidu Analytics -->
 
 
 

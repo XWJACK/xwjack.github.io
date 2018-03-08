@@ -133,6 +133,135 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-new-year-goal" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/27/new-year-goal/" class="article-date">
+      <time datetime="2018-02-27T05:45:49.000Z" itemprop="datePublished">2018-02-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/27/new-year-goal/">2018年目标</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>为2018定下自己的目标。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/02/27/new-year-goal/#more">Read more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-LLDB" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/02/LLDB/" class="article-date">
+      <time datetime="2018-02-02T03:35:18.000Z" itemprop="datePublished">2018-02-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/02/LLDB/">LLDB</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>iOS开发过程中Bug不可能少，最重要的如何快速的定位Bug的原因，不能每更改一行代码，运行整个App来查看效果，那样效率太过于低下。</p>
+<p><a href="https://www.objc.io/issues/19-debugging/lldb-debugging/" target="_blank" rel="noopener">Dancing in the Debugger — A Waltz with LLDB</a>这篇文章很不错，也学到了很多。</p>
+<p><a href="https://github.com/facebook/chisel" target="_blank" rel="noopener">chisel</a>facebook出品必属精品，更加方便的使用lldb。</p>
+<p>建议有时间可以看chisel的源码，Objective-C、LLDB、Python一起学。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lldb/">lldb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li></ul>
+    </div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/02/02/LLDB/#more">Read more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Terminal" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -227,6 +356,49 @@
       
           
               <p>使用VideoToolbox编码和解码H.264。这篇文章就是在学习<a href="https://developer.apple.com/videos/play/wwdc2014/513/" target="_blank" rel="noopener">WWDC 2014 513 Direct Access to Video Encoding and Decoding</a>的过程中写下。</p>
+<p>在刚开始看这个视频的时候发现很不能理解，也参考的大量的博客、文章，最后才将概念一一理清，建议刚开始学习VideoToolbox的同学，可以边看视频，边看这个文章。但是这篇文章并不是按照视频的进度写的，因为Apple的视频不太适合新手学习，所以做了一些整理，整个部分分为以下几个部分。</p>
+<ul>
+<li>Common<ul>
+<li>Swift语法中使用C的小坑</li>
+<li>一些基本的关键词解释。</li>
+</ul>
+</li>
+<li>Decompress &amp;&amp; Compress<ul>
+<li>Decompress<ul>
+<li>介绍如何将未解码的CMSampleBuffer解码成CVPixelBuffer。</li>
+<li>解码参数的设置及注意事项。</li>
+</ul>
+</li>
+<li>Compress<ul>
+<li>介绍如何将已经解码的CMSampleBuffer编码成CMSampleBuffer。</li>
+<li>编码参数设置及注意事项。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Advance<ul>
+<li>Decompress &amp;&amp; Compress<ul>
+<li>Decompress<ul>
+<li>如何将未解码的H.264数据流封装成未解码的CMSampleBuffer。</li>
+</ul>
+</li>
+<li>Compress<ul>
+<li>如何将解码的CMSampleBuffer编码成H.264数据流。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Summary<ul>
+<li>VideoToolbox硬编码及硬解码总结。</li>
+</ul>
+</li>
+<li>Refrence<ul>
+<li>参考文章及博客。</li>
+</ul>
+</li>
+</ul>
           
       
       
@@ -238,78 +410,13 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
 
       
         <p class="article-more-link">
           <a  href="/2018/01/18/VideoToolbox/#more">Read more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Media" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/18/Media/" class="article-date">
-      <time datetime="2018-01-18T03:38:33.000Z" itemprop="datePublished">2018-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/Media/">Media</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>简单易用的媒体库，减少开发成本。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVFoundation/">AVFoundation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Framework/">Framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-    </div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/01/18/Media/#more">Read more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -527,10 +634,10 @@
 
 
   
-    <article id="post-UIKit" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-iOS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/28/UIKit/" class="article-date">
+      <a href="/2017/12/28/iOS/" class="article-date">
       <time datetime="2017-12-27T16:00:00.000Z" itemprop="datePublished">2017-12-28</time>
 </a>
     </div>
@@ -544,7 +651,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/28/UIKit/">UIKit</a>
+      <a class="article-title" href="/2017/12/28/iOS/">iOS</a>
     </h1>
   
 
@@ -554,7 +661,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><strong>从事iOS开发快两年了，但是并不喜欢UI相关的东西，但是很多时候需要做，也踩过很多的坑！之前一直没有记录下来，导致自己再次遇到的时候依旧无法记得当初是如何解决的。为了避免再次遗忘，特写此博客记录下来。</strong></p>
+              <p>iOS 开发学习，各种记录。</p>
           
       
       
@@ -566,78 +673,13 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
 
       
         <p class="article-more-link">
-          <a  href="/2017/12/28/UIKit/#more">Read more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Fake-API" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/22/Fake-API/" class="article-date">
-      <time datetime="2017-12-21T16:00:00.000Z" itemprop="datePublished">2017-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/22/Fake-API/">Fake API</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Perfect with Swift.</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li></ul>
-    </div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/22/Fake-API/#more">Read more >></a>
+          <a  href="/2017/12/28/iOS/#more">Read more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -835,6 +877,19 @@ ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
 
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<!-- End Baidu Analytics -->
 
 
 
