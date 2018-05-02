@@ -3758,6 +3758,7 @@ a.gitment-editor-footer-tip:hover {
   color: #f55555;
   padding-bottom: 5px;
   text-align: center;
+  line-height: 1.2em;
 }
 .article-entry h1 {
   font-size: 2.5em;
