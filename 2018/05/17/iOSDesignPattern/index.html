@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>XCTest | Mini灬哆啦</title>
+  <title>iOS Design Pattern | Mini灬哆啦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Using XCTest to test.">
-<meta name="keywords" content="iOS,Objective-C,Test">
+  <meta name="description" content="写过那么多的代码，也在很多场景使用不同的设计模式，MVC、MVVM、MVP等。其本质就是让代码变得更容易修改，编写，测试（你真的会写代码来测试自己的代码么？）。 这片文章并不会从理论上说各个模式，而是从实践中，体会各个设计模式的优缺点。">
+<meta name="keywords" content="iOS,Objective-C,Design Pattern">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XCTest">
-<meta property="og:url" content="http://xwjack.github.io/2017/12/21/XCTest/index.html">
+<meta property="og:title" content="iOS Design Pattern">
+<meta property="og:url" content="http://xwjack.github.io/2018/05/17/iOSDesignPattern/index.html">
 <meta property="og:site_name" content="Mini灬哆啦">
-<meta property="og:description" content="Using XCTest to test.">
+<meta property="og:description" content="写过那么多的代码，也在很多场景使用不同的设计模式，MVC、MVVM、MVP等。其本质就是让代码变得更容易修改，编写，测试（你真的会写代码来测试自己的代码么？）。 这片文章并不会从理论上说各个模式，而是从实践中，体会各个设计模式的优缺点。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-15T13:13:42.642Z">
+<meta property="og:updated_time" content="2018-06-02T00:46:28.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XCTest">
-<meta name="twitter:description" content="Using XCTest to test.">
+<meta name="twitter:title" content="iOS Design Pattern">
+<meta name="twitter:description" content="写过那么多的代码，也在很多场景使用不同的设计模式，MVC、MVVM、MVP等。其本质就是让代码变得更容易修改，编写，测试（你真的会写代码来测试自己的代码么？）。 这片文章并不会从理论上说各个模式，而是从实践中，体会各个设计模式的优缺点。">
   
     <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
   
@@ -130,11 +130,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-XCTest" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSDesignPattern" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/21/XCTest/" class="article-date">
-      <time datetime="2017-12-20T16:00:00.000Z" itemprop="datePublished">2017-12-21</time>
+      <a href="/2018/05/17/iOSDesignPattern/" class="article-date">
+      <time datetime="2018-05-17T02:02:48.000Z" itemprop="datePublished">2018-05-17</time>
 </a>
     </div>
   
@@ -147,7 +147,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      XCTest
+      iOS Design Pattern
     </h1>
   
 
@@ -158,7 +158,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Test/">Test</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Pattern/">Design Pattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
 
@@ -169,11 +169,44 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Using XCTest to test.</p>
+        <p>写过那么多的代码，也在很多场景使用不同的设计模式，MVC、MVVM、MVP等。其本质就是让代码变得更容易修改，编写，测试（你真的会写代码来测试自己的代码么？）。</p>
+<p>这片文章并不会从理论上说各个模式，而是从实践中，体会各个设计模式的优缺点。</p>
 <a id="more"></a>
-<h1 id="XCTest"><a href="#XCTest" class="headerlink" title="XCTest"></a>XCTest</h1><h2 id="Asynchronous"><a href="#Asynchronous" class="headerlink" title="Asynchronous"></a>Asynchronous</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">XCTestExpectation *expectation = [self expectationWithDescription:@&quot;Testing Async&quot;];</span><br><span class="line">    </span><br><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">	NSLog(@&quot;Execute after one second.&quot;);</span><br><span class="line">	[expectation fulfill];</span><br><span class="line">&#125;);</span><br><span class="line">    </span><br><span class="line">[self waitForExpectationsWithTimeout:3 handler:nil];</span><br></pre></td></tr></table></figure>
-<h2 id="NSBundle"><a href="#NSBundle" class="headerlink" title="NSBundle"></a>NSBundle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSBundle *bundle = [NSBundle bundleForClass:[&lt;#(nonnull Class)#&gt; class]];</span><br></pre></td></tr></table></figure>
-<h1 id="iOS-Unit-Testing"><a href="#iOS-Unit-Testing" class="headerlink" title="iOS Unit Testing"></a>iOS Unit Testing</h1>
+<h1 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h1><h1 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h1><p>对于这个模式，用的最多的就是在视频聊天、直播场景中使用。但是我觉得依旧有很多不足的地方。</p>
+<ul>
+<li>分出的presenter如何和主控制器进行交互？<ul>
+<li>弱引用<ul>
+<li>优点<ul>
+<li>直接和主控制器进行互动</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>直接访问主控制器意味着可以间接访问其他presenter，导致代码的混乱，一个业务代码可能分散在各个presenter中。</li>
+<li>各个presenter的界限明显降低。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Delegate<ul>
+<li>优点<ul>
+<li>将主控制器和presenter分开，限制了presenter随意调用主控制器相关内容。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>各个presenter交互成了问题。大量的delegate带来的是主控制器依旧很重。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Plugins-Design-Pattern"><a href="#Plugins-Design-Pattern" class="headerlink" title="Plugins Design Pattern"></a>Plugins Design Pattern</h1><p>对于开发者来说，理想的开发方式就是插件化开发，开发一个功能，添加该插件，就可以使用，不用的时候去掉插件。多么理想的开发，插件可以脱离主体进行测试。</p>
+<h1 id="Summery"><a href="#Summery" class="headerlink" title="Summery"></a>Summery</h1><p>对于设计模式，整个项目不可能采用同一个设计模式进行开发。不同的场景使用不同的设计模式也会使项目便于维护。</p>
+<p>相比于设计模式，再好的设计模式也不能阻止开发者随意的代码编写，每个设计模式都有优点和缺点，不能指望一个完美的设计模式来解决所有的问题。</p>
+<p>代码越来越混乱的原因就是设计模式已经更不上业务逻辑的改变（你愿意为你的业务逻辑重构代码么？）。当别人接手你的代码的时候发现很难改，但是又需要完成产品提出的任务，终于好不容易改好了，Bug测试完了，根本不愿意再重构代码，因为你怕又出现Bug，继续陷入无止境的加班中。</p>
+<p>想要代码变得整洁，并不是是要一下子写出完美的代码，而是在感觉到危机的时候能够及时的阻止代码结构的进一步恶化（你能做到么？）。</p>
+
       
       
         <div class="page-reward">
@@ -230,13 +263,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/12/21/XCTest/">XCTest</a></p>
+        <p><span>Title:</span><a href="/2018/05/17/iOSDesignPattern/">iOS Design Pattern</a></p>
         <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
-        <p><span>Publish Time:</span>2017-12-21 00:00</p>
-        <p><span>Update Time:</span>2018-01-15 21:13</p>
+        <p><span>Publish Time:</span>2018-05-17 10:02</p>
+        <p><span>Update Time:</span>2018-06-02 08:46</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2017/12/21/XCTest/" title="XCTest">http://xwjack.github.io/2017/12/21/XCTest/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/12/21/XCTest/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Original Link:</span><a class="post-url" href="/2018/05/17/iOSDesignPattern/" title="iOS Design Pattern">http://xwjack.github.io/2018/05/17/iOSDesignPattern/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2018/05/17/iOSDesignPattern/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -249,18 +282,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/12/28/iOS/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          iOS
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/15/Reverse/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Reverse</div>
+    <a href="/2018/03/07/EffectiveObjectiveC20/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective Objective-C 2.0</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -272,7 +296,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#XCTest"><span class="toc-number">1.</span> <span class="toc-text">XCTest</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronous"><span class="toc-number">1.1.</span> <span class="toc-text">Asynchronous</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NSBundle"><span class="toc-number">1.2.</span> <span class="toc-text">NSBundle</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS-Unit-Testing"><span class="toc-number">2.</span> <span class="toc-text">iOS Unit Testing</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC"><span class="toc-number">1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MVP"><span class="toc-number">2.</span> <span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plugins-Design-Pattern"><span class="toc-number">3.</span> <span class="toc-text">Plugins Design Pattern</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summery"><span class="toc-number">4.</span> <span class="toc-text">Summery</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
 
@@ -339,13 +363,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/28/iOS/" title="上一篇: iOS">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/11/15/Reverse/" title="下一篇: Reverse">
+            <a href="/2018/03/07/EffectiveObjectiveC20/" title="下一篇: Effective Objective-C 2.0">
                 <i class="fa fa-angle-right"></i>
             </a>
         
