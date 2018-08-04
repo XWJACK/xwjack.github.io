@@ -1,10 +1,113 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <title>Build | Mini灬哆啦</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<html class="theme-next muse use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/head.png?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
   <meta name="description" content="记录之前用Shell和Python分别写的自动打包脚本。">
 <meta name="keywords" content="macOS,Shell,Python2.7">
 <meta property="og:type" content="article">
@@ -17,158 +120,259 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Build">
 <meta name="twitter:description" content="记录之前用Shell和Python分别写的自动打包脚本。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://xwjack.github.io/2017/01/09/Build/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Build | Mini灬哆啦</title>
   
-    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.png">
-  
-  
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          rootUrl: '/',
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/head.png" class="js-avatar">
-            
-        </a>
 
-        <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
-        </hgroup>
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
-        
-        
-        
+  
+  
+    
+  
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                
-                
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
 
-                
-            </div>
-        </div>
-    </header>                
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mini灬哆啦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/head.png" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
-                    
-                </div>
-            </nav>
-        </header>                
-    </div>
-</nav>
-      <div class="body-wrap"><article id="post-Build" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/09/Build/" class="article-date">
-      <time datetime="2017-01-09T03:34:09.000Z" itemprop="datePublished">2017-01-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Build
-    </h1>
-  
 
-      </header>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
       
-      <div class="article-info article-info-post">
         
-
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python2-7/">Python2.7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li></ul>
-    </div>
-
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        
           
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2017/01/09/Build/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Build
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-01-09 11:34:09" itemprop="dateCreated datePublished" datetime="2017-01-09T11:34:09+08:00">2017-01-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-01-20 14:18:06" itemprop="dateModified" datetime="2018-01-20T14:18:06+08:00">2018-01-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         <p>记录之前用Shell和Python分别写的自动打包脚本。</p>
 <a id="more"></a>
 <h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字符串</span></span><br><span class="line">projectName=<span class="string">"ABC"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Bool</span></span><br><span class="line">isNeedPodInstall=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串拼接</span></span><br><span class="line">ipaPath=<span class="string">"Result"</span>/<span class="variable">$projectName</span>.ipa</span><br></pre></td></tr></table></figure>
@@ -189,330 +393,453 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> sys, os</span><br><span class="line"><span class="keyword">import</span> plistlib</span><br><span class="line"><span class="keyword">import</span> gflags</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">#import pdb</span></span><br><span class="line"></span><br><span class="line">gflags.DEFINE_bool(<span class="string">'test'</span>, <span class="keyword">False</span>, <span class="string">'Is Test'</span>)</span><br><span class="line">gflags.DEFINE_string(<span class="string">'log'</span>, <span class="string">''</span>, <span class="string">'ChangeLog for fir'</span>)</span><br><span class="line">gflags.DEFINE_bool(<span class="string">'version'</span>, <span class="keyword">True</span>, <span class="string">'Is Auto Change Version'</span>)</span><br><span class="line">gflags.DEFINE_bool(<span class="string">'clean'</span>, <span class="keyword">True</span>, <span class="string">'Clean WorkSpace before Archive'</span>)</span><br><span class="line">gflags.DEFINE_bool(<span class="string">'time'</span>, <span class="keyword">False</span>, <span class="string">'Get time with build'</span>)</span><br><span class="line">gflags.DEFINE_bool(<span class="string">'upload'</span>, <span class="keyword">True</span>, <span class="string">'Upload to fir'</span>)</span><br><span class="line">gflags.DEFINE_bool(<span class="string">'quiet'</span>, <span class="keyword">True</span>, <span class="string">'Do not print any output except for warnings and errors'</span>)</span><br><span class="line">gflags.DEFINE_bool(<span class="string">'commit'</span>, <span class="keyword">True</span>, <span class="string">'Auto Git Commit to log this Archive'</span>)</span><br><span class="line"><span class="comment">#Other Flags for Commond</span></span><br><span class="line">gflags.DEFINE_string(<span class="string">'build'</span>, <span class="string">''</span>, <span class="string">'Other Flags for build, Using \' replaced "'</span>)</span><br><span class="line">gflags.DEFINE_string(<span class="string">'archive'</span>, <span class="string">''</span>, <span class="string">'Other Flags for archive, Using \' replaced "'</span>)</span><br><span class="line">gflags.DEFINE_string(<span class="string">'fir'</span>, <span class="string">''</span>, <span class="string">'Other Flags for fir, Using \' replaced "'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#checking FLAGS</span></span><br><span class="line"><span class="keyword">try</span> : gflags.FLAGS(sys.argv)</span><br><span class="line"><span class="keyword">except</span> gflags.FlagsError, e :</span><br><span class="line">    <span class="keyword">print</span> e</span><br><span class="line">    print(<span class="string">"---&gt;FLAGS Error!"</span>)</span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">rootDir = <span class="string">"../iOS"</span></span><br><span class="line">resultDir = <span class="string">"../docs"</span></span><br><span class="line">resultPath = <span class="string">"Result"</span></span><br><span class="line">configPlistDir = resultPath + <span class="string">"/build.plist"</span></span><br><span class="line">timePath = resultPath + <span class="string">"/time.txt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">execuse</span><span class="params">(commond)</span>:</span></span><br><span class="line">    print(<span class="string">"Excusing -&gt;"</span> + commond + <span class="string">"&lt;- Commond\n"</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> gflags.FLAGS.test: os.system(commond)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Init Build</span></span><br><span class="line"><span class="comment"># remove Result/</span></span><br><span class="line"><span class="comment"># ceate Result</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initBuild</span><span class="params">()</span>:</span></span><br><span class="line">    rmResultPath = <span class="string">"rm -rf "</span> + resultPath</span><br><span class="line">    execuse(rmResultPath)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> gflags.FLAGS.test: os.mkdir(resultPath)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Auto get project name</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getProjectName</span><span class="params">()</span>:</span></span><br><span class="line">    os.chdir(rootDir)</span><br><span class="line">    filelist = os.listdir(<span class="string">'./'</span>)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> filelist:</span><br><span class="line">        <span class="keyword">if</span> item.endswith(<span class="string">".xcworkspace"</span>):</span><br><span class="line">            os.chdir(resultDir)</span><br><span class="line">            <span class="keyword">return</span> item.split(<span class="string">"."</span>, <span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"---&gt;Can't Get Project Name!"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> gflags.FLAGS.test: initBuild()</span><br><span class="line">projectName = getProjectName()</span><br><span class="line"></span><br><span class="line">infoPlistDir = rootDir + (<span class="string">"/"</span> + projectName) * <span class="number">2</span> + <span class="string">'/Supporting Files/Info.plist'</span></span><br><span class="line">ipaPath = resultPath + <span class="string">"/"</span> + projectName + <span class="string">".ipa"</span></span><br><span class="line">archivePath = resultPath + <span class="string">"/"</span> + projectName + <span class="string">".xcarchive"</span></span><br><span class="line">workspacePath = rootDir + <span class="string">"/"</span> + projectName + <span class="string">".xcworkspace"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Build</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.plist = plistlib.readPlist(infoPlistDir)</span><br><span class="line">        self.version = self.plist[<span class="string">"CFBundleShortVersionString"</span>]</span><br><span class="line">        self.bundleVersion = self.plist[<span class="string">"CFBundleVersion"</span>]</span><br><span class="line">        self.newVersion = self.bundleVersion</span><br><span class="line">        print(<span class="string">"----------------------------------------------------"</span>)</span><br><span class="line">        print(<span class="string">"--------- CurrentVersion  is   v"</span> + self.version + <span class="string">"   "</span> + str(self.bundleVersion) + <span class="string">" ---------"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Create Config plist file at resultPath</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">createConfigPlistFile</span><span class="params">(self)</span>:</span></span><br><span class="line">        p = open(configPlistDir, <span class="string">"w"</span>)</span><br><span class="line">        plistContent = <span class="string">"""\</span></span><br><span class="line"><span class="string">        &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="string">        &lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></span><br><span class="line"><span class="string">        &lt;plist version="1.0"&gt;</span></span><br><span class="line"><span class="string">        &lt;dict&gt;</span></span><br><span class="line"><span class="string">        &lt;key&gt;method&lt;/key&gt;</span></span><br><span class="line"><span class="string">        &lt;string&gt;ad-hoc&lt;/string&gt;</span></span><br><span class="line"><span class="string">        &lt;/dict&gt;</span></span><br><span class="line"><span class="string">        &lt;/plist&gt;</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p.write(plistContent)</span><br><span class="line">        p.flush()</span><br><span class="line">        p.close()</span><br><span class="line">        print(<span class="string">"---&gt;Create Config Plist Success!"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">versionChange</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.newVersion = str(int(self.bundleVersion) + <span class="number">1</span>)</span><br><span class="line">        self.plist[<span class="string">"CFBundleVersion"</span>] = self.newVersion</span><br><span class="line">        plistlib.writePlist(self.plist, infoPlistDir)</span><br><span class="line">        print(<span class="string">"---------Update BundleVersion from "</span> + self.bundleVersion + <span class="string">" -&gt; "</span> + self.newVersion + <span class="string">"---------"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#build new xcarchive</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        baseBuild = <span class="string">"xcodebuild"</span></span><br><span class="line">        <span class="comment">#if self.isWorkSpace:</span></span><br><span class="line">        baseBuild += <span class="string">" -workspace "</span> + workspacePath</span><br><span class="line">        baseBuild += <span class="string">" -scheme "</span> + projectName</span><br><span class="line">        <span class="comment">#else:</span></span><br><span class="line">        <span class="comment">#baseBuild += " -project"</span></span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.clean: baseBuild += <span class="string">" clean"</span></span><br><span class="line">        <span class="keyword">else</span>: print(<span class="string">"---&gt;Clean before Build is Closed!"</span>)</span><br><span class="line">        baseBuild += <span class="string">" archive -archivePath "</span> + archivePath</span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.quiet: baseBuild += <span class="string">" -quiet"</span></span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.build != <span class="string">''</span>: baseBuild += <span class="string">" "</span> + gflags.FLAGS.build</span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.time:</span><br><span class="line">            baseBuild += <span class="string">' OTHER_SWIFT_FLAGS="-Xfrontend -debug-time-function-bodies" |grep .[0-9]ms | sort -nr &gt; '</span> + timePath</span><br><span class="line">        execuse(baseBuild)</span><br><span class="line">        print(<span class="string">"------------------Build Success---------------------\n"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">archive</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"------------------Start Archive---------------------\n"</span>)</span><br><span class="line">        baseArchive = <span class="string">"xcodebuild"</span></span><br><span class="line">        baseArchive += <span class="string">" -exportArchive -archivePath "</span> + archivePath</span><br><span class="line">        baseArchive += <span class="string">" -exportPath "</span> + resultPath</span><br><span class="line">        baseArchive += <span class="string">" -exportOptionsPlist "</span> + configPlistDir</span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.quiet: baseArchive += <span class="string">" -quiet"</span></span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.archive != <span class="string">''</span>: baseArchive += <span class="string">" "</span> + gflags.FLAGS.archive</span><br><span class="line">        execuse(baseArchive)</span><br><span class="line">        print(<span class="string">"------------------Archive Success-------------------\n"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">(self)</span>:</span></span><br><span class="line">        fir = <span class="string">"fir p "</span> + ipaPath</span><br><span class="line">        log = gflags.FLAGS.log</span><br><span class="line">        <span class="keyword">if</span> log != <span class="string">''</span>:</span><br><span class="line">            fir += <span class="string">' -c "'</span> + log + <span class="string">'"'</span></span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.fir != <span class="string">''</span>: fir += <span class="string">" "</span> + gflags.FLAGS.fir</span><br><span class="line">        execuse(fir)</span><br><span class="line">        print(<span class="string">"------------------Upload Success-------------------\n"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">commit</span><span class="params">(self)</span>:</span></span><br><span class="line">        os.chdir(rootDir)</span><br><span class="line">        commit = <span class="string">'git commit -am "'</span> + <span class="string">'New Packet: '</span> + str(self.version) + <span class="string">"   "</span> + str(self.newVersion) + <span class="string">'"'</span></span><br><span class="line">        execuse(commit)</span><br><span class="line">        push = <span class="string">'git push'</span></span><br><span class="line">        execuse(push)</span><br><span class="line">        print(<span class="string">"----------------Git Commit Success------------------\n"</span>)</span><br><span class="line">        os.chdir(resultDir)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"---------------Start Building "</span> + projectName + <span class="string">"---------------\n"</span>)</span><br><span class="line">        self.createConfigPlistFile()</span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.version: self.versionChange()</span><br><span class="line">        self.build()</span><br><span class="line">        self.archive()</span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.upload: self.upload()</span><br><span class="line">        <span class="keyword">if</span> gflags.FLAGS.commit: self.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    obj = Build()</span><br><span class="line">    startTime = time.time()</span><br><span class="line">    obj.start()</span><br><span class="line">    endTime = time.time()</span><br><span class="line">    print(<span class="string">"\nUseing time:%d s"</span> % (int(endTime - startTime)))</span><br></pre></td></tr></table></figure>
 
       
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
       
-        <div class="page-reward">
-          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
-          <div class="hide_box"></div>
-          <div class="shang_box">
-            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
-            <div class="shang_tit">
-              <p>谢谢打赏</p>
-            </div>
-            <div class="shang_payimg">
-              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
-            </div>
-              <div class="pay_explain">扫码打赏，你说多少就多少</div>
-            <div class="shang_payselect">
-              
-                <div class="pay_item checked" data-id="alipay">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
-                </div>
-              
-              
-                <div class="pay_item" data-id="wechat">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
-                </div>
-              
-            </div>
-            <div class="shang_info">
-              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
-            </div>
+        <div class="post-tags">
+          
+            <a href="/tags/macOS/" rel="tag"># macOS</a>
+          
+            <a href="/tags/Shell/" rel="tag"># Shell</a>
+          
+            <a href="/tags/Python2-7/" rel="tag"># Python2.7</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/06/Git/" rel="next" title="Git">
+                <i class="fa fa-chevron-left"></i> Git
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/16/Regex/" rel="prev" title="Regex">
+                Regex <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-        <script type="text/javascript">
-          $(".pay_item").click(function(){
-            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
-            var dataid=$(this).attr('data-id');
-            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
-            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
-          });
-          function dashangToggle(){
-
-            $(".hide_box").fadeToggle();
-            $(".shang_box").fadeToggle();
-          }
-        </script>
       
-    </div>
-    
+
+      
+      
+    </footer>
   </div>
   
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2017/01/09/Build/">Build</a></p>
-        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
-        <p><span>Publish Time:</span>2017-01-09 11:34</p>
-        <p><span>Update Time:</span>2018-01-20 14:18</p>
-        <p>
-            <span>Original Link:</span><a class="post-url" href="/2017/01/09/Build/" title="Build">http://xwjack.github.io/2017/01/09/Build/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/01/09/Build/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2017/03/16/Regex/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Regex
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/08/06/Git/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
   
-</nav>
-
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell"><span class="toc-number">1.</span> <span class="toc-text">Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-number">1.1.1.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件语句"><span class="toc-number">1.1.2.</span> <span class="toc-text">条件语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">1.1.3.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写文件"><span class="toc-number">1.1.4.</span> <span class="toc-text">写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行参数"><span class="toc-number">1.1.5.</span> <span class="toc-text">执行参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python"><span class="toc-number">2.</span> <span class="toc-text">Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法-1"><span class="toc-number">2.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#头文件"><span class="toc-number">2.1.1.</span> <span class="toc-text">头文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数-1"><span class="toc-number">2.1.2.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类"><span class="toc-number">2.1.3.</span> <span class="toc-text">类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Archive"><span class="toc-number">3.</span> <span class="toc-text">Archive</span></a></li></ol>
-</div>
-<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-    }
-</script>
 
 
 
-
-
-
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-
-
-
-    
-        <div id="gitments"></div>
-<script src="/js/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-      id: window.location.pathname,
-      owner: 'XWJACK',
-      repo: 'xwjack.github.io',
-      oauth: {
-        client_id: '63a97a6fabe1ee5265d1',
-        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
-      },
-    })
-    gitment.render('gitments')
-</script>
-    
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/03/16/Regex/" title="上一篇: Regex">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a href="/2016/08/06/Git/" title="下一篇: Git">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/26/BTC/">BTC</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/17/iOSDesignPattern/">iOS Design Pattern</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/07/EffectiveObjectiveC20/">Effective Objective-C 2.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/NewYearGoal/">2018年目标</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/LLDB/">LLDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/iOS/">iOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-            }
-        })
-    </script>
-
-
-
-    <script>
-        
-    </script>
-
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2018 Mini灬哆啦
-            </div>
-            <div class="footer-right">
-                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
-            </div>
         </div>
         
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-</footer>
-
-    </div>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 1;
-            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-80240532-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-
-	<!-- Baidu Analytics -->
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
-	  var s = document.getElementsByTagName("script")[0];
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-	<!-- End Baidu Analytics -->
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
-
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
-
-
   </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.png"
+                alt="Mini灬哆啦" />
+            
+              <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
+              <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/XWJACK/" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell"><span class="nav-number">1.</span> <span class="nav-text">Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件语句"><span class="nav-number">1.1.2.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">1.1.3.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写文件"><span class="nav-number">1.1.4.</span> <span class="nav-text">写文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行参数"><span class="nav-number">1.1.5.</span> <span class="nav-text">执行参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">2.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法-1"><span class="nav-number">2.1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#头文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">2.1.3.</span> <span class="nav-text">类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Archive"><span class="nav-number">3.</span> <span class="nav-text">Archive</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mini灬哆啦</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

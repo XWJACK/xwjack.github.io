@@ -1,10 +1,113 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <title>Lotus | Mini灬哆啦</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<html class="theme-next muse use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/head.png?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
   <meta name="description" content="一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。   自定义缓存  自定义Log  自定义Debug  MD5加密  自定义返回错误，自定义数据解析  直接返回想要的Model   ⚠️ 该项目虽然使用了Alamofire，但并非封装Alamofire，而是使用该库的编码，核心还是使用Apple提供的URLSession进行编写。">
 <meta name="keywords" content="iOS,macOS,⭐️⭐️⭐️⭐️⭐️,Swift 3.2.0,Framework">
 <meta property="og:type" content="article">
@@ -21,158 +124,259 @@
 <meta name="twitter:title" content="Lotus">
 <meta name="twitter:description" content="一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。   自定义缓存  自定义Log  自定义Debug  MD5加密  自定义返回错误，自定义数据解析  直接返回想要的Model   ⚠️ 该项目虽然使用了Alamofire，但并非封装Alamofire，而是使用该库的编码，核心还是使用Apple提供的URLSession进行编写。">
 <meta name="twitter:image" content="http://xwjack.github.io/images/2017-05-02-Lotus/1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://xwjack.github.io/2017/05/02/Lotus/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Lotus | Mini灬哆啦</title>
   
-    <link rel="alternative" href="/atom.xml" title="Mini灬哆啦" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.png">
-  
-  
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          rootUrl: '/',
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/head.png" class="js-avatar">
-            
-        </a>
 
-        <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">Mini灬哆啦</a></h1>
-        </hgroup>
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
-        
-        
-        
+  
+  
+    
+  
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                
-                
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
 
-                
-            </div>
-        </div>
-    </header>                
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mini灬哆啦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Mini灬哆啦</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/head.png" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">Mini灬哆啦</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="github" target="_blank" href="https://github.com/XWJACK" title="github">github</a>
-                    
-                </div>
-            </nav>
-        </header>                
-    </div>
-</nav>
-      <div class="body-wrap"><article id="post-Lotus" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05/02/Lotus/" class="article-date">
-      <time datetime="2017-05-02T08:40:15.000Z" itemprop="datePublished">2017-05-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Lotus
-    </h1>
-  
 
-      </header>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
       
-      <div class="article-info article-info-post">
         
-
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Framework/">Framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift-3-2-0/">Swift 3.2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/⭐️⭐️⭐️⭐️⭐️/">⭐️⭐️⭐️⭐️⭐️</a></li></ul>
-    </div>
-
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        
           
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2017/05/02/Lotus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Lotus
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-05-02 16:40:15" itemprop="dateCreated datePublished" datetime="2017-05-02T16:40:15+08:00">2017-05-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-03-08 22:34:17" itemprop="dateModified" datetime="2018-03-08T22:34:17+08:00">2018-03-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         <p>一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。</p>
 <ul>
 <li style="list-style: none"><input type="checkbox" checked disabled> 自定义缓存</li>
@@ -263,330 +467,457 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Default log for Client.</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Client</span>: <span class="title">CustomLogConvertible</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">var</span> log: <span class="type">Log</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> log = <span class="type">Log</span>()</span><br><span class="line">        log.raw[<span class="string">"Task Identifier"</span>] = delegate.task?.taskIdentifier.description ?? <span class="string">"Unknow Task Identifier"</span></span><br><span class="line">        log.raw[<span class="string">"Begin Time"</span>] = beginTime.description</span><br><span class="line">        log.raw[<span class="string">"Method"</span>] = request?.httpMethod ?? <span class="string">"Unknow Method"</span></span><br><span class="line">        log.raw[<span class="string">"URL"</span>] = request?.url?.absoluteString ?? <span class="string">"Unknow URL"</span></span><br><span class="line">        log.raw[<span class="string">"HTTP Header"</span>] = request?.allHTTPHeaderFields?.description ?? <span class="string">"Unknow HTTP Header"</span></span><br><span class="line">        log.raw[<span class="string">"HTTP Body"</span>] = request?.httpBody == <span class="literal">nil</span> ? <span class="string">"No HTTP Body"</span> : <span class="type">String</span>(data: request!.httpBody!, encoding: .utf8)</span><br><span class="line">        log.raw[<span class="string">"Error"</span>] = error?.localizedDescription ?? <span class="string">"No Error"</span></span><br><span class="line">        <span class="keyword">return</span> log</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
       
-        <div class="page-reward">
-          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
-          <div class="hide_box"></div>
-          <div class="shang_box">
-            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
-            <div class="shang_tit">
-              <p>谢谢打赏</p>
-            </div>
-            <div class="shang_payimg">
-              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
-            </div>
-              <div class="pay_explain">扫码打赏，你说多少就多少</div>
-            <div class="shang_payselect">
-              
-                <div class="pay_item checked" data-id="alipay">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
-                </div>
-              
-              
-                <div class="pay_item" data-id="wechat">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
-                </div>
-              
-            </div>
-            <div class="shang_info">
-              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
-            </div>
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/macOS/" rel="tag"># macOS</a>
+          
+            <a href="/tags/⭐️⭐️⭐️⭐️⭐️/" rel="tag"># ⭐️⭐️⭐️⭐️⭐️</a>
+          
+            <a href="/tags/Swift-3-2-0/" rel="tag"># Swift 3.2.0</a>
+          
+            <a href="/tags/Framework/" rel="tag"># Framework</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/24/Purchase/" rel="next" title="iOS In-App Purchase">
+                <i class="fa fa-chevron-left"></i> iOS In-App Purchase
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/31/Playback/" rel="prev" title="Playback">
+                Playback <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-        <script type="text/javascript">
-          $(".pay_item").click(function(){
-            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
-            var dataid=$(this).attr('data-id');
-            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
-            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
-          });
-          function dashangToggle(){
-
-            $(".hide_box").fadeToggle();
-            $(".shang_box").fadeToggle();
-          }
-        </script>
       
-    </div>
-    
+
+      
+      
+    </footer>
   </div>
   
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2017/05/02/Lotus/">Lotus</a></p>
-        <p><span>Author:</span><a href="/" title="访问 Mini灬哆啦 的个人博客">Mini灬哆啦</a></p>
-        <p><span>Publish Time:</span>2017-05-02 16:40</p>
-        <p><span>Update Time:</span>2018-03-08 22:34</p>
-        <p>
-            <span>Original Link:</span><a class="post-url" href="/2017/05/02/Lotus/" title="Lotus">http://xwjack.github.io/2017/05/02/Lotus/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xwjack.github.io/2017/05/02/Lotus/　　作者: Mini灬哆啦" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2017/08/31/Playback/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Playback
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/24/Purchase/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS In-App Purchase</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
   
-</nav>
-
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependence"><span class="toc-number">1.</span> <span class="toc-text">Dependence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flow"><span class="toc-number">2.</span> <span class="toc-text">Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refrences"><span class="toc-number">2.1.</span> <span class="toc-text">Refrences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Send-Flow"><span class="toc-number">2.2.</span> <span class="toc-text">Send Flow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Receive-Flow"><span class="toc-number">2.3.</span> <span class="toc-text">Receive Flow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage"><span class="toc-number">3.</span> <span class="toc-text">Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Usage"><span class="toc-number">3.1.</span> <span class="toc-text">Simple Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-a-request-with-URL"><span class="toc-number">3.1.1.</span> <span class="toc-text">Make a request with URL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-a-request-with-URLRequest"><span class="toc-number">3.1.2.</span> <span class="toc-text">Make a request with URLRequest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Receive-Response"><span class="toc-number">3.1.3.</span> <span class="toc-text">Receive Response</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Success-Data"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">Receive Success Data</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Failed"><span class="toc-number">3.1.3.2.</span> <span class="toc-text">Receive Failed</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-progress"><span class="toc-number">3.1.3.3.</span> <span class="toc-text">Receive progress</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-response"><span class="toc-number">3.1.3.4.</span> <span class="toc-text">Receive response</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-raw-data"><span class="toc-number">3.1.3.5.</span> <span class="toc-text">Receive raw data</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Raw-JSON"><span class="toc-number">3.1.3.6.</span> <span class="toc-text">Receive Raw JSON</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Generic"><span class="toc-number">3.1.3.7.</span> <span class="toc-text">Receive Generic</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Receive-Generic-Array"><span class="toc-number">3.1.3.8.</span> <span class="toc-text">Receive Generic Array</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Suggesting-Usage"><span class="toc-number">3.2.</span> <span class="toc-text">Suggesting Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Discussion"><span class="toc-number">3.2.1.</span> <span class="toc-text">Discussion</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#RequestConversion"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">RequestConversion</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ResultConversion"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">ResultConversion</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Initlization-Lotus-with-host"><span class="toc-number">3.2.2.</span> <span class="toc-text">Initlization Lotus with host.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-a-APIRouter"><span class="toc-number">3.2.3.</span> <span class="toc-text">Make a APIRouter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Send-request"><span class="toc-number">3.2.4.</span> <span class="toc-text">Send request</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Advance-Usage"><span class="toc-number">3.3.</span> <span class="toc-text">Advance Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Parse-Way"><span class="toc-number">3.3.1.</span> <span class="toc-text">Custom Parse Way</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Service-Error"><span class="toc-number">3.3.2.</span> <span class="toc-text">Custom Service Error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Debug-Center"><span class="toc-number">3.3.3.</span> <span class="toc-text">Custom Debug Center</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Cache-Center"><span class="toc-number">3.3.4.</span> <span class="toc-text">Custom Cache Center</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Custom-Log-Center"><span class="toc-number">3.3.5.</span> <span class="toc-text">Custom Log Center</span></a></li></ol></li></ol></li></ol>
-</div>
-<input type="button" id="tocButton" value="隐藏目录"  title="Display or Hide">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-    }
-</script>
 
 
 
-
-
-
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-
-
-
-    
-        <div id="gitments"></div>
-<script src="/js/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-      id: window.location.pathname,
-      owner: 'XWJACK',
-      repo: 'xwjack.github.io',
-      oauth: {
-        client_id: '63a97a6fabe1ee5265d1',
-        client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
-      },
-    })
-    gitment.render('gitments')
-</script>
-    
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/08/31/Playback/" title="上一篇: Playback">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a href="/2017/03/24/Purchase/" title="下一篇: iOS In-App Purchase">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/26/BTC/">BTC</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/17/iOSDesignPattern/">iOS Design Pattern</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/07/EffectiveObjectiveC20/">Effective Objective-C 2.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/NewYearGoal/">2018年目标</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/LLDB/">LLDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/Terminal/">Terminal</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/VideoToolbox/">VideoToolbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/Camera/">Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/LivePhoto/">Live Photo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/08/Marco/">Marco</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/28/iOS/">iOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/XCTest/">XCTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/Reverse/">Reverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/GPUImage/">GPUImage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/Framework/">Framework</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/Playback/">Playback</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/Lotus/">Lotus</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/Purchase/">iOS In-App Purchase</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/Music/">Music</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/09/Build/">Build</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/Git/">Git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Swift-Source-Code-Analysis-Array/">Swift Source Code Analysis - Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/Swift-Source-Code-Analysis-Sort/">Swift Source Code Analysis - Sort</a></li></ul>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-            }
-        })
-    </script>
-
-
-
-    <script>
-        
-    </script>
-
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2018 Mini灬哆啦
-            </div>
-            <div class="footer-right">
-                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
-            </div>
         </div>
         
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-</footer>
-
-    </div>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 1;
-            var backgroundimg = "url(/background/bg-" + backgroundnum +".png)";
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-80240532-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-
-	<!-- Baidu Analytics -->
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
-	  var s = document.getElementsByTagName("script")[0];
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-	<!-- End Baidu Analytics -->
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
-
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
-
-
   </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.png"
+                alt="Mini灬哆啦" />
+            
+              <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
+              <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/XWJACK/" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependence"><span class="nav-number">1.</span> <span class="nav-text">Dependence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flow"><span class="nav-number">2.</span> <span class="nav-text">Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Refrences"><span class="nav-number">2.1.</span> <span class="nav-text">Refrences</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Send-Flow"><span class="nav-number">2.2.</span> <span class="nav-text">Send Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Receive-Flow"><span class="nav-number">2.3.</span> <span class="nav-text">Receive Flow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-Usage"><span class="nav-number">3.1.</span> <span class="nav-text">Simple Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-request-with-URL"><span class="nav-number">3.1.1.</span> <span class="nav-text">Make a request with URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-request-with-URLRequest"><span class="nav-number">3.1.2.</span> <span class="nav-text">Make a request with URLRequest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Receive-Response"><span class="nav-number">3.1.3.</span> <span class="nav-text">Receive Response</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-Success-Data"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">Receive Success Data</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-Failed"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">Receive Failed</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-progress"><span class="nav-number">3.1.3.3.</span> <span class="nav-text">Receive progress</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-response"><span class="nav-number">3.1.3.4.</span> <span class="nav-text">Receive response</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-raw-data"><span class="nav-number">3.1.3.5.</span> <span class="nav-text">Receive raw data</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-Raw-JSON"><span class="nav-number">3.1.3.6.</span> <span class="nav-text">Receive Raw JSON</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-Generic"><span class="nav-number">3.1.3.7.</span> <span class="nav-text">Receive Generic</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Receive-Generic-Array"><span class="nav-number">3.1.3.8.</span> <span class="nav-text">Receive Generic Array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Suggesting-Usage"><span class="nav-number">3.2.</span> <span class="nav-text">Suggesting Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Discussion"><span class="nav-number">3.2.1.</span> <span class="nav-text">Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#RequestConversion"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">RequestConversion</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ResultConversion"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">ResultConversion</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Initlization-Lotus-with-host"><span class="nav-number">3.2.2.</span> <span class="nav-text">Initlization Lotus with host.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-APIRouter"><span class="nav-number">3.2.3.</span> <span class="nav-text">Make a APIRouter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Send-request"><span class="nav-number">3.2.4.</span> <span class="nav-text">Send request</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Advance-Usage"><span class="nav-number">3.3.</span> <span class="nav-text">Advance Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Custom-Parse-Way"><span class="nav-number">3.3.1.</span> <span class="nav-text">Custom Parse Way</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Custom-Service-Error"><span class="nav-number">3.3.2.</span> <span class="nav-text">Custom Service Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Custom-Debug-Center"><span class="nav-number">3.3.3.</span> <span class="nav-text">Custom Debug Center</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Custom-Cache-Center"><span class="nav-number">3.3.4.</span> <span class="nav-text">Custom Cache Center</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Custom-Log-Center"><span class="nav-number">3.3.5.</span> <span class="nav-text">Custom Log Center</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mini灬哆啦</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
