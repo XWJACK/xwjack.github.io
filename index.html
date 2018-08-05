@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="default">
+<html class="theme-next mist use-motion" lang="default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,6 +25,17 @@
 
 
 
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
 
 
 
@@ -49,6 +60,10 @@
 
 
 
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -84,10 +99,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -140,7 +155,26 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80240532-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-80240532-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -523,7 +557,7 @@
 <p>这片文章并不会从理论上说各个模式，而是从实践中，体会各个设计模式的优缺点。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/17/iOSDesignPattern/#more" rel="contents">
+            <a class="btn" href="/2018/05/17/iOSDesignPattern/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -679,7 +713,7 @@
           <p>读Effective Objective-C 2.0有感，在读这边书之前OC的基础并不是很好，可以说一窍不通，所以不乏一些很简单的东西。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/07/EffectiveObjectiveC20/#more" rel="contents">
+            <a class="btn" href="/2018/03/07/EffectiveObjectiveC20/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -835,7 +869,7 @@
           <p>为2018定下自己的目标。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/27/NewYearGoal/#more" rel="contents">
+            <a class="btn" href="/2018/02/27/NewYearGoal/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -994,7 +1028,7 @@
 <p>建议有时间可以看chisel的源码，Objective-C、LLDB、Python一起学。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/02/LLDB/#more" rel="contents">
+            <a class="btn" href="/2018/02/02/LLDB/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1151,7 +1185,7 @@
 <p>最近也在玩Centos，所以也记录在Centos上遇到的问题。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/22/Terminal/#more" rel="contents">
+            <a class="btn" href="/2018/01/22/Terminal/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1350,7 +1384,7 @@
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/18/VideoToolbox/#more" rel="contents">
+            <a class="btn" href="/2018/01/18/VideoToolbox/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1506,7 +1540,7 @@
           <p>使用<code>AVCaptureSession</code>调用系统的摄像头、麦克风来捕获视频、音频，包括二维码解析。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/10/Camera/#more" rel="contents">
+            <a class="btn" href="/2018/01/10/Camera/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1665,7 +1699,7 @@
 <p>是不是任意的mov文件和jpg就可以生成Live Photo呢？当然是不行的，因为系统在元数据上进行了标记。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/10/LivePhoto/#more" rel="contents">
+            <a class="btn" href="/2018/01/10/LivePhoto/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1821,7 +1855,7 @@
           <p>Marco in Objective-C.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/08/Marco/#more" rel="contents">
+            <a class="btn" href="/2018/01/08/Marco/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2053,6 +2087,24 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -2098,22 +2150,15 @@
 
 
 
-
-
-
-
-  
   
 
 
 
-  
-  
 
 
 
-  
-  
+
+
 
 
 
@@ -2138,22 +2183,7 @@
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
@@ -2187,6 +2217,19 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
 
 
 
