@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-10 15:52:08" itemprop="dateModified" datetime="2018-12-10T15:52:08+08:00">2018-12-10</time>
+                <time title="Modified: 2018-12-10 16:00:19" itemprop="dateModified" datetime="2018-12-10T16:00:19+08:00">2018-12-10</time>
               
             
           </span>
@@ -415,165 +415,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/15/Reverse/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/01/10/LivePhoto/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mini灬哆啦">
-      <meta itemprop="description" content="It's only a matter of time">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mini灬哆啦">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/10/LivePhoto/" itemprop="url">
-                  Live Photo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-01-10 14:55:55" itemprop="dateCreated datePublished" datetime="2018-01-10T14:55:55+08:00">2018-01-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-12-10 09:58:54" itemprop="dateModified" datetime="2018-12-10T09:58:54+08:00">2018-12-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>如何用AVFoundation将视频生成Live Photo。</p>
-<p>Live Photo其实就是一个mov文件和一张jpg文件，在下面保存Live Photo代码中就可以看出。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[PHPhotoLibrary sharedPhotoLibrary] performChanges:^&#123;</span><br><span class="line">    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];</span><br><span class="line">    PHAssetResourceCreationOptions *options = [[PHAssetResourceCreationOptions alloc] init];</span><br><span class="line">    options.shouldMoveFile = <span class="literal">YES</span>;</span><br><span class="line">    [request addResourceWithType:PHAssetResourceTypePhoto fileURL:_imageOutputURL options:options];</span><br><span class="line">    [request addResourceWithType:PHAssetResourceTypePairedVideo fileURL:_videoOutputURL options:options];</span><br><span class="line">&#125; completionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>是不是任意的mov文件和jpg就可以生成Live Photo呢？当然是不行的，因为系统在元数据上进行了标记。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/10/LivePhoto/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -692,7 +533,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-10 09:58:56" itemprop="dateModified" datetime="2018-12-10T09:58:56+08:00">2018-12-10</time>
+                <time title="Modified: 2018-12-10 16:00:19" itemprop="dateModified" datetime="2018-12-10T16:00:19+08:00">2018-12-10</time>
               
             
           </span>
@@ -773,6 +614,332 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/18/VideoToolbox/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/01/10/LivePhoto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/10/LivePhoto/" itemprop="url">
+                  Live Photo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-10 14:55:55" itemprop="dateCreated datePublished" datetime="2018-01-10T14:55:55+08:00">2018-01-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-10 16:00:19" itemprop="dateModified" datetime="2018-12-10T16:00:19+08:00">2018-12-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>如何用AVFoundation将视频生成Live Photo。</p>
+<p>Live Photo其实就是一个mov文件和一张jpg文件，在下面保存Live Photo代码中就可以看出。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[PHPhotoLibrary sharedPhotoLibrary] performChanges:^&#123;</span><br><span class="line">    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];</span><br><span class="line">    PHAssetResourceCreationOptions *options = [[PHAssetResourceCreationOptions alloc] init];</span><br><span class="line">    options.shouldMoveFile = <span class="literal">YES</span>;</span><br><span class="line">    [request addResourceWithType:PHAssetResourceTypePhoto fileURL:_imageOutputURL options:options];</span><br><span class="line">    [request addResourceWithType:PHAssetResourceTypePairedVideo fileURL:_videoOutputURL options:options];</span><br><span class="line">&#125; completionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p>是不是任意的mov文件和jpg就可以生成Live Photo呢？当然是不行的，因为系统在元数据上进行了标记。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/10/LivePhoto/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2017/05/02/Lotus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/02/Lotus/" itemprop="url">
+                  Lotus
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-05-02 16:40:15" itemprop="dateCreated datePublished" datetime="2017-05-02T16:40:15+08:00">2017-05-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-10 16:00:14" itemprop="dateModified" datetime="2018-12-10T16:00:14+08:00">2018-12-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义缓存</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义Log</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义Debug</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> MD5加密</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 自定义返回错误，自定义数据解析</li>
+<li style="list-style: none"><input type="checkbox" checked disabled> 直接返回想要的Model</li>
+</ul>
+<blockquote>
+<p>⚠️ 该项目虽然使用了<code>Alamofire</code>，但并非封装<code>Alamofire</code>，而是使用该库的编码，核心还是使用Apple提供的<code>URLSession</code>进行编写。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/02/Lotus/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1707,162 +1874,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/22/Terminal/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/01/10/Camera/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mini灬哆啦">
-      <meta itemprop="description" content="It's only a matter of time">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mini灬哆啦">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/10/Camera/" itemprop="url">
-                  Camera
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-01-10 17:50:48" itemprop="dateCreated datePublished" datetime="2018-01-10T17:50:48+08:00">2018-01-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-01-25 22:06:39" itemprop="dateModified" datetime="2018-01-25T22:06:39+08:00">2018-01-25</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>使用<code>AVCaptureSession</code>调用系统的摄像头、麦克风来捕获视频、音频，包括二维码解析。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/10/Camera/" rel="contents">
               Read more &raquo;
             </a>
           </div>
