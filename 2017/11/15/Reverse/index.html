@@ -124,7 +124,7 @@
 
 
   <meta name="description" content="逆向Surge 3、Reveal 20，本文章仅用做技术讨论，请支持正版。">
-<meta name="keywords" content="macOS,Objective-C,Reverse">
+<meta name="keywords" content="Objective-C,macOS,Reverse">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reverse">
 <meta property="og:url" content="http://xwjack.github.io/2017/11/15/Reverse/index.html">
@@ -145,7 +145,7 @@
 <meta property="og:image" content="http://xwjack.github.io/images/2017-11-15-Reverse/6.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-11-15-Reverse/7.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-11-15-Reverse/18.png">
-<meta property="og:updated_time" content="2018-12-13T03:31:21.694Z">
+<meta property="og:updated_time" content="2018-12-26T08:50:09.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reverse">
 <meta name="twitter:description" content="逆向Surge 3、Reveal 20，本文章仅用做技术讨论，请支持正版。">
@@ -389,7 +389,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-13 11:31:21" itemprop="dateModified" datetime="2018-12-13T11:31:21+08:00">2018-12-13</time>
+                <time title="Modified: 2018-12-26 16:50:09" itemprop="dateModified" datetime="2018-12-26T16:50:09+08:00">2018-12-26</time>
               
             
           </span>
@@ -532,7 +532,7 @@
 <p><code>showActivationWindowIfNeeds</code></p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 直接hook掉</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">XWJACK_DMActivationController</span>)</span></span><br><span class="line">- (<span class="keyword">void</span>)hook_showActivationWindowIfNeeds &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"🍇 XWJACK Prevent %s"</span>, _cmd);</span><br><span class="line"><span class="comment">//    [self hook_showActivationWindowIfNeeds];</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">+ (<span class="keyword">void</span>)load &#123;</span><br><span class="line">    Class H_DMActivationController = objc_getClass(<span class="string">"DMActivationController"</span>);</span><br><span class="line">    xwjack_hookMethod(H_DMActivationController, <span class="keyword">@selector</span>(showActivationWindowIfNeeds), <span class="keyword">self</span>.class, <span class="keyword">@selector</span>(hook_showActivationWindowIfNeeds));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <h2 id="Menue"><a href="#Menue" class="headerlink" title="Menue"></a>Menue</h2><p>以上hook之后虽然可以用，但是快捷键还是无法使用，需要修改Menu的enabled。</p>
-<h1 id="xctemplate"><a href="#xctemplate" class="headerlink" title="xctemplate"></a>xctemplate</h1><p>为了简化步骤，所以写了一个<a href="https://github.com/XWJACK/Reverse.xctemplate" target="_blank" rel="noopener">Reverse.xctemplate</a></p>
+<h1 id="xctemplate"><a href="#xctemplate" class="headerlink" title="xctemplate"></a>xctemplate</h1><p>为了简化步骤，所以写了一个<a href="https://github.com/XWJACK/Reverse_xctemplates" target="_blank" rel="noopener">Reverse_xctemplates</a></p>
 <p><img src="/images/2017-11-15-Reverse/18.png" alt=""></p>
 <h1 id="Refrences"><a href="#Refrences" class="headerlink" title="Refrences"></a>Refrences</h1><ul>
 <li><a href="https://zhaoxinyu.me/2018-11-24-crack-wew/" target="_blank" rel="noopener">手把手教你给企业微信 Mac 客户端去除水印</a></li>
@@ -558,9 +558,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/macOS/" rel="tag"># macOS</a>
-          
             <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          
+            <a href="/tags/macOS/" rel="tag"># macOS</a>
           
             <a href="/tags/Reverse/" rel="tag"># Reverse</a>
           
