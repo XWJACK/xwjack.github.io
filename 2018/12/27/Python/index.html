@@ -123,18 +123,18 @@
 
 
 
-  <meta name="description" content="python3 -m venv venv">
+  <meta name="description" content="python3 -m venv venv virtualenv -p python2.7 venv">
 <meta name="keywords" content="python3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python">
 <meta property="og:url" content="http://xwjack.github.io/2018/12/27/Python/index.html">
 <meta property="og:site_name" content="Mini灬哆啦">
-<meta property="og:description" content="python3 -m venv venv">
+<meta property="og:description" content="python3 -m venv venv virtualenv -p python2.7 venv">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-27T12:00:38.035Z">
+<meta property="og:updated_time" content="2019-01-10T06:32:57.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python">
-<meta name="twitter:description" content="python3 -m venv venv">
+<meta name="twitter:description" content="python3 -m venv venv virtualenv -p python2.7 venv">
 
 
 
@@ -357,12 +357,24 @@
                 
               
 
-              <time title="Created: 2018-12-27 19:10:25 / Modified: 20:00:38" itemprop="dateCreated datePublished" datetime="2018-12-27T19:10:25+08:00">2018-12-27</time>
+              <time title="Created: 2018-12-27 19:10:25" itemprop="dateCreated datePublished" datetime="2018-12-27T19:10:25+08:00">2018-12-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-10 14:32:57" itemprop="dateModified" datetime="2019-01-10T14:32:57+08:00">2019-01-10</time>
               
             
           </span>
@@ -414,6 +426,7 @@
 
       
         <p><code>python3 -m venv venv</code></p>
+<p><code>virtualenv -p python2.7 venv</code></p>
 <a id="more"></a>
 <h1 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">phone_reg_str = <span class="string">r'^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d&#123;8&#125;$'</span></span><br><span class="line">pattern_phone = re.compile(phone_reg_str)</span><br><span class="line">pattern_phone.match(test_str)</span><br></pre></td></tr></table></figure>
 <h1 id="深度遍历文件"><a href="#深度遍历文件" class="headerlink" title="深度遍历文件"></a>深度遍历文件</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gci</span><span class="params">(filepath)</span>:</span></span><br><span class="line">    files = os.listdir(filepath)  </span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> files:    </span><br><span class="line">        fi_d = os.path.join(filepath, item)    </span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(fi_d):</span><br><span class="line">            gci(fi_d)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
@@ -459,6 +472,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/10/DataBase/" rel="prev" title="DataBase">
+                DataBase <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -539,7 +556,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -616,7 +633,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -681,7 +702,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

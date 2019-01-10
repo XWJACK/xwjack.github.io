@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Mini灬哆啦">
 <meta property="og:description" content="用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。 最近也在玩Centos，所以也记录在Centos上遇到的问题。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-10T03:30:42.447Z">
+<meta property="og:updated_time" content="2019-01-10T03:43:49.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Terminal">
 <meta name="twitter:description" content="用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。 最近也在玩Centos，所以也记录在Centos上遇到的问题。">
@@ -374,7 +374,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-10 11:30:42" itemprop="dateModified" datetime="2018-08-10T11:30:42+08:00">2018-08-10</time>
+                <time title="Modified: 2019-01-10 11:43:49" itemprop="dateModified" datetime="2019-01-10T11:43:49+08:00">2019-01-10</time>
               
             
           </span>
@@ -490,12 +490,6 @@
 <h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><p>更新：<code>svn update</code></p>
 <h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>switch (sw)</p>
 <p>更新服务器地址：<code>svn sw --relocate svn://old_ip/directory svn://new_ip/directory</code></p>
-<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h1 id="User"><a href="#User" class="headerlink" title="User"></a>User</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;dog&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123456&apos;; </span><br><span class="line">CREATE USER &apos;pig&apos;@&apos;192.168.1.101_&apos; IDENDIFIED BY &apos;123456&apos;; </span><br><span class="line">CREATE USER &apos;pig&apos;@&apos;%&apos; IDENTIFIED BY &apos;123456&apos;; </span><br><span class="line">CREATE USER &apos;pig&apos;@&apos;%&apos; IDENTIFIED BY &apos;&apos;; </span><br><span class="line">CREATE USER &apos;pig&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure>
-<p># </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT/INSERT/UPDATE/ALL ON databasename.tablename TO &apos;username&apos;@&apos;host&apos;</span><br><span class="line">GRANT SELECT/INSERT/UPDATE/ALL ON databasename.* TO &apos;username&apos;@&apos;host&apos;</span><br><span class="line">GRANT SELECT/INSERT/UPDATE/ALL ON *.* TO &apos;username&apos;@&apos;host&apos;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果需要所有表的访问，需要带上<code>.*</code>否则无权限访问。</p>
-</blockquote>
 
       
     </div>
@@ -624,7 +618,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -701,7 +695,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -746,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS"><span class="nav-number">1.</span> <span class="nav-text">macOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Environment"><span class="nav-number">2.</span> <span class="nav-text">Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-Environment"><span class="nav-number">2.1.</span> <span class="nav-text">Python Environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diskutil"><span class="nav-number">2.2.</span> <span class="nav-text">diskutil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时任务"><span class="nav-number">2.3.</span> <span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#launchctl"><span class="nav-number">2.3.1.</span> <span class="nav-text">launchctl</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">2.4.</span> <span class="nav-text">Question</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iBooks-file-position"><span class="nav-number">2.4.1.</span> <span class="nav-text">iBooks file position</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS"><span class="nav-number">3.</span> <span class="nav-text">CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#user配置"><span class="nav-number">3.0.1.</span> <span class="nav-text">user配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh配置"><span class="nav-number">3.0.2.</span> <span class="nav-text">ssh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VPN"><span class="nav-number">3.0.3.</span> <span class="nav-text">VPN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改默认的用户名和密码"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">修改默认的用户名和密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS-Install-Shadowsocks"><span class="nav-number">3.0.4.</span> <span class="nav-text">CentOS Install Shadowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置开机启动"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">配置开机启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos-Install-ifconfig-netstat"><span class="nav-number">3.0.5.</span> <span class="nav-text">Centos Install ifconfig netstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS7-Install-dev-root-does-not-exist"><span class="nav-number">3.0.6.</span> <span class="nav-text">CentOS7 Install /dev/root does not exist</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SVN"><span class="nav-number">4.</span> <span class="nav-text">SVN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#info"><span class="nav-number">4.1.</span> <span class="nav-text">info</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update"><span class="nav-number">4.2.</span> <span class="nav-text">update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">4.3.</span> <span class="nav-text">switch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">5.</span> <span class="nav-text">MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#User"><span class="nav-number">6.</span> <span class="nav-text">User</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS"><span class="nav-number">1.</span> <span class="nav-text">macOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Environment"><span class="nav-number">2.</span> <span class="nav-text">Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-Environment"><span class="nav-number">2.1.</span> <span class="nav-text">Python Environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diskutil"><span class="nav-number">2.2.</span> <span class="nav-text">diskutil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时任务"><span class="nav-number">2.3.</span> <span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#launchctl"><span class="nav-number">2.3.1.</span> <span class="nav-text">launchctl</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">2.4.</span> <span class="nav-text">Question</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iBooks-file-position"><span class="nav-number">2.4.1.</span> <span class="nav-text">iBooks file position</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS"><span class="nav-number">3.</span> <span class="nav-text">CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#user配置"><span class="nav-number">3.0.1.</span> <span class="nav-text">user配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh配置"><span class="nav-number">3.0.2.</span> <span class="nav-text">ssh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VPN"><span class="nav-number">3.0.3.</span> <span class="nav-text">VPN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改默认的用户名和密码"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">修改默认的用户名和密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS-Install-Shadowsocks"><span class="nav-number">3.0.4.</span> <span class="nav-text">CentOS Install Shadowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置开机启动"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">配置开机启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos-Install-ifconfig-netstat"><span class="nav-number">3.0.5.</span> <span class="nav-text">Centos Install ifconfig netstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS7-Install-dev-root-does-not-exist"><span class="nav-number">3.0.6.</span> <span class="nav-text">CentOS7 Install /dev/root does not exist</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SVN"><span class="nav-number">4.</span> <span class="nav-text">SVN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#info"><span class="nav-number">4.1.</span> <span class="nav-text">info</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update"><span class="nav-number">4.2.</span> <span class="nav-text">update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">4.3.</span> <span class="nav-text">switch</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -766,7 +764,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
