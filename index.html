@@ -828,173 +828,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2017/05/02/Lotus/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mini灬哆啦">
-      <meta itemprop="description" content="It's only a matter of time">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mini灬哆啦">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/02/Lotus/" itemprop="url">
-                  Lotus
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-05-02 16:40:15" itemprop="dateCreated datePublished" datetime="2017-05-02T16:40:15+08:00">2017-05-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-12-10 16:00:14" itemprop="dateModified" datetime="2018-12-10T16:00:14+08:00">2018-12-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一个简单易用的网络请求库，针对小型不复杂的项目使用特别舒服😌。</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked disabled> 自定义缓存</li>
-<li style="list-style: none"><input type="checkbox" checked disabled> 自定义Log</li>
-<li style="list-style: none"><input type="checkbox" checked disabled> 自定义Debug</li>
-<li style="list-style: none"><input type="checkbox" checked disabled> MD5加密</li>
-<li style="list-style: none"><input type="checkbox" checked disabled> 自定义返回错误，自定义数据解析</li>
-<li style="list-style: none"><input type="checkbox" checked disabled> 直接返回想要的Model</li>
-</ul>
-<blockquote>
-<p>⚠️ 该项目虽然使用了<code>Alamofire</code>，但并非封装<code>Alamofire</code>，而是使用该库的编码，核心还是使用Apple提供的<code>URLSession</code>进行编写。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/02/Lotus/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2019/06/12/Server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1058,7 +891,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-13 09:59:14" itemprop="dateModified" datetime="2019-06-13T09:59:14+08:00">2019-06-13</time>
+                <time title="Modified: 2019-06-13 18:59:43" itemprop="dateModified" datetime="2019-06-13T18:59:43+08:00">2019-06-13</time>
               
             
           </span>
@@ -1093,7 +926,8 @@
       
         
           
-            <h2 id="Install-nginx"><a href="#Install-nginx" class="headerlink" title="Install nginx"></a>Install nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install</span></span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim configs</span></span><br><span class="line">vim /etc/nginx/nginx.conf</span><br><span class="line">vim /etc/nginx/conf.d/*.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable the nginx service so it automatically starts at boot</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"><span class="comment"># run</span></span><br><span class="line">sudo systemctl start/stop/restart/status nginx</span><br><span class="line"><span class="comment"># test config</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"><span class="comment"># reload nginx config</span></span><br><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+            <a id="more"></a>
+<h2 id="Install-nginx"><a href="#Install-nginx" class="headerlink" title="Install nginx"></a>Install nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install</span></span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim configs</span></span><br><span class="line">vim /etc/nginx/nginx.conf</span><br><span class="line">vim /etc/nginx/conf.d/*.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable the nginx service so it automatically starts at boot</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"><span class="comment"># run</span></span><br><span class="line">sudo systemctl start/stop/restart/status nginx</span><br><span class="line"><span class="comment"># test config</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"><span class="comment"># reload nginx config</span></span><br><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
 <h2 id="Install-python"><a href="#Install-python" class="headerlink" title="Install python"></a>Install python</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install</span></span><br><span class="line">sudo yum install -y sqlite-devel ncurses-devel ncurses-libs zlib-devel mysql-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel openssl-devel</span><br><span class="line"><span class="comment"># Install pyenv first</span></span><br><span class="line"><span class="comment"># Install python</span></span><br><span class="line">pyenv install 3.6.8</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>sudo yum install zlib-devel</code><br> <em>zipimport.ZipImportError: can’t decompress data; zlib not available</em></p>
@@ -1620,7 +1454,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/08/06/GitThanks/">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/03/07/EffectiveObjectiveC20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mini灬哆啦">
@@ -1639,8 +1473,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/06/GitThanks/" itemprop="url">
-                  GitThanks
+                <a class="post-title-link" href="/2018/03/07/EffectiveObjectiveC20/" itemprop="url">
+                  Effective Objective-C 2.0
                 </a>
               
             
@@ -1666,7 +1500,7 @@
                 
               
 
-              <time title="Created: 2018-08-06 13:02:37" itemprop="dateCreated datePublished" datetime="2018-08-06T13:02:37+08:00">2018-08-06</time>
+              <time title="Created: 2018-03-07 10:31:00" itemprop="dateCreated datePublished" datetime="2018-03-07T10:31:00+08:00">2018-03-07</time>
             
 
             
@@ -1683,7 +1517,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-19 18:04:46" itemprop="dateModified" datetime="2018-11-19T18:04:46+08:00">2018-11-19</time>
+                <time title="Modified: 2018-04-11 23:31:53" itemprop="dateModified" datetime="2018-04-11T23:31:53+08:00">2018-04-11</time>
               
             
           </span>
@@ -1717,12 +1551,10 @@
 
       
         
-          <p>在评论页用GitHub登陆，<code>@gitthanks send xxx BTC/ETH... to @XWJACK</code>然后写下你想给我说的话，就可以给我打赏啦。</p>
-<p><img src="/images/2018-08-06-gitthanks/1.png" alt=""></p>
-<p>详细使用见: <a href="https://www.gitthanks.com/start" target="_blank" rel="noopener">GitThanks</a></p>
+          <p>读Effective Objective-C 2.0有感，在读这边书之前OC的基础并不是很好，可以说一窍不通，所以不乏一些很简单的东西。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/06/GitThanks/" rel="contents">
+            <a class="btn" href="/2018/03/07/EffectiveObjectiveC20/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1778,7 +1610,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/07/26/BTC/">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/02/02/LLDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mini灬哆啦">
@@ -1797,8 +1629,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/26/BTC/" itemprop="url">
-                  BTC
+                <a class="post-title-link" href="/2018/02/02/LLDB/" itemprop="url">
+                  LLDB
                 </a>
               
             
@@ -1824,12 +1656,24 @@
                 
               
 
-              <time title="Created: 2018-07-26 16:41:27 / Modified: 17:02:05" itemprop="dateCreated datePublished" datetime="2018-07-26T16:41:27+08:00">2018-07-26</time>
+              <time title="Created: 2018-02-02 11:35:18" itemprop="dateCreated datePublished" datetime="2018-02-02T11:35:18+08:00">2018-02-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-02-08 01:01:31" itemprop="dateModified" datetime="2018-02-08T01:01:31+08:00">2018-02-08</time>
               
             
           </span>
@@ -1863,12 +1707,174 @@
 
       
         
-          
-            <p><script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script></p>
-<div class="coinmarketcap-currency-widget" data-currencyid="1" data-base="USDT" data-secondary="USD" data-ticker="true" data-rank="false" data-marketcap="true" data-volume="true" data-stats="USDT" data-statsticker="true"></div>
+          <p>iOS开发过程中Bug不可能少，最重要的如何快速的定位Bug的原因，不能每更改一行代码，运行整个App来查看效果，那样效率太过于低下。</p>
+<p><a href="https://www.objc.io/issues/19-debugging/lldb-debugging/" target="_blank" rel="noopener">Dancing in the Debugger — A Waltz with LLDB</a>这篇文章很不错，也学到了很多。</p>
+<p><a href="https://github.com/facebook/chisel" target="_blank" rel="noopener">chisel</a>facebook出品必属精品，更加方便的使用lldb。</p>
+<p>建议有时间可以看chisel的源码，Objective-C、LLDB、Python一起学。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/02/LLDB/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/01/22/Terminal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/Terminal/" itemprop="url">
+                  Terminal
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-22 11:42:37" itemprop="dateCreated datePublished" datetime="2018-01-22T11:42:37+08:00">2018-01-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-12 15:25:56" itemprop="dateModified" datetime="2019-06-12T15:25:56+08:00">2019-06-12</time>
+              
+            
+          </span>
+
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>用了很久的macOS，却很多时候在环境sudo，环境变量，权限，错误中无法自拔。写此博客来记录下macOS系统。</p>
+<p>最近也在玩Centos，所以也记录在Centos上遇到的问题。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/22/Terminal/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1956,7 +1962,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2037,11 +2043,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
