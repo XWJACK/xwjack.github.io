@@ -123,25 +123,25 @@
 
 
 
-  <meta name="description" content="正则表达式。">
-<meta name="keywords" content="Common">
+  <meta name="description" content="Install nginx123456789101112131415# installsudo yum install nginx# vim configsvim /etc/nginx/nginx.confvim /etc/nginx/conf.d/*.conf# enable the nginx service so it automatically starts at bootsudo sys">
+<meta name="keywords" content="Centos,Centos 7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Regex">
-<meta property="og:url" content="http://xwjack.github.io/2017/03/16/Regex/index.html">
+<meta property="og:title" content="Server">
+<meta property="og:url" content="http://xwjack.github.io/2019/06/12/Server/index.html">
 <meta property="og:site_name" content="Mini灬哆啦">
-<meta property="og:description" content="正则表达式。">
+<meta property="og:description" content="Install nginx123456789101112131415# installsudo yum install nginx# vim configsvim /etc/nginx/nginx.confvim /etc/nginx/conf.d/*.conf# enable the nginx service so it automatically starts at bootsudo sys">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-15T13:13:42.621Z">
+<meta property="og:updated_time" content="2019-06-13T01:59:14.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Regex">
-<meta name="twitter:description" content="正则表达式。">
+<meta name="twitter:title" content="Server">
+<meta name="twitter:description" content="Install nginx123456789101112131415# installsudo yum install nginx# vim configsvim /etc/nginx/nginx.confvim /etc/nginx/conf.d/*.conf# enable the nginx service so it automatically starts at bootsudo sys">
 
 
 
 
 
 
-  <link rel="canonical" href="http://xwjack.github.io/2017/03/16/Regex/"/>
+  <link rel="canonical" href="http://xwjack.github.io/2019/06/12/Server/"/>
 
 
 
@@ -151,7 +151,7 @@
   };
 </script>
 
-  <title>Regex | Mini灬哆啦</title>
+  <title>Server | Mini灬哆啦</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2017/03/16/Regex/">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2019/06/12/Server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mini灬哆啦">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Regex
+          <h1 class="post-title" itemprop="name headline">Server
               
             
           </h1>
@@ -357,7 +357,7 @@
                 
               
 
-              <time title="Created: 2017-03-16 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-16T00:00:00+08:00">2017-03-16</time>
+              <time title="Created: 2019-06-12 15:09:10" itemprop="dateCreated datePublished" datetime="2019-06-12T15:09:10+08:00">2019-06-12</time>
             
 
             
@@ -374,7 +374,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-01-15 21:13:42" itemprop="dateModified" datetime="2018-01-15T21:13:42+08:00">2018-01-15</time>
+                <time title="Modified: 2019-06-13 09:59:14" itemprop="dateModified" datetime="2019-06-13T09:59:14+08:00">2019-06-13</time>
               
             
           </span>
@@ -388,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/16/Regex/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2017/03/16/Regex/" itemprop="commentsCount"></span>
+                <a href="/2019/06/12/Server/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2019/06/12/Server/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -425,52 +425,23 @@
       
 
       
-        <p>正则表达式。</p>
-<a id="more"></a>
-<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法:"></a>基本语法:</h1><h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符:"></a>元字符:</h2><h3 id="————"><a href="#————" class="headerlink" title="————"></a>————</h3><h4 id="d"><a href="#d" class="headerlink" title="\d:"></a><code>\d</code>:</h4><p>匹配一个数字字符。等价于<code>[0-9]</code>。</p>
-<h4 id="D"><a href="#D" class="headerlink" title="\D:"></a><code>\D</code>:</h4><p>匹配一个非数字字符。等价于<code>[^0-9]</code>。</p>
-<h4 id="w"><a href="#w" class="headerlink" title="\w:"></a><code>\w</code>:</h4><p>匹配包括下划线的任何单词字符。等价于<code>[A-Za-z0-9_]</code>。</p>
-<h4 id="W"><a href="#W" class="headerlink" title="\W:"></a><code>\W</code>:</h4><p>匹配任何非单词字符。等价于<code>[^A-Za-z0-9_]</code>。</p>
-<h4 id="n"><a href="#n" class="headerlink" title="\n:"></a><code>\n</code>:</h4><p>匹配一个换行符。</p>
-<h4 id="r"><a href="#r" class="headerlink" title="\r:"></a><code>\r</code>:</h4><p>匹配一个回车符。</p>
-<h4 id="t"><a href="#t" class="headerlink" title="\t:"></a><code>\t</code>:</h4><p>匹配一个制表符。</p>
-<h4 id="v"><a href="#v" class="headerlink" title="\v:"></a><code>\v</code>:</h4><p>匹配一个垂直制表符。</p>
-<h4 id="s"><a href="#s" class="headerlink" title="\s:"></a><code>\s</code>:</h4><p>匹配任何空白字符，包括空格、制表符、换页符等等。等价于<code>[\f\n\r\t\v]</code>。</p>
-<h4 id="S"><a href="#S" class="headerlink" title="\S:"></a><code>\S</code>:</h4><p>匹配任何非空白字符。等价于<code>[^\f\n\r\t\v]</code>。</p>
-<h3 id="————-1"><a href="#————-1" class="headerlink" title="————"></a>————</h3><h4 id=""><a href="#" class="headerlink" title="\:"></a><code>\</code>:</h4><p>将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符。</p>
-<h4 id="-1"><a href="#-1" class="headerlink" title="|:"></a><code>|</code>:</h4><p>匹配两个中间任意一个，<code>x|y</code>匹配x或者y。</p>
-<h4 id="-2"><a href="#-2" class="headerlink" title="^:"></a><code>^</code>:</h4><p>匹配输入字符串的开始位置</p>
-<ul>
-<li><code>[^]</code>: 不接受该字符集合。</li>
-</ul>
-<h4 id="-3"><a href="#-3" class="headerlink" title="$:"></a><code>$</code>:</h4><p>匹配输入字符串的结尾位置。如果设置了<code>RegExp</code>对象的<code>Multiline</code>属性，则<code>$</code>也匹配<code>&#39;\n&#39;</code>或<code>&#39;\r&#39;</code>。</p>
-<h4 id="-4"><a href="#-4" class="headerlink" title="*:"></a><code>*</code>:</h4><p>匹配前面的子表达式零次或多次。</p>
-<ul>
-<li>等价于<code>{0,}</code></li>
-</ul>
-<h4 id="-5"><a href="#-5" class="headerlink" title="+:"></a><code>+</code>:</h4><p>匹配前面的子表达式一次或多次。</p>
-<ul>
-<li>等价于<code>{1,}</code></li>
-</ul>
-<h4 id="-6"><a href="#-6" class="headerlink" title="?:"></a><code>?</code>:</h4><p>匹配前面的子表达式零次或一次，或指明一个非贪婪限定符。</p>
-<h4 id="-7"><a href="#-7" class="headerlink" title=".:"></a><code>.</code>:</h4><p>匹配除了换行符<code>\n</code>外任意字符。</p>
-<h3 id="————-2"><a href="#————-2" class="headerlink" title="————"></a>————</h3><h4 id="-8"><a href="#-8" class="headerlink" title="():"></a><code>()</code>:</h4><p>标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。</p>
-<h4 id="-9"><a href="#-9" class="headerlink" title="[]:"></a><code>[]</code>:</h4><p>标记一个中括号表达式。</p>
-<ul>
-<li><code>[^]</code>: 不接受该字符集合。</li>
-<li><code>[xyz]</code>: 字符集合。匹配所包含的任意一个字符。</li>
-<li><code>[a-z]</code>: 字符范围。匹配指定范围内的任意一个字符。</li>
-<li><code>[a-zA-Z]</code>: 匹配所有的字母。</li>
-</ul>
-<h4 id="-10"><a href="#-10" class="headerlink" title="{}:"></a><code>{}</code>:</h4><p>标记限定符表达式。</p>
-<ul>
-<li><code>{n}</code>: n是一个非负整数，匹配确定的n次。</li>
-<li><code>{n,}</code>: n是一个非负整数，至少匹配n次。</li>
-<li><code>{n,m}</code>: m和n均为非负整数，其中<code>n&lt;=m</code>。最少匹配n次且最多匹配m次。</li>
-</ul>
-<h2 id="贪婪和非贪婪"><a href="#贪婪和非贪婪" class="headerlink" title="贪婪和非贪婪:"></a>贪婪和非贪婪:</h2><p>非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。<code>?</code>跟在限定符后面变成非贪婪模式。</p>
-<h1 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h1><p><a href="https://msdn.microsoft.com/zh-cn/library/ae5bf541(v=vs.90" target="_blank" rel="noopener">正则表达式语法-Microsoft</a>.aspx#正则表达式示例)</p>
-<p><a href="http://www.runoob.com/regexp/regexp-syntax.html" target="_blank" rel="noopener">正则表达式-菜鸟教程</a></p>
+        <h2 id="Install-nginx"><a href="#Install-nginx" class="headerlink" title="Install nginx"></a>Install nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install</span></span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim configs</span></span><br><span class="line">vim /etc/nginx/nginx.conf</span><br><span class="line">vim /etc/nginx/conf.d/*.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable the nginx service so it automatically starts at boot</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"><span class="comment"># run</span></span><br><span class="line">sudo systemctl start/stop/restart/status nginx</span><br><span class="line"><span class="comment"># test config</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"><span class="comment"># reload nginx config</span></span><br><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+<h2 id="Install-python"><a href="#Install-python" class="headerlink" title="Install python"></a>Install python</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install</span></span><br><span class="line">sudo yum install -y sqlite-devel ncurses-devel ncurses-libs zlib-devel mysql-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel openssl-devel</span><br><span class="line"><span class="comment"># Install pyenv first</span></span><br><span class="line"><span class="comment"># Install python</span></span><br><span class="line">pyenv install 3.6.8</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>sudo yum install zlib-devel</code><br> <em>zipimport.ZipImportError: can’t decompress data; zlib not available</em></p>
+</blockquote>
+<h2 id="Config-SSH"><a href="#Config-SSH" class="headerlink" title="Config SSH"></a>Config SSH</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create .ssh in server</span></span><br><span class="line">mkdir .ssh</span><br><span class="line">chmod 700 .ssh</span><br><span class="line"></span><br><span class="line"><span class="comment">## Copy local publickey to your server</span></span><br><span class="line">ssh-copy-id xxUser@host</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim config file</span></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># Close login with password</span></span><br><span class="line">PasswordAuthentication no</span><br><span class="line"><span class="comment"># Close remote root login</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line"><span class="comment"># Open auth login</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Config long connect</span></span><br><span class="line">ClientAliveInterval 30</span><br><span class="line"><span class="comment"># Max without reply</span></span><br><span class="line">ClientAliveCountMax 6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Restart sshd</span></span><br><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<h2 id="User-config"><a href="#User-config" class="headerlink" title="User config"></a>User config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add user</span></span><br><span class="line">useradd xxUser</span><br><span class="line"><span class="comment"># Modify password for user</span></span><br><span class="line">passwd xxUser</span><br><span class="line"><span class="comment"># Add group</span></span><br><span class="line">groupadd xxGroup</span><br><span class="line"><span class="comment"># Add user into group</span></span><br><span class="line">usermod -aG xxGroup xxUser</span><br></pre></td></tr></table></figure>
+<h2 id="fabric-2-4-0"><a href="#fabric-2-4-0" class="headerlink" title="fabric 2.4.0"></a>fabric 2.4.0</h2><p><a href="https://github.com/paramiko/paramiko/issues/1369#issuecomment-456940895%23issuecomment-456940895" target="_blank" rel="noopener">CryptographyDeprecationWarnings with cryptography 2.5 release</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fabric <span class="keyword">import</span> task</span><br><span class="line">hosts = [<span class="string">'xx@xxxxx:22'</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">@task(hosts=hosts)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deploy</span><span class="params">(c)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> c.cd(<span class="string">'path'</span>):</span><br><span class="line">    		c.run(<span class="string">'git reset --hard HEAD'</span>)</span><br><span class="line">    		c.run(<span class="string">'git pull'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>if you define task with naming <code>deploy_abc</code>, using <code>fab deploy-abc</code> instead <code>fab deplay_abc</code>.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># list all tasks</span></span><br><span class="line">fab --list</span><br></pre></td></tr></table></figure>
+<h3 id="Launch-at-run"><a href="#Launch-at-run" class="headerlink" title="Launch at run"></a>Launch at run</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+<h3 id="Centos-Install-ifconfig-netstat"><a href="#Centos-Install-ifconfig-netstat" class="headerlink" title="Centos Install ifconfig netstat"></a>Centos Install ifconfig netstat</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-tools</span><br></pre></td></tr></table></figure>
+<h3 id="Scp-file-to-server"><a href="#Scp-file-to-server" class="headerlink" title="Scp file to server"></a>Scp file to server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp file user@server:/path/to</span><br></pre></td></tr></table></figure>
+<h3 id="zip-amp-unzip"><a href="#zip-amp-unzip" class="headerlink" title="zip &amp; unzip"></a>zip &amp; unzip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install zip unzip</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -491,7 +462,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Common/" rel="tag"># Common</a>
+            <a href="/tags/Centos/" rel="tag"># Centos</a>
+          
+            <a href="/tags/Centos-7/" rel="tag"># Centos 7</a>
           
         </div>
       
@@ -504,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/09/Build/" rel="next" title="Build">
-                <i class="fa fa-chevron-left"></i> Build
+              <a href="/2019/01/28/WeGame/" rel="next" title="WeGame with Three.js">
+                <i class="fa fa-chevron-left"></i> WeGame with Three.js
               </a>
             
           </div>
@@ -513,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/20/Music/" rel="prev" title="Music">
-                Music <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -727,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本语法"><span class="nav-number">1.</span> <span class="nav-text">基本语法:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#元字符"><span class="nav-number">1.1.</span> <span class="nav-text">元字符:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#————"><span class="nav-number">1.1.1.</span> <span class="nav-text">————</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#d"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">\d:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">\D:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#w"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">\w:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#W"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">\W:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#n"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">\n:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#r"><span class="nav-number">1.1.1.6.</span> <span class="nav-text">\r:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#t"><span class="nav-number">1.1.1.7.</span> <span class="nav-text">\t:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v"><span class="nav-number">1.1.1.8.</span> <span class="nav-text">\v:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s"><span class="nav-number">1.1.1.9.</span> <span class="nav-text">\s:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#S"><span class="nav-number">1.1.1.10.</span> <span class="nav-text">\S:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#————-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">————</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">\:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">|:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">^:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-3"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">$:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-4"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">*:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-5"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">+:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-6"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">?:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-7"><span class="nav-number">1.1.2.8.</span> <span class="nav-text">.:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#————-2"><span class="nav-number">1.1.3.</span> <span class="nav-text">————</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#-8"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-9"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">[]:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-10"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">{}:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪婪和非贪婪"><span class="nav-number">1.2.</span> <span class="nav-text">贪婪和非贪婪:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章："><span class="nav-number">2.</span> <span class="nav-text">参考文章：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-nginx"><span class="nav-number">1.</span> <span class="nav-text">Install nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-python"><span class="nav-number">2.</span> <span class="nav-text">Install python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-SSH"><span class="nav-number">3.</span> <span class="nav-text">Config SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-config"><span class="nav-number">4.</span> <span class="nav-text">User config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fabric-2-4-0"><span class="nav-number">5.</span> <span class="nav-text">fabric 2.4.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Launch-at-run"><span class="nav-number">5.1.</span> <span class="nav-text">Launch at run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos-Install-ifconfig-netstat"><span class="nav-number">5.2.</span> <span class="nav-text">Centos Install ifconfig netstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scp-file-to-server"><span class="nav-number">5.3.</span> <span class="nav-text">Scp file to server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zip-amp-unzip"><span class="nav-number">5.4.</span> <span class="nav-text">zip &amp; unzip</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -995,6 +995,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2019/06/12/Server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/12/Server/" itemprop="url">
+                  Server
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-12 15:09:10" itemprop="dateCreated datePublished" datetime="2019-06-12T15:09:10+08:00">2019-06-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-13 09:59:14" itemprop="dateModified" datetime="2019-06-13T09:59:14+08:00">2019-06-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Install-nginx"><a href="#Install-nginx" class="headerlink" title="Install nginx"></a>Install nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install</span></span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim configs</span></span><br><span class="line">vim /etc/nginx/nginx.conf</span><br><span class="line">vim /etc/nginx/conf.d/*.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable the nginx service so it automatically starts at boot</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"><span class="comment"># run</span></span><br><span class="line">sudo systemctl start/stop/restart/status nginx</span><br><span class="line"><span class="comment"># test config</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"><span class="comment"># reload nginx config</span></span><br><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+<h2 id="Install-python"><a href="#Install-python" class="headerlink" title="Install python"></a>Install python</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install</span></span><br><span class="line">sudo yum install -y sqlite-devel ncurses-devel ncurses-libs zlib-devel mysql-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel openssl-devel</span><br><span class="line"><span class="comment"># Install pyenv first</span></span><br><span class="line"><span class="comment"># Install python</span></span><br><span class="line">pyenv install 3.6.8</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>sudo yum install zlib-devel</code><br> <em>zipimport.ZipImportError: can’t decompress data; zlib not available</em></p>
+</blockquote>
+<h2 id="Config-SSH"><a href="#Config-SSH" class="headerlink" title="Config SSH"></a>Config SSH</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create .ssh in server</span></span><br><span class="line">mkdir .ssh</span><br><span class="line">chmod 700 .ssh</span><br><span class="line"></span><br><span class="line"><span class="comment">## Copy local publickey to your server</span></span><br><span class="line">ssh-copy-id xxUser@host</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim config file</span></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># Close login with password</span></span><br><span class="line">PasswordAuthentication no</span><br><span class="line"><span class="comment"># Close remote root login</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line"><span class="comment"># Open auth login</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Config long connect</span></span><br><span class="line">ClientAliveInterval 30</span><br><span class="line"><span class="comment"># Max without reply</span></span><br><span class="line">ClientAliveCountMax 6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Restart sshd</span></span><br><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<h2 id="User-config"><a href="#User-config" class="headerlink" title="User config"></a>User config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add user</span></span><br><span class="line">useradd xxUser</span><br><span class="line"><span class="comment"># Modify password for user</span></span><br><span class="line">passwd xxUser</span><br><span class="line"><span class="comment"># Add group</span></span><br><span class="line">groupadd xxGroup</span><br><span class="line"><span class="comment"># Add user into group</span></span><br><span class="line">usermod -aG xxGroup xxUser</span><br></pre></td></tr></table></figure>
+<h2 id="fabric-2-4-0"><a href="#fabric-2-4-0" class="headerlink" title="fabric 2.4.0"></a>fabric 2.4.0</h2><p><a href="https://github.com/paramiko/paramiko/issues/1369#issuecomment-456940895%23issuecomment-456940895" target="_blank" rel="noopener">CryptographyDeprecationWarnings with cryptography 2.5 release</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fabric <span class="keyword">import</span> task</span><br><span class="line">hosts = [<span class="string">'xx@xxxxx:22'</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">@task(hosts=hosts)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deploy</span><span class="params">(c)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> c.cd(<span class="string">'path'</span>):</span><br><span class="line">    		c.run(<span class="string">'git reset --hard HEAD'</span>)</span><br><span class="line">    		c.run(<span class="string">'git pull'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>if you define task with naming <code>deploy_abc</code>, using <code>fab deploy-abc</code> instead <code>fab deplay_abc</code>.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># list all tasks</span></span><br><span class="line">fab --list</span><br></pre></td></tr></table></figure>
+<h3 id="Launch-at-run"><a href="#Launch-at-run" class="headerlink" title="Launch at run"></a>Launch at run</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+<h3 id="Centos-Install-ifconfig-netstat"><a href="#Centos-Install-ifconfig-netstat" class="headerlink" title="Centos Install ifconfig netstat"></a>Centos Install ifconfig netstat</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-tools</span><br></pre></td></tr></table></figure>
+<h3 id="Scp-file-to-server"><a href="#Scp-file-to-server" class="headerlink" title="Scp file to server"></a>Scp file to server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp file user@server:/path/to</span><br></pre></td></tr></table></figure>
+<h3 id="zip-amp-unzip"><a href="#zip-amp-unzip" class="headerlink" title="zip &amp; unzip"></a>zip &amp; unzip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install zip unzip</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2019/01/28/WeGame/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1737,162 +1905,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2018/03/07/EffectiveObjectiveC20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mini灬哆啦">
-      <meta itemprop="description" content="It's only a matter of time">
-      <meta itemprop="image" content="/images/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mini灬哆啦">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/07/EffectiveObjectiveC20/" itemprop="url">
-                  Effective Objective-C 2.0
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-03-07 10:31:00" itemprop="dateCreated datePublished" datetime="2018-03-07T10:31:00+08:00">2018-03-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-04-11 23:31:53" itemprop="dateModified" datetime="2018-04-11T23:31:53+08:00">2018-04-11</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>读Effective Objective-C 2.0有感，在读这边书之前OC的基础并不是很好，可以说一窍不通，所以不乏一些很简单的东西。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/07/EffectiveObjectiveC20/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1944,7 +1956,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2025,7 +2037,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
