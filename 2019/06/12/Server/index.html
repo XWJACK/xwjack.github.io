@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Mini灬哆啦">
 <meta property="og:description" content="Centos Server usage">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-13T12:15:50.620Z">
+<meta property="og:updated_time" content="2019-06-30T09:29:27.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Server">
 <meta name="twitter:description" content="Centos Server usage">
@@ -374,7 +374,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-13 20:15:50" itemprop="dateModified" datetime="2019-06-13T20:15:50+08:00">2019-06-13</time>
+                <time title="Modified: 2019-06-30 17:29:27" itemprop="dateModified" datetime="2019-06-30T17:29:27+08:00">2019-06-30</time>
               
             
           </span>
@@ -428,6 +428,7 @@
         <p>Centos Server usage</p>
 <a id="more"></a>
 <h2 id="Install-nginx"><a href="#Install-nginx" class="headerlink" title="Install nginx"></a>Install nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install</span></span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim configs</span></span><br><span class="line">vim /etc/nginx/nginx.conf</span><br><span class="line">vim /etc/nginx/conf.d/*.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable the nginx service so it automatically starts at boot</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"><span class="comment"># run</span></span><br><span class="line">sudo systemctl start/stop/restart/status nginx</span><br><span class="line"><span class="comment"># test config</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"><span class="comment"># reload nginx config</span></span><br><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+<h2 id="yum-install-without-sudo"><a href="#yum-install-without-sudo" class="headerlink" title="yum install without sudo"></a>yum install without sudo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum list tree</span><br><span class="line">yumdownloader tree.x86_64</span><br><span class="line">rpm2cpio tree-1.5.3-3.el6.x86_64.rpm | cpio -idvm</span><br><span class="line">vim .bashrc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/usr/bin/</span><br></pre></td></tr></table></figure>
 <h2 id="Install-python"><a href="#Install-python" class="headerlink" title="Install python"></a>Install python</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install</span></span><br><span class="line">sudo yum install -y sqlite-devel ncurses-devel ncurses-libs zlib-devel mysql-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel openssl-devel</span><br><span class="line"><span class="comment"># Install pyenv first</span></span><br><span class="line"><span class="comment"># Install python</span></span><br><span class="line">pyenv install 3.6.8</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>sudo yum install zlib-devel</code><br> <em>zipimport.ZipImportError: can’t decompress data; zlib not available</em></p>
@@ -440,10 +441,12 @@
 <p>if you define task with naming <code>deploy_abc</code>, using <code>fab deploy-abc</code> instead <code>fab deplay_abc</code>.</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># list all tasks</span></span><br><span class="line">fab --list</span><br></pre></td></tr></table></figure>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># connect redis</span></span><br><span class="line">redis-cli -h ipaddress -p port</span><br><span class="line">redis-cli -u redis://ipaddress:port/abc</span><br><span class="line"><span class="comment"># auth password</span></span><br><span class="line">auth password</span><br><span class="line"><span class="comment"># test ping</span></span><br><span class="line">ping</span><br><span class="line"><span class="comment"># exit</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
 <h3 id="Launch-at-run"><a href="#Launch-at-run" class="headerlink" title="Launch at run"></a>Launch at run</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
 <h3 id="Centos-Install-ifconfig-netstat"><a href="#Centos-Install-ifconfig-netstat" class="headerlink" title="Centos Install ifconfig netstat"></a>Centos Install ifconfig netstat</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-tools</span><br></pre></td></tr></table></figure>
 <h3 id="Scp-file-to-server"><a href="#Scp-file-to-server" class="headerlink" title="Scp file to server"></a>Scp file to server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp file user@server:/path/to</span><br></pre></td></tr></table></figure>
 <h3 id="zip-amp-unzip"><a href="#zip-amp-unzip" class="headerlink" title="zip &amp; unzip"></a>zip &amp; unzip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install zip unzip</span><br></pre></td></tr></table></figure>
+<h3 id="Stop-mysqld-auto-launch"><a href="#Stop-mysqld-auto-launch" class="headerlink" title="Stop mysqld auto launch"></a>Stop mysqld auto launch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> mysqld</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -479,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/WeGame/" rel="next" title="WeGame with Three.js">
-                <i class="fa fa-chevron-left"></i> WeGame with Three.js
+              <a href="/2018/03/07/EffectiveObjectiveC20/" rel="next" title="Effective Objective-C 2.0">
+                <i class="fa fa-chevron-left"></i> Effective Objective-C 2.0
               </a>
             
           </div>
@@ -568,7 +571,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -635,21 +638,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -694,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-nginx"><span class="nav-number">1.</span> <span class="nav-text">Install nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-python"><span class="nav-number">2.</span> <span class="nav-text">Install python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-SSH"><span class="nav-number">3.</span> <span class="nav-text">Config SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-config"><span class="nav-number">4.</span> <span class="nav-text">User config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fabric-2-4-0"><span class="nav-number">5.</span> <span class="nav-text">fabric 2.4.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Launch-at-run"><span class="nav-number">5.1.</span> <span class="nav-text">Launch at run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos-Install-ifconfig-netstat"><span class="nav-number">5.2.</span> <span class="nav-text">Centos Install ifconfig netstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scp-file-to-server"><span class="nav-number">5.3.</span> <span class="nav-text">Scp file to server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zip-amp-unzip"><span class="nav-number">5.4.</span> <span class="nav-text">zip &amp; unzip</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-nginx"><span class="nav-number">1.</span> <span class="nav-text">Install nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yum-install-without-sudo"><span class="nav-number">2.</span> <span class="nav-text">yum install without sudo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-python"><span class="nav-number">3.</span> <span class="nav-text">Install python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-SSH"><span class="nav-number">4.</span> <span class="nav-text">Config SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-config"><span class="nav-number">5.</span> <span class="nav-text">User config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fabric-2-4-0"><span class="nav-number">6.</span> <span class="nav-text">fabric 2.4.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">7.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Launch-at-run"><span class="nav-number">7.1.</span> <span class="nav-text">Launch at run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos-Install-ifconfig-netstat"><span class="nav-number">7.2.</span> <span class="nav-text">Centos Install ifconfig netstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scp-file-to-server"><span class="nav-number">7.3.</span> <span class="nav-text">Scp file to server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zip-amp-unzip"><span class="nav-number">7.4.</span> <span class="nav-text">zip &amp; unzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stop-mysqld-auto-launch"><span class="nav-number">7.5.</span> <span class="nav-text">Stop mysqld auto launch</span></a></li></ol></li></ol></div>
             
 
           </div>
