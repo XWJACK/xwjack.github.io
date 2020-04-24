@@ -124,23 +124,25 @@
 
 
   <meta name="description" content="iOS 开发学习，各种记录。 很多东西都比较简单，但是很多东西都容易忘记，或者自己曾经遇到过但是忘记了当时是如何处理的，使得再次遇到依旧会浪费很多时间，所以不管难易，都记录下来，避免二次伤害。">
-<meta name="keywords" content="iOS,Objective-C,Swift 3.2.0">
+<meta name="keywords" content="iOS,Swift 3.2.0,Objective-C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS">
+<meta property="og:title" content="iOS开发">
 <meta property="og:url" content="http://xwjack.github.io/2017/12/28/iOS/index.html">
 <meta property="og:site_name" content="Mini灬哆啦">
 <meta property="og:description" content="iOS 开发学习，各种记录。 很多东西都比较简单，但是很多东西都容易忘记，或者自己曾经遇到过但是忘记了当时是如何处理的，使得再次遇到依旧会浪费很多时间，所以不管难易，都记录下来，避免二次伤害。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-02-02-LLDB/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2018-02-02-LLDB/2.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/1.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/6.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/4.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/3.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-12-28-iOS/2.png">
-<meta property="og:updated_time" content="2018-11-29T10:08:51.350Z">
+<meta property="og:updated_time" content="2020-04-01T11:29:33.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS">
+<meta name="twitter:title" content="iOS开发">
 <meta name="twitter:description" content="iOS 开发学习，各种记录。 很多东西都比较简单，但是很多东西都容易忘记，或者自己曾经遇到过但是忘记了当时是如何处理的，使得再次遇到依旧会浪费很多时间，所以不管难易，都记录下来，避免二次伤害。">
-<meta name="twitter:image" content="http://xwjack.github.io/images/2017-12-28-iOS/1.png">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2018-02-02-LLDB/1.png">
 
 
 
@@ -157,7 +159,7 @@
   };
 </script>
 
-  <title>iOS | Mini灬哆啦</title>
+  <title>iOS开发 | Mini灬哆啦</title>
   
 
 
@@ -329,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS
+          <h1 class="post-title" itemprop="name headline">iOS开发
               
             
           </h1>
@@ -371,7 +373,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-29 18:08:51" itemprop="dateModified" datetime="2018-11-29T18:08:51+08:00">2018-11-29</time>
+                <time title="Modified: 2020-04-01 19:29:33" itemprop="dateModified" datetime="2020-04-01T19:29:33+08:00">2020-04-01</time>
               
             
           </span>
@@ -417,6 +419,76 @@
         <p>iOS 开发学习，各种记录。</p>
 <p>很多东西都比较简单，但是很多东西都容易忘记，或者自己曾经遇到过但是忘记了当时是如何处理的，使得再次遇到依旧会浪费很多时间，所以不管难易，都记录下来，避免二次伤害。</p>
 <a id="more"></a>
+<h1 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h1><p>iOS开发过程中Bug不可能少，最重要的如何快速的定位Bug的原因，不能每更改一行代码，运行整个App来查看效果，那样效率太过于低下。</p>
+<p><a href="https://www.objc.io/issues/19-debugging/lldb-debugging/" target="_blank" rel="noopener">Dancing in the Debugger — A Waltz with LLDB</a>这篇文章很不错，也学到了很多。</p>
+<p><a href="https://github.com/facebook/chisel" target="_blank" rel="noopener">chisel</a>facebook出品必属精品，更加方便的使用lldb。</p>
+<p>建议有时间可以看chisel的源码，Objective-C、LLDB、Python一起学。</p>
+<!-- more -->
+<h2 id="Xcode"><a href="#Xcode" class="headerlink" title="Xcode"></a>Xcode</h2><p><img src="/images/2018-02-02-LLDB/1.png" alt=""></p>
+<h3 id="Continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h3><p>程序继续执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb) process continue</span><br><span class="line">(lldb) c</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘c’ is an abbreviation for ‘process continue’</p>
+</blockquote>
+<h3 id="step-over"><a href="#step-over" class="headerlink" title="step over"></a>step over</h3><p>以黑盒的形式执行一行代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread step-over</span><br><span class="line">(lldb) next</span><br><span class="line">(lldb) n</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘next’ is an abbreviation for ‘thread step-over’</p>
+<p>‘n’ is an abbreviation for ‘thread step-over’</p>
+</blockquote>
+<h3 id="step-into"><a href="#step-into" class="headerlink" title="step into"></a>step into</h3><p>进入具体的函数实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread step-in</span><br><span class="line">(lldb) step</span><br><span class="line">(lldb) s</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘step’ is an abbreviation for ‘thread step-in’</p>
+<p>‘s’ is an abbreviation for ‘thread step-in’</p>
+</blockquote>
+<h3 id="step-out"><a href="#step-out" class="headerlink" title="step out"></a>step out</h3><p>跳出具体的函数实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread step-out</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘step’ is an abbreviation for ‘thread step-in’</p>
+<p>‘s’ is an abbreviation for ‘thread step-in’</p>
+</blockquote>
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><h3 id="breakpoint"><a href="#breakpoint" class="headerlink" title="breakpoint"></a>breakpoint</h3><p>断点管理。</p>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>Sets a breakpoint or set of breakpoints in the executable.</p>
+<h5 id="f"><a href="#f" class="headerlink" title="f"></a>f</h5><p>-f 指定文件</p>
+<h5 id="l"><a href="#l" class="headerlink" title="l"></a>l</h5><p>-l 指定行数</p>
+<h5 id="F"><a href="#F" class="headerlink" title="F"></a>F</h5><p>Set the breakpoint by fully qualified function names. For C++ this means namespaces and all arguments, and for Objective C this means a full function prototype with class and selector.  Can be repeated multiple times to make one breakpoint for multiple names.</p>
+<p>-F 指定全名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) breakpoint set -F &quot;-[NSException raise]&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也称之为符号断点。</p>
+</blockquote>
+<h5 id="c"><a href="#c" class="headerlink" title="c"></a>c</h5><p>The breakpoint stops only if this condition expression evaluates to true.</p>
+<p>-c 指定条件</p>
+<h4 id="command"><a href="#command" class="headerlink" title="command"></a>command</h4><p>Commands for adding, removing and listing LLDB commands executed when a breakpoint is hit.</p>
+<h5 id="add"><a href="#add" class="headerlink" title="add"></a>add</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(lldb) breakpoint command add 1</span><br><span class="line">Enter your debugger command(s).  Type &apos;DONE&apos; to end.</span><br><span class="line">&gt; process continue</span><br></pre></td></tr></table></figure>
+<h3 id="expression"><a href="#expression" class="headerlink" title="expression"></a>expression</h3><h4 id="O"><a href="#O" class="headerlink" title="-O"></a>-O</h4><p>-O ( –object-description )</p>
+<p>Display using a language-specific description API, if possible.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb) expression -O -- &lt;expr&gt;</span><br><span class="line">(lldb) po &lt;expr&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘po’ is an abbreviation for ‘expression -O  –’</p>
+</blockquote>
+<h4 id="print"><a href="#print" class="headerlink" title="print"></a>print</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb) expression -- &lt;expr&gt;</span><br><span class="line">(lldb) print &lt;expr&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>‘print’ is an abbreviation for ‘expression –’</p>
+<p>二进制、十六进制。。。等<a href="https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html" target="_blank" rel="noopener">完整打印格式</a></p>
+</blockquote>
+<h3 id="frame"><a href="#frame" class="headerlink" title="frame"></a>frame</h3><p>Commands for selecting and examing the current thread’s stack frames.</p>
+<h4 id="info"><a href="#info" class="headerlink" title="info"></a>info</h4><p>List information about the current stack frame in the current thread.</p>
+<h3 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h3><h4 id="return"><a href="#return" class="headerlink" title="return"></a>return</h4><p>Prematurely return from a stack frame, short-circuiting execution of newer frames and optionally yielding a specified value.  Defaults to the exiting the current stack frame.  Expects ‘raw’ input (see ‘help raw-input’.)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) thread return [&lt;expr&gt;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>直接返回指定的值。</p>
+</blockquote>
+<h3 id="process"><a href="#process" class="headerlink" title="process"></a>process</h3><h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><p>Continue execution of all threads in the current process.</p>
+<h4 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt"></a>interrupt</h4><p>Interrupt the current target process.</p>
+<h3 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h3><p>Commands for operating on memory in the current target process.</p>
+<h4 id="read"><a href="#read" class="headerlink" title="read"></a>read</h4><p>Read from the memory of the current target process.</p>
+<h2 id="Convenience"><a href="#Convenience" class="headerlink" title="Convenience"></a>Convenience</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 打印视图层级</span><br><span class="line">(lldb) [[[UIApplication sharedApplication] keyWindow] recursiveDescription]</span><br><span class="line">(lldb) pviews</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 强制刷新</span><br><span class="line">(lldb) e (void)[CATransaction flush]</span><br><span class="line">(lldb) caflush</span><br><span class="line"></span><br><span class="line"># 实例变量添加断点（涉及地址被修改）</span><br><span class="line">(lldb) p (ptrdiff_t)ivar_getOffset((void*)object_getInstanceVariable([UIView class], &quot;_layer&quot;, 0))</span><br><span class="line">(lldb) watchpoint set expression -- (int *)$view + 8</span><br><span class="line">(lldb) wivar $view &quot;_layer&quot;</span><br><span class="line"></span><br><span class="line"># 非重写方法的符号断点（用于子类未重写父类方法）</span><br><span class="line">(lldb) bmessage &quot;-[UIViewController viewDidAppear:]&quot;</span><br><span class="line"></span><br><span class="line"># 打印引用计数</span><br><span class="line">language swift refcount &lt;expr&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Refrence"><a href="#Refrence" class="headerlink" title="Refrence"></a>Refrence</h2><p><img src="/images/2018-02-02-LLDB/2.png" alt="Debugging Swift code with LLDB"></p>
+<blockquote>
+<p>引用于 <a href="https://medium.com/flawless-app-stories/debugging-swift-code-with-lldb-b30c5cf2fd49" target="_blank" rel="noopener">Debugging Swift code with LLDB</a></p>
+</blockquote>
 <h1 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h1><p><img src="/images/2017-12-28-iOS/1.png" alt=""></p>
 <p>整个流程：</p>
 <ol>
@@ -602,9 +674,9 @@
           
             <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
-          
             <a href="/tags/Swift-3-2-0/" rel="tag"># Swift 3.2.0</a>
+          
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
           
         </div>
       
@@ -617,8 +689,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/15/Reverse/" rel="next" title="Reverse">
-                <i class="fa fa-chevron-left"></i> Reverse
+              <a href="/2017/11/15/Reverse/" rel="next" title="逆向">
+                <i class="fa fa-chevron-left"></i> 逆向
               </a>
             
           </div>
@@ -627,8 +699,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/08/Marco/" rel="prev" title="Marco">
-                Marco <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/10/LivePhoto/" rel="prev" title="Live Photo">
+                Live Photo <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -710,7 +782,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -771,23 +843,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -832,7 +888,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Signature"><span class="nav-number">1.</span> <span class="nav-text">Signature</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Device"><span class="nav-number">2.</span> <span class="nav-text">Device</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UIKit"><span class="nav-number">3.</span> <span class="nav-text">UIKit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIWindow"><span class="nav-number">3.1.</span> <span class="nav-text">UIWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIView"><span class="nav-number">3.2.</span> <span class="nav-text">UIView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Touch-Events"><span class="nav-number">3.2.1.</span> <span class="nav-text">Touch Events</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#point-inside-with"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">point(inside:with:)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hitTest-with"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">hitTest(_:with:)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animation"><span class="nav-number">3.2.2.</span> <span class="nav-text">Animation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIScrollView"><span class="nav-number">3.3.</span> <span class="nav-text">UIScrollView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITableView"><span class="nav-number">3.4.</span> <span class="nav-text">UITableView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reloadData"><span class="nav-number">3.4.1.</span> <span class="nav-text">reloadData</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-keep-UITableView-contentOffset-after-calling-reloadData"><span class="nav-number">3.4.1.1.</span> <span class="nav-text">How to keep UITableView contentOffset after calling reloadData</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MJRefresh"><span class="nav-number">3.4.2.</span> <span class="nav-text">MJRefresh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决下拉刷新无法回弹的问题"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">解决下拉刷新无法回弹的问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.4.3.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个TableView中多种样式相似的Cell"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">一个TableView中多种样式相似的Cell</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态显示"><span class="nav-number">3.4.3.1.1.</span> <span class="nav-text">动态显示</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优雅的唯一表示一个Cell"><span class="nav-number">3.4.3.2.</span> <span class="nav-text">优雅的唯一表示一个Cell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UICollectionView"><span class="nav-number">3.5.</span> <span class="nav-text">UICollectionView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Horizontal-refresh"><span class="nav-number">3.5.1.</span> <span class="nav-text">Horizontal refresh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selected-muti-selected"><span class="nav-number">3.5.2.</span> <span class="nav-text">selected muti-selected</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UICollectionViewFlowLayout"><span class="nav-number">3.5.3.</span> <span class="nav-text">UICollectionViewFlowLayout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITextView"><span class="nav-number">3.6.</span> <span class="nav-text">UITextView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITextView-with-auto-size"><span class="nav-number">3.6.1.</span> <span class="nav-text">UITextView with auto size.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Limit-number-of-character"><span class="nav-number">3.6.2.</span> <span class="nav-text">Limit number of character</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#markedTextRange"><span class="nav-number">3.6.2.1.</span> <span class="nav-text">markedTextRange</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Placeholder"><span class="nav-number">3.6.3.</span> <span class="nav-text">Placeholder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UISearchBar"><span class="nav-number">3.7.</span> <span class="nav-text">UISearchBar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIDatePicker"><span class="nav-number">3.8.</span> <span class="nav-text">UIDatePicker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UINavigationBar"><span class="nav-number">3.9.</span> <span class="nav-text">UINavigationBar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UINavigationItem"><span class="nav-number">3.9.1.</span> <span class="nav-text">UINavigationItem</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIVisualEffectView"><span class="nav-number">3.10.</span> <span class="nav-text">UIVisualEffectView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIViewController"><span class="nav-number">3.11.</span> <span class="nav-text">UIViewController</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Enable-interactive-pop-gesture-recognizer-with-custom-back-button"><span class="nav-number">3.11.1.</span> <span class="nav-text">Enable interactive pop gesture recognizer with custom back button</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition"><span class="nav-number">3.11.2.</span> <span class="nav-text">Transition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController"><span class="nav-number">3.12.</span> <span class="nav-text">UIAlertController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImagePickerController"><span class="nav-number">3.13.</span> <span class="nav-text">UIImagePickerController</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary-1"><span class="nav-number">4.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if、else-Vs-Inherit"><span class="nav-number">4.1.</span> <span class="nav-text">if、else Vs Inherit</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LLDB"><span class="nav-number">1.</span> <span class="nav-text">LLDB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Xcode"><span class="nav-number">1.1.</span> <span class="nav-text">Xcode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Continue"><span class="nav-number">1.1.1.</span> <span class="nav-text">Continue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step-over"><span class="nav-number">1.1.2.</span> <span class="nav-text">step over</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step-into"><span class="nav-number">1.1.3.</span> <span class="nav-text">step into</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step-out"><span class="nav-number">1.1.4.</span> <span class="nav-text">step out</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commands"><span class="nav-number">1.2.</span> <span class="nav-text">Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#breakpoint"><span class="nav-number">1.2.1.</span> <span class="nav-text">breakpoint</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#set"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">set</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#f"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">f</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#l"><span class="nav-number">1.2.1.1.2.</span> <span class="nav-text">l</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#F"><span class="nav-number">1.2.1.1.3.</span> <span class="nav-text">F</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#c"><span class="nav-number">1.2.1.1.4.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#command"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">add</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#expression"><span class="nav-number">1.2.2.</span> <span class="nav-text">expression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#O"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">-O</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#print"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">print</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frame"><span class="nav-number">1.2.3.</span> <span class="nav-text">frame</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#info"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">info</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#thread"><span class="nav-number">1.2.4.</span> <span class="nav-text">thread</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#return"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">return</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#process"><span class="nav-number">1.2.5.</span> <span class="nav-text">process</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#continue"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">continue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#interrupt"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">interrupt</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memory"><span class="nav-number">1.2.6.</span> <span class="nav-text">memory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#read"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">read</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convenience"><span class="nav-number">1.3.</span> <span class="nav-text">Convenience</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refrence"><span class="nav-number">1.4.</span> <span class="nav-text">Refrence</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Signature"><span class="nav-number">2.</span> <span class="nav-text">Signature</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Device"><span class="nav-number">3.</span> <span class="nav-text">Device</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UIKit"><span class="nav-number">4.</span> <span class="nav-text">UIKit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIWindow"><span class="nav-number">4.1.</span> <span class="nav-text">UIWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIView"><span class="nav-number">4.2.</span> <span class="nav-text">UIView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Touch-Events"><span class="nav-number">4.2.1.</span> <span class="nav-text">Touch Events</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#point-inside-with"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">point(inside:with:)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hitTest-with"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">hitTest(_:with:)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animation"><span class="nav-number">4.2.2.</span> <span class="nav-text">Animation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIScrollView"><span class="nav-number">4.3.</span> <span class="nav-text">UIScrollView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITableView"><span class="nav-number">4.4.</span> <span class="nav-text">UITableView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reloadData"><span class="nav-number">4.4.1.</span> <span class="nav-text">reloadData</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-keep-UITableView-contentOffset-after-calling-reloadData"><span class="nav-number">4.4.1.1.</span> <span class="nav-text">How to keep UITableView contentOffset after calling reloadData</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MJRefresh"><span class="nav-number">4.4.2.</span> <span class="nav-text">MJRefresh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决下拉刷新无法回弹的问题"><span class="nav-number">4.4.2.1.</span> <span class="nav-text">解决下拉刷新无法回弹的问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">4.4.3.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个TableView中多种样式相似的Cell"><span class="nav-number">4.4.3.1.</span> <span class="nav-text">一个TableView中多种样式相似的Cell</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态显示"><span class="nav-number">4.4.3.1.1.</span> <span class="nav-text">动态显示</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优雅的唯一表示一个Cell"><span class="nav-number">4.4.3.2.</span> <span class="nav-text">优雅的唯一表示一个Cell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UICollectionView"><span class="nav-number">4.5.</span> <span class="nav-text">UICollectionView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Horizontal-refresh"><span class="nav-number">4.5.1.</span> <span class="nav-text">Horizontal refresh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selected-muti-selected"><span class="nav-number">4.5.2.</span> <span class="nav-text">selected muti-selected</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UICollectionViewFlowLayout"><span class="nav-number">4.5.3.</span> <span class="nav-text">UICollectionViewFlowLayout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITextView"><span class="nav-number">4.6.</span> <span class="nav-text">UITextView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITextView-with-auto-size"><span class="nav-number">4.6.1.</span> <span class="nav-text">UITextView with auto size.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Limit-number-of-character"><span class="nav-number">4.6.2.</span> <span class="nav-text">Limit number of character</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#markedTextRange"><span class="nav-number">4.6.2.1.</span> <span class="nav-text">markedTextRange</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Placeholder"><span class="nav-number">4.6.3.</span> <span class="nav-text">Placeholder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UISearchBar"><span class="nav-number">4.7.</span> <span class="nav-text">UISearchBar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIDatePicker"><span class="nav-number">4.8.</span> <span class="nav-text">UIDatePicker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UINavigationBar"><span class="nav-number">4.9.</span> <span class="nav-text">UINavigationBar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UINavigationItem"><span class="nav-number">4.9.1.</span> <span class="nav-text">UINavigationItem</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIVisualEffectView"><span class="nav-number">4.10.</span> <span class="nav-text">UIVisualEffectView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIViewController"><span class="nav-number">4.11.</span> <span class="nav-text">UIViewController</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Enable-interactive-pop-gesture-recognizer-with-custom-back-button"><span class="nav-number">4.11.1.</span> <span class="nav-text">Enable interactive pop gesture recognizer with custom back button</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition"><span class="nav-number">4.11.2.</span> <span class="nav-text">Transition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController"><span class="nav-number">4.12.</span> <span class="nav-text">UIAlertController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImagePickerController"><span class="nav-number">4.13.</span> <span class="nav-text">UIImagePickerController</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary-1"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if、else-Vs-Inherit"><span class="nav-number">5.1.</span> <span class="nav-text">if、else Vs Inherit</span></a></li></ol></li></ol></div>
             
 
           </div>
