@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -43,8 +43,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -63,7 +63,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -71,9 +71,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
@@ -149,7 +149,7 @@
 <meta property="og:image" content="http://xwjack.github.io/images/2017-11-15-Reverse/7.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-11-15-Reverse/18.png">
 <meta property="og:image" content="http://xwjack.github.io/images/2017-11-15-Reverse/19.png">
-<meta property="og:updated_time" content="2020-04-01T11:24:52.836Z">
+<meta property="og:updated_time" content="2021-05-26T04:17:30.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆向">
 <meta name="twitter:description" content="本人逆向学习之路总结，涉及到iOS和macOS平台。">
@@ -160,7 +160,7 @@
 
 
 
-  <link rel="canonical" href="http://xwjack.github.io/2017/11/15/Reverse/"/>
+  <link rel="canonical" href="http://xwjack.github.io/2017/11/15/Reverse/">
 
 
 
@@ -266,7 +266,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
         
         
@@ -274,7 +274,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
 
       
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-04-01 19:24:52" itemprop="dateModified" datetime="2020-04-01T19:24:52+08:00">2020-04-01</time>
+                <time title="Modified: 2021-05-26 12:17:30" itemprop="dateModified" datetime="2021-05-26T12:17:30+08:00">2021-05-26</time>
               
             
           </span>
@@ -453,36 +453,36 @@
 <li>或者我写的<a href="https://github.com/XWJACK/Reverse_xctemplates" target="_blank" rel="noopener">Reverse_xctemplates</a>Mac调试模板</li>
 </ol>
 <h1 id="知识必备"><a href="#知识必备" class="headerlink" title="知识必备"></a>知识必备</h1><h2 id="ASLR-Address-space-layout-randomization-随机地址偏移"><a href="#ASLR-Address-space-layout-randomization-随机地址偏移" class="headerlink" title="ASLR(Address space layout randomization)(随机地址偏移)"></a><a href="https://en.wikipedia.org/wiki/Address_space_layout_randomization" target="_blank" rel="noopener">ASLR(Address space layout randomization)</a>(随机地址偏移)</h2><p>我们在Hopper中看到的地址为<strong>模块偏移前基地址</strong>，需要在加上随机地址偏移（在macOS调试的时候发现，在Debug模式下，始终为0），才是我们得到当前运行程序在内存中实际的地址。获取地址方式有两种，但是有一个细微的差别（自己也曾在这里停留了半天，就是一个细微的差别导致的）：</p>
-<p><img src="/images/2017-11-15-Reverse/21.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/21.png" alt></p>
 <p>获取的地址可以直接在Hopper中修改基地址，这样在查找跳转中直接使用运行过程中内存地址就可以找到了。</p>
-<p><img src="/images/2017-11-15-Reverse/22.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/22.png" alt></p>
 <p>这里获取的地址需要自己手动加，然后在从Hopper进行查找。</p>
 <h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><h3 id="iOS-1"><a href="#iOS-1" class="headerlink" title="iOS"></a>iOS</h3><p><a href="https://www.jianshu.com/p/2f4a5f74ac7a" target="_blank" rel="noopener">ARM64 汇编——寄存器和指令</a></p>
 <h3 id="macOS-1"><a href="#macOS-1" class="headerlink" title="macOS"></a>macOS</h3><p>OC下的寄存器：</p>
 <p>rax：返回值<br>rdi：self<br>rsi：_cmd<br>rdx、rcx、r8～r9：参数<br>rbp：基址指针<br>rsp：栈指针</p>
 <p><a href="https://melodyofnight.github.io/2017/07/12/iOS高级调试-逆向技术-汇编寄存器调用/" target="_blank" rel="noopener">iOS高级调试&amp;逆向技术-汇编寄存器调用</a></p>
 <h1 id="工具详解"><a href="#工具详解" class="headerlink" title="工具详解"></a>工具详解</h1><h2 id="insert-dylib"><a href="#insert-dylib" class="headerlink" title="insert_dylib"></a>insert_dylib</h2><p>原理就是在load command中添加要加载的库，这样我们程序在启动的时候就可以加载我们编写的动态库实现方法交换。</p>
-<p><img src="/images/2017-11-15-Reverse/11.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/11.png" alt></p>
 <p>在hook过程中，使用了<code>libsubstitute.dylib</code>，由于编写的动态库需要引用到，这就涉及到该库应该放到什么地方的问题。</p>
 <p>先看看生成的动态库是怎么引用这个库的</p>
-<p><img src="/images/2017-11-15-Reverse/12.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/12.png" alt></p>
 <p>可执行文件下面？这里指的可执行的文件并不是动态库的mach-o文件，而是要hook的app的mach-o文件下面。这个问题困扰了好久才发现。（猜测项目中引用的话会修改这个加载库为<code>@rpath/libsubstitute.dylib</code>并将其放入Frameworks中）</p>
 <h2 id="class-dump"><a href="#class-dump" class="headerlink" title="class-dump"></a>class-dump</h2><p>dump出头文件（但是nygard/class-dump的对swift支持并不是很好，很多时候还是会出问题，所以用了<a href="https://github.com/BlueCocoa/class-dump" target="_blank" rel="noopener">BlueCocoa/class-dump</a>的版本，至少不崩溃了）</p>
-<p><img src="/images/2017-11-15-Reverse/20.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/20.png" alt></p>
 <h2 id="fishhook"><a href="#fishhook" class="headerlink" title="fishhook"></a>fishhook</h2><p>我们可能不仅仅需要hook相关的OC消息发送，可能还会涉及到静态方法的hook。</p>
 <p><a href="https://github.com/facebook/fishhook/issues/25" target="_blank" rel="noopener">fishhook无法hook自己写的c方法</a></p>
 <p><a href="https://draveness.me/fishhook" target="_blank" rel="noopener">动态修改 C 语言函数的实现</a>仔细的分析了fishhook</p>
 <p>比如我们在hopper中看到的<code>sub_</code>开头的方法没有名字，<del>lldb中显示<code>___lldb_unnamed_symbol</code>都</del>不是通过<code>objc_msgSend</code>进行派发。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Hook c/c++/swift等编译期方法</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"substrate.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;mach-o/dyld.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> (*ori_sub_1000f5ff84)(<span class="keyword">int</span>, <span class="keyword">int</span>);</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> hook_sub_1000f5ff84(<span class="keyword">int</span> arg0, <span class="keyword">int</span> arg1) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"XWJACK Hook sign check."</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> __attribute__((constructor)) initialize(<span class="keyword">void</span>) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"XWJACK Begin hook c function"</span>);</span><br><span class="line">    <span class="comment">/// 00000001000f5f84 如下图</span></span><br><span class="line">    <span class="comment">/// _dyld_get_image_vmaddr_slide(0) 获取镜像偏移地址(Xcode在Debug模式下，偏移地址总是为0)</span></span><br><span class="line">    MSHookFunction((<span class="keyword">void</span>*)(<span class="number">0x00000001000f5f84</span> + _dyld_get_image_vmaddr_slide(<span class="number">0</span>)), (<span class="keyword">void</span> *)&amp;hook_sub_1000f5ff84, (<span class="keyword">void</span> *)&amp;ori_sub_1000f5ff84);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/2017-11-15-Reverse/10.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/10.png" alt></p>
 <h1 id="ptrace"><a href="#ptrace" class="headerlink" title="ptrace"></a>ptrace</h1><p>程序使用ptrace来进行动态调试保护，使得执行lldb的时候出现<code>Process xxxx exited with status = 45 (0x0000002d)</code>错误。</p>
 <p>使用Hopper修改指令</p>
 <ul>
 <li>使用Hopper直接修改ptrace，如Surge（2.4.6）<br>入口就是：<code>EntryPoint</code></li>
 </ul>
-<p><img src="/images/2017-11-15-Reverse/1.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/1.png" alt></p>
 <p>直接暴力修改成如下形式：</p>
-<p><img src="/images/2017-11-15-Reverse/2.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/2.png" alt></p>
 <p>使用代码进行修改，使用fishhook替换ptrace函数。</p>
 <p><a href="http://www.alonemonkey.com/2017/05/25/antiantidebug/" target="_blank" rel="noopener">关于反调试&amp;反反调试那些事</a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"fishhook.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;sys/sysctl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">int</span> <span class="params">(*<span class="keyword">ptrace_ptr_t</span>)</span><span class="params">(<span class="keyword">int</span> _request,<span class="keyword">pid_t</span> _pid, <span class="keyword">caddr_t</span> _addr,<span class="keyword">int</span> _data)</span></span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">ptrace_ptr_t</span> orig_ptrace = <span class="literal">NULL</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">my_ptrace</span><span class="params">(<span class="keyword">int</span> _request, <span class="keyword">pid_t</span> _pid, <span class="keyword">caddr_t</span> _addr, <span class="keyword">int</span> _data)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">my_ptrace</span><span class="params">(<span class="keyword">int</span> _request, <span class="keyword">pid_t</span> _pid, <span class="keyword">caddr_t</span> _addr, <span class="keyword">int</span> _data)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(_request != <span class="number">31</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> orig_ptrace(_request,_pid,_addr,_data);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    NSLog(@<span class="string">"🍒 ptrace request is PT_DENY_ATTACH"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">__attribute__((constructor)) <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">entry</span><span class="params">()</span></span>&#123;</span><br><span class="line">    rebind_symbols((struct rebinding[<span class="number">1</span>])&#123;&#123;<span class="string">"ptrace"</span>, my_ptrace, (<span class="keyword">void</span>*)&amp;orig_ptrace&#125;&#125;,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -490,20 +490,20 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">_TtC6Reveal20LicenseBindingsModel</span> : <span class="title">NSObject</span></span></span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>如果直接hook <code>_TtC6Reveal20LicenseBindingsModel</code>类，是找不到这个类对应的方法的，我们需要找到这类正确的名字。</p>
 <p>我的做法是先下断点<code>b 0x00000001001ff200</code></p>
-<p><img src="/images/2017-11-15-Reverse/14.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/14.png" alt></p>
 <p>停止后打印值，看到真正的类名其实是<code>Reveal.LicenseBindingsModel</code>，之后我们就可以正常的hook了。</p>
-<p><img src="/images/2017-11-15-Reverse/15.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/15.png" alt></p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">XWJACK_LicenseBindingsModel</span>)</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)hook_isCommercialLicense &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">BOOL</span>)hook_licensePeriodExpired &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">BOOL</span>)hook_upgradeLicenseMenuItemVisible &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">NSString</span> *)hook_licenseEmail &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">@"xwjack@xwjack.com"</span>;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">NSString</span> *)hook_licenseName &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">@"xwjack"</span>;</span><br><span class="line">&#125;</span><br><span class="line">+ (<span class="keyword">void</span>)load &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"XWJACK Begin hook LicenseBindingsModel"</span>);</span><br><span class="line">    Class hookClass = objc_getClass(<span class="string">"Reveal.LicenseBindingsModel"</span>);</span><br><span class="line">    xwjack_hookMethod(hookClass, <span class="keyword">@selector</span>(isCommercialLicense), <span class="keyword">self</span>.class, <span class="keyword">@selector</span>(hook_isCommercialLicense));</span><br><span class="line">    xwjack_hookMethod(hookClass, <span class="keyword">@selector</span>(licensePeriodExpired), <span class="keyword">self</span>.class, <span class="keyword">@selector</span>(hook_licensePeriodExpired));</span><br><span class="line">    xwjack_hookMethod(hookClass, <span class="keyword">@selector</span>(upgradeLicenseMenuItemVisible), <span class="keyword">self</span>.class, <span class="keyword">@selector</span>(hook_upgradeLicenseMenuItemVisible));</span><br><span class="line">    xwjack_hookMethod(hookClass, <span class="keyword">@selector</span>(licenseEmail), <span class="keyword">self</span>.class, <span class="keyword">@selector</span>(hook_licenseEmail));</span><br><span class="line">    xwjack_hookMethod(hookClass, <span class="keyword">@selector</span>(licenseName), <span class="keyword">self</span>.class, <span class="keyword">@selector</span>(hook_licenseName));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/2017-11-15-Reverse/16.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/16.png" alt></p>
 <blockquote>
 <p>该类由于需要被OC使用，所以继承为NSObject，如果是纯Swift写hook可以参考Refrences的内容。</p>
 </blockquote>
-<h1 id="macOS调试配置"><a href="#macOS调试配置" class="headerlink" title="macOS调试配置"></a>macOS调试配置</h1><p><img src="/images/2017-11-15-Reverse/17.png" alt=""><br>这里指定了当前生成的库会Attach到哪个程序。</p>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="macOS-2"><a href="#macOS-2" class="headerlink" title="macOS"></a>macOS</h2><h3 id="Surge"><a href="#Surge" class="headerlink" title="Surge"></a>Surge</h3><p><img src="/images/2017-11-15-Reverse/13.png" alt=""></p>
+<h1 id="macOS调试配置"><a href="#macOS调试配置" class="headerlink" title="macOS调试配置"></a>macOS调试配置</h1><p><img src="/images/2017-11-15-Reverse/17.png" alt><br>这里指定了当前生成的库会Attach到哪个程序。</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="macOS-2"><a href="#macOS-2" class="headerlink" title="macOS"></a>macOS</h2><h3 id="Surge"><a href="#Surge" class="headerlink" title="Surge"></a>Surge</h3><p><img src="/images/2017-11-15-Reverse/13.png" alt></p>
 <h4 id="NSA-load"><a href="#NSA-load" class="headerlink" title="+[NSA load]"></a>+[NSA load]</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> +[<span class="built_in">NSA</span> load](<span class="keyword">void</span> * <span class="keyword">self</span>, <span class="keyword">void</span> * _cmd) &#123;</span><br><span class="line">    rax = sub_1000a860f();</span><br><span class="line">    rax = [rax <span class="keyword">retain</span>];</span><br><span class="line">    rdi = *<span class="number">0x1003a4338</span>;</span><br><span class="line">    *<span class="number">0x1003a4338</span> = rax;</span><br><span class="line">    [rdi release];</span><br><span class="line">    <span class="keyword">if</span> (*<span class="number">0x1003a4338</span> != <span class="number">0x0</span>) &#123;</span><br><span class="line">            rdi = *<span class="number">0x1003a4338</span>;</span><br><span class="line">            sub_1000a890f();</span><br><span class="line">            sub_1000a89a3(rdi);</span><br><span class="line">    &#125;</span><br><span class="line">    rax = [<span class="built_in">NSA</span> sharedInstance];</span><br><span class="line">    objc_unsafeClaimAutoreleasedReturnValue(rax);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> sub_1000a860f() &#123;</span><br><span class="line">    rbx = [[KDStorageHelper applicationSupportDirectoryPathWithName:<span class="string">@"com.nssurge.surge-mac"</span>] <span class="keyword">retain</span>];</span><br><span class="line">    r15 = malloc(<span class="number">0x19000</span>);</span><br><span class="line">    r14 = objc_retainAutorelease(rbx);</span><br><span class="line">    rax = [r14 UTF8String];</span><br><span class="line">    rbx = <span class="number">0x0</span>;</span><br><span class="line">    rax = getxattr(rax, <span class="string">"com.nssurge.surge-mac.nsa.3"</span>, r15, <span class="number">0x19000</span>, <span class="number">0x0</span>, <span class="number">0x0</span>);</span><br><span class="line">    <span class="keyword">if</span> (rax &gt; <span class="number">0x0</span>) &#123;</span><br><span class="line">            rcx = rax;</span><br><span class="line">            r12 = [[<span class="built_in">NSData</span> dataWithBytes:r15 length:rcx, <span class="number">0x0</span>] <span class="keyword">retain</span>];</span><br><span class="line">            free(r15);</span><br><span class="line">            rbx = [[r12 KD_JSONObject] <span class="keyword">retain</span>];</span><br><span class="line">            [r12 release];</span><br><span class="line">    &#125;</span><br><span class="line">    [r14 release];</span><br><span class="line">    rdi = rbx;</span><br><span class="line">    [rdi autorelease];</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)hook_KD_JSONObject &#123;</span><br><span class="line">    <span class="built_in">NSDictionary</span> *dict = [<span class="keyword">self</span> hook_KD_JSONObject];</span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *newDic = [<span class="built_in">NSMutableDictionary</span> dictionaryWithDictionary:dict];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSTimeInterval</span> newTime = <span class="number">2524582861</span>;</span><br><span class="line">    <span class="keyword">if</span> (dict[<span class="string">@"expiresOnDate"</span>]) &#123;</span><br><span class="line">        newDic[<span class="string">@"expiresOnDate"</span>] = @(newTime);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"XWJACK %@"</span>, newDic);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> [newDic <span class="keyword">copy</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/2017-11-15-Reverse/9.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/9.png" alt></p>
 <p>policy：对deviceID、expiresOnDate等数据base64得到<br>sign：对policy的签名再base64</p>
 <ul>
 <li>deviceID：设备ID</li>
@@ -526,7 +526,7 @@
 <blockquote>
 <p>其中无意间发现好像有一个公钥和私钥都在本地写死的。</p>
 </blockquote>
-<h3 id="Reveal"><a href="#Reveal" class="headerlink" title="Reveal"></a>Reveal</h3><p><img src="/images/2017-11-15-Reverse/6.png" alt=""></p>
+<h3 id="Reveal"><a href="#Reveal" class="headerlink" title="Reveal"></a>Reveal</h3><p><img src="/images/2017-11-15-Reverse/6.png" alt></p>
 <h4 id="This-copy-of-Reveal-is-damaged"><a href="#This-copy-of-Reveal-is-damaged" class="headerlink" title="This copy of Reveal is damaged"></a>This copy of Reveal is damaged</h4><p>Reveal会校验签名，如果签名不对，会弹出提示。</p>
 <ol>
 <li>从资源文件<code>Localizable.strings</code>中我们找到：<br>“IBAApplicationIsDamagedAlert.messageText” = “This copy of Reveal is damaged”;</li>
@@ -534,7 +534,7 @@
 <p>sub_1001ff4a0()<br>sub_1001ff7f0()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void sub_1001ff7f0() &#123;</span><br><span class="line">    r15 = sub_1001ff4a0();</span><br><span class="line">    /// 弹出模态框</span><br><span class="line">    rax = [r15 runModal];</span><br><span class="line">    *0x10051b730 = *0x10051b730 + 0x2;</span><br><span class="line">    if (rax != 0x3e8) goto loc_1001ff936;</span><br></pre></td></tr></table></figure></p>
 <p>sub_1001ff950()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">int sub_1001ff950() &#123;</span><br><span class="line">    rbx = r12;</span><br><span class="line">    *0x100522518 = *0x100522518 + 0x1;</span><br><span class="line">    rax = sub_1003a4c76();</span><br><span class="line">    rax = $S10ObjectiveC22_convertObjCBoolToBoolySbAA0cD0VF(LOBYTE(rax) &amp; 0xff);</span><br><span class="line">    /// 从这里我们确定rax的值需要为0x1才不会走else方法。</span><br><span class="line">    if ((LOBYTE(rax) &amp; 0x1) != 0x0) &#123;</span><br><span class="line">            r12 = rbx;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">            *0x100522520 = *0x100522520 + 0x1;</span><br><span class="line">            r14 = [[swift_getInitializedObjCClass(@class(IBAAnalytics)) sharedInstance] retain];</span><br><span class="line">            rbx = $SSS10FoundationE19_bridgeToObjectiveCSo8NSStringCyF(0x8000000000000000 | &quot;Code Signing Verification Failed&quot;, 0x20);</span><br><span class="line">            rax = [r14 recordEvent:rbx count:0x1];</span><br><span class="line">            rax = [rbx release];</span><br><span class="line">            rax = [r14 release];</span><br><span class="line">            rax = sub_1001ff7f0();</span><br><span class="line">            if (*0x100513078 == 0x0) &#123;</span><br><span class="line">                    *0x100513078 = sub_10003d530();</span><br><span class="line">            &#125;</span><br><span class="line">            LODWORD(rdx) = 0x0;</span><br><span class="line">            LODWORD(rcx) = 0x0;</span><br><span class="line">            rax = swift_allocError(0x1004779f0);</span><br><span class="line">            r12 = rax;</span><br><span class="line">    &#125;</span><br><span class="line">    rbx = stack[2045];</span><br><span class="line">    r14 = stack[2046];</span><br><span class="line">    rsp = rsp + 0x18;</span><br><span class="line">    rbp = stack[2047];</span><br><span class="line">    return rax;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h5 id="hopper修改"><a href="#hopper修改" class="headerlink" title="hopper修改"></a>hopper修改</h5><p>sub_1003a4c76()<br><code>mov rax, 0x1</code>其它全部nop掉</p>
-<p><img src="/images/2017-11-15-Reverse/7.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/7.png" alt></p>
 <h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> (*ori_sub_1003a4c76)(<span class="keyword">void</span>);</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> hook_sub_1003a4c76() &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"XWJACK Hook sign check."</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> __attribute__((constructor)) initialize(<span class="keyword">void</span>) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"XWJACK Begin hook c function"</span>);</span><br><span class="line">    </span><br><span class="line">    MSHookFunction((<span class="keyword">void</span>*)(<span class="number">0x00000001003a4c76</span> + _dyld_get_image_vmaddr_slide(<span class="number">0</span>)), (<span class="keyword">void</span> *)&amp;hook_sub_1003a4c76, (<span class="keyword">void</span> *)&amp;ori_sub_1003a4c76);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Reveal-ActivationWindowController-DMActivationController"><a href="#Reveal-ActivationWindowController-DMActivationController" class="headerlink" title="Reveal.ActivationWindowController: DMActivationController"></a>Reveal.ActivationWindowController: DMActivationController</h4><p>激活控制器（_stepMap中包含了所有的弹窗）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">Printing description of self-&gt;_stepsMap:</span><br><span class="line">&#123;</span><br><span class="line">    0 = &quot;&lt;DMWelcomeStepController: 0x600003705680&gt;&quot;;</span><br><span class="line">    101 =     (</span><br><span class="line">        &quot;Reveal.AnnualSupportApplicationBuildTooNewWelcomeStepController&quot;,</span><br><span class="line">        AnnualSupportApplicationBuildTooNewWelcomeStepController</span><br><span class="line">    );</span><br><span class="line">    7 =     (</span><br><span class="line">        DMEmbeddedStoreStepController</span><br><span class="line">    );</span><br><span class="line">    5 =     (</span><br><span class="line">        DMExpirationStepController</span><br><span class="line">    );</span><br><span class="line">    3 =     (</span><br><span class="line">        DMSuccessStepController</span><br><span class="line">    );</span><br><span class="line">    &quot;-1&quot; =     (</span><br><span class="line">        DMStepController</span><br><span class="line">    );</span><br><span class="line">    1 =     (</span><br><span class="line">        DMActivationStepController</span><br><span class="line">    );</span><br><span class="line">    102 =     (</span><br><span class="line">        &quot;Reveal.AnnualSupportStatusWelcomeStepController&quot;,</span><br><span class="line">        AnnualSupportStatusWelcomeStepController</span><br><span class="line">    );</span><br><span class="line">    100 =     (</span><br><span class="line">        IBATrialLicenseWelcomeStepController,</span><br><span class="line">        IBATrialLicenseWelcomeStepView</span><br><span class="line">    );</span><br><span class="line">    6 =     (</span><br><span class="line">        DMDeactivationStepController</span><br><span class="line">    );</span><br><span class="line">    4 =     (</span><br><span class="line">        &quot;Reveal.AnnualSupportFailureStepController&quot;,</span><br><span class="line">        AnnualSupportFailureStepController</span><br><span class="line">    );</span><br><span class="line">    2 =     (</span><br><span class="line">        DMAdditionalActivationStepController</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -544,8 +544,8 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 直接hook掉</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">XWJACK_DMActivationController</span>)</span></span><br><span class="line">- (<span class="keyword">void</span>)hook_showActivationWindowIfNeeds &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"🍇 XWJACK Prevent %s"</span>, _cmd);</span><br><span class="line"><span class="comment">//    [self hook_showActivationWindowIfNeeds];</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">+ (<span class="keyword">void</span>)load &#123;</span><br><span class="line">    Class H_DMActivationController = objc_getClass(<span class="string">"DMActivationController"</span>);</span><br><span class="line">    xwjack_hookMethod(H_DMActivationController, <span class="keyword">@selector</span>(showActivationWindowIfNeeds), <span class="keyword">self</span>.class, <span class="keyword">@selector</span>(hook_showActivationWindowIfNeeds));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <h1 id="theos基本语法"><a href="#theos基本语法" class="headerlink" title="theos基本语法"></a>theos基本语法</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">%hook ClassName</span><br><span class="line">- (<span class="keyword">void</span>)logEvent:(<span class="keyword">id</span>)arg1 infos:(<span class="keyword">id</span>)arg2 details:(<span class="keyword">id</span>)arg3 &#123;</span><br><span class="line">		<span class="comment">/// 相当于super调用</span></span><br><span class="line">		%orig;</span><br><span class="line">		<span class="keyword">id</span> result = %orig;</span><br><span class="line">		%orig()</span><br><span class="line">		%orig(arg1, arg2, arg3);</span><br><span class="line">		<span class="comment">/// 打印日志</span></span><br><span class="line">    	%log;</span><br><span class="line">&#125;</span><br><span class="line">%end</span><br></pre></td></tr></table></figure>
 <h1 id="xctemplate"><a href="#xctemplate" class="headerlink" title="xctemplate"></a>xctemplate</h1><p>为了简化步骤，所以写了一个<a href="https://github.com/XWJACK/Reverse_xctemplates" target="_blank" rel="noopener">Reverse_xctemplates</a></p>
-<p><img src="/images/2017-11-15-Reverse/18.png" alt=""></p>
-<p><img src="/images/2017-11-15-Reverse/19.png" alt=""></p>
+<p><img src="/images/2017-11-15-Reverse/18.png" alt></p>
+<p><img src="/images/2017-11-15-Reverse/19.png" alt></p>
 <h1 id="Refrences"><a href="#Refrences" class="headerlink" title="Refrences"></a>Refrences</h1><ul>
 <li><a href="https://zhaoxinyu.me/2018-11-24-crack-wew/" target="_blank" rel="noopener">手把手教你给企业微信 Mac 客户端去除水印</a></li>
 <li><a href="https://www.mbo42.com/2018/04/01/hooking-swift-methods/" target="_blank" rel="noopener">Hooking Swift methods in Theos</a></li>
@@ -587,8 +587,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/20/Framework/" rel="next" title="Framework">
-                <i class="fa fa-chevron-left"></i> Framework
+              <a href="/2017/10/25/OpenGLES/" rel="next" title="OpenGL ES (GPUImage)">
+                <i class="fa fa-chevron-left"></i> OpenGL ES (GPUImage)
               </a>
             
           </div>
@@ -665,9 +665,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/head.png"
-                alt="Mini灬哆啦" />
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
             
               <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
               <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
@@ -680,7 +678,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -741,7 +739,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -806,7 +826,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -828,7 +848,7 @@
 
 
 
-<a href="http://www.beian.miit.gov.cn" target='_blank'>京ICP备18053843号</a>
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
 
         
 

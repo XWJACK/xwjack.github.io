@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/head.png?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Ethereum基础">
+<meta name="keywords" content="⭐️⭐️⭐️⭐️⭐️,Ethereum,Solidity,BlockChain">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethereum-SE01">
+<meta property="og:url" content="http://xwjack.github.io/2021/05/26/Ethereum/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="Ethereum基础">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2021-05-26-Ethereum/1.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2021-05-26-Ethereum/2.png">
+<meta property="og:image" content="http://xwjack.github.io/images/2021-05-26-Ethereum/3.png">
+<meta property="og:updated_time" content="2021-08-04T15:05:43.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ethereum-SE01">
+<meta name="twitter:description" content="Ethereum基础">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2021-05-26-Ethereum/1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://xwjack.github.io/2021/05/26/Ethereum/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ethereum-SE01 | Mini灬哆啦</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mini灬哆啦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2021/05/26/Ethereum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ethereum-SE01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-05-26 12:10:00" itemprop="dateCreated datePublished" datetime="2021-05-26T12:10:00+08:00">2021-05-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-08-04 23:05:43" itemprop="dateModified" datetime="2021-08-04T23:05:43+08:00">2021-08-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/05/26/Ethereum/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2021/05/26/Ethereum/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Ethereum基础</p>
+<a id="more"></a>
+<h2 id="Ethereum概念"><a href="#Ethereum概念" class="headerlink" title="Ethereum概念"></a>Ethereum概念</h2><p>先跟着<a href="https://ethereum.org/en/developers/docs/" target="_blank" rel="noopener">以太坊官方开发文档</a>看一遍，差不多基本概念了解。</p>
+<p>Solidity语法和JS基本一致。</p>
+<h3 id="Account"><a href="#Account" class="headerlink" title="Account"></a>Account</h3><p>账户形式有两种，一种是合约账户，一种的普通账户。两者不同的点就是普通账户手里有私钥，合约账户没有私钥，所以无法随意转移token。</p>
+<blockquote>
+<p> 这就导致如果你的Token转进了合约账户且没有预留相关的方法转移这个token，则该Token数量将永远锁死。</p>
+</blockquote>
+<h3 id="GasPrice-GasLimit"><a href="#GasPrice-GasLimit" class="headerlink" title="GasPrice/GasLimit"></a>GasPrice/GasLimit</h3><p>GasPrice表示价格，用wei来表示，表示一个gas值多少钱。</p>
+<p>GasLimit表示gas数量，表示我愿意最大用多少个gas来付费。超过了表示交易会滚，但是<code>ETH = GasPrice * GasLimit * 1^-18</code>的钱依旧给矿工了。</p>
+<p>一次以太坊交易所花的<code>ETH = GasPrice * GasNumber * 1^-18</code>。GasNumber表示在一次交易或者合约调用时具体花费的gas数量。</p>
+<p>下面是一个简单的转账交易，简单的转账交易一般gasLimit都是21000。而且gasNumber基本上是100%</p>
+<p><img src="/images/2021-05-26-Ethereum/1.png" alt></p>
+<p>当一次合约调用所设置的GasLimit大于实际花费的gas数量，则该交易失败，意味着你付费了但是没有得到任何的结果。这时候你需要提高的你的GasLimit来让合约执行。</p>
+<p><img src="/images/2021-05-26-Ethereum/2.png" alt></p>
+<p>GasPrice还决定了被执行的优先顺序，所有的交易会被放在sharepool中，然后按照GasPrice进行排序，高GasPrice会优先被执行，低GasPrice会被后执行。如果想要交易被快速执行，那么就提高GasPrice。</p>
+<p>GasLimit存在的意义之一，保证了你写的合约代码没有死循环，因为每一个操作都会消耗一定的gas数，当你给的GasLimit超出了实际的消耗，则该交易会被回滚。也保护了以太坊不会遭受死循环攻击。</p>
+<blockquote>
+<p><a href="https://ethereum.github.io/yellowpaper/paper.pdf" target="_blank" rel="noopener">以太坊黄皮书</a>中有合约每个操作具体花费的gas数量。</p>
+<p>Unit Converter：<a href="https://etherscan.io/unitconverter?wei=1" target="_blank" rel="noopener">https://etherscan.io/unitconverter?wei=1</a></p>
+<p>GasTracker：<a href="https://etherscan.io/gastracker" target="_blank" rel="noopener">https://etherscan.io/gastracker</a></p>
+<p>GasNow：<a href="https://www.gasnow.org/" target="_blank" rel="noopener">https://www.gasnow.org/</a></p>
+</blockquote>
+<h2 id="Web3合约调用"><a href="#Web3合约调用" class="headerlink" title="Web3合约调用"></a>Web3合约调用</h2><p>前端调用合约使用<a href="https://github.com/ChainSafe/web3.js" target="_blank" rel="noopener">web3</a>，可以理解以太坊区块链就是一个巨大的服务端，我们通过web3来访问服务端。</p>
+<h3 id="Infura"><a href="#Infura" class="headerlink" title="Infura"></a>Infura</h3><p><a href="https://infura.io" target="_blank" rel="noopener">Infura</a>可以理解为一个巨大的Nginx，通过他来访问以太坊（当然你也可以自己用geth同步所有区块，然后连接本地的RPC）。</p>
+<p><img src="/images/2021-05-26-Ethereum/3.png" alt></p>
+<h2 id="MateMask钱包"><a href="#MateMask钱包" class="headerlink" title="MateMask钱包"></a>MateMask钱包</h2><p>钱包（开源）：Chrome的Extension，基本上所有的DeFi应用（基于以太坊）的都会首选的钱包插件。</p>
+<h2 id="Truffle开发工具链"><a href="#Truffle开发工具链" class="headerlink" title="Truffle开发工具链"></a>Truffle开发工具链</h2><p>开发工具链（开源）。从开发、部署、测试都很完善，后面直接用这个工具部署到以太坊正式网络。</p>
+<p>truffle：<a href="https://www.trufflesuite.com/" target="_blank" rel="noopener">https://www.trufflesuite.com/</a></p>
+<p>ganache：<a href="https://www.trufflesuite.com/ganache" target="_blank" rel="noopener">https://www.trufflesuite.com/ganache</a></p>
+<blockquote>
+<p>部分玩家喜欢使用remix进行开发和部署，但个人觉得体验上来说并不是特别好（个人使用VSCode开发）。</p>
+</blockquote>
+<ol>
+<li>启动本地开发链</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每次启动的时候助记词都不一样</span></span><br><span class="line"><span class="comment"># port: 7545</span></span><br><span class="line"><span class="comment"># network_id: 5777</span></span><br><span class="line"><span class="comment"># chain_id: 1337</span></span><br><span class="line"><span class="comment"># 账户默认打100000ETH</span></span><br><span class="line">ganache-cli -p 7545 -i 5777 --chainId 1337 -e 100000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 固定私钥，方便每次启动ganache的时候私钥都是相同的，避免总是配置MateMask</span></span><br><span class="line"><span class="comment"># ETH数量是1e18次方</span></span><br><span class="line">ganache-cli -p 7545 -i 5777 --chainId 1337 --account=<span class="string">"私钥,100000000000000000000000000"</span> --account=<span class="string">"私钥,10000000000000000000000000"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合约太大的时候用这个</span></span><br><span class="line">--allowUnlimitedContractSize</span><br><span class="line"></span><br><span class="line"><span class="comment"># gas limit</span></span><br><span class="line">-l 12345678</span><br><span class="line"></span><br><span class="line"><span class="comment"># gas price</span></span><br><span class="line">-g 12345678</span><br><span class="line"></span><br><span class="line"><span class="comment"># 助记词</span></span><br><span class="line">-m 助记词</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>添加<code>truffle-config.js</code>配置文件</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HDWalletProvider = <span class="built_in">require</span>(<span class="string">'@truffle/hdwallet-provider'</span>);</span><br><span class="line"><span class="comment">// const infuraKey = "fj4jll3k.....";</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// const fs = require('fs');</span></span><br><span class="line"><span class="comment">// const mnemonic = fs.readFileSync(".secret").toString().trim();</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mnemonic = <span class="string">'助记词'</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    networks: &#123;</span><br><span class="line">        development: &#123;</span><br><span class="line">            host: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">            port: <span class="number">8545</span>,</span><br><span class="line">            network_id: <span class="string">"*"</span>,</span><br><span class="line">            chain_id: <span class="number">1337</span>,</span><br><span class="line">            gasPrice: <span class="number">5000000000</span>,</span><br><span class="line">            gas: <span class="number">5000000</span>,</span><br><span class="line">            websockets: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">      </span><br><span class="line">        kovan: &#123;</span><br><span class="line">            provider: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> HDWalletProvider(mnemonic, <span class="string">`https://kovan.infura.io/v3/key`</span>),</span><br><span class="line">            network_id: <span class="number">42</span>,</span><br><span class="line">            chain_id: <span class="number">42</span>,</span><br><span class="line">            gasPrice: <span class="number">5000000000</span>,</span><br><span class="line">            gas: <span class="number">12500000</span>,</span><br><span class="line">            confirmations: <span class="number">2</span>, <span class="comment">// # of confs to wait between deployments. (default: 0)</span></span><br><span class="line">            timeoutBlocks: <span class="number">200</span>, <span class="comment">// # of blocks before a deployment times out  (minimum/default: 50)</span></span><br><span class="line">            skipDryRun: <span class="literal">true</span> <span class="comment">// Skip dry run before migrations? (default: false for public nets )</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    compilers: &#123;</span><br><span class="line">        solc: &#123;</span><br><span class="line">            version: <span class="string">"0.8.6"</span>,</span><br><span class="line">            settings: &#123;</span><br><span class="line">                optimizer: &#123;</span><br><span class="line">                    enabled: <span class="literal">true</span>,</span><br><span class="line">                    runs: <span class="number">200</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">/// https://docs.soliditylang.org/en/latest/using-the-compiler.html#target-options</span></span><br><span class="line">                <span class="comment">//  evmVersion: "byzantium"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>编译/部署/测试</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译</span></span><br><span class="line">truffle compile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line">truffle migrate</span><br><span class="line"><span class="comment"># 部署到指定网络</span></span><br><span class="line">truffle migrate --network development/ropsten/kovan/mainnet</span><br><span class="line"><span class="comment"># 重新部署</span></span><br><span class="line">truffle migrate --reset</span><br><span class="line"><span class="comment"># 指定部署几个脚本</span></span><br><span class="line">truffle migrate --reset -f 1 --to 3</span><br><span class="line"><span class="comment"># 指定部署某个脚本</span></span><br><span class="line">truffle migrate -f 4 --to 4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译全部合约、并部署几个脚本，然后测试</span></span><br><span class="line">truffle <span class="built_in">test</span> --network development --compile-all -f 1 --to 8</span><br></pre></td></tr></table></figure>
+<h2 id="Write-Contract"><a href="#Write-Contract" class="headerlink" title="Write Contract"></a>Write Contract</h2><h3 id="Decimals"><a href="#Decimals" class="headerlink" title="Decimals"></a>Decimals</h3><p><code>10 ** 18</code>会出现溢出情况，应该改为<code>uint256(10) ** 18</code></p>
+<h3 id="View-Pure"><a href="#View-Pure" class="headerlink" title="View/Pure"></a>View/Pure</h3><p>在solidity中，不改变链上状态的方法都要标记为<code>view</code>或者<code>pure</code>，否则调用该方法的时候会产生一笔交易，即使这个方法什么也没做。</p>
+<blockquote>
+<p><code>emit</code>这种也会修改链上状态，所以不能在<code>view</code>中使用。</p>
+<p>pure是严格不访问、不修改。view是严格不修改。</p>
+</blockquote>
+<h3 id="msg-sender"><a href="#msg-sender" class="headerlink" title="msg.sender"></a>msg.sender</h3><p>A =&gt; ContractA: msg.sender == A</p>
+<p>ContractA =&gt; ContractB: 在ContractB中拿到的msg.sender == ContractA</p>
+<p>A =&gt; ContractA =&gt; ContractB: 在ContractA中拿到的msg.sender == A，在ContractB中拿到的msg.sender == ContractA。</p>
+<h3 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h3><p>solidity暂时不支持浮点型计算，所有的计算都是整型。</p>
+<p>所以在计算的时候一般都是先乘然后再除，否则会出现精度丢失。</p>
+<blockquote>
+<p>开源合约库：<a href="https://openzeppelin.com/" target="_blank" rel="noopener">https://openzeppelin.com/</a></p>
+</blockquote>
+<h3 id="public-external"><a href="#public-external" class="headerlink" title="public/external"></a>public/external</h3><p>public修饰的方法内部和外部都可以直接通过函数名字调用。</p>
+<p>external修饰的方法，只能是外部调用，如果内部想要调用需要通过<code>this.functionName()</code>来调用。</p>
+<blockquote>
+<p>在修饰view方法的时候没有区别，如果在内部通过<code>this.functionName()</code>来调用，则是转为外部调用（貌似会消耗更多gas？）</p>
+</blockquote>
+<h2 id="Truffle-Migration"><a href="#Truffle-Migration" class="headerlink" title="Truffle Migration"></a>Truffle Migration</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 使用artifacts来创建一个引用</span></span><br><span class="line"><span class="keyword">const</span> ABC = artifacts.require(<span class="string">'ERC20'</span>);</span><br><span class="line"><span class="keyword">const</span> WBTC = artifacts.require(<span class="string">'ERC20'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">async</span> (deployer, network, accounts) =&gt; &#123;</span><br><span class="line">  <span class="comment">/// deployer 主要是用来调用部署脚本，来部署合约用。</span></span><br><span class="line">  <span class="comment">/// network 标识当前网络名称。truffle migrate --network development/ropsten/kovan/mainnet</span></span><br><span class="line">  <span class="comment">/// accounts 是一个数组，当本地连接ganache的时候，是ganache提供的账户数组。</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/// 部署一个无参数ABC合约</span></span><br><span class="line">  <span class="keyword">await</span> deployer.deploy(ABC);</span><br><span class="line">  <span class="comment">/// 部署一个有参数ABC合约</span></span><br><span class="line">  <span class="keyword">await</span> deployer.deploy(ABC, <span class="string">"ERC20Name"</span>, <span class="string">"ERC20Symbol"</span>);</span><br><span class="line">  <span class="comment">/// 等待部署完成并拿到实例</span></span><br><span class="line">  abc = <span class="keyword">await</span> ABC.deployed();</span><br><span class="line">  <span class="comment">/// 当我们需要引用一个已经部署的实例</span></span><br><span class="line">  wbtc = <span class="keyword">await</span> WBTC.at(<span class="string">'0x2260fac5e5542a773aa44fbcfedf7c193bc2c599'</span>);</span><br><span class="line">  <span class="comment">/// 调用合约方法，totalSupply是一个view方法，不消耗gas。返回的是uint类型，在js中使用bn实例表现。</span></span><br><span class="line">  <span class="keyword">let</span> totalSupply = <span class="keyword">await</span> wbtc.totalSupply();</span><br><span class="line">  <span class="comment">/// 这里我们要把bn转换成string类型显示</span></span><br><span class="line">  <span class="built_in">console</span>.log(totalSupply.toString());</span><br><span class="line">  <span class="comment">/// 查询余额</span></span><br><span class="line">  <span class="keyword">let</span> balanceOf = <span class="keyword">await</span> wbtc.balanceOf(<span class="string">"0xabcdefghijklmnopqistuvwxyz"</span>);</span><br><span class="line">  <span class="comment">/// 转WBTC给`0xabcdefghijklmnopqistuvwxyz`，转出账户默认是accounts[0]，由于WBTC的精度是8，所以1e8表示1个WBTC</span></span><br><span class="line">  <span class="keyword">let</span> transferSuccess = <span class="keyword">await</span> wbtc.transfer(<span class="string">"0xabcdefghijklmnopqistuvwxyz"</span>, web3.utils.toBN(<span class="number">1e8</span>));</span><br><span class="line">  <span class="comment">/// 当然你也可以指定任意转出账户。</span></span><br><span class="line">  <span class="keyword">let</span> transferSuccess = <span class="keyword">await</span> wbtc.transfer(<span class="string">"0xabcdefghijklmnopqistuvwxyz"</span>, web3.utils.toBN(<span class="number">1e8</span>), &#123; <span class="attr">from</span>: accounts[<span class="number">1</span>] &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">/// 调用合约后面加上&#123; from: accounts[1] &#125;表示使用指定的账户进行操作。而不默认使用accounts[0]</span></span><br><span class="line">&gt; <span class="keyword">let</span> transferSuccess = <span class="keyword">await</span> wbtc.transfer(<span class="string">"0xabcdefghijklmnopqistuvwxyz"</span>, web3.utils.toBN(<span class="number">1e8</span>), &#123; <span class="attr">from</span>: accounts[<span class="number">1</span>] &#125;);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="bn-js"><a href="#bn-js" class="headerlink" title="bn.js"></a>bn.js</h3><p>truffle使用了这个库作为uint类型的返回值或者参数传递。</p>
+<p>bn.js: <a href="https://github.com/indutny/bn.js/" target="_blank" rel="noopener">https://github.com/indutny/bn.js/</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.BN = <span class="function">(<span class="params">number</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> web3.utils.toBN(number);</span><br><span class="line">&#125;;</span><br><span class="line">exports.MAXBN = web3.utils.toBN(<span class="string">"0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Truffle-Test"><a href="#Truffle-Test" class="headerlink" title="Truffle Test"></a>Truffle Test</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 测试基本结构</span></span><br><span class="line">contract(<span class="string">"# Name"</span>, accounts =&gt; &#123;</span><br><span class="line">  before(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">/// 配置测试环境</span></span><br><span class="line">    <span class="keyword">await</span> wbtc.approve(uni_router.address, MAXBN);</span><br><span class="line">  &#125;;</span><br><span class="line">  it(<span class="string">`Is right.`</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">/// 具体测试</span></span><br><span class="line">    <span class="keyword">await</span> wbtc.transfer(accounts[<span class="number">1</span>], BN(<span class="number">1e8</span>));</span><br><span class="line">    <span class="comment">/// 测试判断</span></span><br><span class="line">    assert(<span class="literal">true</span>, <span class="string">'Else fail message info.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Truffle uses the <a href="https://mochajs.org/" target="_blank" rel="noopener">Mocha</a> testing framework and <a href="http://chaijs.com/" target="_blank" rel="noopener">Chai</a> for assertions to provide you with a solid framework from which to write your JavaScript tests.</p>
+<p>详细使用：<a href="https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript" target="_blank" rel="noopener">https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/⭐️⭐️⭐️⭐️⭐️/" rel="tag"># ⭐️⭐️⭐️⭐️⭐️</a>
+          
+            <a href="/tags/Ethereum/" rel="tag"># Ethereum</a>
+          
+            <a href="/tags/Solidity/" rel="tag"># Solidity</a>
+          
+            <a href="/tags/BlockChain/" rel="tag"># BlockChain</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/18/Django/" rel="next" title="初学Django服务端">
+                <i class="fa fa-chevron-left"></i> 初学Django服务端
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/05/26/AppleOpensource/" rel="prev" title="Opensource Apple">
+                Opensource Apple <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
+            
+              <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
+              <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/XWJACK/" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ethereum概念"><span class="nav-number">1.</span> <span class="nav-text">Ethereum概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Account"><span class="nav-number">1.1.</span> <span class="nav-text">Account</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GasPrice-GasLimit"><span class="nav-number">1.2.</span> <span class="nav-text">GasPrice/GasLimit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web3合约调用"><span class="nav-number">2.</span> <span class="nav-text">Web3合约调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Infura"><span class="nav-number">2.1.</span> <span class="nav-text">Infura</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MateMask钱包"><span class="nav-number">3.</span> <span class="nav-text">MateMask钱包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Truffle开发工具链"><span class="nav-number">4.</span> <span class="nav-text">Truffle开发工具链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Write-Contract"><span class="nav-number">5.</span> <span class="nav-text">Write Contract</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Decimals"><span class="nav-number">5.1.</span> <span class="nav-text">Decimals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View-Pure"><span class="nav-number">5.2.</span> <span class="nav-text">View/Pure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#msg-sender"><span class="nav-number">5.3.</span> <span class="nav-text">msg.sender</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Float"><span class="nav-number">5.4.</span> <span class="nav-text">Float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-external"><span class="nav-number">5.5.</span> <span class="nav-text">public/external</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Truffle-Migration"><span class="nav-number">6.</span> <span class="nav-text">Truffle Migration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bn-js"><span class="nav-number">6.1.</span> <span class="nav-text">bn.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Truffle-Test"><span class="nav-number">7.</span> <span class="nav-text">Truffle Test</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mini灬哆啦</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://s3.ssl.qhres.com/static/d1850e8da1da0b6b.css">
+        <script src="https://s0.ssl.qhres.com/static/ac32b0163ec5f0c3.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'XWJACK',
+            repo: 'xwjack.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+            
+                client_id: '63a97a6fabe1ee5265d1'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/head.png?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Solidity">
+<meta name="keywords" content="⭐️⭐️⭐️⭐️⭐️,Ethereum,Solidity,BlockChain,Enhancement">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethereum-SE04">
+<meta property="og:url" content="http://xwjack.github.io/2021/08/03/Ethereum-Solidity/index.html">
+<meta property="og:site_name" content="Mini灬哆啦">
+<meta property="og:description" content="Solidity">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://xwjack.github.io/images/2021-08-03-Ethereum-Solidity/1.png">
+<meta property="og:updated_time" content="2021-08-04T15:55:19.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ethereum-SE04">
+<meta name="twitter:description" content="Solidity">
+<meta name="twitter:image" content="http://xwjack.github.io/images/2021-08-03-Ethereum-Solidity/1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://xwjack.github.io/2021/08/03/Ethereum-Solidity/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ethereum-SE04 | Mini灬哆啦</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4312600141d9e3d6b344aba925f03a57";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mini灬哆啦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xwjack.github.io/2021/08/03/Ethereum-Solidity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mini灬哆啦">
+      <meta itemprop="description" content="It's only a matter of time">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mini灬哆啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ethereum-SE04
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-08-03 12:00:00" itemprop="dateCreated datePublished" datetime="2021-08-03T12:00:00+08:00">2021-08-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-08-04 23:55:19" itemprop="dateModified" datetime="2021-08-04T23:55:19+08:00">2021-08-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/08/03/Ethereum-Solidity/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2021/08/03/Ethereum-Solidity/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Solidity</p>
+<a id="more"></a>
+<h2 id="Solc"><a href="#Solc" class="headerlink" title="Solc"></a>Solc</h2><p>一般的话我不直接使用，基本都是用truffle或者remix来管理，除非说自己编译之后看些东西</p>
+<p><a href="https://github.com/crytic/solc-select" target="_blank" rel="noopener">solc-select</a>：solc多版本管理工具</p>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><h3 id="view-vs-pure"><a href="#view-vs-pure" class="headerlink" title="view vs  pure"></a><code>view</code> vs  <code>pure</code></h3><ol>
+<li>view修饰非改变链上状态的函数</li>
+<li>pure修饰非改变链上状态也不读取链上状态的函数</li>
+</ol>
+<blockquote>
+<p> 总结：pure是view的更严格子集，对于直接web3调用来说，都是不消耗gas费的。</p>
+<p> <a href="https://docs.soliditylang.org/en/latest/contracts.html#view-functions" target="_blank" rel="noopener">https://docs.soliditylang.org/en/latest/contracts.html#view-functions</a></p>
+</blockquote>
+<h3 id="public-vs-external"><a href="#public-vs-external" class="headerlink" title="public vs  external"></a><code>public</code> vs  <code>external</code></h3><ol>
+<li>public修饰的函数，可以外部调用，也可以合约本身直接调用（<code>func(...)</code>）。</li>
+<li>external修饰的函数，只能外部调用，合约本身不能直接调用（但是能通过<code>this.func(...)</code>调用）。</li>
+</ol>
+<blockquote>
+<p>总结建议：在合约内部如果非特殊情况，不要使用<code>this.func(...)</code>来调用自身合约函数（会耗费更多的gas费，因为是通过CALL（gas: 700）来调用，而非JUMP调用（gas: 8）。）</p>
+<p>基本上能用public用public，external在一些特殊场合使用（比如让代码更严谨）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; import &quot;@openzeppelin/contracts/access/Ownable.sol&quot;;</span><br><span class="line">&gt; contract A is Ownable &#123;</span><br><span class="line">&gt; 	/// 在这里public修饰符就没有什么作用了，除非owner权限是合约本身</span><br><span class="line">&gt; 	function abc() external onlyOwner &#123;</span><br><span class="line">&gt; 		_abc();</span><br><span class="line">&gt; 	&#125;</span><br><span class="line">&gt; 	function _abc() internal &#123;</span><br><span class="line">&gt; 	&#125;</span><br><span class="line">&gt; 	function def() public &#123;</span><br><span class="line">&gt; 		_abc();</span><br><span class="line">&gt; 	&#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><a href="https://docs.soliditylang.org/en/latest/cheatsheet.html?highlight=encodewithsignature#function-visibility-specifiers" target="_blank" rel="noopener">https://docs.soliditylang.org/en/latest/cheatsheet.html?highlight=encodewithsignature#function-visibility-specifiers</a></p>
+</blockquote>
+<h2 id="estimateGas估算gas"><a href="#estimateGas估算gas" class="headerlink" title="estimateGas估算gas"></a>estimateGas估算gas</h2><p>以太坊开发和普通开发不同的地方就是以太坊的每一步操作都是耗费gas的，一个好的合约，应该考虑到gas的消耗。</p>
+<h3 id="gas消耗"><a href="#gas消耗" class="headerlink" title="gas消耗"></a>gas消耗</h3><p>以太坊黄皮中的Fee Schedule介绍了不同指令的gas消耗</p>
+<p><img src="/images/2021-08-03-Ethereum-Solidity/1.png" alt></p>
+<blockquote>
+<p>总结：SLOAD、SSTORE是我们经常使用的耗费gas操作，即读取链上数据和写入数据到链上。</p>
+</blockquote>
+<h3 id="节省gas"><a href="#节省gas" class="headerlink" title="节省gas"></a>节省gas</h3><ol>
+<li>当链上数据读出来之后需要多次用到并计算。先读出来存为单独变量（栈内存），之后再用该变量进行计算。最后再写入链上。</li>
+</ol>
+<blockquote>
+<p><a href="https://ethereum.github.io/yellowpaper/paper.pdf" target="_blank" rel="noopener">Ethereum Yellow Paper</a></p>
+</blockquote>
+<h2 id="动态调用"><a href="#动态调用" class="headerlink" title="动态调用"></a>动态调用</h2><h3 id="delegatecall"><a href="#delegatecall" class="headerlink" title="delegatecall"></a>delegatecall</h3><p>代理调用可以简单理解为将一个合约变成library之后进行调用，调用环境不变（调用者环境）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">contract B &#123;</span><br><span class="line">    address public delegator;</span><br><span class="line">    uint public save = 50;</span><br><span class="line">    uint public abc = 10;</span><br><span class="line"></span><br><span class="line">    function set(uint256 amount) public &#123;</span><br><span class="line">        save = amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract A &#123;</span><br><span class="line">    address public delegator;</span><br><span class="line">    uint public save;</span><br><span class="line">    </span><br><span class="line">    function set(</span><br><span class="line">        address target,</span><br><span class="line">        uint amount</span><br><span class="line">    ) public &#123;</span><br><span class="line">        //solium-disable-next-line</span><br><span class="line">        (bool success, ) =</span><br><span class="line">        target.delegatecall(</span><br><span class="line">            abi.encodeWithSignature(</span><br><span class="line">                &apos;set(uint256)&apos;,</span><br><span class="line">                amount</span><br><span class="line">            )</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>B合约可以单独进行调用，也可以被A调用。</li>
+<li>B合约被代理调用时，所有的存储槽环境变成A的环境，即save的值不再是50，而是取决于A中save的值。在B的set被调用时，save值也会写到A的合约中，而B的save值不动。</li>
+<li>B合约被单独调用时，save变量为自己的存储值。</li>
+<li>abc在B中被定义，但是在A中未定义，也可以被修改，但是A合约中无法进行调用（但是如果相同槽位上有变量，则会修改对应存储槽的变量）</li>
+</ol>
+<blockquote>
+<p> 总结：B在被直接调用时，B合约存储值为自己的内容，当B被代理调用时，存储槽环境全部更换为代理者合约环境，期间所有的修改都不会影响B合约本身。</p>
+<p><a href="https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html?highlight=delegatecall#delegatecall-callcode-and-libraries" target="_blank" rel="noopener">https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html?highlight=delegatecall#delegatecall-callcode-and-libraries</a></p>
+</blockquote>
+<h2 id="状态变量存储"><a href="#状态变量存储" class="headerlink" title="状态变量存储"></a>状态变量存储</h2><p><a href="https://docs.soliditylang.org/en/latest/internals/layout_in_storage.html" target="_blank" rel="noopener">https://docs.soliditylang.org/en/latest/internals/layout_in_storage.html</a></p>
+<p>32 byte 为一个 solt（uint256, bytes32都各占一个solt）</p>
+<blockquote>
+<p>address为20 byte <a href="https://docs.soliditylang.org/en/latest/types.html#address" target="_blank" rel="noopener"><code>address</code>: Holds a 20 byte value (size of an Ethereum address)</a></p>
+<p>constant修饰的变量不占用存储槽 <a href="https://docs.soliditylang.org/en/latest/cheatsheet.html?highlight=encodewithsignature#modifiers" target="_blank" rel="noopener"><code>constant</code> for state variables: Disallows assignment (except initialisation), does not occupy storage slot.</a></p>
+</blockquote>
+<h2 id="漏洞"><a href="#漏洞" class="headerlink" title="漏洞"></a>漏洞</h2><h3 id="闪电贷"><a href="#闪电贷" class="headerlink" title="闪电贷"></a>闪电贷</h3><h3 id="delegatecall-1"><a href="#delegatecall-1" class="headerlink" title="delegatecall"></a>delegatecall</h3><p>调用攻击合约修改调用合约的存储信息</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://ethereum.github.io/yellowpaper/paper.pdf" target="_blank" rel="noopener">Ethereum Yellow Paper</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/⭐️⭐️⭐️⭐️⭐️/" rel="tag"># ⭐️⭐️⭐️⭐️⭐️</a>
+          
+            <a href="/tags/Ethereum/" rel="tag"># Ethereum</a>
+          
+            <a href="/tags/Solidity/" rel="tag"># Solidity</a>
+          
+            <a href="/tags/BlockChain/" rel="tag"># BlockChain</a>
+          
+            <a href="/tags/Enhancement/" rel="tag"># Enhancement</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/07/09/Ethereum-Enhancement/" rel="next" title="Ethereum-SE03">
+                <i class="fa fa-chevron-left"></i> Ethereum-SE03
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/08/04/Ethereum-SushiSwap/" rel="prev" title="Ethereum-SE05">
+                Ethereum-SE05 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
+            
+              <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
+              <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/XWJACK/" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solc"><span class="nav-number">1.</span> <span class="nav-text">Solc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-number">2.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#view-vs-pure"><span class="nav-number">2.1.</span> <span class="nav-text">view vs  pure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-vs-external"><span class="nav-number">2.2.</span> <span class="nav-text">public vs  external</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#estimateGas估算gas"><span class="nav-number">3.</span> <span class="nav-text">estimateGas估算gas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gas消耗"><span class="nav-number">3.1.</span> <span class="nav-text">gas消耗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节省gas"><span class="nav-number">3.2.</span> <span class="nav-text">节省gas</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态调用"><span class="nav-number">4.</span> <span class="nav-text">动态调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#delegatecall"><span class="nav-number">4.1.</span> <span class="nav-text">delegatecall</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态变量存储"><span class="nav-number">5.</span> <span class="nav-text">状态变量存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#漏洞"><span class="nav-number">6.</span> <span class="nav-text">漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闪电贷"><span class="nav-number">6.1.</span> <span class="nav-text">闪电贷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delegatecall-1"><span class="nav-number">6.2.</span> <span class="nav-text">delegatecall</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number"></span> <span class="nav-text">Reference</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mini灬哆啦</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://s3.ssl.qhres.com/static/d1850e8da1da0b6b.css">
+        <script src="https://s0.ssl.qhres.com/static/ac32b0163ec5f0c3.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'XWJACK',
+            repo: 'xwjack.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'b1fe01f8c1aed22c0e78e5b65ac4793bb1433707',
+            
+                client_id: '63a97a6fabe1ee5265d1'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

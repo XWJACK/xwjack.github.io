@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -43,8 +43,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -63,7 +63,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -71,9 +71,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
@@ -151,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="http://xwjack.github.io/2017/09/20/Framework/"/>
+  <link rel="canonical" href="http://xwjack.github.io/2017/09/20/Framework/">
 
 
 
@@ -257,7 +257,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
         
         
@@ -265,7 +265,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
 
       
@@ -462,7 +462,7 @@
 <p><a href="https://medium.com/@borisohayon/ios-opencv-and-swift-1ee3e3a5735b" target="_blank" rel="noopener">iOS — OpenCV and Swift</a>这篇文章写的很好。</p>
 <h2 id="扫盲"><a href="#扫盲" class="headerlink" title="扫盲"></a>扫盲</h2><p>下面介绍一下自己认为的错误。</p>
 <h3 id="Framework一定是动态库么？"><a href="#Framework一定是动态库么？" class="headerlink" title="Framework一定是动态库么？"></a>Framework一定是动态库么？</h3><p>Framework可能是动态库，也可能是静态库，决定是掌握在Build Setting中的Mach-o Type选项。<br>例如<code>ijkplayer</code>虽然是以Framework结尾，但其却是静态库。</p>
-<p><img src="/images/2017-09-20-Framework/1.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/1.png" alt></p>
 <h4 id="那么在项目中如何引入这样以Framework结尾的静态库呢？"><a href="#那么在项目中如何引入这样以Framework结尾的静态库呢？" class="headerlink" title="那么在项目中如何引入这样以Framework结尾的静态库呢？"></a>那么在项目中如何引入这样以Framework结尾的静态库呢？</h4><p>由于是静态库，所以是直接链接到可执行文件中的，所以在解包ipa文件的Frameowks目录底下是看不到这个Framework的。</p>
 <ol>
 <li>Framework链接的静态库可以<strong>不用</strong>在项目中再次设置<code>Library Search Paths</code>。</li>
@@ -509,7 +509,7 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create .../Debug-iphoneos/GPUImage.framework .../Debug-iphonesimulator/GPUImage.framework/GPUImage -output .../GPUImage</span><br></pre></td></tr></table></figure>
 <h3 id="Static-Library"><a href="#Static-Library" class="headerlink" title="Static Library"></a>Static Library</h3><p>首先需要将头文件暴露出来，将<code>project</code>中的头文件拖拽到<code>public</code>中：</p>
-<p><img src="/images/2017-09-20-Framework/2.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/2.png" alt></p>
 <ul>
 <li>1⃣️ 然后选择<code>Generic iOS Device</code>和任意一款模拟器分别编译一下。</li>
 </ul>
@@ -530,17 +530,17 @@
 <h1 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h1><h2 id="dyld-Library-not-loaded-rpath-xxx-framework-xxx"><a href="#dyld-Library-not-loaded-rpath-xxx-framework-xxx" class="headerlink" title="dyld: Library not loaded: @rpath/xxx.framework/xxx"></a>dyld: Library not loaded: @rpath/xxx.framework/xxx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath/xxx.framework/xxx</span><br><span class="line">Referenced from: /xxx.framework/xxx</span><br><span class="line">Reason: image not found</span><br></pre></td></tr></table></figure>
 <p>我们用<code>Alamofire</code>（Swift）和<code>GPUImage</code>（Objective-C）为例导入到一个Swift项目中。</p>
 <h3 id="❌错误演示1"><a href="#❌错误演示1" class="headerlink" title="❌错误演示1"></a>❌错误演示1</h3><p>在一个<code>workspace</code>中添加<code>Alamofire</code>和<code>GPUImage</code>，然后链接这两个库。</p>
-<p><img src="/images/2017-09-20-Framework/3.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/3.png" alt></p>
 <p>编译是没有问题的，但是一运行就出现了上述的问题：</p>
-<p><img src="/images/2017-09-20-Framework/4.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/4.png" alt></p>
 <h3 id="❌错误演示2"><a href="#❌错误演示2" class="headerlink" title="❌错误演示2"></a>❌错误演示2</h3><p>在一个<code>workspace</code>中添加<code>Alamofire</code>和<code>GPUImage</code>，然后<code>Embedded Binaries</code>这两个库。⚠️查看这拖拽库的位置和添加方式。</p>
-<p><img src="/images/2017-09-20-Framework/5.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/5.png" alt></p>
 <p>编译运行都是没有问题的，但是在<code>Embedded Binaries</code>中显示的路径是一条带有随机字符串的库，一旦用<code>Git</code>提交代码，别人就用不了，因为路径不同，所以找不到库。</p>
-<p><img src="/images/2017-09-20-Framework/6.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/6.png" alt></p>
 <h3 id="✅正确演示"><a href="#✅正确演示" class="headerlink" title="✅正确演示"></a>✅正确演示</h3><p>在一个<code>project</code>中添加<code>Alamfrie</code>和<code>GPUImage</code>（⚠️<strong>添加的位置是在这个项目里面</strong>），然后<code>Embedded Binaries</code>添加这两个库</p>
-<p><img src="/images/2017-09-20-Framework/7.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/7.png" alt></p>
 <p>编译运行，完全没有问题：</p>
-<p><img src="/images/2017-09-20-Framework/8.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/8.png" alt></p>
 <h3 id="✅GPUImage官方讲解导入库"><a href="#✅GPUImage官方讲解导入库" class="headerlink" title="✅GPUImage官方讲解导入库"></a>✅<code>GPUImage</code>官方讲解导入库</h3><p>Adding this as a framework (module) to your Mac or iOS project</p>
 <p>Xcode 6 and iOS 8 support the use of full frameworks, as does the Mac, which simplifies the process of adding this to your application. To add this to your application, I recommend dragging the <code>.xcodeproj</code> project file into your application’s project (as you would in the static library target).</p>
 <blockquote>
@@ -552,7 +552,7 @@
 <p>You then need to add a new Copy Files build phase, set the Destination to Frameworks, and add the GPUImage.framework build product to that. This will allow the framework to be bundled with your application (otherwise, you’ll see cryptic “dyld: Library not loaded: @rpath/GPUImage.framework/GPUImage” errors on execution).</p>
 </blockquote>
 <h3 id="✅正确在-xcworkspace中添加库-常见于cocoaPods"><a href="#✅正确在-xcworkspace中添加库-常见于cocoaPods" class="headerlink" title="✅正确在.xcworkspace中添加库(常见于cocoaPods)"></a>✅正确在<code>.xcworkspace</code>中添加库(常见于cocoaPods)</h3><p>和上面一样，直接拖到对应的<code>project</code>中。</p>
-<p><img src="/images/2017-09-20-Framework/9.png" alt=""></p>
+<p><img src="/images/2017-09-20-Framework/9.png" alt></p>
 <blockquote>
 <p>⚠️<code>Test</code>项目是后来更新的图。</p>
 </blockquote>
@@ -601,8 +601,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/15/Reverse/" rel="prev" title="逆向">
-                逆向 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/25/OpenGLES/" rel="prev" title="OpenGL ES (GPUImage)">
+                OpenGL ES (GPUImage) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -669,9 +669,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/head.png"
-                alt="Mini灬哆啦" />
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
             
               <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
               <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
@@ -684,7 +682,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -745,7 +743,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -810,7 +830,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -832,7 +852,7 @@
 
 
 
-<a href="http://www.beian.miit.gov.cn" target='_blank'>京ICP备18053843号</a>
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
 
         
 

@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -43,8 +43,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -63,7 +63,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -71,9 +71,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
@@ -124,7 +124,7 @@
 
 
   <meta name="description" content="这是一款音乐播放器，本地，网络音乐都可以播放，做这个主要原因：一个是为了毕业设计，一个是为了考验一下自己编码的能力。毕业设计题目是“基于iOS平台的网络音乐播放器的设计与实现”">
-<meta name="keywords" content="iOS,Swift 3.1.0,⭐️⭐️⭐️⭐️⭐️,AVFoundation,AudioToolbox,Project">
+<meta name="keywords" content="iOS,Swift 3.1.0,AVFoundation,AudioToolbox,Project,⭐️⭐️⭐️⭐️⭐️">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Music">
 <meta property="og:url" content="http://xwjack.github.io/2017/03/20/Music/index.html">
@@ -149,7 +149,7 @@
 
 
 
-  <link rel="canonical" href="http://xwjack.github.io/2017/03/20/Music/"/>
+  <link rel="canonical" href="http://xwjack.github.io/2017/03/20/Music/">
 
 
 
@@ -255,7 +255,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
         
         
@@ -263,7 +263,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
 
       
@@ -478,7 +478,7 @@
 <p>在回调中<code>let mySelf = Unmanaged&lt;YourClass&gt;.fromOpaque(inClientData).takeUnretainedValue()</code>再将指针转换成YourClass类型的指针。</p>
 </blockquote>
 <p>下面给出这个播放器整体运行的流程图：</p>
-<p><img src="/images/2017-03-20-Music/1.png" alt=""></p>
+<p><img src="/images/2017-03-20-Music/1.png" alt></p>
 <h5 id="Thread-in-AudioQueue-and-AudioFileStream"><a href="#Thread-in-AudioQueue-and-AudioFileStream" class="headerlink" title="Thread in AudioQueue and AudioFileStream"></a>Thread in AudioQueue and AudioFileStream</h5><p>这里主要说的是AudioQueue和AudioFileStream中线程的问题</p>
 <p>在<code>AudioQueueNewOutput</code>创建的时候有一个参数<code>inCallbackRunLoop</code>，官方是这样讲解这个参数的：</p>
 <blockquote>
@@ -908,7 +908,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="AudioQueueOutputCallback播放音频完成回调"><a href="#AudioQueueOutputCallback播放音频完成回调" class="headerlink" title="AudioQueueOutputCallback播放音频完成回调"></a>AudioQueueOutputCallback播放音频完成回调</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">AudioQueueOutputCallback</span> = (<span class="type">UnsafeMutableRawPointer</span>?, <span class="type">AudioQueueRef</span>, <span class="type">AudioQueueBufferRef</span>) -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
+<h5 id="AudioQueueOutputCallback播放音频完成回调"><a href="#AudioQueueOutputCallback播放音频完成回调" class="headerlink" title="AudioQueueOutputCallback播放音频完成回调"></a>AudioQueueOutputCallback播放音频完成回调</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">AudioQueueOutputCallback</span> = (<span class="type">UnsafeMutableRawPointer?</span>, <span class="type">AudioQueueRef</span>, <span class="type">AudioQueueBufferRef</span>) -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -931,9 +931,9 @@
 <blockquote>
 <p>但是在代码中是直接销毁重新创建，由于时间关系，留在以后再优化。</p>
 </blockquote>
-<p><img src="/images/2017-03-20-Music/2.png" alt=""></p>
+<p><img src="/images/2017-03-20-Music/2.png" alt></p>
 <p>下面来一个动图帮助理解（Thanks for: <a href="https://robots.thoughtbot.com/streaming-audio-to-multiple-listeners-via-ios-multipeer-connectivity" target="_blank" rel="noopener">Streaming Audio to Multiple Listeners via iOS’ Multipeer Connectivity</a>）</p>
-<p><img src="/images/2017-03-20-Music/3.gif" alt=""></p>
+<p><img src="/images/2017-03-20-Music/3.gif" alt></p>
 <h5 id="AudioQueueAddPropertyListener添加音频队列属性监听"><a href="#AudioQueueAddPropertyListener添加音频队列属性监听" class="headerlink" title="AudioQueueAddPropertyListener添加音频队列属性监听"></a>AudioQueueAddPropertyListener添加音频队列属性监听</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioQueueAddPropertyListener</span><span class="params">(<span class="number">_</span> inAQ: AudioQueueRef, <span class="number">_</span> inID: AudioQueuePropertyID, <span class="number">_</span> inProc: @escaping AudioQueuePropertyListenerProc, <span class="number">_</span> inUserData: UnsafeMutableRawPointer?)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -982,7 +982,7 @@
 </tbody>
 </table>
 <p>在这里我们向新的空间填充音频数据</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// New buffer</span></span><br><span class="line"><span class="keyword">var</span> newAudioQueueBuffer: <span class="type">AudioQueueBufferRef</span>? = <span class="literal">nil</span></span><br><span class="line"><span class="comment">/// How many data need to enter queue</span></span><br><span class="line"><span class="keyword">var</span> inQueueDatas: <span class="type">ArraySlice</span>&lt;<span class="type">Data</span>&gt; = packets[currentOffset..&lt;endOffset]</span><br><span class="line"><span class="keyword">var</span> inQueueDescriptions: [<span class="type">AudioStreamPacketDescription</span>] = []</span><br><span class="line"><span class="comment">/// Total data size</span></span><br><span class="line"><span class="keyword">let</span> totalSize = inQueueDatas.<span class="built_in">reduce</span>(<span class="number">0</span>, &#123; $<span class="number">0</span> + $<span class="number">1</span>.<span class="built_in">count</span> &#125;)</span><br><span class="line">        </span><br><span class="line"><span class="comment">/// Allocate buffer</span></span><br><span class="line">status = <span class="type">AudioQueueAllocateBuffer</span>(audioQueue!,</span><br><span class="line">                                  <span class="type">UInt32</span>(totalSize),</span><br><span class="line">                                  &amp;newAudioQueueBuffer)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> !status.isSuccess &#123; delegate?.streamAudioPlayer(<span class="keyword">self</span>, anErrorOccur: .streamAudioPlayer(.audioQueue(.allocateBuffer(status)))) &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">newAudioQueueBuffer?.pointee.mAudioDataByteSize = <span class="type">UInt32</span>(totalSize)</span><br><span class="line">newAudioQueueBuffer?.pointee.mUserData = selfInstance</span><br><span class="line">        </span><br><span class="line"><span class="keyword">var</span> copiedSize = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> currentOffset..&lt;endOffset &#123;</span><br><span class="line">        <span class="keyword">let</span> packetData = inQueueDatas[i]</span><br><span class="line">         <span class="comment">/// Copy data to buffer</span></span><br><span class="line">        memcpy(newAudioQueueBuffer?.pointee.mAudioData.advanced(by: copiedSize),</span><br><span class="line">                (packetData <span class="keyword">as</span> <span class="type">NSData</span>).bytes,</span><br><span class="line">                packetData.<span class="built_in">count</span>)</span><br><span class="line">        <span class="keyword">let</span> description = <span class="type">AudioStreamPacketDescription</span>(mStartOffset: <span class="type">Int64</span>(copiedSize),</span><br><span class="line">                                                        mVariableFramesInPacket: <span class="number">0</span>,</span><br><span class="line">                                                        mDataByteSize: <span class="type">UInt32</span>(packetData.<span class="built_in">count</span>))</span><br><span class="line">        inQueueDescriptions.append(description)</span><br><span class="line">        copiedSize += packetData.<span class="built_in">count</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// New buffer</span></span><br><span class="line"><span class="keyword">var</span> newAudioQueueBuffer: <span class="type">AudioQueueBufferRef?</span> = <span class="literal">nil</span></span><br><span class="line"><span class="comment">/// How many data need to enter queue</span></span><br><span class="line"><span class="keyword">var</span> inQueueDatas: <span class="type">ArraySlice</span>&lt;<span class="type">Data</span>&gt; = packets[currentOffset..&lt;endOffset]</span><br><span class="line"><span class="keyword">var</span> inQueueDescriptions: [<span class="type">AudioStreamPacketDescription</span>] = []</span><br><span class="line"><span class="comment">/// Total data size</span></span><br><span class="line"><span class="keyword">let</span> totalSize = inQueueDatas.<span class="built_in">reduce</span>(<span class="number">0</span>, &#123; $<span class="number">0</span> + $<span class="number">1</span>.<span class="built_in">count</span> &#125;)</span><br><span class="line">        </span><br><span class="line"><span class="comment">/// Allocate buffer</span></span><br><span class="line">status = <span class="type">AudioQueueAllocateBuffer</span>(audioQueue!,</span><br><span class="line">                                  <span class="type">UInt32</span>(totalSize),</span><br><span class="line">                                  &amp;newAudioQueueBuffer)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> !status.isSuccess &#123; delegate?.streamAudioPlayer(<span class="keyword">self</span>, anErrorOccur: .streamAudioPlayer(.audioQueue(.allocateBuffer(status)))) &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">newAudioQueueBuffer?.pointee.mAudioDataByteSize = <span class="type">UInt32</span>(totalSize)</span><br><span class="line">newAudioQueueBuffer?.pointee.mUserData = selfInstance</span><br><span class="line">        </span><br><span class="line"><span class="keyword">var</span> copiedSize = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> currentOffset..&lt;endOffset &#123;</span><br><span class="line">        <span class="keyword">let</span> packetData = inQueueDatas[i]</span><br><span class="line">         <span class="comment">/// Copy data to buffer</span></span><br><span class="line">        memcpy(newAudioQueueBuffer?.pointee.mAudioData.advanced(by: copiedSize),</span><br><span class="line">                (packetData <span class="keyword">as</span> <span class="type">NSData</span>).bytes,</span><br><span class="line">                packetData.<span class="built_in">count</span>)</span><br><span class="line">        <span class="keyword">let</span> description = <span class="type">AudioStreamPacketDescription</span>(mStartOffset: <span class="type">Int64</span>(copiedSize),</span><br><span class="line">                                                        mVariableFramesInPacket: <span class="number">0</span>,</span><br><span class="line">                                                        mDataByteSize: <span class="type">UInt32</span>(packetData.<span class="built_in">count</span>))</span><br><span class="line">        inQueueDescriptions.append(description)</span><br><span class="line">        copiedSize += packetData.<span class="built_in">count</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="AudioQueueEnqueueBuffer将Buffer加入到音频队列中"><a href="#AudioQueueEnqueueBuffer将Buffer加入到音频队列中" class="headerlink" title="AudioQueueEnqueueBuffer将Buffer加入到音频队列中"></a>AudioQueueEnqueueBuffer将Buffer加入到音频队列中</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AudioQueueEnqueueBuffer</span><span class="params">(<span class="number">_</span> inAQ: AudioQueueRef, <span class="number">_</span> inBuffer: AudioQueueBufferRef, <span class="number">_</span> inNumPacketDescs: UInt32, <span class="number">_</span> inPacketDescs: UnsafePointer&lt;AudioStreamPacketDescription&gt;?)</span></span> -&gt; <span class="type">OSStatus</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -1076,11 +1076,13 @@
 </blockquote>
 </li>
 </ul>
-<h1 id="实际项目开发"><a href="#实际项目开发" class="headerlink" title="实际项目开发"></a>实际项目开发</h1><h2 id="主要界面搭建"><a href="#主要界面搭建" class="headerlink" title="主要界面搭建"></a>主要界面搭建</h2><h3 id="播放器界面"><a href="#播放器界面" class="headerlink" title="播放器界面"></a>播放器界面</h3><p><img src="/images/2017-03-20-Music/4.png" alt=""></p>
+<h1 id="实际项目开发"><a href="#实际项目开发" class="headerlink" title="实际项目开发"></a>实际项目开发</h1><h2 id="主要界面搭建"><a href="#主要界面搭建" class="headerlink" title="主要界面搭建"></a>主要界面搭建</h2><h3 id="播放器界面"><a href="#播放器界面" class="headerlink" title="播放器界面"></a>播放器界面</h3><p><img src="/images/2017-03-20-Music/4.png" alt></p>
 <h2 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h2><h3 id="后台音频播放及控制"><a href="#后台音频播放及控制" class="headerlink" title="后台音频播放及控制"></a>后台音频播放及控制</h3><h4 id="后台音频播放"><a href="#后台音频播放" class="headerlink" title="后台音频播放"></a>后台音频播放</h4><p><code>AppDelegate</code>中我们要添加下面这个来设置音频行为：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> <span class="type">AVAudioSession</span>.sharedInstance().setCategory(<span class="type">AVAudioSessionCategoryPlayback</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="comment">//ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: <span class="keyword">Any</span>]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> <span class="type">AVAudioSession</span>.sharedInstance().setCategory(<span class="type">AVAudioSessionCategoryPlayback</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="comment">//ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Setting the audio session category ensures that the application has the audio behavior expected of a media playback app.（设置<code>Audio Session</code>目的就是为了配置音频的行为）</p>
+</blockquote>
+<blockquote>
 <p>An audio session acts as an intermediary between your app and the operating system.（<code>Audio Session</code>是作为<code>App</code>和<code>操作系统</code>的中间人）</p>
 </blockquote>
 <p>默认有下列行为配置：</p>
@@ -1098,7 +1100,7 @@
 <blockquote>
 <p>Select your app’s target in Xcode and select the Capabilities tab. Under the Capabilities tab, set the Background Modes switch to ON and select the “Audio, AirPlay, and Picture in Picture” option under the list of available modes.</p>
 </blockquote>
-<p><img src="/images/2017-03-20-Music/5.png" alt=""></p>
+<p><img src="/images/2017-03-20-Music/5.png" alt></p>
 <h4 id="后台音频播放控制"><a href="#后台音频播放控制" class="headerlink" title="后台音频播放控制"></a>后台音频播放控制</h4><p>这个时候我们需要用到<code>MediaPlayer</code>库中的<code>MPRemoteCommandCenter</code>和<code>MPNowPlayingInfoCenter</code>，两个类都是单例</p>
 <p>添加播放，暂停，下一首，上一首控制。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().playCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.playCommand))</span><br><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().pauseCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.pauseCommand))</span><br><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().nextTrackCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.nextTrack))</span><br><span class="line"><span class="type">MPRemoteCommandCenter</span>.shared().previousTrackCommand.addTarget(musicPlayerViewController, action: #selector(musicPlayerViewController.lastTrack))</span><br></pre></td></tr></table></figure>
@@ -1183,7 +1185,7 @@
 <li>关于UIApplicationDelegate</li>
 </ul>
 <p>基本的流程大概是这样的。</p>
-<p><img src="/images/2017-03-20-Music/6.png" alt=""></p>
+<p><img src="/images/2017-03-20-Music/6.png" alt></p>
 <h1 id="项目踩坑"><a href="#项目踩坑" class="headerlink" title="项目踩坑"></a>项目踩坑</h1><h2 id="StoryBoard"><a href="#StoryBoard" class="headerlink" title="StoryBoard"></a>StoryBoard</h2><ul>
 <li>约束相对于的对象写错</li>
 </ul>
@@ -1212,14 +1214,14 @@
 </tr>
 </tbody>
 </table>
-<p><img src="/images/2017-03-20-Music/7.png" alt=""></p>
+<p><img src="/images/2017-03-20-Music/7.png" alt></p>
 <ul>
 <li>之前采用StoryBoard写播放器界面</li>
 </ul>
 <blockquote>
 <p>在下面代码中，第一次初始化播放器的时候，并且页面还没有push出来。这个如果使用里面的控件，都会是nil。所以只能放弃，使用代码进行布局。</p>
 </blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">instanseFromStoryboard</span>&lt;T: UIViewController&gt;<span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">UIStoryboard</span>(name: <span class="keyword">self</span>.reuseIdentifier, bundle: <span class="literal">nil</span>).instantiateViewController(withIdentifier: <span class="keyword">self</span>.reuseIdentifier) <span class="keyword">as</span>? <span class="type">T</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> musicPlayerViewController: <span class="type">MusicPlayerViewController</span> = <span class="type">MusicPlayerViewController</span>.instanseFromStoryboard()! <span class="keyword">as</span>! <span class="type">MusicPlayerViewController</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">instanseFromStoryboard</span>&lt;T: UIViewController&gt;<span class="params">()</span></span> -&gt; <span class="type">T?</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">UIStoryboard</span>(name: <span class="keyword">self</span>.reuseIdentifier, bundle: <span class="literal">nil</span>).instantiateViewController(withIdentifier: <span class="keyword">self</span>.reuseIdentifier) <span class="keyword">as</span>? <span class="type">T</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> musicPlayerViewController: <span class="type">MusicPlayerViewController</span> = <span class="type">MusicPlayerViewController</span>.instanseFromStoryboard()! <span class="keyword">as</span>! <span class="type">MusicPlayerViewController</span></span><br></pre></td></tr></table></figure>
 <h2 id="UITabBar"><a href="#UITabBar" class="headerlink" title="UITabBar"></a>UITabBar</h2><table>
 <thead>
 <tr>
@@ -1399,13 +1401,13 @@
           
             <a href="/tags/Swift-3-1-0/" rel="tag"># Swift 3.1.0</a>
           
-            <a href="/tags/⭐️⭐️⭐️⭐️⭐️/" rel="tag"># ⭐️⭐️⭐️⭐️⭐️</a>
-          
             <a href="/tags/AVFoundation/" rel="tag"># AVFoundation</a>
           
             <a href="/tags/AudioToolbox/" rel="tag"># AudioToolbox</a>
           
             <a href="/tags/Project/" rel="tag"># Project</a>
+          
+            <a href="/tags/⭐️⭐️⭐️⭐️⭐️/" rel="tag"># ⭐️⭐️⭐️⭐️⭐️</a>
           
         </div>
       
@@ -1496,9 +1498,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/head.png"
-                alt="Mini灬哆啦" />
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
             
               <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
               <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
@@ -1511,7 +1511,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1572,7 +1572,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -1637,7 +1659,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1659,7 +1681,7 @@
 
 
 
-<a href="http://www.beian.miit.gov.cn" target='_blank'>京ICP备18053843号</a>
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
 
         
 

@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -43,8 +43,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -63,7 +63,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -71,9 +71,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
@@ -151,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="http://xwjack.github.io/2016/07/19/Swift-Source-Code-Analysis-Array/"/>
+  <link rel="canonical" href="http://xwjack.github.io/2016/07/19/Swift-Source-Code-Analysis-Array/">
 
 
 
@@ -257,7 +257,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
         
         
@@ -265,7 +265,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
 
       
@@ -435,7 +435,7 @@
 <p>#补充:</p>
 <h2 id="数组中capacity和count的区别"><a href="#数组中capacity和count的区别" class="headerlink" title="数组中capacity和count的区别"></a>数组中capacity和count的区别</h2><p><code>capacity:容量</code>和<code>count:数量</code>,至于为什么要弄这两个参数,那就要提到数组实现原理了.</p>
 <p>在分析之前先看结果:</p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-6.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-6.png" alt></p>
 <h3 id="数组的实现原理"><a href="#数组的实现原理" class="headerlink" title="数组的实现原理"></a>数组的实现原理</h3><p>我们在使用数组的时候通常都是这样的:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array: [<span class="type">Int</span>] = []</span><br><span class="line">array.append(<span class="number">0</span>)</span><br><span class="line">array.append(<span class="number">1</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>我们从最底层的C语言开始比较:</p>
@@ -446,25 +446,25 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Append `newElement` to the Array.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Complexity: Amortized O(1) unless `self`'s storage is shared with another live array; O(`count`) if `self` does not wrap a bridged `NSArray`; otherwise the efficiency is unspecified..</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(newElement: Element)</span></span> &#123;</span><br><span class="line">  _makeUniqueAndReserveCapacityIfNotUnique()</span><br><span class="line">  <span class="keyword">let</span> oldCount = _getCount()</span><br><span class="line">  _reserveCapacityAssumingUniqueBuffer(oldCount)</span><br><span class="line">  _appendElementAssumeUniqueAndCapacity(oldCount, newElement: newElement)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们再调用append方法的时候实现了数组的扩容,这样保证不浪费内存空间,但是我们知道在C语言中我们<code>malloc</code>一块内存用来存放数据,当不够的时候我们会采用<code>realloc</code>.而<code>realloc</code>的原理大家都是知道了,就是重新找一块内存分配空间,然后将原来的数据复制过去.</p>
 <p>Swift的做法和这个差不多,我们来看看:</p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-0.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-0.png" alt></p>
 <p>仔细的看内存地址和之前的那张对比,是有规律的,2,4,8,16…每次分配的大小为2的N次方.这在数组很小的时候是有用的,但是如果我们存储33个数,其实Swift为我们分配了64的存储空间,这样就了白白浪费了很多的空间,而且随着数组数量的增大,越明显,但是Apple其实也知道,在平常的开发中很难遇到那么多的数.</p>
 <blockquote>
 <p>Note: 这样一来就应该明白count和capacity的区别了,count表示数组中实际存在的元素个数,而capacity表示数组的容量大小.剩下的就是空闲的,避免每次<strong><code>append</code></strong>都要重新拷贝数据.</p>
 </blockquote>
 <p>下面的这个函数我们不经常用到,但是如果你不想白白浪费空间,你可以使用.前提你要知道你的数组大概是多少个,下面这个方法就是设定一个最小分配容量.</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Reserve enough space to store `minimumCapacity` elements.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Postcondition: `capacity &gt;= minimumCapacity` and the array has</span></span><br><span class="line"><span class="comment">///   mutable contiguous storage.</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Complexity: O(`self.count`).</span></span><br><span class="line">@_semantics(<span class="string">"array.mutate_unknown"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">reserveCapacity</span><span class="params">(minimumCapacity: Int)</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> _buffer.requestUniqueMutableBackingBuffer(minimumCapacity) == <span class="literal">nil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> newBuffer = _ContiguousArrayBuffer&lt;<span class="type">Element</span>&gt;(</span><br><span class="line">      <span class="built_in">count</span>: <span class="built_in">count</span>, minimumCapacity: minimumCapacity)</span><br><span class="line"></span><br><span class="line">    _buffer._uninitializedCopy(</span><br><span class="line">      _buffer.<span class="built_in">indices</span>, target: newBuffer.firstElementAddress)</span><br><span class="line">    _buffer = _Buffer(newBuffer, shiftedToStartIndex: _buffer.startIndex)</span><br><span class="line">  &#125;</span><br><span class="line">  _sanityCheck(capacity &gt;= minimumCapacity)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-1.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160719-1.png" alt></p>
 <p>我们可以看到Swift为我们分配了10个空间,并且增长方式也变成了10*2的N次方.</p>
 <blockquote>
 <p>Note:由此我们其实可以得出一个重要的概念<strong><code>append方法不是线程安全的</code></strong>,因为每次使用append的时候内存地址都有可能在改变,当多个线程同时往数组中添加或者读取数据的时候,会存在一个线程已经改变数组的地址,但是另一个线程却还在原来的地址读写数据,导致发生错误.</p>
 </blockquote>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-0.png" alt=""></p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-1.png" alt=""></p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-2.png" alt=""></p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-3.png" alt=""></p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-4.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-0.png" alt></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-1.png" alt></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-2.png" alt></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-3.png" alt></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-4.png" alt></p>
 <p>反正就是各种错误,那么如何正确的在多线程的环境下使用数组呢?我们用<code>reserveCapacity</code>方法来最小分配一个空间,这样内存地址就不会随意的改变了.</p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-5.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/QQ20160720-5.png" alt></p>
 <blockquote>
 <p>Note:这样只能保证在添加数据的时候不会出现访问野指针的情况.图示显示的<code>length</code>一个是1021,一个是1999,说明任务是并发执行的.</p>
 </blockquote>
@@ -581,9 +581,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/head.png"
-                alt="Mini灬哆啦" />
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
             
               <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
               <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
@@ -596,7 +594,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -657,7 +655,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -722,7 +742,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -744,7 +764,7 @@
 
 
 
-<a href="http://www.beian.miit.gov.cn" target='_blank'>京ICP备18053843号</a>
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
 
         
 

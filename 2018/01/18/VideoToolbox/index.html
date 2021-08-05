@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -43,8 +43,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -63,7 +63,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -71,9 +71,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
@@ -124,7 +124,7 @@
 
 
   <meta name="description" content="使用VideoToolbox编码和解码H.264。这篇文章就是在学习WWDC 2014 513 Direct Access to Video Encoding and Decoding的过程中写下。 在刚开始看这个视频的时候发现很不能理解，也参考的大量的博客、文章，最后才将概念一一理清，建议刚开始学习VideoToolbox的同学，可以边看视频，边看这个文章。但是这篇文章并不是按照视频的进度写的，">
-<meta name="keywords" content="iOS,Swift 3.2.0,⭐️⭐️⭐️⭐️⭐️,Objective-C">
+<meta name="keywords" content="iOS,⭐️⭐️⭐️⭐️⭐️,Swift 3.2.0,Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VideoToolbox">
 <meta property="og:url" content="http://xwjack.github.io/2018/01/18/VideoToolbox/index.html">
@@ -164,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://xwjack.github.io/2018/01/18/VideoToolbox/"/>
+  <link rel="canonical" href="http://xwjack.github.io/2018/01/18/VideoToolbox/">
 
 
 
@@ -270,7 +270,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
         
         
@@ -278,7 +278,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
 
       
@@ -481,24 +481,24 @@
 <h2 id="Swift中指针转换"><a href="#Swift中指针转换" class="headerlink" title="Swift中指针转换"></a>Swift中指针转换</h2><p>由于VideoToolbox是用C进行编写的，所以在很多调用的时候需要传入自身的指针，并在Callback中拿到自身示例，在OC中比较好解决，但是在Swift中比较繁琐。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 将self转换成指针</span></span><br><span class="line">(__bridge <span class="keyword">void</span> *)(<span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 将指针转换成self</span></span><br><span class="line">(__bridge Class*)outputCallbackRefCon</span><br></pre></td></tr></table></figure>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 将self转换成UnsafeMutableRawPointer</span></span><br><span class="line"><span class="keyword">let</span> selfInstance = <span class="built_in">unsafeBitCast</span>(<span class="keyword">self</span>, to: <span class="type">UnsafeMutableRawPointer</span>.<span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 将指针转换成self</span></span><br><span class="line"><span class="comment">/// Conver instance to self</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameter pointee: Instance</span></span><br><span class="line"><span class="comment">/// - Returns: Self</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">converInstance</span>&lt;T: AnyObject&gt;<span class="params">(by pointee: UnsafeMutableRawPointer)</span></span> -&gt; <span class="type">T</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Unmanaged</span>&lt;<span class="type">T</span>&gt;.fromOpaque(pointee).takeUnretainedValue()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> selfInstance: &lt;#<span class="type">T</span>#&gt; = converInstance(by: &lt;#<span class="type">UnsafeMutableRawPointer</span>#&gt;)</span><br></pre></td></tr></table></figure>
-<h2 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h2><p><img src="/images/2018-01-18-VideoToolbox/3.png" alt=""></p>
+<h2 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h2><p><img src="/images/2018-01-18-VideoToolbox/3.png" alt></p>
 <h3 id="Core-Video"><a href="#Core-Video" class="headerlink" title="Core Video"></a>Core Video</h3><h4 id="CVPixelBuffer"><a href="#CVPixelBuffer" class="headerlink" title="CVPixelBuffer"></a>CVPixelBuffer</h4><p>A reference to a Core Video pixel buffer object. The pixel buffer stores an image in main memory. </p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">CVPixelBuffer</span> = <span class="type">CVImageBuffer</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>CVPixelBuffer</code>是存储在内存中的一个未压缩的光栅图像Buffer。</p>
 <p>个人理解就是一张未压缩的图片，视频中的一帧。</p>
 </blockquote>
-<p><img src="/images/2018-01-18-VideoToolbox/2.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/2.png" alt></p>
 <h3 id="Core-Media"><a href="#Core-Media" class="headerlink" title="Core Media"></a>Core Media</h3><h4 id="CMBlockBuffer"><a href="#CMBlockBuffer" class="headerlink" title="CMBlockBuffer"></a>CMBlockBuffer</h4><p>CMBlockBuffer is the basic way that we wrap arbitrary blocks of data in core media.</p>
 <blockquote>
 <p><code>CMBlockBuffer</code>是一个任意的Buffer，相当于Buffer中的Any。在管道中压缩视频的时候，就会把它包装成<code>CMBlockBuffer</code>。相当于<code>CMBlockBuffer</code>代表着一个压缩的数据。</p>
 </blockquote>
-<p><img src="/images/2018-01-18-VideoToolbox/4.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/4.png" alt></p>
 <h4 id="CMSampleBuffer"><a href="#CMSampleBuffer" class="headerlink" title="CMSampleBuffer"></a>CMSampleBuffer</h4><p>A CMSampleBuffer is a Core Foundation object containing zero or more compressed (or uncompressed) samples of a particular media type (audio, video, muxed, and so on).</p>
 <blockquote>
 <p>表示<code>CMSampleBuffer</code>可能是一个压缩的数据，也可能是一个未压缩的数据。取决于<code>CMSampleBuffer</code>里面是<code>CMBlockBuffer</code>还是<code>CVPixelBuffer</code>。</p>
 </blockquote>
-<p><img src="/images/2018-01-18-VideoToolbox/5.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/5.png" alt></p>
 <h3 id="H-264-amp-amp-H-265"><a href="#H-264-amp-amp-H-265" class="headerlink" title="H.264 &amp;&amp; H.265"></a>H.264 &amp;&amp; H.265</h3><p>两种编码标准，可以理解为编码协议。</p>
 <h4 id="H-264"><a href="#H-264" class="headerlink" title="H.264"></a>H.264</h4><p>H.264/AVC 项目意图创建一种视频标准。与旧标准相比，它能够在更低带宽下提供优质视频（换言之，只有 MPEG-2，H.263 或 MPEG-4 第 2 部分的一半带宽或更少），也不增加太多设计复杂度使得无法实现或实现成本过高。另一目的是提供足够的灵活性以在各种应用、网络及系统中使用，包括高、低带宽，高、低视频分辨率，广播，DVD 存储，RTP/IP 网络，以及 ITU-T 多媒体电话系统。<br>H.264/AVC 包含了一系列新的特征，使得它比起以前的编解码器不但能够更有效的进行编码，还能在各种网络环境下的应用中使用。这样的技术基础让 H.264 成为包括 YouTube 在内的在线视频公司采用它作为主要的编解码器，但是使用它并不是一件很轻松的事情，理论上讲使用 H.264 需要交纳不菲的专利费用。</p>
 <h4 id="H-265"><a href="#H-265" class="headerlink" title="H.265"></a>H.265</h4><p>高效率视频编码（High Efficiency Video Coding，简称 HEVC）是一种视频压缩标准，被视为是 ITU-T H.264/MPEG-4 AVC 标准的继任者。2004 年开始由 ISO/IEC Moving Picture Experts Group（MPEG）和 ITU-T Video Coding Experts Group（VCEG）作为 ISO/IEC 23008-2 MPEG-H Part 2 或称作 ITU-T H.265 开始制定。第一版的 HEVC/H.265 视频压缩标准在 2013 年 4 月 13 日被接受为国际电信联盟（ITU-T）的正式标准。HEVC 被认为不仅提升视频质量，同时也能达到 H.264/MPEG-4 AVC 两倍之压缩率（等同于同样画面质量下比特率减少了 50%），可支持 4K 分辨率甚至到超高清电视（UHDTV），最高分辨率可达到 8192×4320（8K 分辨率）。</p>
@@ -576,7 +576,7 @@
 </tbody>
 </table>
 <h3 id="NALU"><a href="#NALU" class="headerlink" title="NALU"></a>NALU</h3><p>H.264 stream consists of a sequence of NAL Units (NALUs)</p>
-<p><img src="/images/2018-01-18-VideoToolbox/1.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/1.png" alt></p>
 <blockquote>
 <p>H.264码流由一系列NALU单元组成。个人理解就是压缩，传输中最小的数据单元。</p>
 </blockquote>
@@ -615,12 +615,12 @@
 <p><a href="https://cardinalpeak.com/blog/the-h-264-sequence-parameter-set/" target="_blank" rel="noopener">The h.264 Sequence Parameter Set</a> <a href="https://www.jianshu.com/p/431819e0b6f1" target="_blank" rel="noopener">SPS &amp; PPS in H.264 详解</a> <a href="https://zhuanlan.zhihu.com/p/27896239" target="_blank" rel="noopener">H264码流中SPS PPS详解</a></p>
 </blockquote>
 <h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>下面一张图解释了NALU和SPS、PPS、I Frame、B Frame、P Frame之间的关系</p>
-<p><img src="/images/2018-01-18-VideoToolbox/6.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/6.png" alt></p>
 <blockquote>
 <p>NALU中可以包含视频图像数据(I Frame、P Frame、B Frame或视频帧片段)、SPS、PPS。可能很多个NALU才能组成一帧。</p>
 </blockquote>
 <p>下面一张图解释了NALU的两种不同的格式Elementary Stream 和 MPEG-4 格式，一个是为了方便传输，一个是为了方便存储。</p>
-<p><img src="/images/2018-01-18-VideoToolbox/7.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/7.png" alt></p>
 <blockquote>
 <p>顺序播放和随机读取。</p>
 </blockquote>
@@ -637,23 +637,23 @@
 <blockquote>
 <p>这里的<code>VTDecompressionOutputCallbackRecord</code>是一个struct</p>
 </blockquote>
-<p><img src="/images/2018-01-18-VideoToolbox/16.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/16.png" alt></p>
 <h3 id="VTDecompressionSession"><a href="#VTDecompressionSession" class="headerlink" title="VTDecompressionSession"></a>VTDecompressionSession</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@function	VTDecompressionSessionCreate</span></span><br><span class="line"><span class="comment">	@abstract	Creates a session for decompressing video frames.</span></span><br><span class="line"><span class="comment">    @discussion </span></span><br><span class="line"><span class="comment">		Decompressed frames will be emitted through calls to outputCallback.</span></span><br><span class="line"><span class="comment">	@param	allocator</span></span><br><span class="line"><span class="comment">		An allocator for the session.  Pass NULL to use the default allocator.</span></span><br><span class="line"><span class="comment">	@param	videoFormatDescription</span></span><br><span class="line"><span class="comment">		Describes the source video frames.</span></span><br><span class="line"><span class="comment">	@param	videoDecoderSpecification</span></span><br><span class="line"><span class="comment">		Specifies a particular video decoder that must be used.  </span></span><br><span class="line"><span class="comment">		Pass NULL to let the video toolbox choose a decoder.</span></span><br><span class="line"><span class="comment">	@param	destinationImageBufferAttributes</span></span><br><span class="line"><span class="comment">		Describes requirements for emitted pixel buffers.</span></span><br><span class="line"><span class="comment">		Pass NULL to set no requirements.</span></span><br><span class="line"><span class="comment">	@param	outputCallback</span></span><br><span class="line"><span class="comment">		The callback to be called with decompressed frames.</span></span><br><span class="line"><span class="comment">		Pass NULL if and only if you will be calling VTDecompressionSessionDecodeFrameWithOutputHandler for decoding frames.</span></span><br><span class="line"><span class="comment">	@param	decompressionSessionOut</span></span><br><span class="line"><span class="comment">		Points to a variable to receive the new decompression session.</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 创建解码会话</span></span><br><span class="line"><span class="type">VTDecompressionSessionCreate</span>(<span class="literal">nil</span>, videoFormatDescription!, <span class="literal">nil</span>, destinationImageBufferAttributes, &amp;record, &amp;deCompressSession)</span><br></pre></td></tr></table></figure>
 <h4 id="videoFormatDescription"><a href="#videoFormatDescription" class="headerlink" title="videoFormatDescription"></a>videoFormatDescription</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*! </span></span><br><span class="line"><span class="comment">	@functiongroup	Video-specific functions</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@typedef CMVideoFormatDescriptionRef</span></span><br><span class="line"><span class="comment">	Synonym type used for manipulating video CMFormatDescriptions</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="type">CMVideoFormatDescription</span> = <span class="type">CMFormatDescription</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>A reference to a CMFormatDescription, a CF object describing media of a particular type (audio, video, muxed, etc).</p>
 </blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*! @param allocator</span></span><br><span class="line"><span class="comment">																		CFAllocator to be used when creating the CMFormatDescription. NULL will cause the default allocator to be used */</span></span><br><span class="line"><span class="comment">/*! @param imageBuffer</span></span><br><span class="line"><span class="comment">																		Image buffer for which we are creating the format description. */</span></span><br><span class="line"><span class="comment">/*! @param outDesc</span></span><br><span class="line"><span class="comment">																		Returned newly-created video CMFormatDescription */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@function	CMVideoFormatDescriptionCreateFromH264ParameterSets</span></span><br><span class="line"><span class="comment">	@abstract	Creates a format description for a video media stream described by H.264 parameter set NAL units.</span></span><br><span class="line"><span class="comment">	@discussion	This function parses the dimensions provided by the parameter sets and creates a format description suitable for a raw H.264 stream.</span></span><br><span class="line"><span class="comment">				The parameter sets' data can come from raw NAL units and must have any emulation prevention bytes needed.</span></span><br><span class="line"><span class="comment">				The supported NAL unit types to be included in the format description are 7 (sequence parameter set), 8 (picture parameter set) and 13 (sequence parameter set extension). At least one sequence parameter set and one picture parameter set must be provided.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> videoFormatDescription: <span class="type">CMVideoFormatDescription</span>?</span><br><span class="line"><span class="type">CMVideoFormatDescriptionCreateFromH264ParameterSets</span>(<span class="literal">nil</span>, <span class="number">2</span>, [sps, pps], [spsSize, ppsSize], <span class="number">4</span>, &amp;videoFormatDescription)</span><br></pre></td></tr></table></figure>
-<h4 id="destinationImageBufferAttributes"><a href="#destinationImageBufferAttributes" class="headerlink" title="destinationImageBufferAttributes"></a>destinationImageBufferAttributes</h4><p><img src="/images/2018-01-18-VideoToolbox/17.png" alt=""></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*! @param allocator</span></span><br><span class="line"><span class="comment">																		CFAllocator to be used when creating the CMFormatDescription. NULL will cause the default allocator to be used */</span></span><br><span class="line"><span class="comment">/*! @param imageBuffer</span></span><br><span class="line"><span class="comment">																		Image buffer for which we are creating the format description. */</span></span><br><span class="line"><span class="comment">/*! @param outDesc</span></span><br><span class="line"><span class="comment">																		Returned newly-created video CMFormatDescription */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@function	CMVideoFormatDescriptionCreateFromH264ParameterSets</span></span><br><span class="line"><span class="comment">	@abstract	Creates a format description for a video media stream described by H.264 parameter set NAL units.</span></span><br><span class="line"><span class="comment">	@discussion	This function parses the dimensions provided by the parameter sets and creates a format description suitable for a raw H.264 stream.</span></span><br><span class="line"><span class="comment">				The parameter sets' data can come from raw NAL units and must have any emulation prevention bytes needed.</span></span><br><span class="line"><span class="comment">				The supported NAL unit types to be included in the format description are 7 (sequence parameter set), 8 (picture parameter set) and 13 (sequence parameter set extension). At least one sequence parameter set and one picture parameter set must be provided.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> videoFormatDescription: <span class="type">CMVideoFormatDescription?</span></span><br><span class="line"><span class="type">CMVideoFormatDescriptionCreateFromH264ParameterSets</span>(<span class="literal">nil</span>, <span class="number">2</span>, [sps, pps], [spsSize, ppsSize], <span class="number">4</span>, &amp;videoFormatDescription)</span><br></pre></td></tr></table></figure>
+<h4 id="destinationImageBufferAttributes"><a href="#destinationImageBufferAttributes" class="headerlink" title="destinationImageBufferAttributes"></a>destinationImageBufferAttributes</h4><p><img src="/images/2018-01-18-VideoToolbox/17.png" alt></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destinationImageBufferAttributes: <span class="type">CFDictionary</span> = [kCVPixelBufferOpenGLESCompatibilityKey: kCFBooleanTrue] <span class="keyword">as</span> <span class="type">CFDictionary</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/2018-01-18-VideoToolbox/18.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/18.png" alt></p>
 <blockquote>
 <p>在输出的过程中，不要将YUV转换成BGRA的格式，否则将会在内存中有两份Buffer，降低性能。</p>
 </blockquote>
 <h4 id="outputCallback"><a href="#outputCallback" class="headerlink" title="outputCallback"></a>outputCallback</h4><p>解码回调回返回<code>CVPixelBuffer</code>，时间戳，解码错误码，丢弃帧。</p>
-<p><img src="/images/2018-01-18-VideoToolbox/19.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/19.png" alt></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> record = <span class="type">VTDecompressionOutputCallbackRecord</span>(decompressionOutputCallback: &#123; (decompressionOutputRefCon, sourceFrameRefCon, status, infoFlags, imageBuffer, presentationTimeStamp, presentationDuration) <span class="keyword">in</span></span><br><span class="line"><span class="comment">/// imageBuffer has been decompressed.</span></span><br><span class="line">&#125;, decompressionOutputRefCon: selfInstance)</span><br></pre></td></tr></table></figure>
-<h3 id="VTDecompressionSessionDecodeFrame"><a href="#VTDecompressionSessionDecodeFrame" class="headerlink" title="VTDecompressionSessionDecodeFrame"></a>VTDecompressionSessionDecodeFrame</h3><p><img src="/images/2018-01-18-VideoToolbox/20.png" alt=""></p>
+<h3 id="VTDecompressionSessionDecodeFrame"><a href="#VTDecompressionSessionDecodeFrame" class="headerlink" title="VTDecompressionSessionDecodeFrame"></a>VTDecompressionSessionDecodeFrame</h3><p><img src="/images/2018-01-18-VideoToolbox/20.png" alt></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="function"><span class="keyword">func</span> <span class="title">decode</span><span class="params">(frame: CMSampleBuffer)</span></span> &#123;</span><br><span class="line">    <span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@function	VTDecompressionSessionDecodeFrame</span></span><br><span class="line"><span class="comment">	@abstract	Decompresses a video frame.</span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		If an error is returned from this function, there will be no callback.  Otherwise</span></span><br><span class="line"><span class="comment">		the callback provided during VTDecompressionSessionCreate will be called.</span></span><br><span class="line"><span class="comment">	@param	session</span></span><br><span class="line"><span class="comment">		The decompression session.</span></span><br><span class="line"><span class="comment">	@param	sampleBuffer</span></span><br><span class="line"><span class="comment">		A CMSampleBuffer containing one or more video frames.  </span></span><br><span class="line"><span class="comment">	@param	decodeFlags</span></span><br><span class="line"><span class="comment">		A bitfield of directives to the decompression session and decoder.</span></span><br><span class="line"><span class="comment">		The kVTDecodeFrame_EnableAsynchronousDecompression bit indicates whether the video decoder </span></span><br><span class="line"><span class="comment">		may decompress the frame asynchronously.</span></span><br><span class="line"><span class="comment">		The kVTDecodeFrame_EnableTemporalProcessing bit indicates whether the decoder may delay calls to the output callback</span></span><br><span class="line"><span class="comment">		so as to enable processing in temporal (display) order.</span></span><br><span class="line"><span class="comment">		If both flags are clear, the decompression shall complete and your output callback function will be called </span></span><br><span class="line"><span class="comment">		before VTDecompressionSessionDecodeFrame returns.</span></span><br><span class="line"><span class="comment">		If either flag is set, VTDecompressionSessionDecodeFrame may return before the output callback function is called.  </span></span><br><span class="line"><span class="comment">	@param	sourceFrameRefCon</span></span><br><span class="line"><span class="comment">		Your reference value for the frame.  </span></span><br><span class="line"><span class="comment">		Note that if sampleBuffer contains multiple frames, the output callback function will be called</span></span><br><span class="line"><span class="comment">		multiple times with this sourceFrameRefCon.</span></span><br><span class="line"><span class="comment">	@param	infoFlagsOut</span></span><br><span class="line"><span class="comment">		Points to a VTDecodeInfoFlags to receive information about the decode operation.</span></span><br><span class="line"><span class="comment">		The kVTDecodeInfo_Asynchronous bit may be set if the decode is (or was) running</span></span><br><span class="line"><span class="comment">		asynchronously.</span></span><br><span class="line"><span class="comment">		The kVTDecodeInfo_FrameDropped bit may be set if the frame was dropped (synchronously).</span></span><br><span class="line"><span class="comment">		Pass NULL if you do not want to receive this information.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="comment">/// 默认是同步操作</span></span><br><span class="line">    <span class="type">VTDecompressionSessionDecodeFrame</span>(deCompressSession!, frame, [], selfInstance, <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 如果是iOS9以上，推荐用这个方法。</span></span><br><span class="line">    <span class="keyword">if</span> #available(iOS <span class="number">9.0</span>, *) &#123;</span><br><span class="line">        <span class="type">VTDecompressionSessionDecodeFrameWithOutputHandler</span>(deCompressSession!, frame, [], <span class="literal">nil</span>) &#123; (status, infoFlags, imageBuffer, presentationTimeStamp, presentationDuration) <span class="keyword">in</span></span><br><span class="line">                </span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// Fallback on earlier versions</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Asynchronously-Decompress"><a href="#Asynchronously-Decompress" class="headerlink" title="Asynchronously Decompress"></a>Asynchronously Decompress</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@function	VTDecompressionSessionDecodeFrame</span></span><br><span class="line"><span class="comment">	@abstract	Decompresses a video frame.</span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		If an error is returned from this function, there will be no callback.  Otherwise</span></span><br><span class="line"><span class="comment">		the callback provided during VTDecompressionSessionCreate will be called.</span></span><br><span class="line"><span class="comment">	@param	session</span></span><br><span class="line"><span class="comment">		The decompression session.</span></span><br><span class="line"><span class="comment">	@param	sampleBuffer</span></span><br><span class="line"><span class="comment">		A CMSampleBuffer containing one or more video frames.  </span></span><br><span class="line"><span class="comment">	@param	decodeFlags</span></span><br><span class="line"><span class="comment">		A bitfield of directives to the decompression session and decoder.</span></span><br><span class="line"><span class="comment">		The kVTDecodeFrame_EnableAsynchronousDecompression bit indicates whether the video decoder </span></span><br><span class="line"><span class="comment">		may decompress the frame asynchronously.</span></span><br><span class="line"><span class="comment">		The kVTDecodeFrame_EnableTemporalProcessing bit indicates whether the decoder may delay calls to the output callback</span></span><br><span class="line"><span class="comment">		so as to enable processing in temporal (display) order.</span></span><br><span class="line"><span class="comment">		If both flags are clear, the decompression shall complete and your output callback function will be called </span></span><br><span class="line"><span class="comment">		before VTDecompressionSessionDecodeFrame returns.</span></span><br><span class="line"><span class="comment">		If either flag is set, VTDecompressionSessionDecodeFrame may return before the output callback function is called.  </span></span><br><span class="line"><span class="comment">	@param	sourceFrameRefCon</span></span><br><span class="line"><span class="comment">		Your reference value for the frame.  </span></span><br><span class="line"><span class="comment">		Note that if sampleBuffer contains multiple frames, the output callback function will be called</span></span><br><span class="line"><span class="comment">		multiple times with this sourceFrameRefCon.</span></span><br><span class="line"><span class="comment">	@param	infoFlagsOut</span></span><br><span class="line"><span class="comment">		Points to a VTDecodeInfoFlags to receive information about the decode operation.</span></span><br><span class="line"><span class="comment">		The kVTDecodeInfo_Asynchronous bit may be set if the decode is (or was) running</span></span><br><span class="line"><span class="comment">		asynchronously.</span></span><br><span class="line"><span class="comment">		The kVTDecodeInfo_FrameDropped bit may be set if the frame was dropped (synchronously).</span></span><br><span class="line"><span class="comment">		Pass NULL if you do not want to receive this information.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 异步需要设置flag为kVTDecodeFrame_EnableAsynchronousDecompression</span></span><br><span class="line"><span class="type">VTDecompressionSessionDecodeFrame</span>(deCompressSession!, frame, [._EnableAsynchronousDecompression], selfInstance, <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
 <ol>
@@ -661,7 +661,7 @@
 <li>使用<code>VTDecompressionSessionWaitForAsynchronousFrames</code>会等到所有的解码完成再返回。</li>
 </ol>
 <h3 id="VTDecompressionSessionCanAcceptFormatDescription"><a href="#VTDecompressionSessionCanAcceptFormatDescription" class="headerlink" title="VTDecompressionSessionCanAcceptFormatDescription"></a>VTDecompressionSessionCanAcceptFormatDescription</h3><p>在解码的过程中如果遇到I帧，则需要更换sps和pps，这个时候可以用<code>VTDecompressionSessionCanAcceptFormatDescription</code>来判断是否能够在不创建新的session情况下继续进行解码，否则就需要创建新的session。</p>
-<p><img src="/images/2018-01-18-VideoToolbox/21.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/21.png" alt></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@function VTDecompressionSessionCanAcceptFormatDescription</span></span><br><span class="line"><span class="comment">	@abstract Indicates whether the session can decode frames with the given format description.</span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		Some video decoders are able to accommodate minor changes in format without needing to be</span></span><br><span class="line"><span class="comment">		completely reset in a new session.  This function can be used to test whether a format change</span></span><br><span class="line"><span class="comment">		is sufficiently minor.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">if</span> <span class="type">VTDecompressionSessionCanAcceptFormatDescription</span>(deCompressSession!, videoFormatDescription!) &#123;</span><br><span class="line">    <span class="comment">/// Continue decompress.</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">/// Need to create new session.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>使用<code>VTDecompressionSessionInvalidate</code>销毁旧的session。</p>
@@ -670,7 +670,7 @@
 <li>当解码的过程中遇到I帧的时候，需要判断新的sps和pps组成的<code>CMVideoFormatDescription</code>是否能够在不创建新的session情况下继续解码，否则需要重新创建session。这样做保证了在传输过程中如果一段数据出错则不会继续扩大影响。</li>
 </ol>
 <hr>
-<h2 id="Compress"><a href="#Compress" class="headerlink" title="Compress"></a>Compress</h2><p><img src="/images/2018-01-18-VideoToolbox/23.png" alt=""></p>
+<h2 id="Compress"><a href="#Compress" class="headerlink" title="Compress"></a>Compress</h2><p><img src="/images/2018-01-18-VideoToolbox/23.png" alt></p>
 <p>编码流程：</p>
 <ol>
 <li>使用<code>VTCompressionSessionCreate(_:_:_:_:_:_:_:_:_:_:)</code>创建编码会话</li>
@@ -698,8 +698,8 @@
 </blockquote>
 <h3 id="VTCompressionSessionEncodeFrame"><a href="#VTCompressionSessionEncodeFrame" class="headerlink" title="VTCompressionSessionEncodeFrame"></a>VTCompressionSessionEncodeFrame</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment">	@function	VTCompressionSessionEncodeFrame</span></span><br><span class="line"><span class="comment">	@abstract</span></span><br><span class="line"><span class="comment">		Call this function to present frames to the compression session.</span></span><br><span class="line"><span class="comment">		Encoded frames may or may not be output before the function returns.</span></span><br><span class="line"><span class="comment">	@discussion</span></span><br><span class="line"><span class="comment">		The client should not modify the pixel data after making this call.</span></span><br><span class="line"><span class="comment">		The session and/or encoder will retain the image buffer as long as necessary. </span></span><br><span class="line"><span class="comment">	@param	session</span></span><br><span class="line"><span class="comment">		The compression session.</span></span><br><span class="line"><span class="comment">	@param	imageBuffer</span></span><br><span class="line"><span class="comment">		A CVImageBuffer containing a video frame to be compressed.  </span></span><br><span class="line"><span class="comment">		Must have a nonzero reference count.</span></span><br><span class="line"><span class="comment">	@param	presentationTimeStamp</span></span><br><span class="line"><span class="comment">		The presentation timestamp for this frame, to be attached to the sample buffer.</span></span><br><span class="line"><span class="comment">		Each presentation timestamp passed to a session must be greater than the previous one.</span></span><br><span class="line"><span class="comment">	@param	duration</span></span><br><span class="line"><span class="comment">		The presentation duration for this frame, to be attached to the sample buffer.  </span></span><br><span class="line"><span class="comment">		If you do not have duration information, pass kCMTimeInvalid.</span></span><br><span class="line"><span class="comment">	@param	frameProperties</span></span><br><span class="line"><span class="comment">		Contains key/value pairs specifying additional properties for encoding this frame.</span></span><br><span class="line"><span class="comment">		Note that some session properties may also be changed between frames.</span></span><br><span class="line"><span class="comment">		Such changes have effect on subsequently encoded frames.</span></span><br><span class="line"><span class="comment">	@param	sourceFrameRefCon</span></span><br><span class="line"><span class="comment">		Your reference value for the frame, which will be passed to the output callback function.</span></span><br><span class="line"><span class="comment">	@param	infoFlagsOut</span></span><br><span class="line"><span class="comment">		Points to a VTEncodeInfoFlags to receive information about the encode operation.</span></span><br><span class="line"><span class="comment">		The kVTEncodeInfo_Asynchronous bit may be set if the encode is (or was) running</span></span><br><span class="line"><span class="comment">		asynchronously.</span></span><br><span class="line"><span class="comment">		The kVTEncodeInfo_FrameDropped bit may be set if the frame was dropped (synchronously).</span></span><br><span class="line"><span class="comment">		Pass NULL if you do not want to receive this information.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/// 编码，从文档上来看，可能是同步，也可能是异步。</span></span><br><span class="line"><span class="keyword">open</span> <span class="function"><span class="keyword">func</span> <span class="title">encode</span><span class="params">(frame: CMSampleBuffer)</span></span> &#123;</span><br><span class="line">    <span class="type">VTCompressionSessionEncodeFrame</span>(compressionSession!, <span class="type">CMSampleBufferGetImageBuffer</span>(frame)!, <span class="type">CMSampleBufferGetPresentationTimeStamp</span>(frame), kCMTimeInvalid, <span class="literal">nil</span>, selfInstance, <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// iOS9以上推荐使用这个方法。</span></span><br><span class="line">    <span class="keyword">if</span> #available(iOS <span class="number">9.0</span>, *) &#123;</span><br><span class="line">        <span class="type">VTCompressionSessionEncodeFrameWithOutputHandler</span>(compressionSession!, <span class="type">CMSampleBufferGetImageBuffer</span>(frame)!, <span class="type">CMSampleBufferGetPresentationTimeStamp</span>(frame), kCMTimeInvalid, <span class="literal">nil</span>, <span class="literal">nil</span>) &#123; (status, infoFlags, sampleBuffer) <span class="keyword">in</span></span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// Fallback on earlier versions</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Compress-Summary"><a href="#Compress-Summary" class="headerlink" title="Compress Summary"></a>Compress Summary</h3><p>很多人不知道如何设置的码率，最大帧间隔等这个参数，参照下面的设置就可以。</p>
-<p><img src="/images/2018-01-18-VideoToolbox/14.png" alt=""></p>
-<p><img src="/images/2018-01-18-VideoToolbox/15.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/14.png" alt></p>
+<p><img src="/images/2018-01-18-VideoToolbox/15.png" alt></p>
 <blockquote>
 <p>更多详细的内容：<a href="http://www.lighterra.com/papers/videoencodingh264/" target="_blank" rel="noopener">Video Encoding Settings for H.264 Excellence</a></p>
 </blockquote>
@@ -709,23 +709,23 @@
 <h5 id="Elementary-Stream-gt-MPEG-4"><a href="#Elementary-Stream-gt-MPEG-4" class="headerlink" title="Elementary Stream =&gt; MPEG-4"></a>Elementary Stream =&gt; MPEG-4</h5><ol>
 <li>使用<code>CMVideoFormatDescriptionCreateFromH264ParameterSets</code>来将SPS和PPS封装成<code>CMVideoFormatDescription</code></li>
 </ol>
-<p><img src="/images/2018-01-18-VideoToolbox/8.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/8.png" alt></p>
 <blockquote>
 <p><code>CMVideoFormatDescription</code><br>A synonym type used for manipulating video CMFormatDescriptions.</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">CMVideoFormatDescription</span> = <span class="type">CMFormatDescription</span></span><br></pre></td></tr></table></figure>
 </blockquote>
-<ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">CMVideoFormatDescription</span> = <span class="type">CMFormatDescription</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
 <li>修改NALU的Header</li>
 </ol>
-<p><img src="/images/2018-01-18-VideoToolbox/9.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/9.png" alt></p>
 <blockquote>
 <p>NALU它主要有两种格式：Annex B 和 AVCC。也被称为 Elementary Stream 和 MPEG-4 格式，Annex B格式以 0x000001 或 0x00000001 开头，AVCC 格式以所在的 NALU 的长度开头。</p>
 </blockquote>
-<p><img src="/images/2018-01-18-VideoToolbox/10.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/10.png" alt></p>
 <blockquote>
 <p>首先我们需要将Header的Start Code替换，然后将NAL Unit封装成<code>CMBlockBuffer</code>，在这里可能Frame包含很多个NAL Unit，都需要包含进去。创建的方式我们使用<code>CMBlockBufferCreateWithMemoryBlock</code>。</p>
 </blockquote>
-<p><img src="/images/2018-01-18-VideoToolbox/11.png" alt=""></p>
+<p><img src="/images/2018-01-18-VideoToolbox/11.png" alt></p>
 <blockquote>
 <p>最后<code>CMBlockBuffer</code>+<code>CMVideoFormatDesc</code>+<code>CMTime</code>通过<code>CMSampleBufferCreate</code>生成<code>CMSampleBuffer</code>。</p>
 <p>也可以用<code>CMSampleBufferCreateReady</code>生成已经Ready<code>CMSampleBuffer</code>。</p>
@@ -764,9 +764,9 @@
           
             <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            <a href="/tags/Swift-3-2-0/" rel="tag"># Swift 3.2.0</a>
-          
             <a href="/tags/⭐️⭐️⭐️⭐️⭐️/" rel="tag"># ⭐️⭐️⭐️⭐️⭐️</a>
+          
+            <a href="/tags/Swift-3-2-0/" rel="tag"># Swift 3.2.0</a>
           
             <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
           
@@ -859,9 +859,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/head.png"
-                alt="Mini灬哆啦" />
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
             
               <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
               <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
@@ -874,7 +872,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -935,7 +933,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -1000,7 +1020,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1022,7 +1042,7 @@
 
 
 
-<a href="http://www.beian.miit.gov.cn" target='_blank'>京ICP备18053843号</a>
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
 
         
 

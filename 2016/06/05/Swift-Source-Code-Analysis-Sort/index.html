@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -43,8 +43,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -63,7 +63,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -71,9 +71,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/head.png?v=6.3.0">
@@ -145,7 +145,7 @@
 
 
 
-  <link rel="canonical" href="http://xwjack.github.io/2016/06/05/Swift-Source-Code-Analysis-Sort/"/>
+  <link rel="canonical" href="http://xwjack.github.io/2016/06/05/Swift-Source-Code-Analysis-Sort/">
 
 
 
@@ -251,7 +251,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
         
         
@@ -259,7 +259,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
 
       
@@ -445,9 +445,9 @@
 </blockquote>
 <p>让我们回到核心代码上:</p>
 <p>第一个:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">sort</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> didSortUnsafeBuffer: <span class="type">Void</span>? =</span><br><span class="line">     _withUnsafeMutableBufferPointerIfSupported &#123;</span><br><span class="line">     (baseAddress, <span class="built_in">count</span>) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">     <span class="keyword">var</span> bufferPointer =</span><br><span class="line">       <span class="type">UnsafeMutableBufferPointer</span>(start: baseAddress, <span class="built_in">count</span>: <span class="built_in">count</span>)</span><br><span class="line">     bufferPointer.<span class="built_in">sort</span>()</span><br><span class="line">     <span class="keyword">return</span> ()</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> didSortUnsafeBuffer == <span class="literal">nil</span> &#123;</span><br><span class="line">     _introSort(&amp;<span class="keyword">self</span>, subRange: startIndex..&lt;endIndex)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">sort</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> didSortUnsafeBuffer: <span class="type">Void?</span> =</span><br><span class="line">     _withUnsafeMutableBufferPointerIfSupported &#123;</span><br><span class="line">     (baseAddress, <span class="built_in">count</span>) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">     <span class="keyword">var</span> bufferPointer =</span><br><span class="line">       <span class="type">UnsafeMutableBufferPointer</span>(start: baseAddress, <span class="built_in">count</span>: <span class="built_in">count</span>)</span><br><span class="line">     bufferPointer.<span class="built_in">sort</span>()</span><br><span class="line">     <span class="keyword">return</span> ()</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> didSortUnsafeBuffer == <span class="literal">nil</span> &#123;</span><br><span class="line">     _introSort(&amp;<span class="keyword">self</span>, subRange: startIndex..&lt;endIndex)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>第二个:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">sort</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">   by areInIncreasingOrder:</span></span></span><br><span class="line"><span class="function"><span class="params">     <span class="params">(Iterator.Element, Iterator.Element)</span></span></span> -&gt; <span class="type">Bool</span></span><br><span class="line"> ) &#123;</span><br><span class="line">   <span class="keyword">typealias</span> <span class="type">EscapingBinaryPredicate</span> =</span><br><span class="line">     (<span class="type">Iterator</span>.<span class="type">Element</span>, <span class="type">Iterator</span>.<span class="type">Element</span>) -&gt; <span class="type">Bool</span></span><br><span class="line">   <span class="keyword">let</span> escapableIsOrderedBefore =</span><br><span class="line">     <span class="built_in">unsafeBitCast</span>(areInIncreasingOrder, to: <span class="type">EscapingBinaryPredicate</span>.<span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">let</span> didSortUnsafeBuffer: <span class="type">Void</span>? =</span><br><span class="line">     _withUnsafeMutableBufferPointerIfSupported &#123;</span><br><span class="line">     (baseAddress, <span class="built_in">count</span>) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">     <span class="keyword">var</span> bufferPointer =</span><br><span class="line">       <span class="type">UnsafeMutableBufferPointer</span>(start: baseAddress, <span class="built_in">count</span>: <span class="built_in">count</span>)</span><br><span class="line">     bufferPointer.<span class="built_in">sort</span>(by: escapableIsOrderedBefore)</span><br><span class="line">     <span class="keyword">return</span> ()</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> didSortUnsafeBuffer == <span class="literal">nil</span> &#123;</span><br><span class="line">     _introSort(</span><br><span class="line">       &amp;<span class="keyword">self</span>,</span><br><span class="line">       subRange: startIndex..&lt;endIndex,</span><br><span class="line">       by: escapableIsOrderedBefore)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">sort</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">   by areInIncreasingOrder:</span></span></span><br><span class="line"><span class="function"><span class="params">     <span class="params">(Iterator.Element, Iterator.Element)</span></span></span> -&gt; <span class="type">Bool</span></span><br><span class="line"> ) &#123;</span><br><span class="line">   <span class="keyword">typealias</span> <span class="type">EscapingBinaryPredicate</span> =</span><br><span class="line">     (<span class="type">Iterator</span>.<span class="type">Element</span>, <span class="type">Iterator</span>.<span class="type">Element</span>) -&gt; <span class="type">Bool</span></span><br><span class="line">   <span class="keyword">let</span> escapableIsOrderedBefore =</span><br><span class="line">     <span class="built_in">unsafeBitCast</span>(areInIncreasingOrder, to: <span class="type">EscapingBinaryPredicate</span>.<span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">let</span> didSortUnsafeBuffer: <span class="type">Void?</span> =</span><br><span class="line">     _withUnsafeMutableBufferPointerIfSupported &#123;</span><br><span class="line">     (baseAddress, <span class="built_in">count</span>) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">     <span class="keyword">var</span> bufferPointer =</span><br><span class="line">       <span class="type">UnsafeMutableBufferPointer</span>(start: baseAddress, <span class="built_in">count</span>: <span class="built_in">count</span>)</span><br><span class="line">     bufferPointer.<span class="built_in">sort</span>(by: escapableIsOrderedBefore)</span><br><span class="line">     <span class="keyword">return</span> ()</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> didSortUnsafeBuffer == <span class="literal">nil</span> &#123;</span><br><span class="line">     _introSort(</span><br><span class="line">       &amp;<span class="keyword">self</span>,</span><br><span class="line">       subRange: startIndex..&lt;endIndex,</span><br><span class="line">       by: escapableIsOrderedBefore)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>分析:</p>
 <ul>
 <li><p>相同点:两个函数前面都加了一个关键字<strong>mutating</strong>表示是需要修改内容的因为这个扩展的不是Collection,而是MutableCollection.</p>
@@ -468,7 +468,7 @@
 <p>泛型符号是C,支持<strong><code>MutableCollection</code></strong>, <strong><code>RandomAccessCollection</code></strong>协议(A collection that supports efficient random-access index traversal.Random-access collections can measure move indices any distance and can measure the distance between indices in O(1) time)</p>
 <p><code>let depthLimit = 2 * _floorLog2(Int64(count))</code>一个计算深度限制的方法,具体的意思在下面会说</p>
 <p>下面是解释:</p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/blog/swift_source_sode_analysis_sort/images/quicksort_explanation.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/blog/swift_source_sode_analysis_sort/images/quicksort_explanation.png" alt></p>
 <p>大致意思是这样的:快速排序很快,但是最坏的情况下时间复杂度却很不好,这取决于partition的位置,当partition的位置小于限制深度的时候就采用堆排序来维持一个Nlog(N)的时间复杂度.</p>
 <p>之后将参数传递给:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">_introSortImpl</span>&lt;C&gt;<span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="number">_</span> elements: <span class="keyword">inout</span> C,</span></span></span><br><span class="line"><span class="function"><span class="params">  subRange range: Range&lt;C.Index&gt;</span></span></span><br><span class="line"><span class="function"><span class="params">  ,</span></span></span><br><span class="line"><span class="function"><span class="params">  depthLimit: Int</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span><span class="keyword">where</span></span><br><span class="line">  <span class="type">C</span> : <span class="type">MutableCollection</span> &amp; <span class="type">RandomAccessCollection</span></span><br><span class="line">  , <span class="type">C</span>.<span class="type">Iterator</span>.<span class="type">Element</span> : <span class="type">Comparable</span></span><br></pre></td></tr></table></figure>
@@ -495,9 +495,9 @@
 <p>直接就是小于,而这个闭包其实也就是判断两个数大小的然后返回Bool值,这样就可以控制升序降序了.</p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充:"></a>补充:</h2><h4 id="在Swift源码中我发现这样几句话"><a href="#在Swift源码中我发现这样几句话" class="headerlink" title="在Swift源码中我发现这样几句话:"></a>在Swift源码中我发现这样几句话:</h4><p><code>The sorting algorithm is not stable. A nonstable sort may change the relative order of elements for which</code>areInIncreasingOrder<code>does not establish an order.(排序算法是一个不稳定的算法,不稳定是相对于提供的areInIncreasingOrder闭包)</code></p>
 <p>我们在使用sort函数的时候都是<strong>sort(&lt;) </strong>或者<strong> sort(&gt;) </strong>,而不是用<strong> sort(&lt;=) </strong>和<strong> sort(&gt;=) </strong><br>原因:</p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/blog/swift_source_sode_analysis_sort/images/sort_reason.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/blog/swift_source_sode_analysis_sort/images/sort_reason.png" alt></p>
 <p>可以看出结果都是一样,但是运行的效率是不一样的.</p>
-<p><img src="http://o9omj1fgd.bkt.clouddn.com/blog/swift_source_sode_analysis_sort/images/sort_result.png" alt=""></p>
+<p><img src="http://o9omj1fgd.bkt.clouddn.com/blog/swift_source_sode_analysis_sort/images/sort_result.png" alt></p>
 <p>同样的数组,同样的结果,却不同的执行次数.所以在写代码的时候要注意了,<strong>千万不要加=号</strong></p>
 <h4 id="关于限制深度的问题"><a href="#关于限制深度的问题" class="headerlink" title="关于限制深度的问题"></a>关于限制深度的问题</h4><p>(在2000年6月，SGI的C++标准模板库的stl_algo.h中的不稳定排序算法采用了Musser的introsort算法。在此实现中，切换到插入排序的数据量阀值为16个)</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Insertion sort is better at handling smaller regions.</span></span><br><span class="line"> <span class="keyword">if</span> elements.<span class="built_in">distance</span>(from: range.lowerBound, to: range.upperBound) &lt; <span class="number">20</span> &#123;</span><br><span class="line">    _insertionSort(</span><br><span class="line">      &amp;elements,</span><br><span class="line">      subRange: range</span><br><span class="line">      )</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -613,9 +613,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/head.png"
-                alt="Mini灬哆啦" />
+              <img class="site-author-image" itemprop="image" src="/images/head.png" alt="Mini灬哆啦">
             
               <p class="site-author-name" itemprop="name">Mini灬哆啦</p>
               <p class="site-description motion-element" itemprop="description">It's only a matter of time</p>
@@ -628,7 +626,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -689,7 +687,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -734,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Swift源码分析-Sort"><span class="nav-number">1.</span> <span class="nav-text">Swift源码分析 - Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IntroSort-内省算法"><span class="nav-number">1.1.</span> <span class="nav-text">IntroSort(内省算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将sort-swift-gyb文件转换成sort-swift文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">将sort.swift.gyb文件转换成sort.swift文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">1.1.2.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sort-CollectionAlgorithms-swift"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">sort - CollectionAlgorithms.swift</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#introSort-Sort-swift"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">_introSort - Sort.swift</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">1.2.</span> <span class="nav-text">补充:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在Swift源码中我发现这样几句话"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">在Swift源码中我发现这样几句话:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于限制深度的问题"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">关于限制深度的问题</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Swift源码分析-Sort"><span class="nav-number">1.</span> <span class="nav-text">Swift源码分析 - Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IntroSort-内省算法"><span class="nav-number">1.1.</span> <span class="nav-text">IntroSort(内省算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将sort-swift-gyb文件转换成sort-swift文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">将sort.swift.gyb文件转换成sort.swift文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">1.1.2.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sort-CollectionAlgorithms-swift"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">sort - CollectionAlgorithms.swift</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#introSort-Sort-swift"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">_introSort - Sort.swift</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">1.2.</span> <span class="nav-text">补充:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在Swift源码中我发现这样几句话"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">在Swift源码中我发现这样几句话:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于限制深度的问题"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">关于限制深度的问题</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -754,7 +774,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -776,7 +796,7 @@
 
 
 
-<a href="http://www.beian.miit.gov.cn" target='_blank'>京ICP备18053843号</a>
+<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备18053843号</a>
 
         
 
