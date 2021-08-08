@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Mini灬哆啦">
 <meta property="og:description" content="Web3">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-08-04T15:05:51.336Z">
+<meta property="og:updated_time" content="2021-08-08T02:37:33.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ethereum-SE06">
 <meta name="twitter:description" content="Web3">
@@ -348,12 +348,24 @@
                 
               
 
-              <time title="Created: 2021-08-04 23:00:00 / Modified: 23:05:51" itemprop="dateCreated datePublished" datetime="2021-08-04T23:00:00+08:00">2021-08-04</time>
+              <time title="Created: 2021-08-04 23:00:00" itemprop="dateCreated datePublished" datetime="2021-08-04T23:00:00+08:00">2021-08-04</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-08-08 10:37:33" itemprop="dateModified" datetime="2021-08-08T10:37:33+08:00">2021-08-08</time>
               
             
           </span>
@@ -403,6 +415,13 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 获取 WBTC 的 totalSupply</span></span><br><span class="line">eth.getStorageAt(<span class="string">'0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599'</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#getstorageat" target="_blank" rel="noopener">https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#getstorageat</a></p>
+</blockquote>
+<h2 id="EIP-1559"><a href="#EIP-1559" class="headerlink" title="EIP-1559"></a>EIP-1559</h2><p><code>baseFeePerGas</code>（不可配置）：交易基础费用（会被直接燃烧掉）</p>
+<p><code>maxPriorityFeePerGas</code>：最大支付给矿工的费用（给矿工的小费，可提高交易成功率）</p>
+<p><code>maxFeePerGas</code>：<code>baseFeePerGas</code> + <code>maxPriorityFeePerGas</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// web3 1.5.1</span></span><br><span class="line"><span class="keyword">if</span> (tx.gasPrice) &#123;</span><br><span class="line">    <span class="comment">// Using legacy gasPrice property on an eip-1559 network,</span></span><br><span class="line">    <span class="comment">// so use gasPrice as both fee properties</span></span><br><span class="line">    maxPriorityFeePerGas = tx.gasPrice;</span><br><span class="line">    maxFeePerGas = tx.gasPrice;</span><br><span class="line">    <span class="keyword">delete</span> tx.gasPrice;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    maxPriorityFeePerGas = tx.maxPriorityFeePerGas || <span class="string">'0x3B9ACA00'</span>; <span class="comment">// 1 Gwei</span></span><br><span class="line">    maxFeePerGas = tx.maxFeePerGas ||</span><br><span class="line">        utils.toHex(</span><br><span class="line">            utils.toBN(block.baseFeePerGas)</span><br><span class="line">                .mul(utils.toBN(<span class="number">2</span>))</span><br><span class="line">                .add(utils.toBN(maxPriorityFeePerGas))</span><br><span class="line">        );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>baseFeePerGas</code>在计算的时候可以给多一点，因为多余的会被退回来。可以通过<code>getBlockByNumber(&#39;latest&#39;)</code>获取最后一个区块的<code>baseFeePerGas</code></p>
 </blockquote>
 
       
@@ -664,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#eth"><span class="nav-number">1.</span> <span class="nav-text">eth</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getStorageAt"><span class="nav-number">1.1.</span> <span class="nav-text">getStorageAt</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#eth"><span class="nav-number">1.</span> <span class="nav-text">eth</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getStorageAt"><span class="nav-number">1.1.</span> <span class="nav-text">getStorageAt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EIP-1559"><span class="nav-number">2.</span> <span class="nav-text">EIP-1559</span></a></li></ol></div>
             
 
           </div>
